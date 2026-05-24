@@ -308,6 +308,148 @@ export const situations: Situation[] = [
       'A Tamil child confidently shaking their head at a blurry adult figure holding out a gift box, child looking calm and assured, bright outdoor setting, flat illustration style, teal palette, empowered mood, no text',
     imageSrc: '/images/situation-gift-from-stranger.jpg',
   },
+  {
+    slug: 'tuition-teacher',
+    icon: '📚',
+    order: 9,
+    title: 'தனியாக tuition ஆசிரியரிடம் இருக்கும்போது',
+    titleEn: 'Alone with a private tuition teacher',
+    summary: 'Tuition ஆசிரியர் நம்பகமானவர் — ஆனால் தனிமையில் என்ன செய்வது என்று குழந்தைக்கு தெரியட்டும்.',
+    summaryEn: 'Tutors are trusted — but children must know what to do if something feels wrong.',
+    why: 'தமிழ்நாட்டில் tuition வகுப்புகள் இல்லாத வீடு இல்லை. பெற்றோர் நம்பிக்கையோடு குழந்தையை அனுப்புகிறார்கள். "நம்பகமான" பெரியவர்தான் அதிக ஆபத்தாக இருக்கலாம் — ஏனென்றால் அவரிடம் குழந்தை தனிமையில் இருக்கும் வாய்ப்பு தினசரி இருக்கிறது. ஒரு எளிய விதி போதும் — குழந்தையை பாதுகாக்கலாம்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"tuition ஆசிரியர் உன் உடலை தொட்டால் — உடனே "வேண்டாம்" என்று சொல்லு."',
+          '"வீட்டிற்கு வந்தவுடன் — நடந்தது என்னவென்று என்னிடம் சொல்."',
+          '"ஆசிரியர் என்றாலும் தவறாக தொட்டால் சொல்லலாம் — இது தைரியம், தப்பில்லை."',
+          '"யாரும் கேட்காவிட்டால் 1098 என்று அழை."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"Tuition அறையில் கதவு திறந்திருக்கட்டும் — முழுவதும் மூடி வைக்க வேண்டாம் என்று ஆசிரியரிடம் சொல்லுங்கள்."',
+          '"குழந்தை "tuition போக வேண்டாம்" என்று சொன்னால் — காரணம் கேளுங்கள், நம்புங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      'குழந்தை வீடு திரும்பும்போது ஒரு நிமிடம் பேசுங்கள் — "எல்லாம் சரியாக இருந்ததா?"',
+      'Online tuition-லும் கவனமாக இருங்கள் — screen recording / screenshot கேட்பவரை நம்பாதீர்கள்',
+      'Tuition அறையில் CCTV அல்லது திறந்த கதவு இருக்கட்டும் என்று கேட்கலாம்',
+      'குழந்தை சொன்னால் — முதலில் நம்புங்கள், விசாரியுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child sitting at a tuition desk looking alert and slightly uncomfortable as a blurry adult figure stands nearby, the child aware and self-assured, bright room, flat illustration style, teal palette, empowered cautious mood, no text',
+  },
+  {
+    slug: 'neighbour-house',
+    icon: '🏘️',
+    order: 10,
+    title: 'அண்டை வீடு அல்லது நெருங்கிய நண்பர் வீட்டில் தனியாக',
+    titleEn: "Alone at a neighbour's or family friend's house",
+    summary: 'நம்பகமான வீடு என்று நினைக்கிறோம் — ஆனால் குழந்தை தனியாக இருக்கும்போது என்ன செய்வது என்று தெரியட்டும்.',
+    summaryEn: 'Trusted homes can still pose risks — teach children when and how to leave.',
+    why: '"அண்டை வீட்டு அண்ணன்", "நெருங்கிய நண்பரின் வீடு" — இவை பாதுகாப்பானவை என்று நம்புகிறோம். சில நேரம் பெற்றோர் அறியாமலேயே குழந்தை நீண்ட நேரம் அங்கே இருக்கும். "நம்பகமான" இடம் என்ற உணர்வே கவலையை குறைக்கிறது. ஆனால் புள்ளிவிவரங்கள் சொல்கின்றன: அறிமுகமான இடங்களில்தான் ஆபத்து அதிகம் நடக்கிறது.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யாரின் வீட்டிலும் — யாரோ உன்னை தொட்டால் "வேண்டாம்" என்று சொல்லி வெளியே வா."',
+          '"பயமாக உணர்ந்தால் — "வீட்டிற்கு போக வேண்டும்" என்று சொல்லு, காரணம் சொல்ல வேண்டாம்."',
+          '"வீடு வந்தவுடன் என்னிடம் சொல்லு — நான் கோபப்பட மாட்டேன்."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குழந்தை எந்த வீட்டிற்கு போகிறார்கள் என்று தெரிந்திருக்கட்டும்."',
+          '"குழந்தை "அந்த வீட்டிற்கு போக வேண்டாம்" என்று சொன்னால் — காரணம் கேளுங்கள், நம்புங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      '"வெளியே வா" என்று சொல்வது எப்போதும் சரிதான் — யாரும் கோபப்படக்கூடாது என்று தெளிவாக்குங்கள்',
+      'அண்டை வீட்டினர் வீட்டில் யாரோ தனியாக குழந்தையுடன் இருக்கிறார்களா என்று கவனியுங்கள்',
+      'குழந்தை திடீரென ஒரு வீட்டிற்கு போக மறுத்தால் — காரணம் அன்போடு கேளுங்கள்',
+      'நம்பகமான வீடு என்றாலும் — எல்லா விதிகளும் பொருந்தும் என்று சொல்லுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child standing at the doorway of a neighbour house, looking thoughtful and self-aware, the child deciding whether to enter, bright daytime setting, flat illustration style, warm teal palette, empowered mood, no text',
+  },
+  {
+    slug: 'public-transport',
+    icon: '🚌',
+    order: 11,
+    title: 'பேருந்து அல்லது share auto-வில் தனியாக பயணிக்கும்போது',
+    titleEn: 'Travelling alone on a public bus or shared auto',
+    summary: 'பொது போக்குவரத்தில் தனியாக பயணிக்கும் குழந்தைக்கு — என்ன செய்வது என்று தெரியட்டும்.',
+    summaryEn: 'Children travelling alone on public transport need a plan for unsafe situations.',
+    why: 'பள்ளி வேன் இல்லாத நேரம், tuition திரும்பும் நேரம், வீட்டருகே கடைக்கு போகும் நேரம் — பல குழந்தைகள் தனியாக பேருந்தில் பயணிக்கிறார்கள். கூட்டமான இடத்தில் அடையாளம் தெரியாதவர்கள் பக்கத்தில் உட்காருகிறார்கள். கூட்டம் இருக்கிறது என்பதால் பாதுகாப்பானது என்று இல்லை — குழந்தைக்கு ஒரு திட்டம் தேவை.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"பஸ்ஸில் யாரோ தொட்டால் — உரக்க "வேண்டாம்!" என்று கத்து, எழுந்திரு, வேறு இடத்திற்கு போ."',
+          '"Conductor அல்லது அருகில் இருக்கும் பெண் பயணியிடம் உதவி கேள்."',
+          '"அடுத்த stop-ல் இறங்கி என்னை அழை — தனியாக இருக்க வேண்டாம்."',
+          '"யாரும் உதவிக்கு வரவில்லை என்றால் — 1098 அல்லது 100 அழை."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குழந்தையின் போனில் உங்கள் நம்பர் speed dial-ல் இருக்கட்டும் — 1098 மனப்பாடம் செய்விக்கவும்."',
+          '"பெண் conductor அல்லது பெண் பயணியிடம் உதவி கேட்பது safe என்று சொல்லுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      '"கத்துவது தப்பில்லை" என்று மீண்டும் மீண்டும் சொல்லுங்கள் — பொது இடத்தில் குழந்தை வெட்கப்படுவார்கள்',
+      'Route தெரிந்திருக்கட்டும் — எந்த stop-ல் இறங்க வேண்டும் என்று உறுதிப்படுத்துங்கள்',
+      'முதல் சில தடவை தனியாக பயணிக்கும்போது நீங்களே வழியனுப்பி பாருங்கள்',
+      'குழந்தை வீடு வந்தவுடன் அழையுங்கள் / message செய்யுங்கள் — route confirm செய்யுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child sitting alone on a public bus near the window, alert and confident expression, other passengers visible in background, bright daytime, flat illustration style, teal palette, empowered safe mood, no text',
+  },
+  {
+    slug: 'photo-request',
+    icon: '📷',
+    order: 12,
+    title: 'யாரோ photo அல்லது video எடுக்க சொன்னால்',
+    titleEn: 'Someone asks to photograph or film your child',
+    summary: 'Photo எடுப்பது பாதிப்பில்லாதது போல் தெரியும் — ஆனால் இது grooming-ன் பொதுவான ஆரம்ப படி.',
+    summaryEn: 'Photographing a child seems harmless — but it is often the first step in grooming.',
+    why: '"உன்னை photo எடுக்கட்டுமா? கவர்ச்சியாக இருக்கிற" என்று சொல்வது பாதிப்பில்லாதது போல் தெரியும். ஆனால் இது grooming-ன் ஒரு பொதுவான ஆரம்ப படி. குழந்தையை comfortable-ஆக வைத்து, படிப்படியாக தனிமைப்படுத்துவார்கள். social media-ல் போட்டு மிரட்டுவதற்கும் பயன்படுத்துவார்கள். இந்த ஒரு விதி குழந்தையை பாதுகாக்கலாம்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யார் வேண்டுமானாலும் உன் photo / video எடுக்க சொன்னால் — "அப்பா அம்மாவிடம் கேட்டுவிட்டு சொல்கிறேன்" என்று சொல்."',
+          '"உடலை காட்டும்படி சொன்னால் — உடனே "வேண்டாம்" என்று சொல், வெளியே வா."',
+          '"யாரோ உன் photo எடுத்தால் — அன்றே என்னிடம் சொல். நான் கோபப்படவில்லை."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"Online tutor, coach — யாரோ screen-ல் குழந்தையை record செய்கிறார்களா என்று கவனியுங்கள்."',
+          '"குழந்தையின் photo யாரோ social media-ல் போடுகிறார்கள் என்று தெரிந்தால் — உடனே நடவடிக்கை எடுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      '"Photo எடுக்கலாம் — ஆனால் அப்பா அம்மா தெரியாமல் வேண்டாம்" என்று தெளிவாக்குங்கள்',
+      'Online-லும் offline-லும் யார் குழந்தையின் photo எடுக்கிறார்கள் என்று கவனியுங்கள்',
+      'குழந்தை "யாரோ photo எடுத்தார்கள்" என்று சொன்னால் — கோபப்படாமல் விவரம் கேளுங்கள்',
+      'Social media-ல் குழந்தையின் முகம் தெரியும் படம் போடுவதை கவனமாக செய்யுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child confidently shaking their head and holding up a hand in a stop gesture toward a blurry adult figure holding a phone or camera, the child assertive and safe, bright outdoor setting, flat illustration style, teal palette, empowered mood, no text',
+  },
 ];
 
 /** Quick lookup by slug */
