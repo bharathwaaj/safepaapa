@@ -1,33 +1,251 @@
 @import "tailwindcss";
 
-@theme {
-  /* ── Brand (primary action color) ──────────────────────────────
-     Change just these to re-skin the entire site.              */
-  --color-brand:          #0f766e; /* teal-700   */
-  --color-brand-subtle:   #f0fdfa; /* teal-50    */
-  --color-brand-muted:    #ccfbf1; /* teal-100   */
-  --color-brand-dark:     #134e4a; /* teal-900   */
-  --color-brand-fg:       #ffffff; /* text on brand bg */
+/* ═══════════════════════════════════════════════════════════════════
+   SAFEPAAPA DESIGN SYSTEM — TOKEN LAYERS
+   ───────────────────────────────────────────────────────────────────
+   L1  Primitives   raw palette values, defined in :root
+                    never referenced in JSX/Astro directly
+   L2  Semantic     @theme → generates Tailwind utility classes
+                    bg-brand, text-urgent, shadow-card, etc.
+   L3  Dark mode    .dark {} overrides the same CSS vars (cascade)
+   ═══════════════════════════════════════════════════════════════════ */
 
-  /* ── Danger (emergency / destructive) ──────────────────────── */
-  --color-danger:         #e11d48; /* rose-600   */
-  --color-danger-subtle:  #fff1f2; /* rose-50    */
-  --color-danger-dark:    #9f1239; /* rose-800   */
-  --color-danger-fg:      #ffffff;
 
-  /* ── Caution (contextual alerts, "why now" banner) ─────────── */
-  --color-caution:        #d97706; /* amber-600  */
-  --color-caution-subtle: #fffbeb; /* amber-50   */
-  --color-caution-dark:   #78350f; /* amber-900  */
-  --color-caution-fg:     #78350f; /* dark text on light amber bg */
+/* ── L1: Primitive palette ─────────────────────────────────────── */
+@layer base {
+  :root {
+    /* Teal */
+    --p-teal-50:    #f0fdfa;  --p-teal-100:   #ccfbf1;
+    --p-teal-200:   #99f6e4;  --p-teal-300:   #5eead4;
+    --p-teal-600:   #0d9488;  --p-teal-700:   #0f766e;
+    --p-teal-800:   #115e59;  --p-teal-900:   #134e4a;
+    --p-teal-950:   #042f2e;
 
-  /* ── Surfaces ───────────────────────────────────────────────── */
-  --color-surface-muted:  #f9fafb; /* gray-50    */
-  --color-surface-ink:    #111827; /* gray-900 — dark banner bg  */
+    /* Rose — urgent */
+    --p-rose-50:    #fff1f2;  --p-rose-100:   #ffe4e6;
+    --p-rose-200:   #fecdd3;  --p-rose-500:   #f43f5e;
+    --p-rose-600:   #e11d48;  --p-rose-700:   #be123c;
+    --p-rose-800:   #9f1239;  --p-rose-950:   #4c0519;
+
+    /* Amber — care / warmth */
+    --p-amber-50:   #fffbeb;  --p-amber-100:  #fef3c7;
+    --p-amber-200:  #fde68a;  --p-amber-400:  #fbbf24;
+    --p-amber-500:  #f59e0b;  --p-amber-600:  #d97706;
+    --p-amber-800:  #92400e;  --p-amber-900:  #78350f;
+
+    /* Violet — trust / authority */
+    --p-violet-50:  #f5f3ff;  --p-violet-100: #ede9fe;
+    --p-violet-200: #ddd6fe;  --p-violet-600: #7c3aed;
+    --p-violet-700: #6d28d9;  --p-violet-800: #5b21b6;
+    --p-violet-900: #4c1d95;
+
+    /* Sage — neutral (default gray scale)
+       Alternatives — swap all 11 values below to change globally:
+       Gray  (cool neutral) #f9fafb #f3f4f6 #e5e7eb #d1d5db #9ca3af #6b7280 #4b5563 #374151 #1f2937 #111827 #030712
+       Slate (cool blue)    #f8fafc #f1f5f9 #e2e8f0 #cbd5e1 #94a3b8 #64748b #475569 #334155 #1e293b #0f172a #020617
+       Olive (warm yellow)  #fafaf5 #f5f5e8 #e8e8d0 #d4d4b0 #a8a882 #7c7c58 #5f5f3e #474730 #2e2e1a #1a1a08 #0a0a02
+       Sand  (warm beige)   #faf9f7 #f2f0eb #e5e2d9 #d4d0c3 #a8a292 #7a7264 #5c5448 #453f35 #2e2921 #1a1510 #080604 */
+    --p-sage-50:    #f7f9f7;  --p-sage-100:   #eef2ee;
+    --p-sage-200:   #dce4dc;  --p-sage-300:   #c3d0c3;
+    --p-sage-400:   #a0b3a0;  --p-sage-500:   #7d957d;
+    --p-sage-600:   #5f745f;  --p-sage-700:   #4a5c4a;
+    --p-sage-800:   #374537;  --p-sage-900:   #243024;
+    --p-sage-950:   #101810;
+  }
 }
 
+
+/* ── L2: Semantic tokens ───────────────────────────────────────── */
+/*
+   Naming convention:
+     {token}          solid fill / main value
+     {token}-soft     very light background tint
+     {token}-fg       foreground (text) ON the solid fill
+     {token}-text     text color within a soft container
+     {token}-border   border within a soft container
+     {token}-strong   darker variant — hover / active states
+*/
+@theme {
+
+  /* —— Gray / Neutral (Sage by default — see alternatives above) */
+  --color-gray-50:   #f7f9f7;
+  --color-gray-100:  #eef2ee;
+  --color-gray-200:  #dce4dc;
+  --color-gray-300:  #c3d0c3;
+  --color-gray-400:  #a0b3a0;
+  --color-gray-500:  #7d957d;
+  --color-gray-600:  #5f745f;
+  --color-gray-700:  #4a5c4a;
+  --color-gray-800:  #374537;
+  --color-gray-900:  #243024;
+  --color-gray-950:  #101810;
+
+  /* —— Brand — site identity, primary action color */
+  --color-brand:          #0f766e;  /* teal-700 */
+  --color-brand-soft:     #f0fdfa;  /* teal-50  */
+  --color-brand-muted:    #ccfbf1;  /* teal-100 */
+  --color-brand-strong:   #134e4a;  /* teal-900 */
+  --color-brand-fg:       #ffffff;
+  --color-brand-text:     #115e59;  /* teal-800, text in soft containers */
+  --color-brand-border:   #99f6e4;  /* teal-200 */
+
+  /* —— Surface */
+  --color-surface:        #ffffff;
+  --color-surface-raised: #ffffff;  /* cards / modals */
+  --color-surface-sunken: #f7f9f7;  /* inset / subtle sections */
+  --color-surface-ink:    #101810;  /* dark header / footer */
+
+  /* —— Text */
+  --color-text:           #243024;  /* sage-900 */
+  --color-text-muted:     #5f745f;  /* sage-600 */
+  --color-text-subtle:    #a0b3a0;  /* sage-400, captions */
+  --color-text-inverse:   #ffffff;
+
+  /* —— Border */
+  --color-border:         #dce4dc;  /* sage-200 */
+  --color-border-strong:  #a0b3a0;  /* sage-400 */
+  --color-border-subtle:  #eef2ee;  /* sage-100 */
+
+  /* —— Link */
+  --color-link:           #0f766e;
+  --color-link-hover:     #134e4a;
+
+  /* —— Action (primary interactive — buttons, CTAs) */
+  --color-action:         #0f766e;
+  --color-action-strong:  #134e4a;  /* hover */
+  --color-action-fg:      #ffffff;
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     AWARENESS / EMOTIONAL TONES
+     These map to the site's communication goals:
+       urgent  → emergency, danger, must-act now
+       care    → warmth, nurturing, family support
+       calm    → reassurance, information, safety
+       trust   → authoritative, reliable, legal weight
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --color-urgent:         #e11d48;  /* rose-600 */
+  --color-urgent-soft:    #fff1f2;  /* rose-50  */
+  --color-urgent-strong:  #9f1239;  /* rose-800 */
+  --color-urgent-fg:      #ffffff;
+  --color-urgent-text:    #9f1239;  /* text in soft containers */
+  --color-urgent-border:  #fecdd3;  /* rose-200 */
+
+  --color-care:           #d97706;  /* amber-600 */
+  --color-care-soft:      #fffbeb;  /* amber-50  */
+  --color-care-strong:    #78350f;  /* amber-900 */
+  --color-care-fg:        #ffffff;
+  --color-care-text:      #78350f;  /* text in soft containers */
+  --color-care-border:    #fde68a;  /* amber-200 */
+
+  --color-calm:           #0d9488;  /* teal-600  */
+  --color-calm-soft:      #f0fdfa;  /* teal-50   */
+  --color-calm-strong:    #115e59;  /* teal-800  */
+  --color-calm-fg:        #ffffff;
+  --color-calm-text:      #115e59;  /* text in soft containers */
+  --color-calm-border:    #99f6e4;  /* teal-200  */
+
+  --color-trust:          #6d28d9;  /* violet-700 */
+  --color-trust-soft:     #f5f3ff;  /* violet-50  */
+  --color-trust-strong:   #4c1d95;  /* violet-900 */
+  --color-trust-fg:       #ffffff;
+  --color-trust-text:     #4c1d95;  /* text in soft containers */
+  --color-trust-border:   #ddd6fe;  /* violet-200 */
+
+  /* —— Radius */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-full: 9999px;
+
+  /* —— Shadow */
+  --shadow-card:   0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-raised: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-float:  0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+}
+
+
+/* ── L3: Dark mode — override semantic tokens ──────────────────── */
 @layer base {
+  .dark {
+    /* Neutral — Sage inverted */
+    --color-gray-50:   #101810;
+    --color-gray-100:  #182018;
+    --color-gray-200:  #243024;
+    --color-gray-300:  #374537;
+    --color-gray-400:  #4a5c4a;
+    --color-gray-500:  #7d957d;
+    --color-gray-600:  #a0b3a0;
+    --color-gray-700:  #c3d0c3;
+    --color-gray-800:  #dce4dc;
+    --color-gray-900:  #eef2ee;
+    --color-gray-950:  #f7f9f7;
+
+    /* Brand — lighter, still readable in dark */
+    --color-brand:          #14b8a6;
+    --color-brand-soft:     #0c2825;
+    --color-brand-muted:    #153d38;
+    --color-brand-strong:   #5eead4;
+    --color-brand-fg:       #0c2825;
+    --color-brand-text:     #99f6e4;
+    --color-brand-border:   #1a4a44;
+
+    /* Surface */
+    --color-surface:        #0e1a0e;
+    --color-surface-raised: #182218;
+    --color-surface-sunken: #0a100a;
+    --color-surface-ink:    #f7f9f7;
+
+    /* Text */
+    --color-text:           #eef2ee;
+    --color-text-muted:     #a0b3a0;
+    --color-text-subtle:    #5f745f;
+    --color-text-inverse:   #101810;
+
+    /* Border */
+    --color-border:         #243024;
+    --color-border-strong:  #4a5c4a;
+    --color-border-subtle:  #182018;
+
+    /* Link */
+    --color-link:           #5eead4;
+    --color-link-hover:     #99f6e4;
+
+    /* Action */
+    --color-action:         #14b8a6;
+    --color-action-strong:  #5eead4;
+    --color-action-fg:      #0c2825;
+
+    /* Awareness — soft backgrounds flip to dark tints */
+    --color-urgent-soft:    #2d0c14;
+    --color-urgent-text:    #fda4af;
+    --color-urgent-border:  #4c1527;
+
+    --color-care-soft:      #2d1a04;
+    --color-care-text:      #fcd34d;
+    --color-care-border:    #4a2d08;
+
+    --color-calm-soft:      #0a2220;
+    --color-calm-text:      #5eead4;
+    --color-calm-border:    #153d38;
+
+    --color-trust-soft:     #1e1040;
+    --color-trust-text:     #c4b5fd;
+    --color-trust-border:   #2e1a5e;
+
+    /* Shadows deeper in dark */
+    --shadow-card:   0 1px 3px 0 rgb(0 0 0 / 0.3);
+    --shadow-raised: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+    --shadow-float:  0 10px 15px -3px rgb(0 0 0 / 0.5);
+  }
+
+  /* Base styles using semantic tokens */
   body {
     font-family: 'Nunito', 'Noto Sans Tamil', system-ui, sans-serif;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
