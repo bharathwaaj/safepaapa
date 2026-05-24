@@ -343,6 +343,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child sitting at a tuition desk looking alert and slightly uncomfortable as a blurry adult figure stands nearby, the child aware and self-assured, bright room, flat illustration style, teal palette, empowered cautious mood, no text',
+    imageSrc: '/images/situation-tuition-teacher.jpg',
   },
   {
     slug: 'neighbour-house',
@@ -378,6 +379,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child standing at the doorway of a neighbour house, looking thoughtful and self-aware, the child deciding whether to enter, bright daytime setting, flat illustration style, warm teal palette, empowered mood, no text',
+    imageSrc: '/images/situation-neighbour-house.jpg',
   },
   {
     slug: 'public-transport',
@@ -414,6 +416,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child sitting alone on a public bus near the window, alert and confident expression, other passengers visible in background, bright daytime, flat illustration style, teal palette, empowered safe mood, no text',
+    imageSrc: '/images/situation-public-transport.jpg',
   },
   {
     slug: 'photo-request',
@@ -449,6 +452,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child confidently shaking their head and holding up a hand in a stop gesture toward a blurry adult figure holding a phone or camera, the child assertive and safe, bright outdoor setting, flat illustration style, teal palette, empowered mood, no text',
+    imageSrc: '/images/situation-photo-request.jpg',
   },
 
   // ── Tier 1 additions ───────────────────────────────────────────────────────
@@ -487,6 +491,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child standing on a pavement confidently shaking their head at a blurry car with a figure inside offering a ride, the child alert and self-assured, bright daytime street, flat illustration style, teal palette, empowered mood, no text',
+    imageSrc: '/images/situation-ride-offer.jpg',
   },
   {
     slug: 'false-claim',
@@ -523,6 +528,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child on a street looking cautious and reaching for their phone while a blurry adult figure approaches claiming to know their parent, the child alert and not going anywhere, flat illustration style, teal palette, empowered cautious mood, no text',
+    imageSrc: '/images/situation-false-claim.jpg',
   },
   {
     slug: 'home-alone',
@@ -560,6 +566,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child sitting safely inside a home near a closed front door, looking calm and alert, a phone on the table nearby, warm interior light, flat illustration style, teal palette, safe prepared mood, no text',
+    imageSrc: '/images/situation-home-alone.jpg',
   },
   {
     slug: 'being-followed',
@@ -596,6 +603,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child walking confidently toward a brightly lit shop entrance, glancing back with awareness at a blurry figure behind them, making a smart safe decision, flat illustration style, teal palette, alert empowered mood, no text',
+    imageSrc: '/images/situation-being-followed.jpg',
   },
   {
     slug: 'no-pickup',
@@ -632,6 +640,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child waiting calmly at a school gate with a bag, looking alert and patient, a teacher visible in the background, late afternoon light, flat illustration style, teal palette, safe prepared mood, no text',
+    imageSrc: '/images/situation-no-pickup.jpg',
   },
   {
     slug: 'friend-in-danger',
@@ -668,6 +677,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'Two Tamil children sitting together, one looking worried and the other listening with care and concern, warm school corridor setting, emotional and supportive mood, flat illustration style, teal and care-soft palette, no text',
+    imageSrc: '/images/situation-friend-in-danger.jpg',
   },
 
   // ── Tier 2 additions ───────────────────────────────────────────────────────
@@ -707,6 +717,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child standing confidently near the elevator button panel inside a lift, alert posture, near the door, bright interior light, flat illustration style, teal palette, safe prepared mood, no text',
+    imageSrc: '/images/situation-elevator-stranger.jpg',
   },
   {
     slug: 'gaming-stranger',
@@ -743,6 +754,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child playing a mobile game, looking alert and cautious as a chat message appears on screen asking for personal information, the child about to close the chat, flat illustration style, teal palette, aware empowered mood, no text',
+    imageSrc: '/images/situation-gaming-stranger.jpg',
   },
   {
     slug: 'private-photo',
@@ -779,6 +791,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child looking at their phone screen with a firm and cautious expression, about to decline an inappropriate message request, confident body language, flat illustration style, teal palette, empowered safe mood, no text',
+    imageSrc: '/images/situation-private-photo.jpg',
   },
 ];
 
