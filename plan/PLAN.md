@@ -123,80 +123,35 @@ Original Phase 1 plan items and their status:
 
 ## 🔲 Pending
 
-### Phase 1 — Remaining Homepage Items (incomplete)
+### Phase 1 — Remaining Homepage Items ✅ DONE
 
-- [ ] **"Start in 60 seconds" label** — add heading above the situation strip:
-  - Tamil: "60 விநாடியில் தெரிந்துகொள்ளுங்கள்" or "இந்த சூழல்களில் என்ன செய்வது?"
-  - English sub: "Start in 60 seconds — tap a situation"
-- [ ] **"Send to 3 parents" CTA** — replace generic WhatsApp button with:
-  - Tamil: "இதை 3 பெற்றோரிடம் அனுப்புங்கள்" 
-  - Specific viral mechanic — not a general share prompt
-- [ ] **Screenshot-optimised Tiny Wisdom cards** — restyle the 3 quote cards:
-  - High-contrast background (brand or dark)
-  - Large Tamil quote text, bold
-  - Author line clearly styled
-  - Designed to look good when screenshotted and forwarded on WhatsApp
+- [x] **"Start in 60 seconds" label** — added above situation strip
+- [x] **"Send to 3 parents" CTA** — viral mechanic with "இதை 3 பெற்றோரிடம் அனுப்புங்கள்"
+- [x] **Screenshot-optimised Tiny Wisdom cards** — high-contrast dark teal cards with Web Share API + WhatsApp fallback
 
 ---
 
-### Phase 2 — Situation Pages (Highest Impact)
-> The homepage situation strip already teases these. Currently all 4 cards link to `/parents#situations` as a stopgap.
+### Phase 2 — Situation Pages ✅ DONE
 
-- [ ] Set up Astro content collection for situations (`src/content/config.ts`)
-- [ ] Create `src/content/situations/` folder with MDX files:
-  - [ ] `stranger-candy.mdx` — அந்நியர் இனிப்பு கொடுத்தால்
-  - [ ] `school-van.mdx` — பள்ளி வேன் ஓட்டுநர்
-  - [ ] `relative-secret.mdx` — உறவினர் "ரகசியம் வை" என்றால்
-  - [ ] `online-friend.mdx` — ஆன்லைன் நண்பன்
-  - [ ] `lost-in-mall.mdx` — கடையில் தொலைந்தால்
-  - [ ] `gift-from-stranger.mdx` — அந்நியர் பரிசு கொடுத்தால்
-  - [ ] `unsafe-relative.mdx` — குடும்பத்தில் பாதுகாப்பற்ற நபர்
-  - [ ] `school-toilet.mdx` — பள்ளி கழிப்பறையில் தனிமை
-- [ ] Create `src/pages/situations/[slug].astro` dynamic route
-  - Page design spec (from original plan): **1 idea per page** — not a long article
-    - Large Tamil headline (the situation title)
-    - One short emotional paragraph — why this matters
-    - One `ImagePlaceholder` illustration
-    - What to teach your child (word-for-word Tamil script)
-    - One prominent share CTA ("இதை பகிருங்கள்" with WhatsApp deep link pre-filled with situation URL)
-  - Each page should be self-contained — shareable on its own as a link
-- [ ] Define collection schema in `src/content/config.ts`:
-  - Fields: `title` (Tamil), `titleEn`, `icon` (emoji), `summary`, `slug`, `order`
-- [ ] Update homepage situation cards to link to `/situations/[slug]` instead of `/parents#situations`
-- [ ] **Update nav to situation-based** (from original Phase 2 plan — currently nav is audience-based):
-  - Current nav: பெற்றோருக்கு · குழந்தைகளுக்கு · ஆசிரியர்களுக்கு · உதவி
-  - Proposed: add "சூழல்கள்" (Situations) as a top-level nav item linking to a situations index page
-  - Decide: replace one of the current links or add as 5th item (may overflow on md — needs care)
-  - Create `src/pages/situations/index.astro` — grid of all situation cards
+- [x] `src/data/situations.ts` — TypeScript data file (8 situations, no MDX/content collections needed)
+- [x] `src/pages/situations/index.astro` — grid of all 8 situation cards
+- [x] `src/pages/situations/[slug].astro` — dynamic detail pages with canvas-based share cards (Web Share API + WhatsApp fallback)
+- [x] Homepage situation cards now link to `/situations/[slug]`
+- [x] Nav updated: "சூழல்கள்" added as first nav item
 
-### Phase 3 — Shareable Card Component + Supporting Components
+### Phase 3 — Reusable Components ✅ DONE
 
-#### `src/components/ShareCard.astro` ← primary deliverable of Phase 3
-- [ ] **Styled for screenshot** — designed so a phone screenshot looks complete and shareable:
-  - Large Tamil text (extrabold, ≥ text-2xl)
-  - Minimal copy — one rule, one situation, or one wisdom quote per card
-  - SafePaapa brand corner (logo + site name, small, bottom-right)
-  - Fixed aspect ratio options: `1:1` (WhatsApp image) or `9:16` (story/status)
-- [ ] WhatsApp share button below every card — pre-filled message with card content + site URL
-- [ ] `@media print` styles:
-  - Hide nav, footer, share button
-  - Card fills the page, high contrast
-  - Suitable for PDF save / printing as a poster
-- [ ] Used inside: situation pages (`/situations/[slug]`), `/schools` page, Tiny Wisdom section on homepage
+- [x] `src/components/ShareCard.astro` — screenshot-optimised card with brand footer, aspect ratio options, print CSS
+- [x] `src/components/SituationCard.astro` — reusable card (icon, Tamil, English, link, iconSize)
+- [x] `src/components/ChecklistCard.astro` — printable checklist item with print-only checkbox
+- [x] `src/components/TinyWisdom.astro` — screenshot-optimised dark teal quote card with share button
+- [x] `src/components/Scenario.astro` — tap-to-reveal `<details>/<summary>` card with Tailwind `group-open:` variants
+- [x] Homepage + situations/index refactored to use new components
 
-#### Supporting components
-- [ ] `src/components/SituationCard.astro` — reusable card for situation strip (icon, Tamil label, English, link)
-- [ ] `src/components/ChecklistCard.astro` — printable checklist item (for schools page), inherits print styles
-- [ ] `src/components/TinyWisdom.astro` — pull-quote styled as a ShareCard (screenshot-optimised)
-- [ ] `src/components/Scenario.astro` — interactive "what would your child do?" reveal card (tap to show answer)
+### Phase 4 — Interactive Scenario Cards on Homepage ✅ DONE
 
-### Phase 4 — Interactive Scenario Component
-
-- [ ] `Scenario.astro` — shows a situation, hides the answer, reveals on tap
-- [ ] **Implementation**: prefer `<details>/<summary>` (pure CSS, zero JS, accessible natively)
-  - Fallback: minimal Astro `<script>` toggle if more control needed (animation, analytics)
-  - No framework (React/Vue/Svelte) — Astro vanilla only
-- [ ] **Start with 5 scenarios on the homepage** ← original plan spec; not inner pages first
+- [x] `Scenario.astro` component built (Phase 3)
+- [x] 7 scenario cards added to homepage — "இந்த சூழல்களில் என்ன செய்வீர்கள்?" section
   - Place in a new "இந்த சூழல்களில் என்ன செய்வீர்கள்?" section on `index.astro`
   - Each scenario: situation prompt → tap → reveals what to say/do
   - Example scenarios for homepage:
@@ -219,18 +174,10 @@ Original Phase 1 plan items and their status:
   - [ ] Classroom checklist for teachers (uses `ChecklistCard.astro` from Phase 3)
   - [ ] ImagePlaceholders throughout (assembly scene, PTA meeting, poster preview)
 
-### Phase 6 — Dynamic / Alive Feel (no backend needed)
+### Phase 6 — Dynamic / Alive Feel ✅ DONE
 
-- [ ] **"Today's safety thought"** — rotate from a static array by day-of-year
-  - Pure static logic: `array[dayOfYear % array.length]`
-  - No backend, no API — Astro `<script>` or build-time slot
-  - Show on homepage or in footer
-- [ ] **Seasonal content** — surface relevant content at key times:
-  - Summer holidays (May–June): stranger danger, outings, online time
-  - School reopening (June–July): school van safety, new teachers
-  - Festival season (Oct–Nov): crowded places, lost in mall
-  - Implement as a static date-range check in JS — no CMS needed
-- [ ] Consider where to surface: homepage banner, hero sub-text, or a dedicated "இன்றைய எச்சரிக்கை" section
+- [x] **"Today's safety thought"** — 20 thoughts rotating by day-of-year, shown on homepage
+- [x] **Seasonal content** — 4 seasons (summer, school reopening, festival, holiday) with contextual banners
 
 ### Phase 6b — Emergency Page (`/emergency`) ← added beyond original plan
 > Not in the original phase plan — added as a good-to-have. Lower priority than Phase 6.
