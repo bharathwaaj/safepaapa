@@ -191,9 +191,21 @@ Original Phase 1 plan items and their status:
 - [ ] `src/components/Scenario.astro` — interactive "what would your child do?" reveal card (tap to show answer)
 
 ### Phase 4 — Interactive Scenario Component
-- [ ] `Scenario.astro`: question text → hidden answer → tap/click to reveal
-- [ ] Use Astro's `<script>` for toggle (no framework needed)
-- [ ] Add to situation pages and parents page
+
+- [ ] `Scenario.astro` — shows a situation, hides the answer, reveals on tap
+- [ ] **Implementation**: prefer `<details>/<summary>` (pure CSS, zero JS, accessible natively)
+  - Fallback: minimal Astro `<script>` toggle if more control needed (animation, analytics)
+  - No framework (React/Vue/Svelte) — Astro vanilla only
+- [ ] **Start with 5 scenarios on the homepage** ← original plan spec; not inner pages first
+  - Place in a new "இந்த சூழல்களில் என்ன செய்வீர்கள்?" section on `index.astro`
+  - Each scenario: situation prompt → tap → reveals what to say/do
+  - Example scenarios for homepage:
+    1. அந்நியர் உன்னை தனியாக அழைத்தால்
+    2. வேன் ஓட்டுநர் வழக்கத்திற்கு மாறாக நடந்தால்
+    3. ஒரு பெரியவர் "யாரிடமும் சொல்லாதே" என்றால்
+    4. ஆன்லைன் நண்பர் நேரில் சந்திக்க சொன்னால்
+    5. யாரோ உன் உடலை தொட்டால் — என்ன செய்வாய்?
+- [ ] After homepage validation, also add to `/situations/[slug]` pages and `/parents`
 
 ### Phase 5 — Schools Page (`/schools`)
 - [ ] New page `src/pages/schools.astro`
