@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="பெற்றோருக்கு வழிகாட்டி" description="குழந்தை பாதுகாப்பு பற்றி பெற்றோர் தெரிந்துகொள்ள வேண்டியவை — SafePaapa">
+
+  <div class="bg-blue-700 text-white py-12 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-blue-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">பெற்றோருக்கு</h1>
+      <p class="text-blue-100 text-sm">For Parents — Recognise, Respond, Protect</p>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-12 space-y-14">
+
+    <!-- Section 1: Warning Signs -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">⚠️ எச்சரிக்கை அறிகுறிகள்</h2>
+      <p class="text-xs text-gray-400 mb-6">Warning signs to watch for in your child</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          { ta: 'திடீர் நடத்தை மாற்றம்', en: 'Sudden changes in behaviour or mood' },
+          { ta: 'தனிமையாக இருக்க விரும்புவது', en: 'Withdrawing from family and friends' },
+          { ta: 'தூக்கமின்மை அல்லது கெட்ட கனவுகள்', en: 'Sleep disturbances or nightmares' },
+          { ta: 'குறிப்பிட்ட நபரை பார்க்க பயப்படுவது', en: 'Fear of a specific person or place' },
+          { ta: 'வயதுக்கு மீறிய பாலியல் அறிவு', en: 'Age-inappropriate sexual knowledge or behaviour' },
+          { ta: 'உடல் அடையாளங்கள் — காயங்கள், வலி', en: 'Unexplained physical injuries or complaints' },
+          { ta: 'பள்ளி செல்ல மறுப்பது', en: 'Refusing to go to school or certain places' },
+          { ta: 'சாப்பிட மறுப்பது அல்லது அதிகமாக சாப்பிடுவது', en: 'Changes in eating habits' },
+        ].map((sign) => (
+          <div class="flex gap-3 items-start bg-red-50 border border-red-100 rounded-xl p-4">
+            <span class="text-red-500 mt-0.5">●</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">{sign.ta}</p>
+              <p class="text-xs text-gray-400 mt-0.5">{sign.en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-gray-500 mt-4 italic">
+        ஒரு அறிகுறி மட்டும் இருந்தால் கவலைப்பட வேண்டாம், ஆனால் பல அறிகுறிகள் ஒன்றாக இருந்தால் கவனமாக இருங்கள்.
+      </p>
+    </section>
+
+    <!-- Section 2: How to Talk -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">🗣️ குழந்தையிடம் எப்படி பேசுவது?</h2>
+      <p class="text-xs text-gray-400 mb-6">How to have the safety conversation</p>
+      <div class="space-y-4">
+        {[
+          {
+            ta: 'அன்றாட வாழ்வில் பேசுங்கள்',
+            en: 'Bring it up naturally — during bath time, bedtime, or while watching TV together.',
+            tip: 'உடல் பாகங்களை சரியான பெயரில் அழைக்கவும். மறைக்காமல் பேசவும்.'
+          },
+          {
+            ta: '"நம்பகமான பெரியவர்" யார் என்று முடிவு செய்யுங்கள்',
+            en: 'Help your child identify 3–5 trusted adults they can go to if something feels wrong.',
+            tip: 'ஆசிரியர், அத்தை, உறவினர் — குழந்தையே தேர்ந்தெடுக்கட்டும்.'
+          },
+          {
+            ta: '"நீ சொன்னால் நம்புவேன்" என்று சொல்லுங்கள்',
+            en: 'Explicitly tell your child: "If anything happens, you can tell me and I will always believe you."',
+            tip: 'இந்த ஒரு வாக்கியம் குழந்தை வெளிப்படுத்த தைரியம் கொடுக்கும்.'
+          },
+          {
+            ta: '"ரகசியம்" பற்றி கற்றுக்கொடுங்கள்',
+            en: 'Teach the difference between surprise secrets (OK) and unsafe secrets (not OK).',
+            tip: 'நல்ல ரகசியம்: பிறந்தநாள் பரிசு. கெட்ட ரகசியம்: யாரோ உன் உடலை தொட்டது.'
+          },
+        ].map((item) => (
+          <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
+            <p class="font-semibold text-gray-900 mb-1">{item.ta}</p>
+            <p class="text-sm text-gray-600 mb-2">{item.en}</p>
+            <p class="text-xs bg-blue-100 text-blue-800 rounded-lg px-3 py-2">💡 {item.tip}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 3: If child discloses -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">💙 குழந்தை வெளிப்படுத்தினால்</h2>
+      <p class="text-xs text-gray-400 mb-6">If your child discloses abuse — what to do</p>
+      <div class="bg-green-50 border border-green-200 rounded-xl p-6 space-y-4">
+        {[
+          { do: true, ta: 'அமைதியாக கேளுங்கள்', en: 'Stay calm and listen without interrupting.' },
+          { do: true, ta: '"உன் தப்பில்லை" என்று சொல்லுங்கள்', en: 'Immediately reassure: "This is not your fault."' },
+          { do: true, ta: '"சொன்னதற்கு நன்றி" என்று சொல்லுங்கள்', en: 'Thank them for trusting you: "I am so glad you told me."' },
+          { do: true, ta: 'உடனே CHILDLINE 1098 அல்லது காவல்துறை அழைக்கவும்', en: 'Report immediately — CHILDLINE 1098 or police 100.' },
+          { do: false, ta: 'கோபப்படாதீர்கள் — குழந்தை பயப்படுவார்கள்', en: 'Do NOT react with anger — it silences the child.' },
+          { do: false, ta: 'குற்றவாளியை நீங்களே எதிர்கொள்ள வேண்டாம்', en: 'Do NOT confront the abuser yourself.' },
+          { do: false, ta: '"நீ ஏன் சொல்லவில்லை?" என்று கேட்காதீர்கள்', en: 'Do NOT question or interrogate your child.' },
+        ].map((item) => (
+          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-100' : 'bg-red-50'}`}>
+            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-red-600'}`}>{item.do ? '✓' : '✗'}</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">{item.ta}</p>
+              <p class="text-xs text-gray-500 mt-0.5">{item.en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Online Safety -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">📱 ஆன்லைன் பாதுகாப்பு</h2>
+      <p class="text-xs text-gray-400 mb-6">Online safety for Tamil Nadu parents</p>
+      <div class="space-y-3">
+        {[
+          'குழந்தையின் phone-ல் உள்ள apps பற்றி தெரிந்துகொள்ளுங்கள் — தடை செய்யாமல், உரையாடுங்கள்.',
+          'YouTube, Instagram, WhatsApp-ல் யாரும் தனிப்பட்ட செய்திகள் அனுப்பினால் உடனே சொல்லவும் என்று கற்பிக்கவும்.',
+          'ஆன்லைனில் "நண்பர்கள்" என்று யாரையாவது தனியாக சந்திக்க சொன்னால் அது ஆபத்தானது என்று புரியவையுங்கள்.',
+          'Screen time-ஐ பொது இடத்தில் (hall அல்லது kitchen) வைத்திருங்கள் — bedroom-ல் தனியாக phone கொடுக்காதீர்கள்.',
+        ].map((tip) => (
+          <div class="flex gap-3 items-start bg-gray-50 rounded-xl p-4 border border-gray-100">
+            <span class="text-blue-500 mt-1">📌</span>
+            <p class="text-sm text-gray-700">{tip}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
+      <p class="text-lg font-bold text-red-800 mb-2">உடனடி உதவி தேவையா?</p>
+      <p class="text-sm text-red-700 mb-4">Need immediate help? Call CHILDLINE — free, confidential, 24/7</p>
+      <a href="tel:1098" class="inline-block bg-red-600 text-white font-bold text-2xl px-10 py-4 rounded-full hover:bg-red-700 transition-colors">
+        📞 1098
+      </a>
+    </div>
+
+  </div>
+</Layout>
