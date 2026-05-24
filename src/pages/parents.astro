@@ -4,19 +4,19 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="பெற்றோருக்கு வழிகாட்டி" description="குழந்தை பாதுகாப்பு பற்றி பெற்றோர் தெரிந்துகொள்ள வேண்டியவை — SafePaapa">
 
-  <div class="bg-teal-700 text-white py-12 px-4 text-center">
+  <div class="bg-brand text-brand-fg py-12 px-4 text-center">
     <div class="max-w-3xl mx-auto">
-      <p class="text-teal-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
-      <h1 class="text-3xl md:text-4xl font-bold mb-3">பெற்றோருக்கு</h1>
-      <p class="text-teal-100 text-sm">For Parents — Recognise, Respond, Protect</p>
+      <p class="text-brand-muted text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-3">பெற்றோருக்கு</h1>
+      <p class="opacity-75 text-sm">For Parents — Recognise, Respond, Protect</p>
     </div>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 py-12 space-y-14">
 
-    <!-- Section 1: Warning Signs -->
+    <!-- Warning Signs -->
     <section>
-      <h2 class="text-xl font-bold text-gray-900 mb-1">⚠️ எச்சரிக்கை அறிகுறிகள்</h2>
+      <h2 class="text-xl font-extrabold text-gray-900 mb-1">⚠️ எச்சரிக்கை அறிகுறிகள்</h2>
       <p class="text-xs text-gray-400 mb-6">Warning signs to watch for in your child</p>
       <div class="grid sm:grid-cols-2 gap-4">
         {[
@@ -29,10 +29,10 @@ import Layout from '../layouts/Layout.astro';
           { ta: 'பள்ளி செல்ல மறுப்பது', en: 'Refusing to go to school or certain places' },
           { ta: 'சாப்பிட மறுப்பது அல்லது அதிகமாக சாப்பிடுவது', en: 'Changes in eating habits' },
         ].map((sign) => (
-          <div class="flex gap-3 items-start bg-rose-50 border border-rose-100 rounded-xl p-4">
-            <span class="text-rose-500 mt-0.5">●</span>
+          <div class="flex gap-3 items-start bg-danger-subtle border border-gray-100 rounded-xl p-4">
+            <span class="text-danger mt-0.5 font-bold">●</span>
             <div>
-              <p class="text-sm font-semibold text-gray-900">{sign.ta}</p>
+              <p class="text-sm font-bold text-gray-900">{sign.ta}</p>
               <p class="text-xs text-gray-400 mt-0.5">{sign.en}</p>
             </div>
           </div>
@@ -43,9 +43,9 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </section>
 
-    <!-- Section 2: How to Talk -->
+    <!-- How to Talk -->
     <section>
-      <h2 class="text-xl font-bold text-gray-900 mb-1">🗣️ குழந்தையிடம் எப்படி பேசுவது?</h2>
+      <h2 class="text-xl font-extrabold text-gray-900 mb-1">🗣️ குழந்தையிடம் எப்படி பேசுவது?</h2>
       <p class="text-xs text-gray-400 mb-6">How to have the safety conversation</p>
       <div class="space-y-4">
         {[
@@ -70,20 +70,20 @@ import Layout from '../layouts/Layout.astro';
             tip: 'நல்ல ரகசியம்: பிறந்தநாள் பரிசு. கெட்ட ரகசியம்: யாரோ உன் உடலை தொட்டது.'
           },
         ].map((item) => (
-          <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
-            <p class="font-semibold text-gray-900 mb-1">{item.ta}</p>
+          <div class="bg-brand-subtle border border-brand-muted rounded-xl p-5">
+            <p class="font-bold text-gray-900 mb-1">{item.ta}</p>
             <p class="text-sm text-gray-600 mb-2">{item.en}</p>
-            <p class="text-xs bg-teal-100 text-teal-800 rounded-lg px-3 py-2">💡 {item.tip}</p>
+            <p class="text-xs bg-brand-muted text-brand-dark rounded-lg px-3 py-2">💡 {item.tip}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Section 3: If child discloses -->
+    <!-- If child discloses -->
     <section>
-      <h2 class="text-xl font-bold text-gray-900 mb-1">💙 குழந்தை வெளிப்படுத்தினால்</h2>
+      <h2 class="text-xl font-extrabold text-gray-900 mb-1">💙 குழந்தை வெளிப்படுத்தினால்</h2>
       <p class="text-xs text-gray-400 mb-6">If your child discloses abuse — what to do</p>
-      <div class="bg-green-50 border border-green-200 rounded-xl p-6 space-y-4">
+      <div class="bg-green-50 border border-green-200 rounded-xl p-6 space-y-3">
         {[
           { do: true, ta: 'அமைதியாக கேளுங்கள்', en: 'Stay calm and listen without interrupting.' },
           { do: true, ta: '"உன் தப்பில்லை" என்று சொல்லுங்கள்', en: 'Immediately reassure: "This is not your fault."' },
@@ -93,10 +93,10 @@ import Layout from '../layouts/Layout.astro';
           { do: false, ta: 'குற்றவாளியை நீங்களே எதிர்கொள்ள வேண்டாம்', en: 'Do NOT confront the abuser yourself.' },
           { do: false, ta: '"நீ ஏன் சொல்லவில்லை?" என்று கேட்காதீர்கள்', en: 'Do NOT question or interrogate your child.' },
         ].map((item) => (
-          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-100' : 'bg-rose-50'}`}>
-            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-rose-600'}`}>{item.do ? '✓' : '✗'}</span>
+          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-100' : 'bg-danger-subtle'}`}>
+            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-danger'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
-              <p class="text-sm font-semibold text-gray-900">{item.ta}</p>
+              <p class="text-sm font-bold text-gray-900">{item.ta}</p>
               <p class="text-xs text-gray-500 mt-0.5">{item.en}</p>
             </div>
           </div>
@@ -106,7 +106,7 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Online Safety -->
     <section>
-      <h2 class="text-xl font-bold text-gray-900 mb-1">📱 ஆன்லைன் பாதுகாப்பு</h2>
+      <h2 class="text-xl font-extrabold text-gray-900 mb-1">📱 ஆன்லைன் பாதுகாப்பு</h2>
       <p class="text-xs text-gray-400 mb-6">Online safety for Tamil Nadu parents</p>
       <div class="space-y-3">
         {[
@@ -115,8 +115,8 @@ import Layout from '../layouts/Layout.astro';
           'ஆன்லைனில் "நண்பர்கள்" என்று யாரையாவது தனியாக சந்திக்க சொன்னால் அது ஆபத்தானது என்று புரியவையுங்கள்.',
           'Screen time-ஐ பொது இடத்தில் (hall அல்லது kitchen) வைத்திருங்கள் — bedroom-ல் தனியாக phone கொடுக்காதீர்கள்.',
         ].map((tip) => (
-          <div class="flex gap-3 items-start bg-gray-50 rounded-xl p-4 border border-gray-100">
-            <span class="text-teal-500 mt-1">📌</span>
+          <div class="flex gap-3 items-start bg-surface-muted rounded-xl p-4 border border-gray-100">
+            <span class="text-brand mt-1">📌</span>
             <p class="text-sm text-gray-700">{tip}</p>
           </div>
         ))}
@@ -124,11 +124,11 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- CTA -->
-    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 text-center">
-      <p class="text-lg font-bold text-rose-800 mb-2">உடனடி உதவி தேவையா?</p>
-      <p class="text-sm text-rose-700 mb-4">Need immediate help? Call CHILDLINE — free, confidential, 24/7</p>
-      <a href="tel:1098" class="inline-block bg-rose-600 text-white font-bold text-2xl px-10 py-4 rounded-full hover:bg-rose-700 transition-colors">
-        📞 1098
+    <div class="bg-danger-subtle border border-danger rounded-2xl p-6 text-center">
+      <p class="text-lg font-extrabold text-danger-dark mb-2">உடனடி உதவி தேவையா?</p>
+      <p class="text-sm text-gray-600 mb-4">Need immediate help? Call CHILDLINE — free, confidential, 24/7</p>
+      <a href="tel:1098" class="inline-block bg-danger text-danger-fg font-extrabold text-2xl px-10 py-4 rounded-full hover:bg-danger-dark transition-colors">
+        1098
       </a>
     </div>
 

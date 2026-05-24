@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+@theme {
+  /* ── Brand (primary action color) ──────────────────────────────
+     Change just these to re-skin the entire site.              */
+  --color-brand:          #0f766e; /* teal-700   */
+  --color-brand-subtle:   #f0fdfa; /* teal-50    */
+  --color-brand-muted:    #ccfbf1; /* teal-100   */
+  --color-brand-dark:     #134e4a; /* teal-900   */
+  --color-brand-fg:       #ffffff; /* text on brand bg */
+
+  /* ── Danger (emergency / destructive) ──────────────────────── */
+  --color-danger:         #e11d48; /* rose-600   */
+  --color-danger-subtle:  #fff1f2; /* rose-50    */
+  --color-danger-dark:    #9f1239; /* rose-800   */
+  --color-danger-fg:      #ffffff;
+
+  /* ── Caution (contextual alerts, "why now" banner) ─────────── */
+  --color-caution:        #d97706; /* amber-600  */
+  --color-caution-subtle: #fffbeb; /* amber-50   */
+  --color-caution-dark:   #78350f; /* amber-900  */
+  --color-caution-fg:     #78350f; /* dark text on light amber bg */
+
+  /* ── Surfaces ───────────────────────────────────────────────── */
+  --color-surface-muted:  #f9fafb; /* gray-50    */
+  --color-surface-ink:    #111827; /* gray-900 — dark banner bg  */
+}
+
 @layer base {
   body {
     font-family: 'Nunito', 'Noto Sans Tamil', system-ui, sans-serif;
