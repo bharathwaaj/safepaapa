@@ -152,6 +152,9 @@
   --color-trust-text:     #4c1d95;  /* text in soft containers */
   --color-trust-border:   #ddd6fe;  /* violet-200 */
 
+  /* —— Leading overrides — Tamil script needs more room than Latin defaults */
+  --leading-snug: 1.4;
+
   /* —— Radius */
   --radius-sm:   0.25rem;
   --radius-md:   0.5rem;
