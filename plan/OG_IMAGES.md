@@ -20,14 +20,14 @@ For each image:
 
 | File | Status |
 |------|--------|
-| `public/og/home.jpg` | ⬜ Pending |
-| `public/og/parents.jpg` | ⬜ Pending |
-| `public/og/children.jpg` | ⬜ Pending |
-| `public/og/teachers.jpg` | ⬜ Pending |
-| `public/og/schools.jpg` | ⬜ Pending |
-| `public/og/emergency.jpg` | ⬜ Pending |
-| `public/og/resources.jpg` | ⬜ Pending |
-| `public/og/situations.jpg` | ⬜ Pending |
+| `public/og/home.jpg` | ✅ Generated |
+| `public/og/parents.jpg` | ✅ Generated |
+| `public/og/children.jpg` | ✅ Generated |
+| `public/og/teachers.jpg` | ✅ Generated |
+| `public/og/schools.jpg` | ✅ Generated |
+| `public/og/emergency.jpg` | ✅ Generated |
+| `public/og/resources.jpg` | ✅ Generated |
+| `public/og/situations.jpg` | ✅ Generated |
 
 ---
 
