@@ -16,6 +16,11 @@ const nav = [
   { href: '/teachers',   label: 'ஆசிரியர்களுக்கு' },
   { href: '/resources',  label: 'உதவி' },
 ];
+
+const footerNav = [
+  ...nav,
+  { href: '/schools', label: 'பள்ளிகளுக்கு' },
+];
 ---
 
 <!doctype html>
@@ -131,7 +136,7 @@ const nav = [
         <div>
           <h3 class="text-text-inverse font-semibold mb-3 text-sm">பக்கங்கள்</h3>
           <ul class="space-y-2 text-sm">
-            {nav.map(({ href, label }) => (
+            {footerNav.map(({ href, label }) => (
               <li><a href={href} class="hover:text-text-inverse transition-colors">{label}</a></li>
             ))}
           </ul>

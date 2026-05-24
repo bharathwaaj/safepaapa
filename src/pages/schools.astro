@@ -1,0 +1,406 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import ChecklistCard from '../components/ChecklistCard.astro';
+
+// ── Copy-paste content ────────────────────────────────────────────────────────
+
+const assemblyScript = `வணக்கம் மாணவர்களே!
+
+இன்று நாம் ஒரு மிக முக்கியமான விஷயம் பற்றி பேசுவோம் — உங்கள் பாதுகாப்பு.
+
+இந்த ஐந்து விதிகளை நினைவில் வையுங்கள்:
+
+━━ விதி 1: உன் உடல் உனக்கே சொந்தம் ━━
+யாரும் — ஆசிரியரோ, உறவினரோ, நண்பரோ — உன் அனுமதி இல்லாமல் உன் உடலை தொட கூடாது. உன் பள்ளி உடை மறைக்கும் இடங்களை யாரும் தொட கூடாது.
+
+━━ விதி 2: நல்ல தொடுதல் — கெட்ட தொடுதல் ━━
+தோளில் தட்டுவது, கை குலுக்குவது — நல்ல தொடுதல். யாரோ தவறாக தொட்டால் — அது கெட்ட தொடுதல். உடனே "வேண்டாம்!" என்று சொல்லுங்கள்.
+
+━━ விதி 3: "வேண்டாம்" என்று சொல்லலாம் ━━
+யாரிடமும், எந்த நேரத்திலும் — "வேண்டாம்" என்று சொல்வது தவறில்லை. பெரியவர்கள் என்றாலும் உன் உடல் பற்றி "வேண்டாம்" சொல்லலாம். இது மரியாதையை கெடுப்பது இல்லை.
+
+━━ விதி 4: நம்பகமான பெரியவரிடம் சொல்லுங்கள் ━━
+யாரோ தவறாக நடந்தால் — உடனே நம்பகமான பெரியவரிடம் சொல்லுங்கள். அம்மா, அப்பா, ஆசிரியர், உறவினர் — யாரிடமாவது சொல்லுங்கள். இது உன் தப்பில்லை. சொன்னதால் நீ தைரியசாலி.
+
+━━ விதி 5: CHILDLINE 1098 ━━
+யாரும் கேட்காவிட்டால் — 1098 அழைக்கலாம். இலவசம், 24 மணி நேரமும் கிடைக்கும். உதவி கேட்பது தவறில்லை.
+
+❝ யாரோ "யாரிடமும் சொல்லாதே" என்று சொன்னால் — அது கெட்ட ரகசியம். அந்த நேரத்தில் உடனே நம்பகமான பெரியவரிடம் சொல்லுங்கள். ❞
+
+நீங்கள் பாதுகாப்பாக இருக்க வேண்டும் — அதுதான் முக்கியம்.
+
+SafePaapa | safepaapa.in | CHILDLINE: 1098`;
+
+const ptaMessage = `அன்பான பெற்றோர்களே,
+
+இன்று [பள்ளி பெயர்]-ல் மாணவர்களுக்கு குழந்தை பாதுகாப்பு விழிப்புணர்வு வகுப்பு நடத்தப்பட்டது.
+
+இந்த 5 விதிகளை இன்றிரவு வீட்டில் மீண்டும் பேசுங்கள்:
+
+1️⃣ உன் உடல் உனக்கே சொந்தம்
+2️⃣ நல்ல தொடுதல் — கெட்ட தொடுதல் வித்தியாசம் தெரிய வேண்டும்
+3️⃣ "வேண்டாம்" என்று சொல்லலாம் — யாரிடமும், எந்த நேரத்திலும்
+4️⃣ ஏதாவது நடந்தால் நம்பகமான பெரியவரிடம் சொல்
+5️⃣ யாரும் கேட்காவிட்டால் 1098 அழை
+
+குழந்தையிடம் இன்றே 5 நிமிடம் பேசுங்கள்.
+
+மேலும் தகவலுக்கு: safepaapa.in
+
+🆘 அவசரம்: CHILDLINE 1098 | காவல்துறை: 100 | பெண்கள் உதவி: 181`;
+---
+
+<Layout
+  title="பள்ளிகளுக்கு — ஆசிரியர் கருவிகள்"
+  description="Assembly script, PTA message, classroom checklist, and printable poster — everything a school needs for child safety awareness. Free, Tamil-first."
+>
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <div class="no-print bg-trust text-white py-12 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-white/60 text-xs uppercase tracking-widest mb-3 font-bold">பள்ளிகளுக்கு</p>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-3">ஆசிரியர் கருவிகள்</h1>
+        <p class="text-white/70 text-sm mb-4">School Safety Resources</p>
+        <p class="text-white/85 text-sm leading-relaxed mb-6">
+          Assembly script, PTA message, classroom checklist, printable poster — எல்லாமே copy-paste ready. இலவசம்.
+        </p>
+        <!-- Quick jump links -->
+        <div class="flex flex-wrap gap-2">
+          {[
+            { href: '#assembly', label: '📢 Assembly Script' },
+            { href: '#pta',      label: '📲 PTA Message' },
+            { href: '#checklist',label: '✅ Checklist' },
+            { href: '#poster',   label: '🖨️ Poster' },
+          ].map(({ href, label }) => (
+            <a
+              href={href}
+              class="bg-white/15 hover:bg-white/25 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <ImagePlaceholder
+        prompt="A Tamil female teacher standing in front of a classroom of young students during a morning assembly, speaking confidently about safety, students listening attentively, bright classroom with morning light, flat illustration style, teal and trust-blue palette, no text"
+        width={560}
+        height={380}
+        aspect="14/9"
+        rounded="rounded-2xl"
+        class="opacity-90"
+      />
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-12 space-y-16">
+
+    <!-- ── Assembly Script ───────────────────────────────────────────────── -->
+    <section id="assembly" class="no-print">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">📢</span>
+        <h2 class="text-xl font-extrabold text-text">Assembly Script</h2>
+      </div>
+      <p class="text-xs text-text-subtle mb-1">Morning assembly — 5-minute read-aloud for teachers</p>
+      <p class="text-xs text-text-subtle mb-6">காலை சபைக் கூட்டத்தில் ஆசிரியர் படிக்க — சுமார் 5 நிமிடம்</p>
+
+      <ImagePlaceholder
+        prompt="A Tamil teacher reading from a paper to students seated in rows during morning assembly, sunlight streaming through windows, attentive young faces, warm and educational atmosphere, flat illustration style, teal palette, no text"
+        width={680}
+        height={280}
+        aspect="17/7"
+        rounded="rounded-xl"
+        class="mb-6"
+      />
+
+      <div class="relative">
+        <pre
+          id="assembly-text"
+          class="bg-surface-sunken border border-border rounded-2xl p-6 text-sm text-text leading-loose whitespace-pre-wrap font-sans overflow-auto max-h-96"
+        >{assemblyScript}</pre>
+        <button
+          data-copy="assembly-text"
+          class="copy-btn absolute top-4 right-4 bg-brand text-brand-fg text-xs font-bold px-3 py-1.5 rounded-full hover:bg-action-strong transition-colors"
+        >
+          Copy
+        </button>
+      </div>
+      <p class="text-xs text-text-subtle mt-3">
+        💡 [பள்ளி பெயர்] இடத்தில் உங்கள் பள்ளியின் பெயரை வையுங்கள்.
+        Script-ஐ copy செய்து WhatsApp-ல் colleagues-க்கு அனுப்பலாம்.
+      </p>
+    </section>
+
+    <!-- ── PTA Copy-Paste Message ────────────────────────────────────────── -->
+    <section id="pta" class="no-print">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">📲</span>
+        <h2 class="text-xl font-extrabold text-text">PTA Message</h2>
+      </div>
+      <p class="text-xs text-text-subtle mb-1">Ready to paste into WhatsApp or email — send to parents today</p>
+      <p class="text-xs text-text-subtle mb-6">பெற்றோருக்கு WhatsApp / email-ல் அனுப்ப — உடனே paste செய்யலாம்</p>
+
+      <ImagePlaceholder
+        prompt="A Tamil teacher on a smartphone sending a WhatsApp message to a parent group, smiling with confidence, school staff room background, warm afternoon light, flat illustration style, teal and warm palette, no text"
+        width={680}
+        height={260}
+        aspect="17/6.5"
+        rounded="rounded-xl"
+        class="mb-6"
+      />
+
+      <div class="relative">
+        <pre
+          id="pta-text"
+          class="bg-surface-sunken border border-border rounded-2xl p-6 text-sm text-text leading-loose whitespace-pre-wrap font-sans overflow-auto max-h-80"
+        >{ptaMessage}</pre>
+        <button
+          data-copy="pta-text"
+          class="copy-btn absolute top-4 right-4 bg-brand text-brand-fg text-xs font-bold px-3 py-1.5 rounded-full hover:bg-action-strong transition-colors"
+        >
+          Copy
+        </button>
+      </div>
+      <p class="text-xs text-text-subtle mt-3">
+        💡 [பள்ளி பெயர்] இடத்தில் உங்கள் பள்ளியின் பெயரை மாற்றி paste செய்யுங்கள்.
+      </p>
+    </section>
+
+    <!-- ── Classroom Checklist ───────────────────────────────────────────── -->
+    <section id="checklist" class="no-print">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">✅</span>
+        <h2 class="text-xl font-extrabold text-text">Classroom Checklist</h2>
+      </div>
+      <p class="text-xs text-text-subtle mb-1">Teacher self-audit — print and tick off</p>
+      <p class="text-xs text-text-subtle mb-6">ஆசிரியர் சுய மதிப்பீடு — print செய்து tick செய்யலாம்</p>
+
+      <ImagePlaceholder
+        prompt="A Tamil teacher at a desk reviewing a checklist with a pen, focused and professional expression, school office setting with plants and afternoon light, flat illustration style, teal and calm palette, no text"
+        width={680}
+        height={240}
+        aspect="17/6"
+        rounded="rounded-xl"
+        class="mb-6"
+      />
+
+      <div class="space-y-3">
+        <ChecklistCard
+          icon="📋"
+          text="வகுப்பில் இந்த ஆண்டு 'body safety' பாடம் நடத்தியிருக்கிறேன்"
+          textEn="I have conducted a body safety session in class this year"
+        />
+        <ChecklistCard
+          icon="👁️"
+          text="மாணவர் திடீரென நடத்தை மாறினால் கவனிக்கிறேன்"
+          textEn="I notice sudden behavioural or mood changes in students"
+        />
+        <ChecklistCard
+          icon="🗣️"
+          text="கவலையுடன் தோன்றும் மாணவரிடம் தனியாக பேசுகிறேன்"
+          textEn="I speak privately with students who seem distressed or withdrawn"
+        />
+        <ChecklistCard
+          icon="⚖️"
+          text="POCSO Section 19 — mandatory reporting கடமை தெரிந்திருக்கிறது"
+          textEn="I understand my mandatory reporting duty under POCSO Section 19"
+        />
+        <ChecklistCard
+          icon="📞"
+          text="CHILDLINE 1098 — எந்த சந்தேகத்திலும் அழைக்கலாம் என்று தெரிந்திருக்கிறது"
+          textEn="I know I can call CHILDLINE 1098 anytime I have a concern"
+        />
+        <ChecklistCard
+          icon="🏫"
+          text="School principal / counselor-இடம் எப்படி report செய்வது தெரிந்திருக்கிறது"
+          textEn="I know the school's internal reporting procedure"
+        />
+        <ChecklistCard
+          icon="🤝"
+          text="மாணவர்கள் தங்கள் 'நம்பகமான பெரியவர்' பட்டியல் செய்யச் சொல்லியிருக்கிறேன்"
+          textEn="Students have identified and listed their trusted adults"
+        />
+        <ChecklistCard
+          icon="📱"
+          text="பெற்றோருக்கு PTA safety message அனுப்பியிருக்கிறேன்"
+          textEn="I have sent a child safety awareness message to parents this term"
+        />
+        <ChecklistCard
+          icon="🚻"
+          text="கழிப்பறை பாதுகாப்பு விதி மாணவர்களுக்கு சொல்லியிருக்கிறேன்"
+          textEn="Students know no adult should follow them into the toilet"
+        />
+        <ChecklistCard
+          icon="🛡️"
+          text="யாரோ மாணவரை தவறாக தொட்டதாக தெரிந்தால் — உடனே நடவடிக்கை எடுக்கிறேன்"
+          textEn="I act immediately if I learn of inappropriate touch — no delay"
+        />
+      </div>
+    </section>
+
+  </div><!-- end .space-y-16 -->
+
+  <!-- ── Printable Poster ─────────────────────────────────────────────────── -->
+  <!-- Print trigger — screen only -->
+  <div class="no-print max-w-3xl mx-auto px-4 pb-6">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="text-2xl">🖨️</span>
+      <h2 class="text-xl font-extrabold text-text" id="poster">Printable Poster</h2>
+    </div>
+    <p class="text-xs text-text-subtle mb-1">A4 classroom poster — "Save as PDF" or print directly</p>
+    <p class="text-xs text-text-subtle mb-5">வகுப்பறை சுவரில் ஒட்ட — browser-ல் print / Save as PDF செய்யுங்கள்</p>
+    <button
+      id="print-btn"
+      class="bg-brand text-brand-fg font-bold px-6 py-3 rounded-full hover:bg-action-strong transition-colors text-sm"
+    >
+      🖨️ Poster Print / Save PDF
+    </button>
+  </div>
+
+  <!-- Poster — visible as preview on screen, full-page on print -->
+  <section
+    id="poster-content"
+    aria-label="Printable safety poster"
+    class="max-w-3xl mx-auto px-4 pb-16"
+  >
+    <div class="poster-card rounded-3xl overflow-hidden border-2 border-brand-border shadow-raised">
+
+      <!-- Poster header -->
+      <div class="bg-[#042f2e] px-8 pt-8 pb-6 text-center">
+        <p class="text-[#5eead4] text-xs font-bold uppercase tracking-widest mb-2">SafePaapa · குழந்தை பாதுகாப்பு</p>
+        <h2 class="text-white text-2xl sm:text-3xl font-extrabold leading-snug">
+          ஐந்து விதிகள்
+        </h2>
+        <p class="text-[#5eead4] text-sm mt-1">5 Safety Rules Every Child Must Know</p>
+      </div>
+
+      <!-- Rules -->
+      <div class="bg-white px-8 py-6 space-y-4">
+        {[
+          { n: '1', ta: 'உன் உடல் உனக்கே சொந்தம்',                           en: 'Your body belongs to you alone.',                                  icon: '🙋' },
+          { n: '2', ta: 'நல்ல தொடுதல் — கெட்ட தொடுதல் வித்தியாசம் தெரியட்டும்', en: 'Know the difference between safe and unsafe touch.',                icon: '✋' },
+          { n: '3', ta: '"வேண்டாம்" என்று சொல்லலாம் — யாரிடமும்',            en: 'You can say NO to anyone, at any time.',                            icon: '🚫' },
+          { n: '4', ta: 'நம்பகமான பெரியவரிடம் சொல்',                          en: 'Tell a trusted adult — it is NEVER your fault.',                    icon: '🗣️' },
+          { n: '5', ta: 'யாரும் கேட்காவிட்டால் 1098 அழை',                    en: 'If no one listens, call CHILDLINE 1098.',                          icon: '📞' },
+        ].map((r) => (
+          <div class="flex gap-4 items-start border border-gray-100 rounded-xl p-4">
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#042f2e] text-[#5eead4] font-extrabold text-sm flex items-center justify-center">
+              {r.n}
+            </div>
+            <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">{r.icon}</span>
+            <div class="min-w-0">
+              <p class="font-extrabold text-gray-900 text-sm leading-snug">{r.ta}</p>
+              <p class="text-xs text-gray-500 mt-0.5">{r.en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Poster footer -->
+      <div class="bg-[#042f2e] px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-[#5eead4] text-sm font-semibold">safepaapa.in</p>
+        <div class="text-center">
+          <p class="text-white text-3xl font-extrabold text-[#fda4af]">1098</p>
+          <p class="text-[#5eead4] text-xs">CHILDLINE · 24/7 · இலவசம்</p>
+        </div>
+        <p class="text-[#5eead4] text-xs text-right opacity-70">
+          காவல்துறை: 100<br />பெண்கள் உதவி: 181
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CHILDLINE CTA ───────────────────────────────────────────────────── -->
+  <div class="no-print max-w-3xl mx-auto px-4 pb-16">
+    <div class="bg-urgent/10 border border-urgent/30 rounded-2xl p-6 text-center">
+      <p class="text-base font-extrabold text-urgent mb-1">உடனடி உதவி தேவையா?</p>
+      <a href="tel:1098" class="text-4xl font-extrabold text-urgent block mb-1">1098</a>
+      <p class="text-text-muted text-xs">
+        CHILDLINE India · 24/7 · இலவசம் · ரகசியம் காக்கப்படும்
+      </p>
+      <p class="text-text-subtle text-xs mt-2">
+        ஆசிரியர்களுக்கான முழு வழிகாட்டி:&nbsp;
+        <a href="/teachers" class="underline hover:text-brand">teachers guide →</a>
+      </p>
+    </div>
+  </div>
+
+</Layout>
+
+<!-- ── Copy-to-clipboard + print ──────────────────────────────────────────── -->
+<script>
+  // Copy buttons
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const targetId = btn.dataset.copy!;
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        const original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => { btn.textContent = original; }, 2000);
+      } catch {
+        // Fallback: select text
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        window.getSelection()?.removeAllRanges();
+        window.getSelection()?.addRange(range);
+      }
+    });
+  });
+
+  // Print button
+  document.getElementById('print-btn')?.addEventListener('click', () => {
+    window.print();
+  });
+</script>
+
+<!-- ── Print styles ────────────────────────────────────────────────────────── -->
+<style is:global>
+  @media print {
+    /* Hide shell and non-poster content */
+    header,
+    footer,
+    .no-print {
+      display: none !important;
+    }
+
+    /* Reset body margins */
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background: white !important;
+    }
+
+    /* Poster fills the page */
+    #poster-content {
+      position: fixed !important;
+      inset: 0 !important;
+      max-width: 100% !important;
+      padding: 1.5cm !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: stretch !important;
+    }
+
+    #poster-content .poster-card {
+      width: 100% !important;
+      box-shadow: none !important;
+      border: 2px solid #0f766e !important;
+      page-break-inside: avoid !important;
+    }
+
+    /* Ensure high-contrast colors survive print */
+    #poster-content .bg-\[\#042f2e\] {
+      background-color: #042f2e !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    #poster-content .bg-white {
+      background-color: white !important;
+    }
+  }
+</style>
