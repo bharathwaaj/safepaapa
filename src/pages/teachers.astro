@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="ஆசிரியர்களுக்கு வழிகாட்டி" description="POCSO சட்டம், மாணவர்களில் துஷ்பிரயோக அறிகுறிகள், பாதுகாப்பான வகுப்பறை — SafePaapa">
+
+  <div class="bg-indigo-700 text-white py-12 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-indigo-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">ஆசிரியர்களுக்கு</h1>
+      <p class="text-indigo-100 text-sm">For Teachers & School Staff — Recognise, Report, Protect</p>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-12 space-y-14">
+
+    <!-- Why teachers matter -->
+    <section class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-xl p-6">
+      <h2 class="font-bold text-indigo-900 mb-2">ஆசிரியர்களின் பங்கு முக்கியம்</h2>
+      <p class="text-sm text-gray-700 leading-relaxed">
+        குழந்தைகள் தங்கள் நேரத்தில் பெரும் பகுதியை பள்ளியில் கழிக்கிறார்கள். வீட்டில் சொல்ல முடியாதவற்றை ஒரு நம்பகமான ஆசிரியரிடம் சொல்லலாம் என்று நம்புவார்கள். நீங்கள் அந்த நம்பகமான முகமாக இருங்கள்.
+      </p>
+      <p class="text-xs text-gray-500 mt-2">Children spend most of their day with you. You may be the first adult they trust enough to tell.</p>
+    </section>
+
+    <!-- Signs to watch -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">⚠️ மாணவர்களில் கவனிக்க வேண்டியவை</h2>
+      <p class="text-xs text-gray-400 mb-6">Signs of possible abuse in students</p>
+      <div class="space-y-3">
+        {[
+          { ta: 'திடீர் கல்வி சரிவு', en: 'Sudden drop in academic performance or concentration' },
+          { ta: 'பள்ளிக்கு வர விரும்பாமல் இருப்பது', en: 'Unexplained reluctance to come to school' },
+          { ta: 'குறிப்பிட்ட நபரை / இடத்தை தவிர்ப்பது', en: 'Avoiding a specific teacher, adult, or school area' },
+          { ta: 'வகுப்பில் திடீர் நடத்தை மாற்றம்', en: 'Sudden aggression, withdrawal, or emotional outbursts' },
+          { ta: 'மறை காயங்கள் அல்லது உடல் வலி', en: 'Unexplained bruises, injuries, or frequent physical complaints' },
+          { ta: 'வயதுக்கு மீறிய பாலியல் அறிவு', en: 'Age-inappropriate sexual language, drawing, or behaviour' },
+          { ta: 'தனிமையாக இருத்தல், நண்பர்களிடமிருந்து விலகுதல்', en: 'Social withdrawal from peers' },
+        ].map((sign) => (
+          <div class="flex gap-3 items-start bg-red-50 border border-red-100 rounded-xl p-4">
+            <span class="text-red-500 mt-0.5 font-bold">!</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">{sign.ta}</p>
+              <p class="text-xs text-gray-400 mt-0.5">{sign.en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- POCSO -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">⚖️ POCSO சட்டம் — உங்கள் கடமை</h2>
+      <p class="text-xs text-gray-400 mb-6">POCSO Act — mandatory reporting obligation</p>
+      <div class="bg-yellow-50 border border-yellow-300 rounded-2xl p-6 space-y-4">
+        <div>
+          <p class="font-bold text-yellow-900 mb-1">POCSO என்றால் என்ன?</p>
+          <p class="text-sm text-gray-700">
+            Protection of Children from Sexual Offences Act, 2012 — 18 வயதிற்கு கீழ் உள்ள குழந்தைகளை பாலியல் துஷ்பிரயோகத்திலிருந்து பாதுகாக்கும் சட்டம்.
+          </p>
+        </div>
+        <div class="bg-yellow-100 rounded-xl p-4">
+          <p class="font-bold text-yellow-900 mb-2">🚨 கட்டாய புகார் கடமை (Section 19)</p>
+          <p class="text-sm text-gray-700">
+            POCSO சட்டம் 19ஆம் பிரிவின்படி — குழந்தை மீது பாலியல் துஷ்பிரயோகம் நடந்தது அல்லது நடக்கிறது என்று தெரிந்தால், நீங்கள் <strong>கட்டாயமாக</strong> காவல்துறையிடம் புகார் அளிக்க வேண்டும். புகார் அளிக்காவிட்டால் நீங்களும் தண்டிக்கப்படலாம்.
+          </p>
+          <p class="text-xs text-gray-500 mt-2">Under Section 19 of POCSO, failure to report is itself a criminal offence.</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-800 mb-2">புகார் செய்ய:</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="tel:1098" class="bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-full">📞 1098 CHILDLINE</a>
+            <a href="tel:100" class="bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-full">📞 100 காவல்துறை</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safe classroom -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">🏫 பாதுகாப்பான வகுப்பறை</h2>
+      <p class="text-xs text-gray-400 mb-6">Creating a safe classroom environment</p>
+      <div class="space-y-3">
+        {[
+          { ta: 'Good Touch / Bad Touch பாடம் ஆண்டுதோறும் கற்பியுங்கள்', en: 'Teach body safety every year — not just once.' },
+          { ta: '"நம்பகமான பெரியவர்" பற்றி வகுப்பில் பேசுங்கள்', en: 'Discuss trusted adults — let children name their own.' },
+          { ta: 'தனியாக மாணவரை அறையில் வைக்காதீர்கள்', en: 'Never be alone with a single student in a closed room.' },
+          { ta: 'குழந்தை சொல்வதை நம்பி கேளுங்கள்', en: 'When a child discloses — believe them first, investigate later.' },
+          { ta: 'பள்ளி Safeguarding Officer-ஐ தெரிந்துகொள்ளுங்கள்', en: 'Know your school\'s designated safeguarding officer.' },
+          { ta: 'சக ஊழியரின் தவறான நடத்தையையும் புகார் செய்யுங்கள்', en: 'Report misconduct by colleagues — even if uncomfortable.' },
+        ].map((tip) => (
+          <div class="flex gap-3 items-start bg-indigo-50 border border-indigo-100 rounded-xl p-4">
+            <span class="text-indigo-500 mt-0.5">✓</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">{tip.ta}</p>
+              <p class="text-xs text-gray-400 mt-0.5">{tip.en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- If student discloses -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">💙 மாணவர் வெளிப்படுத்தினால்</h2>
+      <p class="text-xs text-gray-400 mb-6">If a student discloses to you</p>
+      <div class="space-y-3">
+        {[
+          { do: true, ta: 'அமைதியாக கேளுங்கள் — குறுக்கிடாதீர்கள்', en: 'Listen calmly without interrupting.' },
+          { do: true, ta: '"உன் தப்பில்லை, நான் உதவுவேன்" என்று சொல்லுங்கள்', en: 'Say: "This is not your fault. I will help you."' },
+          { do: true, ta: 'உடனே Headmaster / Principal-ஐ தெரிவியுங்கள்', en: 'Immediately inform the headmaster/principal.' },
+          { do: true, ta: 'CHILDLINE 1098 அல்லது காவல்துறை 100 அழைக்கவும்', en: 'Call CHILDLINE 1098 or police 100.' },
+          { do: false, ta: 'நீங்களே விசாரணை செய்ய வேண்டாம்', en: 'Do NOT conduct your own investigation.' },
+          { do: false, ta: 'குற்றவாளியிடம் பேச வேண்டாம்', en: 'Do NOT speak to the alleged abuser.' },
+          { do: false, ta: '"நீ சொன்னதை யாருக்கும் சொல்லவேண்டாம்" என்று வேண்டாம்', en: 'Do NOT promise confidentiality you cannot keep.' },
+        ].map((item) => (
+          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-red-600'}`}>{item.do ? '✓' : '✗'}</span>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">{item.ta}</p>
+              <p class="text-xs text-gray-500 mt-0.5">{item.en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
+      <p class="text-lg font-bold text-red-800 mb-2">உடனடி புகார் தேவையா?</p>
+      <p class="text-sm text-red-700 mb-4">POCSO under Section 19 — report immediately</p>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a href="tel:1098" class="bg-red-600 text-white font-bold text-xl px-8 py-4 rounded-full hover:bg-red-700 transition-colors">
+          📞 1098
+        </a>
+        <a href="tel:100" class="bg-blue-700 text-white font-bold text-xl px-8 py-4 rounded-full hover:bg-blue-800 transition-colors">
+          📞 100
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
