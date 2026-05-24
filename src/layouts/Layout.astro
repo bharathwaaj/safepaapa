@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { Phone, Sun, Moon, Menu } from '@lucide/astro';
 
 interface Props {
   title: string;
@@ -7,6 +8,13 @@ interface Props {
 }
 
 const { title, description = 'SafePaapa — குழந்தைகளை பாதுகாப்போம். Child safety awareness for Tamil Nadu families.' } = Astro.props;
+
+const nav = [
+  { href: '/parents',   label: 'பெற்றோருக்கு' },
+  { href: '/children',  label: 'குழந்தைகளுக்கு' },
+  { href: '/teachers',  label: 'ஆசிரியர்களுக்கு' },
+  { href: '/resources', label: 'உதவி' },
+];
 ---
 
 <!doctype html>
@@ -20,47 +28,100 @@ const { title, description = 'SafePaapa — குழந்தைகளை ப�
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <title>{title} | SafePaapa</title>
-  </head>
-  <body class="min-h-screen bg-white text-gray-900 antialiased">
 
-    <!-- Emergency strip — dark bg so the danger-colored number pops cleanly -->
-    <div class="bg-surface-ink text-white text-center py-2.5 px-4">
+    <!-- Prevent flash of wrong theme — must run before paint -->
+    <script is:inline>
+      (function () {
+        const saved = localStorage.getItem('sp-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const dark = saved === 'dark' || (!saved && prefersDark);
+        if (dark) document.documentElement.classList.add('dark');
+      })();
+    </script>
+  </head>
+
+  <body class="min-h-screen antialiased">
+
+    <!-- Emergency strip -->
+    <div class="bg-surface-ink text-text-inverse text-center py-2.5 px-4">
       <p class="text-sm font-semibold">
         குழந்தை ஆபத்தில் இருந்தால் உடனே அழைக்கவும் —
-        <a href="tel:1098" class="text-danger font-extrabold text-base mx-1 underline underline-offset-2">1098</a>
-        <span class="text-gray-400 text-xs">(CHILDLINE · 24/7 · இலவசம்)</span>
+        <a href="tel:1098" class="text-urgent font-extrabold text-base mx-1 underline underline-offset-2">
+          1098
+        </a>
+        <span class="text-text-subtle text-xs">(CHILDLINE · 24/7 · இலவசம்)</span>
       </p>
     </div>
 
-    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2">
-          <span class="text-2xl">🛡️</span>
+    <header class="sticky top-0 z-50 bg-surface border-b border-border shadow-card">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+
+        <!-- Logo — 🛡️ is an emoji here intentionally (brand warmth) -->
+        <a href="/" class="flex items-center gap-2 shrink-0">
+          <span class="text-2xl" aria-hidden="true">🛡️</span>
           <span class="font-extrabold text-lg text-brand tracking-tight">SafePaapa</span>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-600">
-          <a href="/parents" class="hover:text-brand transition-colors">பெற்றோருக்கு</a>
-          <a href="/children" class="hover:text-brand transition-colors">குழந்தைகளுக்கு</a>
-          <a href="/teachers" class="hover:text-brand transition-colors">ஆசிரியர்களுக்கு</a>
-          <a href="/resources" class="hover:text-brand transition-colors">உதவி</a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-text-muted">
+          {nav.map(({ href, label }) => (
+            <a href={href} class="hover:text-brand transition-colors">{label}</a>
+          ))}
         </nav>
-        <!-- Outline style — prominent without a screaming red block -->
-        <a href="tel:1098" class="border-2 border-danger text-danger text-sm font-bold px-4 py-1.5 rounded-full hover:bg-danger hover:text-danger-fg transition-colors">
-          1098 CHILDLINE
-        </a>
+
+        <div class="flex items-center gap-2">
+          <!-- Dark mode toggle (Lucide — system UI) -->
+          <button
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            class="p-2 rounded-full text-text-muted hover:text-brand hover:bg-brand-soft transition-colors"
+          >
+            <Sun size={16} id="icon-sun" class="hidden dark:block" aria-hidden="true" />
+            <Moon size={16} id="icon-moon" class="block dark:hidden" aria-hidden="true" />
+          </button>
+
+          <!-- CHILDLINE CTA — Lucide Phone (system language) -->
+          <a
+            href="tel:1098"
+            class="flex items-center gap-1.5 border-2 border-urgent text-urgent text-sm font-bold px-3 py-1.5 rounded-full hover:bg-urgent hover:text-urgent-fg transition-colors"
+          >
+            <Phone size={14} aria-hidden="true" />
+            1098
+          </a>
+
+          <!-- Mobile nav toggle -->
+          <button
+            id="mobile-menu-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            class="md:hidden p-2 rounded-full text-text-muted hover:text-brand hover:bg-brand-soft transition-colors"
+          >
+            <Menu size={20} aria-hidden="true" />
+          </button>
+        </div>
       </div>
+
+      <!-- Mobile nav -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-border bg-surface px-4 py-3 flex-col gap-3 text-sm font-semibold"
+      >
+        {nav.map(({ href, label }) => (
+          <a href={href} class="block py-1 text-text-muted hover:text-brand transition-colors">{label}</a>
+        ))}
+      </nav>
     </header>
 
     <main>
       <slot />
     </main>
 
-    <footer class="bg-surface-ink text-gray-400 mt-20">
+    <footer class="bg-surface-ink text-text-muted mt-20">
       <div class="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
         <div>
           <div class="flex items-center gap-2 mb-3">
-            <span class="text-xl">🛡️</span>
-            <span class="text-white font-extrabold">SafePaapa</span>
+            <span class="text-xl" aria-hidden="true">🛡️</span>
+            <span class="text-text-inverse font-extrabold">SafePaapa</span>
           </div>
           <p class="text-sm leading-relaxed">
             குழந்தைகளை பாதுகாப்போம்.<br />
@@ -68,25 +129,43 @@ const { title, description = 'SafePaapa — குழந்தைகளை ப�
           </p>
         </div>
         <div>
-          <h3 class="text-white font-semibold mb-3 text-sm">பக்கங்கள்</h3>
+          <h3 class="text-text-inverse font-semibold mb-3 text-sm">பக்கங்கள்</h3>
           <ul class="space-y-2 text-sm">
-            <li><a href="/parents" class="hover:text-white transition-colors">பெற்றோருக்கு</a></li>
-            <li><a href="/children" class="hover:text-white transition-colors">குழந்தைகளுக்கு</a></li>
-            <li><a href="/teachers" class="hover:text-white transition-colors">ஆசிரியர்களுக்கு</a></li>
-            <li><a href="/resources" class="hover:text-white transition-colors">உதவி எண்கள்</a></li>
+            {nav.map(({ href, label }) => (
+              <li><a href={href} class="hover:text-text-inverse transition-colors">{label}</a></li>
+            ))}
           </ul>
         </div>
         <div>
-          <h3 class="text-white font-semibold mb-3 text-sm">அவசர உதவி</h3>
-          <p class="text-3xl font-extrabold text-danger">1098</p>
+          <h3 class="text-text-inverse font-semibold mb-3 text-sm">அவசர உதவி</h3>
+          <p class="text-3xl font-extrabold text-urgent">1098</p>
           <p class="text-sm mt-1">CHILDLINE India — 24/7, இலவசம்</p>
-          <p class="text-sm mt-3">காவல்துறை: <span class="text-white font-semibold">100</span></p>
-          <p class="text-sm">பெண்கள் உதவி: <span class="text-white font-semibold">181</span></p>
+          <p class="text-sm mt-3">காவல்துறை: <span class="text-text-inverse font-semibold">100</span></p>
+          <p class="text-sm">பெண்கள் உதவி: <span class="text-text-inverse font-semibold">181</span></p>
         </div>
       </div>
-      <div class="border-t border-gray-800 text-center text-xs py-4 text-gray-600">
+      <div class="border-t border-border-subtle text-center text-xs py-4 text-text-subtle">
         SafePaapa — இது ஒரு இலவச விழிப்புணர்வு முயற்சி. எந்த அரசு அமைப்புடனும் தொடர்பில்லை.
       </div>
     </footer>
+
+    <!-- Theme toggle + mobile menu logic -->
+    <script>
+      // Dark mode toggle
+      const toggle = document.getElementById('theme-toggle');
+      toggle?.addEventListener('click', () => {
+        const dark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('sp-theme', dark ? 'dark' : 'light');
+      });
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn?.addEventListener('click', () => {
+        const open = mobileMenu?.classList.toggle('hidden') === false;
+        mobileMenu?.classList.toggle('flex', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+    </script>
   </body>
 </html>
