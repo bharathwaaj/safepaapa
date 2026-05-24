@@ -450,6 +450,336 @@ export const situations: Situation[] = [
     imagePrompt:
       'A Tamil child confidently shaking their head and holding up a hand in a stop gesture toward a blurry adult figure holding a phone or camera, the child assertive and safe, bright outdoor setting, flat illustration style, teal palette, empowered mood, no text',
   },
+
+  // ── Tier 1 additions ───────────────────────────────────────────────────────
+
+  {
+    slug: 'ride-offer',
+    icon: '🚗',
+    order: 13,
+    title: 'யாரோ வாகனத்தில் வர சொன்னால்',
+    titleEn: 'Someone offers your child a ride',
+    summary: '"வழியில்தான் போறேன்" என்று தெரிந்தவரும் கூட வாகனத்தில் அழைக்கலாம் — உடனே "வேண்டாம்" சொல்வது எப்படி?',
+    summaryEn: 'Even familiar people can pose a risk — never accept a ride without a parent\'s OK.',
+    why: '"வழியில்தான் போறேன், ஏத்திக்கிட்டு போறேன்" — இது அந்நியரால் மட்டுமில்ல, தெரிந்தவர்களாலும் சொல்லப்படலாம். குழந்தைகளுக்கு பெரியவர்களிடம் "வேண்டாம்" சொல்வது கஷ்டம் — குறிப்பாக அறிமுகமானவர்களிடம். ஆனால் ஒரு எளிய விதி — "அப்பா அம்மா சொல்லாமல் யாரின் வாகனத்திலும் ஏறக்கூடாது" — குழந்தையை பாதுகாக்கும்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யார் வேண்டுமானாலும் வாகனத்தில் வர சொன்னால் — "நன்றி, நான் நடந்து போவேன்" என்று சொல்."',
+          '"அல்லது "அம்மா / அப்பாவிடம் கேட்டுவிட்டு சொல்கிறேன்" என்று சொல்லி உடனே phone-ல் கேள்."',
+          '"அவர் கோபப்பட்டாலும் — வாகனத்தில் ஏறாதே."',
+          '"வீடு வந்தவுடன் என்னிடம் சொல்."',
+        ],
+      },
+      {
+        label: 'வீட்டு விதியாக வையுங்கள்:',
+        lines: [
+          '"அப்பா அம்மா அனுமதி இல்லாமல் யாரின் வாகனத்திலும் ஏறக்கூடாது — தெரிந்தவர்களாக இருந்தாலும்."',
+        ],
+      },
+    ],
+    remember: [
+      'இந்த விதி தெரிந்தவர்களுக்கும் பொருந்தும் என்று தெளிவாக்குங்கள் — உறவினர்களும் கேட்கலாம்',
+      'குழந்தை "வேண்டாம்" சொன்னதால் யாராவது கோபப்பட்டால் — அவர்தான் தவறு என்று சொல்லுங்கள்',
+      'Phone-ல் உடனே கேட்பது சரி — "நம்பிக்கையற்றது" இல்லை என்று பக்கத்திருப்பவர்களிடமும் சொல்லுங்கள்',
+      'குழந்தை வாகனத்தில் ஏறிவிட்டால் — உடனே location share செய்யட்டும்',
+    ],
+    imagePrompt:
+      'A Tamil child standing on a pavement confidently shaking their head at a blurry car with a figure inside offering a ride, the child alert and self-assured, bright daytime street, flat illustration style, teal palette, empowered mood, no text',
+  },
+  {
+    slug: 'false-claim',
+    icon: '🗣️',
+    order: 14,
+    title: '"அம்மா அனுப்பினாங்க" என்று யாரோ சொன்னால்',
+    titleEn: 'A stranger claims "your parent sent me"',
+    summary: 'யாரோ "உன் அம்மா அனுப்பினாங்க" என்று சொன்னால் — உடனே நம்பாமல் confirm செய்வது எப்படி?',
+    summaryEn: '"Your parent sent me" is a classic abduction trick — always verify directly with a parent.',
+    why: '"உன் அம்மா அனுப்பினாங்க, வா" — இது குழந்தைகளை ஏமாற்றும் மிகவும் பொதுவான முறை. "நம்மை அறிந்தவர் சொல்கிறார்" என்று குழந்தைகள் எளிதில் நம்பிவிடுவார்கள். ஆனால் ஒரு நிமிட phone call எல்லாவற்றையும் தெளிவாக்கும். ஒரு family code word இன்னும் சக்திவாய்ந்தது.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யாரோ "அம்மா / அப்பா அனுப்பினாங்க" என்று சொன்னால் — உடனே நம்பாதே."',
+          '"முதலில் phone எடுத்து என்னை அழை — நான் நேரில் confirm சொல்வேன்."',
+          '"Phone இல்லை என்றாலும் — நீ இருக்கும் இடத்திலேயே நில், அவருடன் போகாதே."',
+          '"நான் யாரையாவது அனுப்பினால் — உன்னுடைய secret codeword சொல்வேன்."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குடும்ப secret codeword ஒன்று வையுங்கள் — உண்மையான நபர் மட்டுமே தெரியட்டும்."',
+          '"யாரையாவது அனுப்பினால் — முன்கூட்டியே குழந்தையை phone-ல் warn செய்யுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      'Family codeword ஒரு சிறிய விளையாட்டாக கற்றுக்கொடுக்கலாம் — குழந்தை மறக்க மாட்டார்கள்',
+      'குழந்தை confirm செய்தது தப்பில்லை என்று சொல்லுங்கள் — நம்பிக்கையின்மை இல்லை',
+      'உண்மையில் அனுப்பப்பட்டவர் என்றாலும் — confirm செய்வது சரிதான் என்று வலியுறுத்துங்கள்',
+      'குழந்தை phone இல்லாமல் வெளியே போகும்போது கவனமாக இருங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child on a street looking cautious and reaching for their phone while a blurry adult figure approaches claiming to know their parent, the child alert and not going anywhere, flat illustration style, teal palette, empowered cautious mood, no text',
+  },
+  {
+    slug: 'home-alone',
+    icon: '🏠',
+    order: 15,
+    title: 'வீட்டில் தனியாக இருக்கும்போது',
+    titleEn: 'When your child is home alone',
+    summary: 'வேலைக்கு செல்லும் பெற்றோரின் குழந்தைகள் சில நேரம் வீட்டில் தனியாக இருக்கலாம் — கதவு, phone, அவசர திட்டம் தெரியட்டும்.',
+    summaryEn: 'Children home alone need clear rules for the door, phone calls, and emergencies.',
+    why: 'இரண்டு பெற்றோரும் வேலைக்கு செல்லும் வீடுகளில் குழந்தை சில மணி நேரம் தனியாக இருக்கும். இது தமிழ்நாட்டில் மிகவும் பொதுவானது. "கதவை திறக்காதே" என்று சொல்கிறோம் — ஆனால் யாரிடம் திறக்கலாம், அவசரமாக என்ன செய்வது, யாரை அழைப்பது என்று குழந்தைக்கு தெளிவாக தெரிகிறதா?',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யார் வந்தாலும் — கதவை திறக்காதே. "அம்மா / அப்பா வீட்டில் இல்லை" என்று சொல்லாதே."',
+          '"தெரியாதவர் வந்தால் — "யார்?" என்று கேள், கதவை திறக்காமலேயே பேசு."',
+          '"தீ, தண்ணீர் கசிவு, ஏதாவது அவசரம் என்றால் — 112 அல்லது என்னை அழை."',
+          '"யாரோ கதவை உடைக்க முயன்றால் — கத்து, பக்கத்து வீட்டாரை அழை, 100 அழை."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"அவசர எண்கள் — 1098, 100, 112 — fridge-ல் ஒட்டி வையுங்கள்."',
+          '"நம்பகமான பக்கத்து வீட்டினரிடம் முன்கூட்டியே சொல்லி வையுங்கள்."',
+          '"ஒவ்வொரு மணி நேரமும் ஒரு முறை call / message செய்யுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      '"வீட்டில் தனியாக இருக்கிறேன்" என்று யாரிடமும் சொல்லாதே என்று வலியுறுத்துங்கள்',
+      'பக்கத்து வீட்டினர் பெயர் + door number குழந்தைக்கு தெரியட்டும்',
+      'வீட்டு முகவரி மனப்பாடம் இருக்கட்டும் — அவசர நேரத்தில் சொல்ல தேவைப்படும்',
+      'யாரோ வந்தால் என்ன செய்வது என்று ஒரு முறை practice செய்து பாருங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child sitting safely inside a home near a closed front door, looking calm and alert, a phone on the table nearby, warm interior light, flat illustration style, teal palette, safe prepared mood, no text',
+  },
+  {
+    slug: 'being-followed',
+    icon: '👣',
+    order: 16,
+    title: 'யாராவது பின்தொடர்ந்தால்',
+    titleEn: 'If someone is following your child',
+    summary: 'பள்ளி அல்லது டியூஷன் செல்லும் பாதையில் யாரோ பின்தொடர்ந்தால் — பாதுகாப்பான இடத்திற்கு எப்படி செல்வது?',
+    summaryEn: 'Children must know exactly where to go and what to do if someone is following them.',
+    why: 'பள்ளி மற்றும் tuition பாதைகள் பல குழந்தைகளுக்கு தினசரி ஒரே மாதிரியாக இருக்கும். இந்த routine-ஐ யாரோ observe செய்து பின்தொடரலாம். "ஓடு" என்பது மட்டும் போதாது — எங்கே போவது, யாரிடம் உதவி கேட்பது என்று குழந்தைக்கு ஒரு திட்டம் இருக்க வேண்டும்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யாரோ பின்தொடர்கிறார்கள் என்று தோன்றினால் — திரும்பி பார்க்காதே, கடைக்குள் அல்லது கூட்டமான இடத்திற்கு போ."',
+          '"கடை, ஆஸ்பிட்டல், கோவில், மசூதி, தேவாலயம் — பொது இடங்களில் நில்."',
+          '"உடனே என்னை அழை — phone இல்லை என்றால் கடை ஆளிடம் கேள்."',
+          '"அவர் நேரடியாக நெருங்கினால் — உரக்க கத்து, ஓடு."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குழந்தையின் school / tuition பாதையில் safe spots — கடை, ஆஸ்பிட்டல் — இடம் காட்டுங்கள்."',
+          '"Route-ஐ அவ்வப்போது மாற்றுங்கள் — தினசரி ஒரே நேரம் ஒரே பாதை வேண்டாம்."',
+        ],
+      },
+    ],
+    remember: [
+      'பாதையில் "safe spots" எங்கே இருக்கின்றன என்று நடந்தே காட்டுங்கள்',
+      'Phone இல்லாமல் போகும் குழந்தைக்கு — கடை ஆளிடம் help கேட்கலாம் என்று சொல்லுங்கள்',
+      'Route-ஐ அடிக்கடி மாற்றுவது ஒரு நல்ல பழக்கம்',
+      'குழந்தை "யாரோ பார்க்கிறார்கள்" என்று சொன்னால் — seriously எடுத்துக்கொள்ளுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child walking confidently toward a brightly lit shop entrance, glancing back with awareness at a blurry figure behind them, making a smart safe decision, flat illustration style, teal palette, alert empowered mood, no text',
+  },
+  {
+    slug: 'no-pickup',
+    icon: '⏰',
+    order: 17,
+    title: 'பள்ளி முடிந்தும் யாரும் வரவில்லை என்றால்',
+    titleEn: 'No one picks your child up after school',
+    summary: 'பள்ளி முடிந்த பிறகு குழந்தை தனியாக காத்திருக்க நேரிடலாம் — பாதுகாப்பான திட்டம் தெரியட்டும்.',
+    summaryEn: 'A child stranded after school is vulnerable — a practised plan keeps them safe.',
+    why: 'Traffic, தாமதம், அவசரம் — பல காரணங்களால் பெற்றோர் சரியான நேரத்தில் வர முடியாமல் போகலாம். பள்ளி வாயிலில் தனியாக காத்திருக்கும் குழந்தையை "உதவி" பேரில் யாரோ அழைத்துச் செல்ல முயற்சிக்கலாம். முன்கூட்டியே ஒரு திட்டம் இருந்தால் குழந்தை பாதுகாப்பாக இருக்கும்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யாரும் வரவில்லை என்றால் — பள்ளியை விட்டு வெளியே போகாதே."',
+          '"ஆசிரியர் அல்லது school office-ல் இருங்கள் — அவர்களிடம் சொல்லு."',
+          '"என்னை அழை — reply இல்லை என்றால் backup person-ஐ அழை."',
+          '"யாரோ "நான் அழைத்துச் செல்கிறேன்" என்று சொன்னால் — ஆசிரியரை confirm செய்யாமல் போகாதே."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குழந்தையின் contact list-ல் backup person — அத்தை, அண்ணன், neighbour — இருக்கட்டும்."',
+          '"ஆசிரியரிடம் "தாமதமாகும்போது யாரை அழைக்கணும்" என்று சொல்லி வையுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      'Backup contact list பள்ளி record-லும் இருக்கட்டும்',
+      '"பள்ளியை விட்டு வெளியே போகாதே" என்பது மிக முக்கியமான விதி',
+      'குழந்தை school-ல் காத்திருப்பது தப்பில்லை — ஆசிரியர்கள் உதவுவார்கள் என்று சொல்லுங்கள்',
+      'தாமதமாகும்போது — phone-ல் முன்கூட்டியே warn செய்யுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child waiting calmly at a school gate with a bag, looking alert and patient, a teacher visible in the background, late afternoon light, flat illustration style, teal palette, safe prepared mood, no text',
+  },
+  {
+    slug: 'friend-in-danger',
+    icon: '👫',
+    order: 18,
+    title: 'நண்பருக்கு ஏதாவது நடந்தால்',
+    titleEn: 'When a friend is in danger or has been hurt',
+    summary: 'குழந்தைகள் பெரும்பாலும் முதலில் தெரிந்துகொள்கிறார்கள் — நண்பருக்காக எப்படி உதவி கேட்பது என்று தெரியட்டும்.',
+    summaryEn: 'Children often find out first — teach them to speak up for a friend in trouble.',
+    why: 'குழந்தைகளுக்கு ஏதாவது நடக்கும்போது — நண்பர்கள்தான் முதலில் தெரிந்துகொள்கிறார்கள். "நண்பர் சொன்னது ரகசியம்" என்று நினைத்து அமைதியாக இருக்கிறார்கள். ஆனால் இது "கெட்ட ரகசியம்" — ஒரு பெரியவரிடம் சொல்வது நண்பரை காட்டிக் கொடுப்பது அல்ல, காப்பாற்றுவது. இந்த வித்தியாசம் குழந்தைக்கு தெரியட்டும்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"நண்பர் ஏதாவது சொன்னால் — "யாரிடமும் சொல்லாதே" என்று கேட்டாலும் — அம்மா அல்லது அப்பாவிடம் சொல்லு."',
+          '"இது நண்பரை காட்டிக் கொடுப்பது இல்லை — நண்பரை காப்பாற்றுவது."',
+          '"நண்பர் கோபப்பட்டாலும் — அவர் பாதுகாப்பாக இருப்பது முக்கியம்."',
+          '"என்ன சொல்வது என்று தெரியாவிட்டாலும் — என்னிடம் வா, நாம் சேர்ந்து யோசிப்போம்."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குழந்தை நண்பரைப் பற்றி கவலையுடன் பேசினால் — seriously எடுத்துக்கொள்ளுங்கள்."',
+          '"நண்பரின் பெற்றோரிடம் அல்லது பள்ளி counselor-இடம் சொல்லுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      'குழந்தை நண்பரின் ரகசியம் சொன்னால் — நம்பியதற்கு நன்றி சொல்லுங்கள்',
+      '"நண்பரை காட்டிக் கொடுக்கவில்லை, காப்பாற்றுகிறாய்" என்று வலியுறுத்துங்கள்',
+      'நண்பரின் பெற்றோரிடம் பேசும்போது குழந்தையை involve செய்யுங்கள்',
+      'நண்பருக்காக கவலைப்படுவது நல்ல உணர்வு என்று பாராட்டுங்கள்',
+    ],
+    imagePrompt:
+      'Two Tamil children sitting together, one looking worried and the other listening with care and concern, warm school corridor setting, emotional and supportive mood, flat illustration style, teal and care-soft palette, no text',
+  },
+
+  // ── Tier 2 additions ───────────────────────────────────────────────────────
+
+  {
+    slug: 'elevator-stranger',
+    icon: '🛗',
+    order: 19,
+    title: 'லிப்டில் அந்நியர் இருந்தால்',
+    titleEn: 'A stranger in the elevator',
+    summary: 'அடுக்குமாடி குடியிருப்பில் குழந்தை தனியாக லிப்ட் பயன்படுத்தும்போது — என்ன கவனிக்க வேண்டும்?',
+    summaryEn: 'Children in apartments need simple rules for using lifts safely with strangers.',
+    why: 'தமிழ்நாட்டில் அடுக்குமாடி குடியிருப்புகள் வேகமாக அதிகரித்து வருகின்றன. குழந்தைகள் தினசரி தனியாக லிப்ட் பயன்படுத்துகிறார்கள். சில நிமிட லிப்ட் பயணம் — தனிமை, மூடிய கதவு — இவை ஆபத்தான சூழலை உருவாக்கலாம். ஒரு எளிய விதி பாதுகாப்பாக வைக்கும்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"லிப்டில் தெரியாதவர் இருந்தால் — நீ ஏறாதே, அடுத்த லிப்ட் வரை காத்திரு."',
+          '"ஏறிவிட்டால் — கதவு பக்கத்தில் நில், button panel-ல் நில்."',
+          '"யாரோ தொட்டால் — alarm button அழு, உரக்க கத்து."',
+          '"லிப்டிலிருந்து வெளியே வந்தவுடன் உடனே என்னை அழை."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"Apartment-ல் லிப்ட் camera இருக்கிறதா என்று confirm செய்யுங்கள்."',
+          '"Alarm button எங்கே இருக்கிறது என்று குழந்தைக்கு நேரில் காட்டுங்கள்."',
+        ],
+      },
+    ],
+    remember: [
+      'தெரிந்தவர் என்றாலும் — தனியாக லிப்டில் போவதை கவனமாக இருங்கள்',
+      'Alarm button எங்கே இருக்கிறது என்று ஒரு முறை practice செய்து பாருங்கள்',
+      '"தனியாக இருக்கும்போது கத்தலாம்" என்று வலியுறுத்துங்கள்',
+      'Apartment security-இடம் குழந்தை பற்றி சொல்லி வையுங்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child standing confidently near the elevator button panel inside a lift, alert posture, near the door, bright interior light, flat illustration style, teal palette, safe prepared mood, no text',
+  },
+  {
+    slug: 'gaming-stranger',
+    icon: '🎮',
+    order: 20,
+    title: 'ஆன்லைன் கேமில் தெரியாதவர் தகவல் கேட்டால்',
+    titleEn: 'A gaming contact asks for personal information',
+    summary: 'Free Fire, BGMI, Roblox-ல் பழகும் "நண்பர்கள்" — தனிப்பட்ட தகவல் கேட்டால் என்ன செய்வது?',
+    summaryEn: 'Online gaming contacts are strangers — never share personal details in a game.',
+    why: 'Free Fire, BGMI, Roblox — இவை தமிழ்நாட்டு குழந்தைகளிடம் மிகவும் பிரபலமானவை. கேமிங்கில் "teammates" ஆக பழகி, நாளடைவில் நம்பிக்கையை உருவாக்கி, பிறகு பெயர், வீட்டு முகவரி, school பெயர், phone number, photo கேட்கிறார்கள். "Game friend" என்று குழந்தை நம்புகிறார்கள் — ஆனால் அவர்கள் யாரோ என்று தெரியாது.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"கேமில் பழகும் யாரோ — நிஜ பெயர், school, வீட்டு முகவரி, phone number கேட்டால் — சொல்லாதே."',
+          '"Photo, video கேட்டால் — "வேண்டாம்" என்று சொல்லு, game விட்டு வெளியே வா."',
+          '"நேரில் சந்திக்க சொன்னால் — உடனே என்னிடம் சொல்."',
+          '"Game-ல் மட்டும் பழகுவது வேறு — real life தகவல் share வேறு."',
+        ],
+      },
+      {
+        label: 'பெற்றோர் செய்ய வேண்டியது:',
+        lines: [
+          '"குழந்தையின் game account-ல் real பெயர், photo வேண்டாம் — username மட்டும் போதும்."',
+          '"யாருடன் online-ல் பேசுகிறார்கள் என்று அவ்வப்போது கேளுங்கள் — கோபமில்லாமல்."',
+        ],
+      },
+    ],
+    remember: [
+      '"Game friend" என்பவர்கள் real life-ல் அந்நியர் என்று வலியுறுத்துங்கள்',
+      'In-game gifts, V-bucks, coins கொடுப்பவரை கவனமாக இருங்கள் — ஏதோ expect செய்கிறார்கள்',
+      'Game account privacy settings check செய்யுங்கள் — "friends only" அல்லது "private" வையுங்கள்',
+      'குழந்தை game பற்றி பேசும்போது — ஆர்வமாக கேளுங்கள், judge செய்யாதீர்கள்',
+    ],
+    imagePrompt:
+      'A Tamil child playing a mobile game, looking alert and cautious as a chat message appears on screen asking for personal information, the child about to close the chat, flat illustration style, teal palette, aware empowered mood, no text',
+  },
+  {
+    slug: 'private-photo',
+    icon: '🔒',
+    order: 21,
+    title: 'யாரோ private அல்லது intimate புகைப்படம் கேட்டால்',
+    titleEn: 'Someone asks for private or intimate photos',
+    summary: 'Online-ல் யாரோ private photo கேட்டால் — உடனே "வேண்டாம்" என்று சொல்லு, பெற்றோரிடம் சொல்.',
+    summaryEn: 'No one has the right to ask a child for private photos — refuse and tell a parent immediately.',
+    why: 'WhatsApp, Instagram, Snapchat, கேமிங் apps — எல்லாவற்றிலும் குழந்தைகளிடம் private photo கேட்கப்படுகிறது. "யாரும் பார்க்க மாட்டார்கள்", "நீ மட்டும் தான்", "நாமளுக்குள்ள தான்" என்று சொல்கிறார்கள். ஒரு முறை அனுப்பினால் — அது எப்போதும் அவர்கள் கையில் இருக்கும். இதை குழந்தைக்கு தெளிவாக சொல்லுவது மிக முக்கியம்.',
+    scripts: [
+      {
+        label: 'குழந்தையிடம் சொல்லுங்கள்:',
+        lines: [
+          '"யார் வேண்டுமானாலும் — நண்பரோ, காதலனோ, அந்நியரோ — private photo கேட்டால் உடனே "வேண்டாம்" என்று சொல்."',
+          '"அனுப்பாதே — ஒரு முறை அனுப்பினால் நீ கட்டுப்படுத்த முடியாது."',
+          '""யாரும் பார்க்க மாட்டார்கள்" என்று சொன்னாலும் நம்பாதே — screenshot எடுக்கலாம்."',
+          '"உடனே என்னிடம் சொல் — நான் கோபப்படவில்லை, உன்னை பாதுகாப்பேன்."',
+        ],
+      },
+      {
+        label: 'யாரோ மிரட்டினால்:',
+        lines: [
+          '"Photo பகிர்வேன் என்று மிரட்டினால் — பயப்படாதே, உடனே என்னிடம் சொல்."',
+          '"இது உன் தவறில்லை — CHILDLINE 1098 அல்லது Cyber Crime helpline 1930 அழைக்கலாம்."',
+        ],
+      },
+    ],
+    remember: [
+      'குழந்தை photo அனுப்பிவிட்டால் — கோபப்படாதீர்கள், முதலில் ஆதரிக்குங்கள்',
+      'Cyber Crime helpline: 1930 — online photo threat-க்கு 24/7 உதவுவார்கள்',
+      '"Delete செய்தால் போய்விடும்" என்று நம்பாதே — screenshots எடுத்திருக்கலாம்',
+      'இந்த உரையாடலை teens age-ல் ஆரம்பிக்காதீர்கள் — 10 வயதிலேயே ஆரம்பிக்கலாம்',
+    ],
+    imagePrompt:
+      'A Tamil child looking at their phone screen with a firm and cautious expression, about to decline an inappropriate message request, confident body language, flat illustration style, teal palette, empowered safe mood, no text',
+  },
 ];
 
 /** Quick lookup by slug */
