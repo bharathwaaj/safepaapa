@@ -54,6 +54,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A young Tamil girl around age 6 confidently shaking her head and holding her palm up in a gentle "no" gesture to a blurry adult figure offering something sweet, bright outdoor setting near a school gate, empowered and safe body language, flat illustration style, teal and warm white palette, no text',
+    imageSrc: '/images/situation-stranger-candy.jpg',
   },
   {
     slug: 'school-van',
@@ -90,6 +91,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child sitting near the door of a school van looking alert and confident, window open, bright daytime, safe and empowered body language, flat illustration style, teal and warm palette, no text in image',
+    imageSrc: '/images/situation-school-van.jpg',
   },
   {
     slug: 'relative-secret',
@@ -126,6 +128,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child whispering to their mother with a look of trust and relief, mother listening carefully with a gentle and open expression, warm home setting with evening light, flat illustration style, teal and care-soft palette, no text',
+    imageSrc: '/images/situation-relative-secret.jpg',
   },
   {
     slug: 'online-friend',
@@ -162,6 +165,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil teenager looking at their phone with a thoughtful cautious expression, a caring parent sitting beside them looking at the screen together with a supportive expression, warm home setting, flat illustration style, teal and trust palette, no text',
+    imageSrc: '/images/situation-online-friend.jpg',
   },
   {
     slug: 'lost-in-mall',
@@ -198,6 +202,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A small Tamil child looking slightly lost but calm in a busy market, approaching a woman shopkeeper behind a counter who is smiling helpfully and kneeling to the child\'s level, warm and safe reassuring scene, flat illustration style, teal palette, no text',
+    imageSrc: '/images/situation-lost-in-mall.jpg',
   },
   {
     slug: 'unsafe-relative',
@@ -235,6 +240,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil mother kneeling to her child\'s level with open arms and a gentle trusting expression, the child looking relieved and safe, warm home interior, soft evening light, flat illustration style, care-soft and teal palette, no text',
+    imageSrc: '/images/situation-unsafe-relative.jpg',
   },
   {
     slug: 'school-toilet',
@@ -271,6 +277,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A school corridor with a toilet door, a Tamil child walking alone confidently toward it, bright clean school environment, safe and empowered mood, flat illustration style, teal and light palette, no text',
+    imageSrc: '/images/situation-school-toilet.jpg',
   },
   {
     slug: 'gift-from-stranger',
@@ -299,6 +306,7 @@ export const situations: Situation[] = [
     ],
     imagePrompt:
       'A Tamil child confidently shaking their head at a blurry adult figure holding out a gift box, child looking calm and assured, bright outdoor setting, flat illustration style, teal palette, empowered mood, no text',
+    imageSrc: '/images/situation-gift-from-stranger.jpg',
   },
 ];
 
