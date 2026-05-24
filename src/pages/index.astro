@@ -119,9 +119,9 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
             en: 'My mother told me — your body belongs to you. I understood it immediately.',
           },
           {
-            quote: 'டாக்டர் பார்க்கும்போது கூட அம்மா இருந்தாங்க. அது என்னிடம் நம்பிக்கை கொடுத்தது.',
+            quote: 'டாக்டர் கிட்ட போகும்போது கூட அம்மா என்னோட வந்தாங்க. அது எனக்கு நம்பிக்கை கொடுத்தது.',
             by: 'ஒரு 8 வயது மாணவன்',
-            en: 'Even at the doctor, my mother stayed with me. That gave me trust.',
+            en: 'Even at the doctor, my mother came with me. That gave me confidence.',
           },
           {
             quote: 'என் பேத்தி என்னிடம் சொன்னாள் — ஆசிரியர் கையை வலிக்க தொட்டாங்க. உடனே நடவடிக்கை எடுத்தோம்.',
@@ -287,7 +287,8 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 
 <script>
 // ── Tiny Wisdom card sharing ──────────────────────────────────────────
-// Web Share API (files) → native OS share sheet → WhatsApp Status / contacts
+// Web Share API (files + text + url) → native OS share sheet
+// WhatsApp receives: image attachment + caption text with tappable link
 // Fallback: pre-composed WhatsApp text link
 
 function wrapCanvasText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
@@ -305,6 +306,15 @@ function wrapCanvasText(ctx: CanvasRenderingContext2D, text: string, maxWidth: n
   }
   if (line) lines.push(line);
   return lines;
+}
+
+function loadImg(src: string): Promise<HTMLImageElement> {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = rej;
+    img.src = src;
+  });
 }
 
 async function drawWisdomCard(quote: string, by: string, en: string): Promise<Blob> {
@@ -359,25 +369,47 @@ async function drawWisdomCard(quote: string, by: string, en: string): Promise<Bl
     y += 44;
   }
 
-  // Footer divider
+  // ── Footer (bottom 160px) ──────────────────────────────────────────
+  const footerTop = S - 160;
+
+  // Divider line
   ctx.strokeStyle = '#1a4a44';
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.moveTo(pad, S - 130);
-  ctx.lineTo(S - pad, S - 130);
+  ctx.moveTo(pad, footerTop);
+  ctx.lineTo(S - pad, footerTop);
   ctx.stroke();
 
-  // Brand — left
-  ctx.font = `bold 34px Nunito, sans-serif`;
-  ctx.fillStyle = '#5eead4';
-  ctx.textAlign = 'left';
-  ctx.fillText('SafePaapa', pad, S - 76);
+  // Left: logo + "SafePaapa"
+  const logoH = 54;
+  const logoW = Math.round(logoH * (67 / 40)); // 67:40 native aspect
+  const logoTop = footerTop + (160 - logoH) / 2;
+  const brandBaseline = logoTop + logoH * 0.72; // visual centre of cap-height
 
-  // URL + helpline — right
-  ctx.font = `28px Nunito, sans-serif`;
-  ctx.fillStyle = 'rgba(94,234,212,0.6)';
+  try {
+    const logo = await loadImg('/logo.svg');
+    ctx.drawImage(logo, pad, logoTop, logoW, logoH);
+    ctx.font = 'bold 38px Nunito, sans-serif';
+    ctx.fillStyle = '#5eead4';
+    ctx.textAlign = 'left';
+    ctx.fillText('SafePaapa', pad + logoW + 14, brandBaseline);
+  } catch {
+    ctx.font = 'bold 40px Nunito, sans-serif';
+    ctx.fillStyle = '#5eead4';
+    ctx.textAlign = 'left';
+    ctx.fillText('SafePaapa', pad, brandBaseline);
+  }
+
+  // Right: "safepaapa.in" above, "CHILDLINE · 1098" below
   ctx.textAlign = 'right';
-  ctx.fillText('safepaapa.in  ·  1098', S - pad, S - 76);
+  ctx.font = '30px Nunito, sans-serif';
+  ctx.fillStyle = 'rgba(94,234,212,0.7)';
+  ctx.fillText('safepaapa.in', S - pad, footerTop + 62);
+
+  ctx.font = 'bold 30px Nunito, sans-serif';
+  ctx.fillStyle = '#fda4af'; // rose-300 — stands out as emergency
+  ctx.fillText('CHILDLINE · 1098', S - pad, footerTop + 108);
+
   ctx.textAlign = 'left';
 
   return new Promise((resolve) =>
@@ -390,22 +422,28 @@ async function shareWisdom(quote: string, by: string, en: string, btn: HTMLButto
   btn.textContent = '…';
   btn.disabled = true;
 
+  const captionText = `"${quote}"\n— ${by}\n\nSafePaapa குழந்தை பாதுகாப்பு விழிப்புணர்வு`;
+  const siteUrl = 'https://safepaapa.in';
+
   try {
     const blob = await drawWisdomCard(quote, by, en);
     const file = new File([blob], 'safepaapa-wisdom.jpg', { type: 'image/jpeg' });
 
-    if (navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ files: [file], title: 'SafePaapa — குழந்தை பாதுகாப்பு' });
+    // Try sharing image + text + url (WhatsApp shows image with caption + tappable link)
+    const fullShare = { files: [file], title: 'SafePaapa', text: captionText, url: siteUrl };
+    const imageOnly = { files: [file], title: 'SafePaapa' };
+
+    if (navigator.canShare?.(fullShare)) {
+      await navigator.share(fullShare);
+    } else if (navigator.canShare?.(imageOnly)) {
+      await navigator.share(imageOnly);
     } else {
-      // Desktop / unsupported: open WhatsApp with text
-      const text = `"${quote}"\n— ${by}\n\nSafePaapa குழந்தை பாதுகாப்பு விழிப்புணர்வு\nsafepaapa.in  |  CHILDLINE: 1098`;
-      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+      // Desktop fallback: WhatsApp text with link
+      const waText = `${captionText}\n${siteUrl}\nCHILDLINE: 1098`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(waText)}`, '_blank');
     }
   } catch (e: any) {
-    if (e.name !== 'AbortError') {
-      // AbortError = user dismissed share sheet — silently ignore
-      console.error('Share failed', e);
-    }
+    if (e.name !== 'AbortError') console.error('Share failed', e);
   } finally {
     btn.textContent = original;
     btn.disabled = false;
