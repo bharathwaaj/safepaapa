@@ -17,10 +17,14 @@ interface Props {
 
 const { situation: s } = Astro.props;
 
+// Fallback WhatsApp text-only URL (used if Web Share API / canvas unavailable)
 const shareText = encodeURIComponent(
   `${s.title} — குழந்தையிடம் இன்றே பேசுங்கள்.\n\nSafePaapa குழந்தை பாதுகாப்பு: https://safepaapa.in/situations/${s.slug}`
 );
-const whatsappUrl = `https://wa.me/?text=${shareText}`;
+const whatsappFallbackUrl = `https://wa.me/?text=${shareText}`;
+
+// First script line — passed to canvas card generator
+const firstScriptLine = s.scripts[0]?.lines[0] ?? '';
 
 // Prev / next navigation
 const sorted = [...situations].sort((a, b) => a.order - b.order);
@@ -120,14 +124,18 @@ const next = sorted[idx + 1];
       <p class="text-sm opacity-80 max-w-md">
         இதை படித்த நீங்கள் — மற்ற ஒரு பெற்றோருக்கும் அனுப்புங்கள். ஒரு பகிர்வு ஒரு குழந்தையை காக்கலாம்.
       </p>
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-green-500 text-white font-bold px-7 py-3 rounded-full hover:bg-green-600 transition-colors whitespace-nowrap"
+      <button
+        id="situation-share-btn"
+        class="bg-green-500 text-white font-bold px-7 py-3 rounded-full hover:bg-green-600 active:scale-95 transition-all whitespace-nowrap"
+        data-icon={s.icon}
+        data-title={s.title}
+        data-script={firstScriptLine}
+        data-slug={s.slug}
+        data-fallback={whatsappFallbackUrl}
+        aria-label={`Share: ${s.title}`}
       >
         📲 WhatsApp-ல் பகிர்
-      </a>
+      </button>
     </div>
   </section>
 
@@ -165,3 +173,209 @@ const next = sorted[idx + 1];
   )}
 
 </Layout>
+
+<script>
+// ── Situation card sharing ────────────────────────────────────────────────
+// Generates a 1080×1080 branded card image and shares via Web Share API.
+// Falls back to WhatsApp text link on desktop or unsupported browsers.
+
+function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let line = '';
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function loadImg(src: string): Promise<HTMLImageElement> {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = rej;
+    img.src = src;
+  });
+}
+
+async function drawSituationCard(
+  icon: string,
+  title: string,
+  scriptLine: string,
+  slug: string
+): Promise<Blob> {
+  await document.fonts.ready;
+
+  const S = 1080;
+  const pad = 88;
+  const canvas = document.createElement('canvas');
+  canvas.width = S;
+  canvas.height = S;
+  const ctx = canvas.getContext('2d')!;
+
+  // Background
+  ctx.fillStyle = '#042f2e';
+  ctx.fillRect(0, 0, S, S);
+
+  // Subtle top gradient
+  const grad = ctx.createLinearGradient(0, 0, 0, S * 0.4);
+  grad.addColorStop(0, 'rgba(94,234,212,0.09)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, S, S);
+
+  ctx.textAlign = 'center';
+
+  // Emoji — large, centered
+  ctx.font = '148px serif';
+  ctx.fillText(icon, S / 2, 190);
+
+  // "SafePaapa · குழந்தை பாதுகாப்பு" sub-label
+  ctx.font = 'bold 28px Nunito, sans-serif';
+  ctx.fillStyle = 'rgba(94,234,212,0.65)';
+  ctx.fillText('SafePaapa · குழந்தை பாதுகாப்பு', S / 2, 260);
+
+  // Situation title — large, white, wrapped
+  ctx.font = `bold 52px "Noto Sans Tamil", sans-serif`;
+  ctx.fillStyle = '#ffffff';
+  const titleLines = wrapText(ctx, title, S - pad * 2);
+  let y = 360;
+  for (const line of titleLines) {
+    ctx.fillText(line, S / 2, y);
+    y += 76;
+  }
+
+  // Divider
+  y += 28;
+  ctx.strokeStyle = '#1a4a44';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pad, y);
+  ctx.lineTo(S - pad, y);
+  ctx.stroke();
+  y += 52;
+
+  // "குழந்தையிடம் சொல்லுங்கள்:" label
+  ctx.font = `bold 30px "Noto Sans Tamil", sans-serif`;
+  ctx.fillStyle = '#5eead4';
+  ctx.fillText('குழந்தையிடம் சொல்லுங்கள்:', S / 2, y);
+  y += 60;
+
+  // First script line — strip surrounding quotes for cleaner card display
+  const cleanLine = scriptLine.replace(/^["""'']+|["""'']+$/g, '').replace(/[.।]$/, '');
+  ctx.font = `38px "Noto Sans Tamil", sans-serif`;
+  ctx.fillStyle = '#e2fdf8';
+  const scriptLines = wrapText(ctx, cleanLine, S - pad * 2);
+  for (const line of scriptLines) {
+    ctx.fillText(line, S / 2, y);
+    y += 58;
+  }
+
+  // ── Footer ───────────────────────────────────────────────────────────────
+  const footerTop = S - 155;
+
+  ctx.strokeStyle = '#1a4a44';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pad, footerTop);
+  ctx.lineTo(S - pad, footerTop);
+  ctx.stroke();
+
+  // Left: logo + "SafePaapa"
+  const logoH = 50;
+  const logoW = Math.round(logoH * (67 / 40));
+  const logoTop = footerTop + (155 - logoH) / 2;
+  const brandBaseline = logoTop + logoH * 0.72;
+
+  ctx.textAlign = 'left';
+  try {
+    const logo = await loadImg('/logo.svg');
+    ctx.drawImage(logo, pad, logoTop, logoW, logoH);
+    ctx.font = 'bold 36px Nunito, sans-serif';
+    ctx.fillStyle = '#5eead4';
+    ctx.fillText('SafePaapa', pad + logoW + 14, brandBaseline);
+  } catch {
+    ctx.font = 'bold 36px Nunito, sans-serif';
+    ctx.fillStyle = '#5eead4';
+    ctx.fillText('SafePaapa', pad, brandBaseline);
+  }
+
+  // Right: URL + CHILDLINE
+  ctx.textAlign = 'right';
+  ctx.font = '26px Nunito, sans-serif';
+  ctx.fillStyle = 'rgba(94,234,212,0.65)';
+  ctx.fillText(`safepaapa.in/situations/${slug}`, S - pad, footerTop + 54);
+
+  ctx.font = 'bold 30px Nunito, sans-serif';
+  ctx.fillStyle = '#fda4af';
+  ctx.fillText('CHILDLINE · 1098', S - pad, footerTop + 100);
+
+  ctx.textAlign = 'left';
+
+  return new Promise((resolve) =>
+    canvas.toBlob((b) => resolve(b!), 'image/jpeg', 0.92)
+  );
+}
+
+async function shareSituation(
+  icon: string,
+  title: string,
+  scriptLine: string,
+  slug: string,
+  fallbackUrl: string,
+  btn: HTMLButtonElement
+) {
+  const original = btn.textContent!;
+  btn.textContent = '…';
+  btn.disabled = true;
+
+  const captionText = `${title} — குழந்தையிடம் இன்றே பேசுங்கள்.\n\nSafePaapa குழந்தை பாதுகாப்பு விழிப்புணர்வு`;
+  const siteUrl = `https://safepaapa.in/situations/${slug}`;
+
+  try {
+    const blob = await drawSituationCard(icon, title, scriptLine, slug);
+    const file = new File([blob], `safepaapa-${slug}.jpg`, { type: 'image/jpeg' });
+
+    const fullShare = { files: [file], title: 'SafePaapa', text: captionText, url: siteUrl };
+    const imageOnly = { files: [file], title: 'SafePaapa' };
+
+    if (navigator.canShare?.(fullShare)) {
+      await navigator.share(fullShare);
+    } else if (navigator.canShare?.(imageOnly)) {
+      await navigator.share(imageOnly);
+    } else {
+      // Desktop fallback — open WhatsApp text link
+      window.open(fallbackUrl, '_blank');
+    }
+  } catch (e: any) {
+    if (e.name !== 'AbortError') {
+      // Canvas or share failed — fall back gracefully
+      window.open(fallbackUrl, '_blank');
+    }
+  } finally {
+    btn.textContent = original;
+    btn.disabled = false;
+  }
+}
+
+const btn = document.getElementById('situation-share-btn') as HTMLButtonElement | null;
+if (btn) {
+  btn.addEventListener('click', () => {
+    shareSituation(
+      btn.dataset.icon!,
+      btn.dataset.title!,
+      btn.dataset.script!,
+      btn.dataset.slug!,
+      btn.dataset.fallback!,
+      btn
+    );
+  });
+}
+</script>
