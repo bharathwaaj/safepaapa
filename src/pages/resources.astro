@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 ---
 
 <Layout title="உதவி எண்கள் & வளங்கள்" description="தமிழ்நாடு குழந்தை பாதுகாப்பு உதவி எண்கள், NGO தகவல்கள் — SafePaapa">
@@ -16,8 +17,8 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Emergency Numbers -->
     <section>
-      <h2 class="text-xl font-extrabold text-gray-900 mb-1">அவசர உதவி எண்கள்</h2>
-      <p class="text-xs text-gray-400 mb-6">Emergency helplines — available 24/7</p>
+      <h2 class="text-xl font-extrabold text-text mb-1">அவசர உதவி எண்கள்</h2>
+      <p class="text-xs text-text-subtle mb-6">Emergency helplines — available 24/7</p>
       <div class="space-y-3">
         {[
           {
@@ -51,25 +52,46 @@ import Layout from '../layouts/Layout.astro';
         ].map((h) => (
           <a
             href={`tel:${h.number}`}
-            class={`flex items-center gap-5 bg-white border-2 rounded-2xl p-5 hover:shadow-md transition-shadow ${h.primary ? 'border-danger' : 'border-gray-200 hover:border-brand'}`}
+            class={`flex items-center gap-5 bg-surface border-2 rounded-2xl p-5 hover:shadow-raised transition-shadow ${h.primary ? 'border-urgent' : 'border-border hover:border-brand'}`}
           >
-            <div class={`text-3xl font-extrabold ${h.primary ? 'text-danger' : 'text-brand'}`}>
+            <div class={`text-3xl font-extrabold shrink-0 ${h.primary ? 'text-urgent' : 'text-brand'}`}>
               {h.number}
             </div>
             <div>
-              <p class="font-extrabold text-gray-900">{h.name}</p>
-              <p class="text-sm text-gray-600">{h.ta}</p>
-              <p class="text-xs text-gray-400">{h.en}</p>
+              <p class="font-extrabold text-text">{h.name}</p>
+              <p class="text-sm text-text-muted">{h.ta}</p>
+              <p class="text-xs text-text-subtle">{h.en}</p>
             </div>
           </a>
         ))}
       </div>
     </section>
 
+    <!-- Save to phone visual CTA -->
+    <div class="bg-urgent-soft border border-urgent-border rounded-2xl p-6">
+      <div class="flex gap-6 items-center">
+        <ImagePlaceholder
+          prompt="A hand holding a smartphone with the contact screen showing '1098 CHILDLINE' being saved, warm close-up shot, clean and purposeful, teal accent on the save button, photorealistic, no other text visible"
+          width={200}
+          height={200}
+          aspect="1/1"
+          rounded="rounded-xl"
+          class="shrink-0 w-28"
+        />
+        <div>
+          <h3 class="font-extrabold text-urgent-text mb-2">இப்போதே சேமியுங்கள்</h3>
+          <p class="text-sm text-text-muted mb-1">
+            <strong>1098</strong> எண்ணை இப்போதே உங்கள் phone-ல் சேமியுங்கள். அவசரத்தில் தேட நேரமிருக்காது.
+          </p>
+          <p class="text-xs text-text-subtle">Save CHILDLINE 1098 in your contacts — and share this page with family.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- TN Government Bodies -->
     <section>
-      <h2 class="text-xl font-extrabold text-gray-900 mb-1">தமிழ்நாடு அரசு அமைப்புகள்</h2>
-      <p class="text-xs text-gray-400 mb-6">Tamil Nadu government bodies for child protection</p>
+      <h2 class="text-xl font-extrabold text-text mb-1">தமிழ்நாடு அரசு அமைப்புகள்</h2>
+      <p class="text-xs text-text-subtle mb-6">Tamil Nadu government bodies for child protection</p>
       <div class="space-y-3">
         {[
           {
@@ -88,9 +110,9 @@ import Layout from '../layouts/Layout.astro';
             contact: 'மாவட்ட சமூக நலன் அலுவலகம்',
           },
         ].map((org) => (
-          <div class="bg-surface-sunken border border-gray-200 rounded-xl p-5">
-            <p class="font-extrabold text-gray-900 mb-1">{org.name}</p>
-            <p class="text-sm text-gray-600 mb-2">{org.ta}</p>
+          <div class="bg-surface-sunken border border-border rounded-xl p-5">
+            <p class="font-extrabold text-text mb-1">{org.name}</p>
+            <p class="text-sm text-text-muted mb-2">{org.ta}</p>
             <p class="text-xs text-brand">📌 {org.contact}</p>
           </div>
         ))}
@@ -99,8 +121,8 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- NGOs -->
     <section>
-      <h2 class="text-xl font-extrabold text-gray-900 mb-1">NGO & நிறுவனங்கள்</h2>
-      <p class="text-xs text-gray-400 mb-6">Organisations working on child safety in Tamil Nadu</p>
+      <h2 class="text-xl font-extrabold text-text mb-1">NGO & நிறுவனங்கள்</h2>
+      <p class="text-xs text-text-subtle mb-6">Organisations working on child safety in Tamil Nadu</p>
       <div class="space-y-3">
         {[
           {
@@ -119,10 +141,10 @@ import Layout from '../layouts/Layout.astro';
             url: null,
           },
         ].map((ngo) => (
-          <div class="bg-white border border-gray-200 rounded-xl p-5 flex items-start justify-between gap-4">
+          <div class="bg-surface border border-border rounded-xl p-5 flex items-start justify-between gap-4">
             <div>
-              <p class="font-extrabold text-gray-900 mb-1">{ngo.name}</p>
-              <p class="text-sm text-gray-600">{ngo.ta}</p>
+              <p class="font-extrabold text-text mb-1">{ngo.name}</p>
+              <p class="text-sm text-text-muted">{ngo.ta}</p>
             </div>
             {ngo.url && (
               <a href={ngo.url} target="_blank" rel="noopener noreferrer" class="text-brand text-xs shrink-0 hover:underline font-semibold">
@@ -134,15 +156,31 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- Save to phone CTA -->
-    <div class="bg-brand-soft border border-brand-muted rounded-2xl p-6 text-center">
-      <div class="text-4xl mb-3">📱</div>
-      <h3 class="font-extrabold text-brand-strong mb-2">இப்போதே சேமியுங்கள்</h3>
-      <p class="text-sm text-gray-600 mb-2">
-        <strong>1098</strong> எண்ணை இப்போதே உங்கள் phone-ல் சேமியுங்கள். அவசரத்தில் தேட நேரமிருக்காது.
-      </p>
-      <p class="text-xs text-gray-400">Save CHILDLINE 1098 in your contacts right now — and share this page with family.</p>
-    </div>
+    <!-- Share CTA -->
+    <section class="bg-brand text-brand-fg rounded-3xl p-8">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-xl font-extrabold mb-2">இதை பகிருங்கள்</h3>
+          <p class="text-brand-muted text-xs mb-3">உங்கள் WhatsApp குழுவில் ஒரு forward மட்டும் போதும் — யாரோ ஒருவரின் குழந்தையை காப்பாற்றலாம்.</p>
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு. CHILDLINE: 1098 (24/7, இலவசம்). மேலும் தகவல்: https://safepaapa.in')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors"
+          >
+            📲 WhatsApp-ல் பகிர
+          </a>
+        </div>
+        <ImagePlaceholder
+          prompt="A Tamil woman on her phone forwarding a safety message in WhatsApp, her expression showing care and urgency, soft warm light, flat illustration style, teal and green accent palette, no text visible on screen"
+          width={400}
+          height={280}
+          aspect="10/7"
+          rounded="rounded-2xl"
+          class="opacity-90"
+        />
+      </div>
+    </section>
 
   </div>
 </Layout>
