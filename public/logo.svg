@@ -1,0 +1,25 @@
+<!--
+  PLACEHOLDER — Replace with ChatGPT-generated logo.
+
+  Prompt for ChatGPT image generation:
+  ─────────────────────────────────────
+  A minimalist logo mark for "SafePaapa", a Tamil Nadu child safety
+  awareness website. A protective shield shape with a gentle adult
+  figure holding a small child's hand inside. Flat, modern, clean.
+  Primary color teal (#0f766e), white detail on transparent background.
+  No text. Works equally well on white and dark backgrounds.
+  SVG vector style. Suitable for 32x32px display.
+  ─────────────────────────────────────
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 116" fill="none" role="img" aria-label="SafePaapa logo placeholder">
+  <!-- Shield body -->
+  <path d="M50 4L8 22v34c0 27 18 50.5 42 57 24-6.5 42-30 42-57V22L50 4z" fill="#0f766e"/>
+
+  <!-- Adult figure -->
+  <circle cx="43" cy="50" r="9" fill="white"/>
+  <path d="M27 82c0-9 7-15 16-15s16 6 16 15" fill="white"/>
+
+  <!-- Child figure — smaller, beside adult -->
+  <circle cx="64" cy="56" r="6" fill="white" opacity="0.8"/>
+  <path d="M52 82c0-7 5-11 12-11s12 4 12 11" fill="white" opacity="0.8"/>
+</svg>
