@@ -35,6 +35,9 @@ const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : siteUrl;
 const fullOgImage = `${siteUrl}${ogImage}`;
 const fullTitle = title.endsWith('SafePaapa') ? title : `${title} | SafePaapa`;
 
+// aria-current: mark the active nav link
+const currentPath = Astro.url.pathname;
+
 const nav = [
   { href: '/situations', label: 'சூழல்கள்' },
   { href: '/parents',    label: 'பெற்றோருக்கு' },
@@ -95,6 +98,15 @@ const footerNav = [
 
   <body class="min-h-screen antialiased">
 
+    <!-- Skip to main content — keyboard / screen reader accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200]
+             focus:bg-brand focus:text-brand-fg focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-raised"
+    >
+      முக்கிய உள்ளடக்கத்திற்கு செல்க (Skip to main content)
+    </a>
+
     <!-- Emergency strip -->
     <div class="bg-surface-ink text-text-inverse text-center py-2.5 px-4">
       <p class="text-sm font-semibold">
@@ -115,10 +127,20 @@ const footerNav = [
         </a>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-3 lg:gap-6 text-xs lg:text-sm font-semibold text-text-muted">
-          {nav.map(({ href, label }) => (
-            <a href={href} class="hover:text-brand transition-colors">{label}</a>
-          ))}
+        <nav class="hidden md:flex items-center gap-3 lg:gap-6 text-xs lg:text-sm font-semibold text-text-muted" aria-label="முக்கிய வழிசெலுத்தல்">
+          {nav.map(({ href, label }) => {
+            const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+            return (
+              <a
+                href={href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'hover:text-brand transition-colors',
+                  isActive && 'text-brand font-extrabold',
+                ]}
+              >{label}</a>
+            );
+          })}
         </nav>
 
         <div class="flex items-center gap-2">
@@ -157,14 +179,25 @@ const footerNav = [
       <nav
         id="mobile-menu"
         class="hidden md:hidden border-t border-border bg-surface px-4 py-3 flex-col gap-3 text-sm font-semibold"
+        aria-label="மொபைல் வழிசெலுத்தல்"
       >
-        {nav.map(({ href, label }) => (
-          <a href={href} class="block py-1 text-text-muted hover:text-brand transition-colors">{label}</a>
-        ))}
+        {nav.map(({ href, label }) => {
+          const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+          return (
+            <a
+              href={href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'block py-1 hover:text-brand transition-colors',
+                isActive ? 'text-brand font-extrabold' : 'text-text-muted',
+              ]}
+            >{label}</a>
+          );
+        })}
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
 
