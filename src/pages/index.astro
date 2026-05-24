@@ -105,34 +105,44 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
     </div>
   </section>
 
-  <!-- Tiny Wisdom — 3 quotes -->
+  <!-- Tiny Wisdom — screenshot-optimised quote cards -->
   <section class="bg-surface-sunken py-16 px-4 border-y border-border">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-xl font-extrabold text-center text-text mb-1">பெற்றோர் சொல்வது</h2>
-      <p class="text-center text-text-subtle text-xs mb-10">Words that have protected children</p>
+      <p class="text-center text-text-subtle text-xs mb-3">Words that have protected children</p>
+      <p class="text-center text-text-subtle text-xs mb-10 italic">Screenshot செய்து WhatsApp-ல் பகிருங்கள்</p>
       <div class="grid md:grid-cols-3 gap-6">
         {[
           {
-            quote: '"அம்மா என்னிடம் சொன்னாங்க — உன் உடல் உனக்கே சொந்தம். அன்றே புரிஞ்சுச்சு."',
+            quote: 'அம்மா என்னிடம் சொன்னாங்க — உன் உடல் உனக்கே சொந்தம். அன்றே புரிஞ்சுச்சு.',
             by: 'ஒரு 10 வயது மாணவி',
             en: '"My mother told me — your body belongs to you. I understood it immediately."',
           },
           {
-            quote: '"டாக்டர் பார்க்கும்போது கூட அம்மா இருந்தாங்க. அது என்னிடம் நம்பிக்கை கொடுத்தது."',
+            quote: 'டாக்டர் பார்க்கும்போது கூட அம்மா இருந்தாங்க. அது என்னிடம் நம்பிக்கை கொடுத்தது.',
             by: 'ஒரு 8 வயது மாணவன்',
-            en: '"Even at the doctor, my mother was with me. That gave me trust."',
+            en: '"Even at the doctor, my mother stayed with me. That gave me trust."',
           },
           {
-            quote: '"என் பெயர்த்தி என்னிடம் சொன்னாள் — ஆசிரியர் கையை வலிக்க தொட்டாங்க. உடனே நடவடிக்கை எடுத்தோம்."',
+            quote: 'என் பெயர்த்தி என்னிடம் சொன்னாள் — ஆசிரியர் கையை வலிக்க தொட்டாங்க. உடனே நடவடிக்கை எடுத்தோம்.',
             by: 'ஒரு பாட்டி',
-            en: '"My granddaughter told me a teacher hurt her hand. We acted immediately."',
+            en: '"My granddaughter told me a teacher hurt her. We acted immediately."',
           },
         ].map((w) => (
-          <div class="bg-surface rounded-2xl p-6 border border-border shadow-card flex flex-col gap-4">
-            <p class="text-text font-semibold text-sm leading-relaxed">❝ {w.quote}</p>
-            <div class="mt-auto">
-              <p class="text-brand font-bold text-xs">— {w.by}</p>
-              <p class="text-text-subtle text-xs mt-1 italic">{w.en}</p>
+          <div class="rounded-2xl flex flex-col overflow-hidden shadow-float" style="background:#042f2e">
+            {/* Quote body */}
+            <div class="px-6 pt-6 pb-4 flex flex-col gap-4 flex-1">
+              <span class="text-5xl leading-none font-extrabold" style="color:#5eead4" aria-hidden="true">❝</span>
+              <p class="font-extrabold text-lg leading-snug sm:leading-[1.5]" style="color:#ffffff">{w.quote}</p>
+              <div class="mt-auto pt-2">
+                <p class="font-bold text-sm" style="color:#99f6e4">— {w.by}</p>
+                <p class="text-xs mt-1 leading-relaxed italic" style="color:#5eead4;opacity:0.75">{w.en}</p>
+              </div>
+            </div>
+            {/* Brand footer — visible in screenshot */}
+            <div class="flex items-center justify-between px-6 py-3" style="border-top:1px solid #1a4a44">
+              <span class="text-xs font-bold" style="color:#5eead4">SafePaapa</span>
+              <span class="text-xs" style="color:#5eead4;opacity:0.6">safepaapa.in · 1098</span>
             </div>
           </div>
         ))}
