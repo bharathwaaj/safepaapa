@@ -43,18 +43,28 @@
 
 ### Pages
 
-#### `src/pages/index.astro` (Homepage)
-- [x] Emotional hook hero: "உங்கள் குழந்தையிடம் இன்று பேசியிருக்கீங்களா?"
+#### `src/pages/index.astro` (Homepage) — Phase 1 rewrite
+
+Original Phase 1 plan items and their status:
+
+- [x] **Emotional hook hero** — single Tamil emotional statement, no statistics
+  - "உங்கள் குழந்தையிடம் இன்று பேசியிருக்கீங்களா?"
   - 4 words as `<span class="block">` for even line spacing
   - Responsive font: `text-2xl sm:text-3xl md:text-4xl`
   - Responsive leading: `leading-snug sm:leading-[1.5] md:leading-[1.6]`
   - `min-w-0` on text column to respect grid boundary
-- [x] Situation strip: 4 real-world scenario cards (stranger candy, school van, secret-keeping relative, online friend) — links to `/parents#situations`
+- [x] **Removed "Three Pillars" section** — was too NGO-brochure; replaced with "யாருக்கு?" audience cards
+- [x] **Situation card strip** — 4 real-world scenario cards (stranger candy, school van, secret-keeping relative, online friend)
+  - ⚠️ "Start in 60 seconds" branding/label is **not yet added** to the strip header
+  - ⚠️ Cards currently link to `/parents#situations` — should eventually link to `/situations/[slug]` (Phase 2)
+- [x] **Tiny Wisdom section** — 3 first-person Tamil quotes from parents/grandparent
+  - ⚠️ Not yet **screenshot-optimised** — quotes should be styled as bold shareable cards (high contrast, clear author, copy-paste friendly layout for WhatsApp forwards)
+- [ ] **"Send to 3 parents" CTA** — currently a generic "WhatsApp-ல் பகிர" button
+  - The original plan specified a *specific* viral mechanic: prompt "இதை 3 பெற்றோரிடம் அனுப்புங்கள்" (send to 3 parents)
+  - This framing is more viral than a generic share button — not yet implemented
 - [x] "Why Now" callout — Sulur incident context
-- [x] Tiny Wisdom section — 3 first-person Tamil quotes from parents/grandparent
 - [x] 5 Safety Rules — emoji + Tamil + English
 - [x] "யாருக்கு?" section — 3 audience cards with ImagePlaceholders
-- [x] WhatsApp share CTA with deep link
 - [x] All ImagePlaceholders have Tamil Nadu-specific ChatGPT prompts; Codex has generated images (src props set)
 
 #### `src/pages/parents.astro`
@@ -113,6 +123,22 @@
 
 ## 🔲 Pending
 
+### Phase 1 — Remaining Homepage Items (incomplete)
+
+- [ ] **"Start in 60 seconds" label** — add heading above the situation strip:
+  - Tamil: "60 விநாடியில் தெரிந்துகொள்ளுங்கள்" or "இந்த சூழல்களில் என்ன செய்வது?"
+  - English sub: "Start in 60 seconds — tap a situation"
+- [ ] **"Send to 3 parents" CTA** — replace generic WhatsApp button with:
+  - Tamil: "இதை 3 பெற்றோரிடம் அனுப்புங்கள்" 
+  - Specific viral mechanic — not a general share prompt
+- [ ] **Screenshot-optimised Tiny Wisdom cards** — restyle the 3 quote cards:
+  - High-contrast background (brand or dark)
+  - Large Tamil quote text, bold
+  - Author line clearly styled
+  - Designed to look good when screenshotted and forwarded on WhatsApp
+
+---
+
 ### Phase 2 — Situation Pages (Highest Impact)
 > The homepage situation strip already teases these. Currently all 4 cards link to `/parents#situations` as a stopgap.
 
@@ -127,7 +153,21 @@
   - [ ] `unsafe-relative.mdx` — குடும்பத்தில் பாதுகாப்பற்ற நபர்
   - [ ] `school-toilet.mdx` — பள்ளி கழிப்பறையில் தனிமை
 - [ ] Create `src/pages/situations/[slug].astro` dynamic route
+  - Page design spec (from original plan): **1 idea per page** — not a long article
+    - Large Tamil headline (the situation title)
+    - One short emotional paragraph — why this matters
+    - One `ImagePlaceholder` illustration
+    - What to teach your child (word-for-word Tamil script)
+    - One prominent share CTA ("இதை பகிருங்கள்" with WhatsApp deep link pre-filled with situation URL)
+  - Each page should be self-contained — shareable on its own as a link
+- [ ] Define collection schema in `src/content/config.ts`:
+  - Fields: `title` (Tamil), `titleEn`, `icon` (emoji), `summary`, `slug`, `order`
 - [ ] Update homepage situation cards to link to `/situations/[slug]` instead of `/parents#situations`
+- [ ] **Update nav to situation-based** (from original Phase 2 plan — currently nav is audience-based):
+  - Current nav: பெற்றோருக்கு · குழந்தைகளுக்கு · ஆசிரியர்களுக்கு · உதவி
+  - Proposed: add "சூழல்கள்" (Situations) as a top-level nav item linking to a situations index page
+  - Decide: replace one of the current links or add as 5th item (may overflow on md — needs care)
+  - Create `src/pages/situations/index.astro` — grid of all situation cards
 
 ### Phase 3 — New Components
 - [ ] `src/components/SituationCard.astro` — reusable card for situation strip (icon, Tamil label, English, link)
