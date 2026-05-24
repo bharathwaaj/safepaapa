@@ -15,8 +15,8 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-3xl mx-auto px-4 py-12 space-y-14">
 
     <!-- Why teachers matter -->
-    <section class="bg-brand-subtle border-l-4 border-brand rounded-r-xl p-6">
-      <h2 class="font-extrabold text-brand-dark mb-2">ஆசிரியர்களின் பங்கு முக்கியம்</h2>
+    <section class="bg-brand-soft border-l-4 border-brand rounded-r-xl p-6">
+      <h2 class="font-extrabold text-brand-strong mb-2">ஆசிரியர்களின் பங்கு முக்கியம்</h2>
       <p class="text-sm text-gray-700 leading-relaxed">
         குழந்தைகள் தங்கள் நேரத்தில் பெரும் பகுதியை பள்ளியில் கழிக்கிறார்கள். வீட்டில் சொல்ல முடியாதவற்றை ஒரு நம்பகமான ஆசிரியரிடம் சொல்லலாம் என்று நம்புவார்கள். நீங்கள் அந்த நம்பகமான முகமாக இருங்கள்.
       </p>
@@ -37,7 +37,7 @@ import Layout from '../layouts/Layout.astro';
           { ta: 'வயதுக்கு மீறிய பாலியல் அறிவு', en: 'Age-inappropriate sexual language, drawing, or behaviour' },
           { ta: 'தனிமையாக இருத்தல், நண்பர்களிடமிருந்து விலகுதல்', en: 'Social withdrawal from peers' },
         ].map((sign) => (
-          <div class="flex gap-3 items-start bg-danger-subtle border border-gray-100 rounded-xl p-4">
+          <div class="flex gap-3 items-start bg-urgent-soft border border-gray-100 rounded-xl p-4">
             <span class="text-danger mt-0.5 font-bold">!</span>
             <div>
               <p class="text-sm font-bold text-gray-900">{sign.ta}</p>
@@ -52,15 +52,15 @@ import Layout from '../layouts/Layout.astro';
     <section>
       <h2 class="text-xl font-extrabold text-gray-900 mb-1">⚖️ POCSO சட்டம் — உங்கள் கடமை</h2>
       <p class="text-xs text-gray-400 mb-6">POCSO Act — mandatory reporting obligation</p>
-      <div class="bg-caution-subtle border border-caution rounded-2xl p-6 space-y-4">
+      <div class="bg-care-soft border border-care rounded-2xl p-6 space-y-4">
         <div>
-          <p class="font-extrabold text-caution-fg mb-1">POCSO என்றால் என்ன?</p>
+          <p class="font-extrabold text-care-text mb-1">POCSO என்றால் என்ன?</p>
           <p class="text-sm text-gray-700">
             Protection of Children from Sexual Offences Act, 2012 — 18 வயதிற்கு கீழ் உள்ள குழந்தைகளை பாலியல் துஷ்பிரயோகத்திலிருந்து பாதுகாக்கும் சட்டம்.
           </p>
         </div>
-        <div class="bg-white rounded-xl p-4 border border-caution">
-          <p class="font-extrabold text-caution-fg mb-2">கட்டாய புகார் கடமை (Section 19)</p>
+        <div class="bg-white rounded-xl p-4 border border-care">
+          <p class="font-extrabold text-care-text mb-2">கட்டாய புகார் கடமை (Section 19)</p>
           <p class="text-sm text-gray-700">
             POCSO சட்டம் 19ஆம் பிரிவின்படி — குழந்தை மீது பாலியல் துஷ்பிரயோகம் நடந்தது அல்லது நடக்கிறது என்று தெரிந்தால், நீங்கள் <strong>கட்டாயமாக</strong> காவல்துறையிடம் புகார் அளிக்க வேண்டும். புகார் அளிக்காவிட்டால் நீங்களும் தண்டிக்கப்படலாம்.
           </p>
@@ -69,8 +69,8 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <p class="font-bold text-gray-800 mb-2">புகார் செய்ய:</p>
           <div class="flex flex-wrap gap-2">
-            <a href="tel:1098" class="bg-danger text-danger-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-danger-dark transition-colors">1098 CHILDLINE</a>
-            <a href="tel:100" class="bg-brand text-brand-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-brand-dark transition-colors">100 காவல்துறை</a>
+            <a href="tel:1098" class="bg-danger text-urgent-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-urgent-strong transition-colors">1098 CHILDLINE</a>
+            <a href="tel:100" class="bg-brand text-brand-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-brand-strong transition-colors">100 காவல்துறை</a>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ import Layout from '../layouts/Layout.astro';
           { ta: 'பள்ளி Safeguarding Officer-ஐ தெரிந்துகொள்ளுங்கள்', en: "Know your school's designated safeguarding officer." },
           { ta: 'சக ஊழியரின் தவறான நடத்தையையும் புகார் செய்யுங்கள்', en: 'Report misconduct by colleagues — even if uncomfortable.' },
         ].map((tip) => (
-          <div class="flex gap-3 items-start bg-brand-subtle border border-brand-muted rounded-xl p-4">
+          <div class="flex gap-3 items-start bg-brand-soft border border-brand-muted rounded-xl p-4">
             <span class="text-brand mt-0.5 font-bold">✓</span>
             <div>
               <p class="text-sm font-bold text-gray-900">{tip.ta}</p>
@@ -114,7 +114,7 @@ import Layout from '../layouts/Layout.astro';
           { do: false, ta: 'குற்றவாளியிடம் பேச வேண்டாம்', en: 'Do NOT speak to the alleged abuser.' },
           { do: false, ta: '"நீ சொன்னதை யாருக்கும் சொல்லவேண்டாம்" என்று வேண்டாம்', en: 'Do NOT promise confidentiality you cannot keep.' },
         ].map((item) => (
-          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-50 border border-green-200' : 'bg-danger-subtle border border-gray-100'}`}>
+          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-50 border border-green-200' : 'bg-urgent-soft border border-gray-100'}`}>
             <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-danger'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
               <p class="text-sm font-bold text-gray-900">{item.ta}</p>
@@ -126,14 +126,14 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- CTA -->
-    <div class="bg-danger-subtle border border-danger rounded-2xl p-6 text-center">
-      <p class="text-lg font-extrabold text-danger-dark mb-2">உடனடி புகார் தேவையா?</p>
+    <div class="bg-urgent-soft border border-danger rounded-2xl p-6 text-center">
+      <p class="text-lg font-extrabold text-urgent-text mb-2">உடனடி புகார் தேவையா?</p>
       <p class="text-sm text-gray-600 mb-4">POCSO under Section 19 — report immediately</p>
       <div class="flex justify-center gap-4 flex-wrap">
-        <a href="tel:1098" class="bg-danger text-danger-fg font-extrabold text-xl px-8 py-4 rounded-full hover:bg-danger-dark transition-colors">
+        <a href="tel:1098" class="bg-danger text-urgent-fg font-extrabold text-xl px-8 py-4 rounded-full hover:bg-urgent-strong transition-colors">
           1098
         </a>
-        <a href="tel:100" class="bg-brand text-brand-fg font-extrabold text-xl px-8 py-4 rounded-full hover:bg-brand-dark transition-colors">
+        <a href="tel:100" class="bg-brand text-brand-fg font-extrabold text-xl px-8 py-4 rounded-full hover:bg-brand-strong transition-colors">
           100
         </a>
       </div>
