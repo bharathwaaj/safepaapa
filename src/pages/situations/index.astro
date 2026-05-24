@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SituationCard from '../../components/SituationCard.astro';
 import { situations } from '../../data/situations';
 
 const sorted = [...situations].sort((a, b) => a.order - b.order);
@@ -30,17 +31,13 @@ const sorted = [...situations].sort((a, b) => a.order - b.order);
   <section class="max-w-5xl mx-auto px-4 py-14">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {sorted.map((s) => (
-        <a
+        <SituationCard
+          icon={s.icon}
+          ta={s.title}
+          en={s.summaryEn}
           href={`/situations/${s.slug}`}
-          class="bg-surface rounded-2xl p-6 shadow-card hover:shadow-raised transition-shadow border border-border flex flex-col gap-3 group"
-        >
-          <span class="text-4xl leading-none">{s.icon}</span>
-          <p class="font-extrabold text-text text-sm leading-snug group-hover:text-brand transition-colors">
-            {s.title}
-          </p>
-          <p class="text-xs text-text-subtle leading-relaxed flex-1">{s.summaryEn}</p>
-          <span class="text-brand text-xs font-semibold mt-auto">என்ன சொல்வது? →</span>
-        </a>
+          iconSize="lg"
+        />
       ))}
     </div>
   </section>

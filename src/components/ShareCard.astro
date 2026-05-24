@@ -1,0 +1,102 @@
+---
+/**
+ * ShareCard — a visual card styled for phone screenshot sharing.
+ *
+ * Place content in the default slot. The card gets a SafePaapa brand footer
+ * and an optional WhatsApp share button below it.
+ *
+ * @media print: hides nav/header/footer/share-button, card fills the page.
+ * Use in situation pages, schools page, and anywhere a printable card is needed.
+ */
+interface Props {
+  aspect?: '1:1' | '9:16';   // 1:1 = WhatsApp image, 9:16 = story/status
+  siteUrl?: string;           // URL shown in footer (default: safepaapa.in)
+  whatsappHref?: string;      // If provided, renders a share button below the card
+  whatsappLabel?: string;     // Button label (default: 📲 WhatsApp-ல் பகிர்)
+  class?: string;
+}
+
+const {
+  aspect = '1:1',
+  siteUrl = 'safepaapa.in',
+  whatsappHref,
+  whatsappLabel = '📲 WhatsApp-ல் பகிர்',
+  class: cls = '',
+} = Astro.props;
+
+const aspectClass = aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-square';
+---
+
+<div class="share-card-wrapper">
+  <!-- The card itself — screenshot-optimised -->
+  <div
+    class:list={['share-card relative flex flex-col rounded-2xl overflow-hidden', aspectClass, cls]}
+    style="background:#042f2e"
+  >
+    <!-- Content area -->
+    <div class="flex-1 flex flex-col justify-center px-10 py-8">
+      <slot />
+    </div>
+
+    <!-- Brand footer -->
+    <div
+      class="flex items-center justify-between px-8 py-4 shrink-0"
+      style="border-top:1px solid #1a4a44"
+    >
+      <div class="flex items-center gap-2">
+        <img src="/logo.svg" alt="SafePaapa" class="h-6 w-auto" width="40" height="24" />
+        <span class="text-xs font-bold" style="color:#5eead4">SafePaapa</span>
+      </div>
+      <div class="text-right">
+        <p class="text-xs" style="color:rgba(94,234,212,0.65)">{siteUrl}</p>
+        <p class="text-xs font-bold" style="color:#fda4af">CHILDLINE · 1098</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional WhatsApp share button (hidden on print) -->
+  {whatsappHref && (
+    <div class="mt-4 flex justify-center share-card-action">
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors whitespace-nowrap text-sm"
+      >
+        {whatsappLabel}
+      </a>
+    </div>
+  )}
+</div>
+
+<style is:global>
+  @media print {
+    /* Hide everything except the share card wrapper */
+    body > *:not(:has(.share-card-wrapper)),
+    header,
+    footer,
+    nav,
+    .share-card-action,
+    [data-print-hide] {
+      display: none !important;
+    }
+
+    /* Make card fill the page */
+    .share-card-wrapper {
+      display: block !important;
+    }
+
+    .share-card {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      border-radius: 0 !important;
+      aspect-ratio: auto !important;
+    }
+
+    .share-card > div:first-child {
+      flex: 1 !important;
+    }
+  }
+</style>

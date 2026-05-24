@@ -1,0 +1,55 @@
+---
+/**
+ * ChecklistCard — printable checklist item for the Schools page.
+ * Shows a checkbox on print, hidden on screen (uses bullet styling instead).
+ */
+interface Props {
+  icon?: string;
+  text: string;       // Tamil text
+  textEn?: string;    // English sub-text
+  class?: string;
+}
+
+const { icon, text, textEn, class: cls = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'checklist-card flex gap-4 items-start bg-surface border border-border rounded-xl p-5 shadow-card',
+    cls,
+  ]}
+>
+  {icon && (
+    <span class="text-2xl mt-0.5 shrink-0" aria-hidden="true">{icon}</span>
+  )}
+  <div class="flex-1 min-w-0">
+    <p class="font-bold text-text leading-snug">{text}</p>
+    {textEn && (
+      <p class="text-xs text-text-subtle mt-1 leading-relaxed">{textEn}</p>
+    )}
+  </div>
+  <!-- Checkbox — visible only on print -->
+  <div
+    class="checklist-box shrink-0 w-5 h-5 border-2 border-border-strong rounded"
+    aria-hidden="true"
+  />
+</div>
+
+<style>
+  /* Hide checkbox on screen — shown only in print via global CSS below */
+  .checklist-box {
+    display: none;
+  }
+
+  @media print {
+    .checklist-box {
+      display: block;
+    }
+
+    .checklist-card {
+      break-inside: avoid;
+      box-shadow: none;
+      border-color: #ccc;
+    }
+  }
+</style>

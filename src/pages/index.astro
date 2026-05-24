@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import SituationCard from '../components/SituationCard.astro';
+import TinyWisdom from '../components/TinyWisdom.astro';
 import { wisdomCards } from '../data/wisdomCards';
 ---
 
@@ -52,42 +54,10 @@ import { wisdomCards } from '../data/wisdomCards';
       <h2 class="text-2xl font-extrabold text-center text-text mb-1">இந்த சூழல்களில் உங்கள் குழந்தை என்ன செய்வார்?</h2>
       <p class="text-center text-text-subtle text-xs mb-10">Start in 60 seconds — tap a situation to prepare your child</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {[
-          {
-            icon: '🍬',
-            ta: 'அந்நியர் இனிப்பு கொடுத்தால்',
-            en: 'A stranger offers candy',
-            href: '/situations/stranger-candy',
-          },
-          {
-            icon: '🚐',
-            ta: 'வேன் ஓட்டுநர் தனியாக இருக்கும்போது',
-            en: 'School van driver alone with your child',
-            href: '/situations/school-van',
-          },
-          {
-            icon: '🤫',
-            ta: 'உறவினர் "ரகசியம் வை" என்றால்',
-            en: 'A relative says "keep this a secret"',
-            href: '/situations/relative-secret',
-          },
-          {
-            icon: '📱',
-            ta: 'ஆன்லைன் "நண்பன்" தனியாக அழைத்தால்',
-            en: 'Online "friend" wants to meet alone',
-            href: '/situations/online-friend',
-          },
-        ].map((s) => (
-          <a
-            href={s.href}
-            class="bg-surface rounded-2xl p-6 shadow-card hover:shadow-raised transition-shadow border border-border flex flex-col gap-3 group"
-          >
-            <span class="text-3xl">{s.icon}</span>
-            <p class="font-extrabold text-text text-sm leading-snug group-hover:text-brand transition-colors">{s.ta}</p>
-            <p class="text-xs text-text-subtle">{s.en}</p>
-            <span class="text-brand text-xs font-semibold mt-auto">என்ன சொல்வது? →</span>
-          </a>
-        ))}
+        <SituationCard icon="🍬" ta="அந்நியர் இனிப்பு கொடுத்தால்" en="A stranger offers candy" href="/situations/stranger-candy" />
+        <SituationCard icon="🚐" ta="வேன் ஓட்டுநர் தனியாக இருக்கும்போது" en="School van driver alone with your child" href="/situations/school-van" />
+        <SituationCard icon="🤫" ta='உறவினர் "ரகசியம் வை" என்றால்' en='A relative says "keep this a secret"' href="/situations/relative-secret" />
+        <SituationCard icon="📱" ta='ஆன்லைன் "நண்பன்" தனியாக அழைத்தால்' en='Online "friend" wants to meet alone' href="/situations/online-friend" />
       </div>
     </div>
   </section>
@@ -114,29 +84,7 @@ import { wisdomCards } from '../data/wisdomCards';
       <p class="text-center text-text-subtle text-xs mb-10">ஒரு tap-ல் WhatsApp-ல் அனுப்புங்கள்</p>
       <div class="grid md:grid-cols-3 gap-6">
         {wisdomCards.map((w) => (
-          <div class="rounded-2xl flex flex-col overflow-hidden shadow-float" style="background:#042f2e">
-            <div class="px-6 pt-6 pb-4 flex flex-col gap-4 flex-1">
-              <span class="text-5xl leading-none font-extrabold" style="color:#5eead4" aria-hidden="true">❝</span>
-              <p class="font-extrabold text-lg leading-snug sm:leading-[1.5]" style="color:#ffffff">{w.quote}</p>
-              <div class="mt-auto pt-2">
-                <p class="font-bold text-sm" style="color:#99f6e4">— {w.by}</p>
-                <p class="text-xs mt-1 leading-relaxed italic" style="color:#5eead4;opacity:0.75">{w.en}</p>
-              </div>
-            </div>
-            <div class="flex items-center justify-between px-6 py-3" style="border-top:1px solid #1a4a44">
-              <span class="text-xs font-bold" style="color:#5eead4">SafePaapa · safepaapa.in</span>
-              <button
-                class="wisdom-share-btn text-xs font-bold px-3 py-1.5 rounded-full active:scale-95 transition-transform whitespace-nowrap"
-                style="background:#1a4a44;color:#5eead4"
-                data-quote={w.quote}
-                data-by={w.by}
-                data-en={w.en}
-                aria-label={`Share: ${w.quote}`}
-              >
-                📲 அனுப்பு
-              </button>
-            </div>
-          </div>
+          <TinyWisdom quote={w.quote} by={w.by} en={w.en} />
         ))}
       </div>
     </div>

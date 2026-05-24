@@ -1,0 +1,66 @@
+---
+/**
+ * Scenario — tap-to-reveal "what would your child do?" card.
+ *
+ * Uses native <details>/<summary> — zero JS, accessible, works without scripts.
+ * The Tailwind `group-open:` variant handles open/closed state styling.
+ *
+ * Usage:
+ *   <Scenario
+ *     icon="🍬"
+ *     prompt="அந்நியர் உன்னை தனியாக அழைத்தால்..."
+ *     answer="வேண்டாம் என்று சொல்லி..."
+ *     promptEn="A stranger calls you aside..."
+ *   />
+ */
+interface Props {
+  icon: string;
+  prompt: string;       // Tamil situation prompt (the question / scenario)
+  answer: string;       // Tamil answer / what to say or do
+  promptEn?: string;    // Optional English subtitle
+  answerLabel?: string; // Label above the answer (default: குழந்தை என்ன செய்ய வேண்டும்?)
+}
+
+const {
+  icon,
+  prompt,
+  answer,
+  promptEn,
+  answerLabel = 'குழந்தை என்ன செய்ய வேண்டும்?',
+} = Astro.props;
+---
+
+<details class="group bg-surface border border-border rounded-2xl overflow-hidden shadow-card">
+  <summary
+    class="flex items-center gap-4 p-5 cursor-pointer list-none select-none
+           group-open:border-b group-open:border-border"
+  >
+    <span class="text-2xl shrink-0" aria-hidden="true">{icon}</span>
+    <div class="flex-1 min-w-0">
+      <p class="font-bold text-text text-sm leading-snug">{prompt}</p>
+      {promptEn && (
+        <p class="text-xs text-text-subtle mt-0.5">{promptEn}</p>
+      )}
+    </div>
+    <!-- Chevron / tap hint — toggles with open state -->
+    <span
+      class="text-brand text-xs font-semibold shrink-0 whitespace-nowrap
+             group-open:hidden"
+      aria-hidden="true"
+    >
+      தட்டுங்கள் →
+    </span>
+    <span
+      class="text-brand text-xs font-semibold shrink-0 whitespace-nowrap
+             hidden group-open:inline"
+      aria-hidden="true"
+    >
+      மூடு ↑
+    </span>
+  </summary>
+
+  <div class="p-5 bg-brand-soft">
+    <p class="text-xs font-bold text-brand uppercase tracking-wide mb-3">{answerLabel}</p>
+    <p class="text-sm text-text font-semibold leading-relaxed">{answer}</p>
+  </div>
+</details>
