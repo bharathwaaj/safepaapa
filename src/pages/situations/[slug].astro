@@ -43,6 +43,9 @@ const next = sorted[idx + 1];
 <Layout
   title={`${s.title} — SafePaapa`}
   description={`${s.summaryEn} — Word-for-word Tamil safety script for parents.`}
+  ogImage={s.imageSrc ? s.imageSrc : `/og/situation-${s.slug}.jpg`}
+  ogPrompt={!s.imageSrc ? `1200x630 JPEG — ${s.imagePrompt} Dark teal bottom bar with '${s.title}' in bold Tamil and 'SafePaapa · safepaapa.in' bottom right.` : undefined}
+  canonicalPath={`/situations/${s.slug}`}
 >
 
   <!-- Back nav -->

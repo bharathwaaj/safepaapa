@@ -5,14 +5,28 @@ import { Phone, Sun, Moon, Menu } from '@lucide/astro';
 interface Props {
   title: string;
   description?: string;
-  ogImage?: string;   // absolute path from root, e.g. /og-image.jpg
-  canonicalPath?: string; // e.g. /situations/stranger-candy
+  /**
+   * Path to the OG image (relative to /public), e.g. /og/home.jpg
+   * If the file does not exist yet, leave it set and add ogPrompt so
+   * ChatGPT / Codex knows what to generate.
+   * Recommended size: 1200×630 JPEG.
+   */
+  ogImage?: string;
+  /**
+   * ChatGPT prompt for generating the ogImage above.
+   * Emitted as an HTML comment in <head> so tooling can find it.
+   * Format: "1200x630 JPEG — <describe the scene>"
+   */
+  ogPrompt?: string;
+  /** Canonical path, e.g. /situations/stranger-candy */
+  canonicalPath?: string;
 }
 
 const {
   title,
   description = 'SafePaapa — குழந்தைகளை பாதுகாப்போம். Child safety awareness for Tamil Nadu families.',
-  ogImage = '/og-image.jpg',
+  ogImage = '/og/home.jpg',
+  ogPrompt,
   canonicalPath,
 } = Astro.props;
 
@@ -65,6 +79,8 @@ const footerNav = [
     <meta name="twitter:title"       content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image"       content={fullOgImage} />
+
+    {ogPrompt && <Fragment set:html={`<!-- OG Image Prompt (for ChatGPT/Codex): ${ogPrompt} -->`} />}
 
     <!-- Prevent flash of wrong theme — must run before paint -->
     <script is:inline>
