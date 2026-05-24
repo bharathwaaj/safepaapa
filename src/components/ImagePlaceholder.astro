@@ -5,34 +5,39 @@
  * Shows a styled placeholder when src is absent.
  * The `prompt` prop doubles as:
  *   1. The image alt text (accessibility)
- *   2. A visible ChatGPT prompt so AI-generated images
- *      can be commissioned later by reading the text on screen.
+ *   2. A visible prompt so Codex/ChatGPT can generate the image
+ *
+ * When src is provided, serves via Netlify Image CDN in production
+ * (auto-converts to WebP, resizes, caches at edge).
+ * Falls back to raw src in local dev.
  *
  * Usage:
  *   <ImagePlaceholder
- *     prompt="A Tamil mother kneeling beside her daughter, soft morning light,
- *             village home interior, warm and safe atmosphere"
+ *     prompt="A Tamil mother kneeling beside her daughter..."
  *     width={800}
  *     height={500}
  *   />
  *
- *   Once the real image exists:
+ *   Once image is generated:
  *   <ImagePlaceholder
  *     prompt="..."
  *     src="/images/hero-mother-daughter.jpg"
+ *     width={800}
+ *     height={500}
  *   />
  */
 
 import { Image as LucideImage } from '@lucide/astro';
 
 interface Props {
-  prompt: string;         // alt text AND the ChatGPT image prompt
-  src?: string;           // omit until real image is ready
-  width?: number;         // recommended width in px
-  height?: number;        // recommended height in px
-  aspect?: string;        // CSS aspect-ratio e.g. "16/9", "4/3", "1/1"
+  prompt: string;    // alt text + image generation prompt
+  src?: string;      // omit until image is generated
+  width?: number;
+  height?: number;
+  aspect?: string;   // CSS aspect-ratio e.g. "16/9"
+  fit?: 'cover' | 'contain' | 'fill';
   class?: string;
-  rounded?: string;       // tailwind rounded-* class, default rounded-2xl
+  rounded?: string;
 }
 
 const {
@@ -41,20 +46,39 @@ const {
   width = 800,
   height = 450,
   aspect,
+  fit = 'cover',
   class: className = '',
   rounded = 'rounded-2xl',
 } = Astro.props;
 
 const computedAspect = aspect ?? `${width}/${height}`;
+
+// Netlify Image CDN — auto-optimize in prod, raw src in dev
+function netlifyImage(path: string) {
+  if (!import.meta.env.PROD) return path;
+  const params = new URLSearchParams({
+    url: path,
+    w:   String(width),
+    h:   String(height),
+    fit,
+    fm:  'webp',
+    q:   '80',
+  });
+  return `/.netlify/images?${params}`;
+}
+
+const optimizedSrc = src ? netlifyImage(src) : null;
 ---
 
-{src ? (
+{optimizedSrc ? (
   <img
-    src={src}
+    src={optimizedSrc}
     alt={prompt}
     width={width}
     height={height}
-    class={`w-full object-cover ${rounded} ${className}`}
+    loading="lazy"
+    decoding="async"
+    class={`w-full object-${fit} ${rounded} ${className}`}
   />
 ) : (
   <figure
@@ -64,18 +88,9 @@ const computedAspect = aspect ?? `${width}/${height}`;
     aria-label={prompt}
   >
     <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
-      <LucideImage
-        size={32}
-        class="text-text-subtle shrink-0"
-        aria-hidden="true"
-      />
-      <!-- This text IS the ChatGPT prompt — keep it descriptive -->
-      <p class="text-text-muted text-sm leading-relaxed max-w-md">
-        {prompt}
-      </p>
-      <p class="text-text-subtle text-xs font-mono mt-1">
-        {width} × {height}px
-      </p>
+      <LucideImage size={32} class="text-text-subtle shrink-0" aria-hidden="true" />
+      <p class="text-text-muted text-sm leading-relaxed max-w-md">{prompt}</p>
+      <p class="text-text-subtle text-xs font-mono mt-1">{width} × {height}px</p>
     </div>
   </figure>
 )}
