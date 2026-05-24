@@ -230,25 +230,26 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
     </div>
   </section>
 
-  <!-- Share CTA -->
+  <!-- Send to 3 parents CTA — viral mechanic -->
   <section class="bg-brand text-brand-fg py-14 px-4">
     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h2 class="text-2xl font-extrabold mb-2">இதை பகிருங்கள்</h2>
-        <p class="text-brand-muted text-xs mb-3">Share this with every parent, teacher, and family</p>
-        <p class="opacity-80 text-sm leading-relaxed mb-7">
-          இந்த பக்கத்தை உங்கள் WhatsApp குழுக்களில், குடும்பத்தினரிடம், தெரிந்த ஆசிரியர்களிடம் பகிருங்கள். விழிப்புணர்வே முதல் பாதுகாப்பு.
+        <p class="text-brand-muted text-xs uppercase tracking-widest mb-3 font-bold">விழிப்புணர்வு பரவட்டும்</p>
+        <h2 class="text-2xl font-extrabold mb-3">இதை 3 பெற்றோரிடம் அனுப்புங்கள்</h2>
+        <p class="opacity-80 text-sm leading-relaxed mb-2">
+          மூன்று பெற்றோருக்கு அனுப்பினால் போதும் — அவர்களில் ஒருவரின் குழந்தையாவது காப்பாற்றப்படலாம்.
         </p>
+        <p class="text-brand-muted text-xs mb-7">Send to 3 parents — just 3. That's how awareness spreads.</p>
         <div class="flex flex-col sm:flex-row gap-3">
           <a
-            href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு தளம். உங்கள் குழந்தையை பாதுகாக்க இதை படிக்கவும்: https://safepaapa.in')}`}
+            href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு. 60 விநாடியில் படியுங்கள், உங்கள் குழந்தையிடம் பேசுங்கள். இதை மற்ற பெற்றோருக்கும் அனுப்புங்கள்: https://safepaapa.in')}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center"
+            class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap"
           >
-            📲 WhatsApp-ல் பகிர
+            📲 3 பேருக்கு அனுப்பு
           </a>
-          <a href="/resources" class="bg-white text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center">
+          <a href="/resources" class="bg-white text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center whitespace-nowrap">
             உதவி எண்களை பார்க்க
           </a>
         </div>
