@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'SafePaapa — குழந்தைகளை பாதுகாப்போம். Child safety awareness for Tamil Nadu families.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ta">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title} | SafePaapa</title>
+  </head>
+  <body class="min-h-screen bg-white text-gray-900 font-sans antialiased">
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2">
+          <span class="text-2xl">🛡️</span>
+          <span class="font-bold text-lg text-blue-700 tracking-tight">SafePaapa</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+          <a href="/parents" class="hover:text-blue-700 transition-colors">பெற்றோருக்கு</a>
+          <a href="/children" class="hover:text-blue-700 transition-colors">குழந்தைகளுக்கு</a>
+          <a href="/teachers" class="hover:text-blue-700 transition-colors">ஆசிரியர்களுக்கு</a>
+          <a href="/resources" class="hover:text-blue-700 transition-colors">உதவி</a>
+        </nav>
+        <a href="tel:1098" class="bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-red-700 transition-colors">
+          📞 1098 CHILDLINE
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 mt-20">
+      <div class="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">🛡️</span>
+            <span class="text-white font-bold">SafePaapa</span>
+          </div>
+          <p class="text-sm leading-relaxed">
+            குழந்தைகளை பாதுகாப்போம்.<br />
+            Protecting Tamil Nadu's children through awareness.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-3 text-sm">Pages</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/parents" class="hover:text-white transition-colors">For Parents</a></li>
+            <li><a href="/children" class="hover:text-white transition-colors">For Children</a></li>
+            <li><a href="/teachers" class="hover:text-white transition-colors">For Teachers</a></li>
+            <li><a href="/resources" class="hover:text-white transition-colors">Resources & Helplines</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-3 text-sm">Emergency</h3>
+          <p class="text-2xl font-bold text-red-400">1098</p>
+          <p class="text-sm mt-1">CHILDLINE India — 24/7, free</p>
+          <p class="text-sm mt-3">Police: <span class="text-white font-medium">100</span></p>
+          <p class="text-sm">Women Helpline: <span class="text-white font-medium">181</span></p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 text-center text-xs py-4 text-gray-600">
+        SafePaapa is a free public awareness initiative. Not affiliated with any government body.
+      </div>
+    </footer>
+  </body>
+</html>
