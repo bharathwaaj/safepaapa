@@ -6,18 +6,21 @@ export interface WisdomCard {
 
 export const wisdomCards: WisdomCard[] = [
   {
-    quote: 'என் பேத்தி என்னிடம் சொன்னாள் — ஆசிரியர் கையை வலிக்க தொட்டாங்க. உடனே நடவடிக்கை எடுத்தோம்.',
-    by: 'ஒரு பாட்டி',
-    en: 'My granddaughter told me a teacher hurt her. We acted immediately.',
+    // Give parents the exact words — and address the two fears (anger, disbelief)
+    quote: 'என் பிள்ளைக்கு தினமும் சொல்வேன் — உன் உடல் உன்னோட. யார் தொட்டாலும் வேண்டாம்னு சொல்லலாம். அப்பா நம்புவேன், கோபப்பட மாட்டேன்.',
+    by: 'ஒரு அப்பா, சேலம்',
+    en: 'I tell my child every day — your body is yours. You can say no to anyone. I will believe you. I won\'t be angry.',
   },
   {
-    quote: 'அம்மா என்னிடம் சொன்னாங்க — உன் உடல் உனக்கே சொந்தம். அன்றே புரிஞ்சுச்சு.',
-    by: 'ஒரு 10 வயது மாணவி',
-    en: 'My mother told me — your body belongs to you. I understood it immediately.',
+    // A concrete house rule parents can adopt immediately
+    quote: 'எங்க வீட்டுல ஒரு விதி — குழந்தைகள் எந்த பெரியவரோடயும் தனியா இருக்க மாட்டாங்க. உறவினரா இருந்தாலும் சரி, யாரும் விதிவிலக்கில்ல.',
+    by: 'ஒரு அம்மா, கோவை',
+    en: 'Our house rule — children are never alone with any adult. Not relatives, not anyone. No exceptions.',
   },
   {
-    quote: 'டாக்டர் கிட்ட போகும்போது கூட அம்மா என்னோட வந்தாங்க. அது எனக்கு நம்பிக்கை கொடுத்தது.',
-    by: 'ஒரு 8 வயது மாணவன்',
-    en: 'Even at the doctor, my mother came with me. That gave me confidence.',
+    // Outcome: disclosure worked because the child was believed and action was immediate
+    quote: 'என் பேத்தி சொன்னாள். நாங்க நம்பினோம். உடனே நடவடிக்கை எடுத்தோம். அவ தைரியமா பேசினதனால காப்பாற்றப்பட்டாள்.',
+    by: 'ஒரு பாட்டி, மதுரை',
+    en: 'My granddaughter spoke. We believed her. We acted immediately. She was protected because she had the courage to tell.',
   },
 ];
