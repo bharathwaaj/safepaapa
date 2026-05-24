@@ -207,25 +207,36 @@ Original Phase 1 plan items and their status:
     5. யாரோ உன் உடலை தொட்டால் — என்ன செய்வாய்?
 - [ ] After homepage validation, also add to `/situations/[slug]` pages and `/parents`
 
-### Phase 5 — Schools Page (`/schools`)
+### Phase 5 — Schools Section + Printables
+
 - [ ] New page `src/pages/schools.astro`
 - [ ] Content:
-  - [ ] Assembly script (5-minute script a teacher can read to students)
-  - [ ] PTA meeting talking points
-  - [ ] Printable poster (print CSS — `@media print` hidden nav/footer, poster layout)
-  - [ ] Classroom checklist for teachers
+  - [ ] **Assembly script** — 5-minute script a teacher can read aloud to students; copy-paste ready
+  - [ ] **PTA copy-paste text** — pre-written WhatsApp/email message a teacher can forward to parents; not just talking points — literally pasteable text
+  - [ ] **Downloadable poster** — one A4 poster with key safety rules
+    - Print CSS: `@media print` hides nav/footer, card goes **full-bleed** (no margins), high contrast
+    - Browser "Save as PDF" = download; no backend needed
+  - [ ] Classroom checklist for teachers (uses `ChecklistCard.astro` from Phase 3)
   - [ ] ImagePlaceholders throughout (assembly scene, PTA meeting, poster preview)
 
-### Phase 6 — Emergency Page (`/emergency`)
+### Phase 6 — Dynamic / Alive Feel (no backend needed)
+
+- [ ] **"Today's safety thought"** — rotate from a static array by day-of-year
+  - Pure static logic: `array[dayOfYear % array.length]`
+  - No backend, no API — Astro `<script>` or build-time slot
+  - Show on homepage or in footer
+- [ ] **Seasonal content** — surface relevant content at key times:
+  - Summer holidays (May–June): stranger danger, outings, online time
+  - School reopening (June–July): school van safety, new teachers
+  - Festival season (Oct–Nov): crowded places, lost in mall
+  - Implement as a static date-range check in JS — no CMS needed
+- [ ] Consider where to surface: homepage banner, hero sub-text, or a dedicated "இன்றைய எச்சரிக்கை" section
+
+### Phase 6b — Emergency Page (`/emergency`) ← added beyond original plan
+> Not in the original phase plan — added as a good-to-have. Lower priority than Phase 6.
 - [ ] New page `src/pages/emergency.astro`
 - [ ] Designed for crisis scanning — very large numbers, minimal prose
-- [ ] Content:
-  - [ ] 1098 CHILDLINE (primary, very prominent)
-  - [ ] 100 Police
-  - [ ] 181 Women helpline
-  - [ ] 112 Unified emergency
-  - [ ] "What to say when you call 1098" — step by step
-  - [ ] Nearest CWC / DCPU finder note
+- [ ] Content: 1098, 100, 181, 112 with "what to say when you call" step-by-step
 - [ ] Add to nav (replace or supplement current "உதவி" link)
 
 ### Phase 7 — SEO & Meta
