@@ -4,19 +4,19 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="ஆசிரியர்களுக்கு வழிகாட்டி" description="POCSO சட்டம், மாணவர்களில் துஷ்பிரயோக அறிகுறிகள், பாதுகாப்பான வகுப்பறை — SafePaapa">
 
-  <div class="bg-indigo-700 text-white py-12 px-4 text-center">
+  <div class="bg-teal-700 text-white py-12 px-4 text-center">
     <div class="max-w-3xl mx-auto">
-      <p class="text-indigo-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
+      <p class="text-teal-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
       <h1 class="text-3xl md:text-4xl font-bold mb-3">ஆசிரியர்களுக்கு</h1>
-      <p class="text-indigo-100 text-sm">For Teachers & School Staff — Recognise, Report, Protect</p>
+      <p class="text-teal-100 text-sm">For Teachers & School Staff — Recognise, Report, Protect</p>
     </div>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 py-12 space-y-14">
 
     <!-- Why teachers matter -->
-    <section class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-xl p-6">
-      <h2 class="font-bold text-indigo-900 mb-2">ஆசிரியர்களின் பங்கு முக்கியம்</h2>
+    <section class="bg-teal-50 border-l-4 border-teal-500 rounded-r-xl p-6">
+      <h2 class="font-bold text-teal-900 mb-2">ஆசிரியர்களின் பங்கு முக்கியம்</h2>
       <p class="text-sm text-gray-700 leading-relaxed">
         குழந்தைகள் தங்கள் நேரத்தில் பெரும் பகுதியை பள்ளியில் கழிக்கிறார்கள். வீட்டில் சொல்ல முடியாதவற்றை ஒரு நம்பகமான ஆசிரியரிடம் சொல்லலாம் என்று நம்புவார்கள். நீங்கள் அந்த நம்பகமான முகமாக இருங்கள்.
       </p>
@@ -37,8 +37,8 @@ import Layout from '../layouts/Layout.astro';
           { ta: 'வயதுக்கு மீறிய பாலியல் அறிவு', en: 'Age-inappropriate sexual language, drawing, or behaviour' },
           { ta: 'தனிமையாக இருத்தல், நண்பர்களிடமிருந்து விலகுதல்', en: 'Social withdrawal from peers' },
         ].map((sign) => (
-          <div class="flex gap-3 items-start bg-red-50 border border-red-100 rounded-xl p-4">
-            <span class="text-red-500 mt-0.5 font-bold">!</span>
+          <div class="flex gap-3 items-start bg-rose-50 border border-rose-100 rounded-xl p-4">
+            <span class="text-rose-500 mt-0.5 font-bold">!</span>
             <div>
               <p class="text-sm font-semibold text-gray-900">{sign.ta}</p>
               <p class="text-xs text-gray-400 mt-0.5">{sign.en}</p>
@@ -69,8 +69,8 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <p class="font-bold text-gray-800 mb-2">புகார் செய்ய:</p>
           <div class="flex flex-wrap gap-2">
-            <a href="tel:1098" class="bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-full">📞 1098 CHILDLINE</a>
-            <a href="tel:100" class="bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-full">📞 100 காவல்துறை</a>
+            <a href="tel:1098" class="bg-rose-600 text-white text-sm font-semibold px-4 py-2 rounded-full">📞 1098 CHILDLINE</a>
+            <a href="tel:100" class="bg-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full">📞 100 காவல்துறை</a>
           </div>
         </div>
       </div>
@@ -89,8 +89,8 @@ import Layout from '../layouts/Layout.astro';
           { ta: 'பள்ளி Safeguarding Officer-ஐ தெரிந்துகொள்ளுங்கள்', en: 'Know your school\'s designated safeguarding officer.' },
           { ta: 'சக ஊழியரின் தவறான நடத்தையையும் புகார் செய்யுங்கள்', en: 'Report misconduct by colleagues — even if uncomfortable.' },
         ].map((tip) => (
-          <div class="flex gap-3 items-start bg-indigo-50 border border-indigo-100 rounded-xl p-4">
-            <span class="text-indigo-500 mt-0.5">✓</span>
+          <div class="flex gap-3 items-start bg-teal-50 border border-teal-100 rounded-xl p-4">
+            <span class="text-teal-500 mt-0.5">✓</span>
             <div>
               <p class="text-sm font-semibold text-gray-900">{tip.ta}</p>
               <p class="text-xs text-gray-400 mt-0.5">{tip.en}</p>
@@ -114,8 +114,8 @@ import Layout from '../layouts/Layout.astro';
           { do: false, ta: 'குற்றவாளியிடம் பேச வேண்டாம்', en: 'Do NOT speak to the alleged abuser.' },
           { do: false, ta: '"நீ சொன்னதை யாருக்கும் சொல்லவேண்டாம்" என்று வேண்டாம்', en: 'Do NOT promise confidentiality you cannot keep.' },
         ].map((item) => (
-          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-red-600'}`}>{item.do ? '✓' : '✗'}</span>
+          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-50 border border-green-200' : 'bg-rose-50 border border-rose-200'}`}>
+            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-rose-600'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
               <p class="text-sm font-semibold text-gray-900">{item.ta}</p>
               <p class="text-xs text-gray-500 mt-0.5">{item.en}</p>
@@ -126,14 +126,14 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- CTA -->
-    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
-      <p class="text-lg font-bold text-red-800 mb-2">உடனடி புகார் தேவையா?</p>
-      <p class="text-sm text-red-700 mb-4">POCSO under Section 19 — report immediately</p>
+    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 text-center">
+      <p class="text-lg font-bold text-rose-800 mb-2">உடனடி புகார் தேவையா?</p>
+      <p class="text-sm text-rose-700 mb-4">POCSO under Section 19 — report immediately</p>
       <div class="flex justify-center gap-4 flex-wrap">
-        <a href="tel:1098" class="bg-red-600 text-white font-bold text-xl px-8 py-4 rounded-full hover:bg-red-700 transition-colors">
+        <a href="tel:1098" class="bg-rose-600 text-white font-bold text-xl px-8 py-4 rounded-full hover:bg-rose-700 transition-colors">
           📞 1098
         </a>
-        <a href="tel:100" class="bg-blue-700 text-white font-bold text-xl px-8 py-4 rounded-full hover:bg-blue-800 transition-colors">
+        <a href="tel:100" class="bg-teal-700 text-white font-bold text-xl px-8 py-4 rounded-full hover:bg-teal-800 transition-colors">
           📞 100
         </a>
       </div>

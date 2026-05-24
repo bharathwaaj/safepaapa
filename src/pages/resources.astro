@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="உதவி எண்கள் & வளங்கள்" description="தமிழ்நாடு குழந்தை பாதுகாப்பு உதவி எண்கள், NGO தகவல்கள் — SafePaapa">
 
-  <div class="bg-red-700 text-white py-12 px-4 text-center">
+  <div class="bg-rose-700 text-white py-12 px-4 text-center">
     <div class="max-w-3xl mx-auto">
       <p class="text-red-200 text-xs uppercase tracking-widest mb-3">உதவி</p>
       <h1 class="text-3xl md:text-4xl font-bold mb-3">உதவி எண்கள் & வளங்கள்</h1>
@@ -49,8 +49,8 @@ import Layout from '../layouts/Layout.astro';
             color: 'orange',
           },
         ].map((h) => (
-          <a href={`tel:${h.number}`} class={`flex items-center gap-5 bg-white border-2 rounded-2xl p-5 hover:shadow-md transition-shadow ${h.color === 'red' ? 'border-red-300 hover:border-red-400' : h.color === 'blue' ? 'border-blue-300 hover:border-blue-400' : h.color === 'pink' ? 'border-pink-300 hover:border-pink-400' : 'border-orange-300 hover:border-orange-400'}`}>
-            <div class={`text-3xl font-black ${h.color === 'red' ? 'text-red-600' : h.color === 'blue' ? 'text-blue-700' : h.color === 'pink' ? 'text-pink-600' : 'text-orange-600'}`}>
+          <a href={`tel:${h.number}`} class={`flex items-center gap-5 bg-white border-2 rounded-2xl p-5 hover:shadow-md transition-shadow ${h.color === 'red' ? 'border-red-300 hover:border-red-400' : h.color === 'blue' ? 'border-teal-300 hover:border-blue-400' : h.color === 'pink' ? 'border-pink-300 hover:border-pink-400' : 'border-orange-300 hover:border-orange-400'}`}>
+            <div class={`text-3xl font-black ${h.color === 'red' ? 'text-rose-600' : h.color === 'blue' ? 'text-teal-700' : h.color === 'pink' ? 'text-pink-600' : 'text-orange-600'}`}>
               {h.number}
             </div>
             <div>
@@ -88,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
             <p class="font-bold text-gray-900 mb-1">{org.name}</p>
             <p class="text-sm text-gray-600 mb-2">{org.ta}</p>
-            <p class="text-xs text-blue-600">📌 {org.contact}</p>
+            <p class="text-xs text-teal-600">📌 {org.contact}</p>
           </div>
         ))}
       </div>
@@ -127,7 +127,7 @@ import Layout from '../layouts/Layout.astro';
               <p class="text-sm text-gray-600">{ngo.ta}</p>
             </div>
             {ngo.url && (
-              <a href={ngo.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 text-xs shrink-0 hover:underline">
+              <a href={ngo.url} target="_blank" rel="noopener noreferrer" class="text-teal-600 text-xs shrink-0 hover:underline">
                 பார்க்க →
               </a>
             )}
@@ -137,9 +137,9 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Save to phone CTA -->
-    <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center">
+    <div class="bg-teal-50 border border-teal-200 rounded-2xl p-6 text-center">
       <div class="text-4xl mb-3">📱</div>
-      <h3 class="font-bold text-blue-900 mb-2">இப்போதே சேமியுங்கள்</h3>
+      <h3 class="font-bold text-teal-900 mb-2">இப்போதே சேமியுங்கள்</h3>
       <p class="text-sm text-gray-600 mb-4">
         <strong>1098</strong> எண்ணை இப்போதே உங்கள் phone-ல் சேமியுங்கள். அவசரத்தில் தேட நேரமிருக்காது.
       </p>

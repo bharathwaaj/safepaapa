@@ -4,11 +4,11 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="பெற்றோருக்கு வழிகாட்டி" description="குழந்தை பாதுகாப்பு பற்றி பெற்றோர் தெரிந்துகொள்ள வேண்டியவை — SafePaapa">
 
-  <div class="bg-blue-700 text-white py-12 px-4 text-center">
+  <div class="bg-teal-700 text-white py-12 px-4 text-center">
     <div class="max-w-3xl mx-auto">
-      <p class="text-blue-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
+      <p class="text-teal-200 text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
       <h1 class="text-3xl md:text-4xl font-bold mb-3">பெற்றோருக்கு</h1>
-      <p class="text-blue-100 text-sm">For Parents — Recognise, Respond, Protect</p>
+      <p class="text-teal-100 text-sm">For Parents — Recognise, Respond, Protect</p>
     </div>
   </div>
 
@@ -29,8 +29,8 @@ import Layout from '../layouts/Layout.astro';
           { ta: 'பள்ளி செல்ல மறுப்பது', en: 'Refusing to go to school or certain places' },
           { ta: 'சாப்பிட மறுப்பது அல்லது அதிகமாக சாப்பிடுவது', en: 'Changes in eating habits' },
         ].map((sign) => (
-          <div class="flex gap-3 items-start bg-red-50 border border-red-100 rounded-xl p-4">
-            <span class="text-red-500 mt-0.5">●</span>
+          <div class="flex gap-3 items-start bg-rose-50 border border-rose-100 rounded-xl p-4">
+            <span class="text-rose-500 mt-0.5">●</span>
             <div>
               <p class="text-sm font-semibold text-gray-900">{sign.ta}</p>
               <p class="text-xs text-gray-400 mt-0.5">{sign.en}</p>
@@ -70,10 +70,10 @@ import Layout from '../layouts/Layout.astro';
             tip: 'நல்ல ரகசியம்: பிறந்தநாள் பரிசு. கெட்ட ரகசியம்: யாரோ உன் உடலை தொட்டது.'
           },
         ].map((item) => (
-          <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
+          <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
             <p class="font-semibold text-gray-900 mb-1">{item.ta}</p>
             <p class="text-sm text-gray-600 mb-2">{item.en}</p>
-            <p class="text-xs bg-blue-100 text-blue-800 rounded-lg px-3 py-2">💡 {item.tip}</p>
+            <p class="text-xs bg-teal-100 text-teal-800 rounded-lg px-3 py-2">💡 {item.tip}</p>
           </div>
         ))}
       </div>
@@ -93,8 +93,8 @@ import Layout from '../layouts/Layout.astro';
           { do: false, ta: 'குற்றவாளியை நீங்களே எதிர்கொள்ள வேண்டாம்', en: 'Do NOT confront the abuser yourself.' },
           { do: false, ta: '"நீ ஏன் சொல்லவில்லை?" என்று கேட்காதீர்கள்', en: 'Do NOT question or interrogate your child.' },
         ].map((item) => (
-          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-100' : 'bg-red-50'}`}>
-            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-red-600'}`}>{item.do ? '✓' : '✗'}</span>
+          <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-green-100' : 'bg-rose-50'}`}>
+            <span class={`font-bold text-sm mt-0.5 ${item.do ? 'text-green-700' : 'text-rose-600'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
               <p class="text-sm font-semibold text-gray-900">{item.ta}</p>
               <p class="text-xs text-gray-500 mt-0.5">{item.en}</p>
@@ -116,7 +116,7 @@ import Layout from '../layouts/Layout.astro';
           'Screen time-ஐ பொது இடத்தில் (hall அல்லது kitchen) வைத்திருங்கள் — bedroom-ல் தனியாக phone கொடுக்காதீர்கள்.',
         ].map((tip) => (
           <div class="flex gap-3 items-start bg-gray-50 rounded-xl p-4 border border-gray-100">
-            <span class="text-blue-500 mt-1">📌</span>
+            <span class="text-teal-500 mt-1">📌</span>
             <p class="text-sm text-gray-700">{tip}</p>
           </div>
         ))}
@@ -124,10 +124,10 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- CTA -->
-    <div class="bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
-      <p class="text-lg font-bold text-red-800 mb-2">உடனடி உதவி தேவையா?</p>
-      <p class="text-sm text-red-700 mb-4">Need immediate help? Call CHILDLINE — free, confidential, 24/7</p>
-      <a href="tel:1098" class="inline-block bg-red-600 text-white font-bold text-2xl px-10 py-4 rounded-full hover:bg-red-700 transition-colors">
+    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 text-center">
+      <p class="text-lg font-bold text-rose-800 mb-2">உடனடி உதவி தேவையா?</p>
+      <p class="text-sm text-rose-700 mb-4">Need immediate help? Call CHILDLINE — free, confidential, 24/7</p>
+      <a href="tel:1098" class="inline-block bg-rose-600 text-white font-bold text-2xl px-10 py-4 rounded-full hover:bg-rose-700 transition-colors">
         📞 1098
       </a>
     </div>
