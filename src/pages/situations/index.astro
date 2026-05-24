@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { situations } from '../../data/situations';
+
+const sorted = [...situations].sort((a, b) => a.order - b.order);
+---
+
+<Layout
+  title="சூழல்கள் — குழந்தை பாதுகாப்பு"
+  description="8 real situations parents must prepare for. Word-for-word Tamil scripts you can use today."
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-soft border-b border-brand-border py-14 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-brand font-bold text-xs uppercase tracking-widest mb-4">சூழல்கள்</p>
+      <h1 class="text-3xl font-extrabold text-text mb-3">
+        இந்த சூழல்களில் உங்கள் குழந்தை என்ன செய்வார்?
+      </h1>
+      <p class="text-text-muted text-sm leading-relaxed mb-1">
+        ஒவ்வொரு சூழலிலும் — என்ன சொல்வது, எப்படி செய்வது என்று வார்த்தை வார்த்தையாக சொல்லுங்கள்.
+      </p>
+      <p class="text-text-subtle text-xs">
+        Real situations. Word-for-word Tamil scripts. One conversation at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="max-w-5xl mx-auto px-4 py-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {sorted.map((s) => (
+        <a
+          href={`/situations/${s.slug}`}
+          class="bg-surface rounded-2xl p-6 shadow-card hover:shadow-raised transition-shadow border border-border flex flex-col gap-3 group"
+        >
+          <span class="text-4xl leading-none">{s.icon}</span>
+          <p class="font-extrabold text-text text-sm leading-snug group-hover:text-brand transition-colors">
+            {s.title}
+          </p>
+          <p class="text-xs text-text-subtle leading-relaxed flex-1">{s.summaryEn}</p>
+          <span class="text-brand text-xs font-semibold mt-auto">என்ன சொல்வது? →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bg-surface-sunken border-t border-border py-14 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xl font-extrabold text-text mb-2">ஒரு உரையாடல் — ஒரு குழந்தை பாதுகாப்பு</p>
+      <p class="text-text-muted text-sm mb-7">
+        இந்த சூழல்களை இன்றே உங்கள் குழந்தையிடம் பேசுங்கள். ஒரு நிமிடம் போதும்.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — குழந்தை பாதுகாப்பு சூழல்கள். இந்த பக்கத்தை பாருங்கள், உங்கள் குழந்தையிடம் பேசுங்கள்: https://safepaapa.in/situations')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap"
+        >
+          📲 பெற்றோருக்கு அனுப்பு
+        </a>
+        <a
+          href="/parents"
+          class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap"
+        >
+          பெற்றோர் வழிகாட்டி →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
