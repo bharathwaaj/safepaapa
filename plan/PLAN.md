@@ -169,11 +169,25 @@ Original Phase 1 plan items and their status:
   - Decide: replace one of the current links or add as 5th item (may overflow on md — needs care)
   - Create `src/pages/situations/index.astro` — grid of all situation cards
 
-### Phase 3 — New Components
+### Phase 3 — Shareable Card Component + Supporting Components
+
+#### `src/components/ShareCard.astro` ← primary deliverable of Phase 3
+- [ ] **Styled for screenshot** — designed so a phone screenshot looks complete and shareable:
+  - Large Tamil text (extrabold, ≥ text-2xl)
+  - Minimal copy — one rule, one situation, or one wisdom quote per card
+  - SafePaapa brand corner (logo + site name, small, bottom-right)
+  - Fixed aspect ratio options: `1:1` (WhatsApp image) or `9:16` (story/status)
+- [ ] WhatsApp share button below every card — pre-filled message with card content + site URL
+- [ ] `@media print` styles:
+  - Hide nav, footer, share button
+  - Card fills the page, high contrast
+  - Suitable for PDF save / printing as a poster
+- [ ] Used inside: situation pages (`/situations/[slug]`), `/schools` page, Tiny Wisdom section on homepage
+
+#### Supporting components
 - [ ] `src/components/SituationCard.astro` — reusable card for situation strip (icon, Tamil label, English, link)
-- [ ] `src/components/ShareCard.astro` — WhatsApp-optimised shareable card (single rule or situation)
-- [ ] `src/components/ChecklistCard.astro` — printable checklist item (for schools page)
-- [ ] `src/components/TinyWisdom.astro` — pull-quote component (Tamil quote + by-line + English)
+- [ ] `src/components/ChecklistCard.astro` — printable checklist item (for schools page), inherits print styles
+- [ ] `src/components/TinyWisdom.astro` — pull-quote styled as a ShareCard (screenshot-optimised)
 - [ ] `src/components/Scenario.astro` — interactive "what would your child do?" reveal card (tap to show answer)
 
 ### Phase 4 — Interactive Scenario Component
