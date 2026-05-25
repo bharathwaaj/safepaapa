@@ -7,9 +7,7 @@
  *   1. The image alt text (accessibility)
  *   2. A visible prompt so Codex/ChatGPT can generate the image
  *
- * When src is provided, serves via Netlify Image CDN in production
- * (auto-converts to WebP, resizes, caches at edge).
- * Falls back to raw src in local dev.
+ * When src is provided, serves the static image from /public.
  *
  * Usage:
  *   <ImagePlaceholder
@@ -53,26 +51,12 @@ const {
 
 const computedAspect = aspect ?? `${width}/${height}`;
 
-// Netlify Image CDN — auto-optimize in prod, raw src in dev
-function netlifyImage(path: string) {
-  if (!import.meta.env.PROD) return path;
-  const params = new URLSearchParams({
-    url: path,
-    w:   String(width),
-    h:   String(height),
-    fit,
-    fm:  'webp',
-    q:   '80',
-  });
-  return `/.netlify/images?${params}`;
-}
-
-const optimizedSrc = src ? netlifyImage(src) : null;
+const imageSrc = src ?? null;
 ---
 
-{optimizedSrc ? (
+{imageSrc ? (
   <img
-    src={optimizedSrc}
+    src={imageSrc}
     alt={prompt}
     width={width}
     height={height}
