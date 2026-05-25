@@ -62,15 +62,22 @@ const {
 const computedAspect = aspect ?? `${width}/${height}`;
 
 const imageSrc = src ?? null;
+const imageBase = imageSrc?.replace(/\.(jpe?g)$/i, '');
+const autoWebpSrcSet =
+  imageSrc?.startsWith('/images/') && imageBase && /\.(jpe?g)$/i.test(imageSrc)
+    ? `${imageBase}-480.webp 480w, ${imageBase}-720.webp 720w, ${imageBase}-960.webp 960w`
+    : undefined;
+const resolvedWebpSrcSet = webpSrcSet ?? autoWebpSrcSet;
+const resolvedSizes = sizes ?? (resolvedWebpSrcSet ? `(min-width: ${width}px) ${width}px, 100vw` : undefined);
 ---
 
 {imageSrc ? (
   <picture>
-    {webpSrcSet && <source type="image/webp" srcset={webpSrcSet} sizes={sizes} />}
+    {resolvedWebpSrcSet && <source type="image/webp" srcset={resolvedWebpSrcSet} sizes={resolvedSizes} />}
     <img
       src={imageSrc}
       srcset={srcSet}
-      sizes={sizes}
+      sizes={resolvedSizes}
       alt={prompt}
       width={width}
       height={height}
