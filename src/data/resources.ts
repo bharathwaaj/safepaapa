@@ -15,28 +15,28 @@ export const resourceNumbers: ResourceNumber[] = [
     name: 'CHILDLINE India',
     number: '1098',
     ta: 'குழந்தைகளுக்கான தேசிய உதவி எண் — 24/7, இலவசம், ரகசியம்',
-    en: 'National child helpline — free, confidential, round the clock',
+    en: 'தேசிய குழந்தை உதவி எண் — இலவசம், ரகசியம், 24 மணி நேரமும்',
     primary: true,
   },
   {
     name: 'காவல்துறை',
     number: '100',
     ta: 'அவசர காவல்துறை உதவி',
-    en: 'Police emergency',
+    en: 'அவசர காவல்துறை உதவி',
     primary: false,
   },
   {
     name: 'பெண்கள் உதவி எண்',
     number: '181',
     ta: 'தமிழ்நாடு பெண்கள் மற்றும் குழந்தைகள் நல ஆணையம்',
-    en: 'TN Women Helpline',
+    en: 'தமிழ்நாடு பெண்கள் உதவி எண்',
     primary: false,
   },
   {
     name: 'அவசர சேவை',
     number: '112',
     ta: 'பொது அவசர சேவை — காவல், தீயணைப்பு, ஆம்புலன்ஸ்',
-    en: 'Unified emergency response',
+    en: 'ஒருங்கிணைந்த அவசர உதவி',
     primary: false,
   },
 ];
@@ -52,12 +52,12 @@ export interface TnGovBody {
 export const tnGovBodies: TnGovBody[] = [
   {
     name: 'குழந்தை நல குழு (CWC)',
-    ta: 'Child Welfare Committee — மாவட்டம் தோறும் உள்ளது. குழந்தைகளுக்கான சட்ட பாதுகாப்பு.',
-    contact: 'உங்கள் மாவட்ட Collectorate வழியாக தொடர்பு கொள்ளவும்',
+    ta: 'குழந்தை நல குழு (Child Welfare Committee) — மாவட்டம் தோறும் உள்ளது. குழந்தைகளுக்கான சட்ட பாதுகாப்பு.',
+    contact: 'உங்கள் மாவட்ட ஆட்சியர் அலுவலகம் (Collectorate) வழியாக தொடர்பு கொள்ளவும்',
   },
   {
     name: 'POCSO சிறப்பு நீதிமன்றம்',
-    ta: 'POCSO வழக்குகளுக்கு சிறப்பு நீதிமன்றங்கள் — கோவை, சென்னை, மதுரை உட்பட அனைத்து மாவட்டங்களிலும்.',
+    ta: 'POCSO வழக்குகளுக்கான சிறப்பு நீதிமன்றங்கள் — கோவை, சென்னை, மதுரை உட்பட அனைத்து மாவட்டங்களிலும்.',
     contact: '100 (காவல்துறை வழியாக தொடர்பு கொள்ளவும்)',
   },
   {

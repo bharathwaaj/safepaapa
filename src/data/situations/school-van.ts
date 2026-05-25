@@ -5,7 +5,7 @@ export const situation: Situation = {
   icon: '🚐',
   order: 2,
   title: 'வேன் ஓட்டுநருடன் தனியாக இருக்கும்போது',
-  titleEn: 'Alone with the school van driver',
+  titleEn: 'Alone with the பள்ளி van driver',
   summary: 'பள்ளி வேனில் தனியாக இருக்கும்போது என்ன செய்வது என்று முன்கூட்டியே சொல்லுங்கள்.',
   summaryEn: 'Prepare your child for what to do if alone with the van driver.',
   why: 'பள்ளி வேன் பாதுகாப்பானது என்று நாம் நம்புகிறோம். ஆனால் தினமும் காலை ஒரு குழந்தை வேனில் கடைசியாக கிளம்பும்போது, அல்லது மாலை கடைசியாக இறங்கும்போது, சில நிமிடங்கள் தனியாக இருக்கலாம். அந்த நிமிடங்களில் என்ன செய்வது என்று உங்கள் குழந்தைக்கு தெரியுமா? தயாரிப்பு இருந்தால் குழந்தை பாதுகாப்பாக இருக்கும்.',
@@ -34,6 +34,6 @@ export const situation: Situation = {
     'ஒருநாள் வேனில் வராவிட்டால் உடனே தகவல் தெரிவிக்க பழக்குங்கள்',
   ],
   imagePrompt:
-    'A Tamil child sitting near the door of a school van looking alert and confident, window open, bright daytime, safe and empowered body language, flat illustration style, teal and warm palette, no text in image',
+    'A Tamil child sitting near the door of a பள்ளி van looking alert and confident, window open, bright daytime, safe and empowered body language, flat illustration style, teal and warm palette, no text in image',
   imageSrc: '/images/situation-school-van.jpg',
 };

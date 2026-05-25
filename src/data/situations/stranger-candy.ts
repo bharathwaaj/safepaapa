@@ -34,6 +34,6 @@ export const situation: Situation = {
     'உங்கள் வீட்டு விதியை குழந்தை நண்பர்களிடமும் தெளிவாக சொல்லலாம்',
   ],
   imagePrompt:
-    'A young Tamil girl around age 6 confidently shaking her head and holding her palm up in a gentle "no" gesture to a blurry adult figure offering something sweet, bright outdoor setting near a school gate, empowered and safe body language, flat illustration style, teal and warm white palette, no text',
+    'A young Tamil girl around age 6 confidently shaking her head and holding her palm up in a gentle "no" gesture to a blurry adult figure offering something sweet, bright outdoor setting near a பள்ளி gate, empowered and safe body language, flat illustration style, teal and warm white palette, no text',
   imageSrc: '/images/situation-stranger-candy.jpg',
 };

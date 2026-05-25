@@ -19,7 +19,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
       <div>
         <p class="text-brand-muted text-xs uppercase tracking-widest mb-3">வழிகாட்டி</p>
         <h1 class="text-3xl md:text-4xl font-extrabold mb-3">பெற்றோருக்கு</h1>
-        <p class="opacity-75 text-sm mb-4">Recognise · Respond · Protect</p>
+        <p class="opacity-75 text-sm mb-4">அறிகுறிகளை கவனிக்கவும் · அமைதியாக பதிலளிக்கவும் · பாதுகாக்கவும்</p>
         <p class="text-brand-muted text-sm leading-relaxed opacity-90">
           உங்கள் குழந்தையை பாதுகாக்க நீங்கள் கண்காணிப்பாளராக மட்டுமல்ல, நம்பகமான நண்பராகவும் இருக்க வேண்டும்.
         </p>
@@ -53,7 +53,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
         </div>
         <div>
           <h2 class="text-xl font-extrabold text-text mb-1">⚠️ எச்சரிக்கை அறிகுறிகள்</h2>
-          <p class="text-xs text-text-subtle mb-3">Warning signs to watch for in your child</p>
+          <p class="text-xs text-text-subtle mb-3">குழந்தையில் கவனிக்க வேண்டிய எச்சரிக்கை அறிகுறிகள்</p>
           <p class="text-sm text-text-muted leading-relaxed">
             ஒரு அறிகுறி மட்டும் இருந்தால் கவலைப்பட வேண்டாம். பல அறிகுறிகள் ஒன்றாக, திடீரென தோன்றினால் கவனமாக இருங்கள்.
           </p>
@@ -75,7 +75,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
     <!-- How to Talk -->
     <section>
       <h2 class="text-xl font-extrabold text-text mb-1">🗣️ குழந்தையிடம் எப்படி பேசுவது?</h2>
-      <p class="text-xs text-text-subtle mb-6">How to have the safety conversation</p>
+      <p class="text-xs text-text-subtle mb-6">பாதுகாப்பு பற்றி மென்மையாக பேசுவது எப்படி?</p>
       <div class="space-y-4">
         {howToTalk.map((item) => (
           <div class="bg-brand-soft border border-brand-muted rounded-xl p-5">
@@ -100,7 +100,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
     <!-- If child discloses -->
     <section>
       <h2 class="text-xl font-extrabold text-text mb-1">💙 குழந்தை வெளிப்படுத்தினால்</h2>
-      <p class="text-xs text-text-subtle mb-6">If your child discloses abuse — what to do</p>
+      <p class="text-xs text-text-subtle mb-6">குழந்தை துஷ்பிரயோகம் பற்றி சொன்னால் — என்ன செய்ய வேண்டும்?</p>
       <div class="bg-calm-soft border border-calm rounded-xl p-6 space-y-3 mb-4">
         {disclosureDos.map((item) => (
           <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-calm-soft border border-calm' : 'bg-urgent-soft border border-urgent-border'}`}>
@@ -125,7 +125,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
     <!-- Situations section -->
     <section id="situations">
       <h2 class="text-xl font-extrabold text-text mb-1">🎭 இந்த சூழல்களில் என்ன சொல்வது?</h2>
-      <p class="text-xs text-text-subtle mb-6">Practice scripts — what to tell your child for common situations</p>
+      <p class="text-xs text-text-subtle mb-6">பொதுவான சூழல்களில் குழந்தையிடம் சொல்ல வேண்டிய வார்த்தைகள்</p>
       <div class="space-y-4">
         {situationScripts.map((s) => (
           <div class="bg-surface border border-border rounded-xl p-5 shadow-card">
@@ -153,7 +153,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
         </span>
       </div>
       <h2 class="text-xl font-extrabold text-text mb-1">இந்த சூழல்களில் குழந்தை என்ன செய்வார்?</h2>
-      <p class="text-xs text-text-subtle mb-6">Tap each situation — practice the right response with your child</p>
+      <p class="text-xs text-text-subtle mb-6">ஒவ்வொரு சூழலையும் தட்டி, சரியான பதிலை குழந்தையுடன் பயிற்சி செய்யுங்கள்</p>
       <div class="space-y-3">
         {scenarios.map((s) => (
           <Scenario
@@ -170,7 +170,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
     <!-- Online Safety -->
     <section>
       <h2 class="text-xl font-extrabold text-text mb-1">📱 ஆன்லைன் பாதுகாப்பு</h2>
-      <p class="text-xs text-text-subtle mb-6">Online safety for Tamil Nadu parents</p>
+      <p class="text-xs text-text-subtle mb-6">தமிழ்நாட்டு பெற்றோருக்கான இணைய பாதுகாப்பு வழிகாட்டி</p>
       <ImagePlaceholder
         prompt="A Tamil parent and child sitting together at a dining table, looking at a smartphone together, the parent pointing at the screen and explaining something, open and educational conversation, warm kitchen light, flat illustration style, teal and soft yellow palette, no text"
         src="/images/online-safety-phone.jpg"
@@ -193,7 +193,7 @@ import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyT
     <!-- CTA -->
     <div class="bg-urgent-soft border border-urgent-border rounded-2xl p-6 text-center">
       <p class="text-lg font-extrabold text-urgent-text mb-2">உடனடி உதவி தேவையா?</p>
-      <p class="text-sm text-text-muted mb-4">Need immediate help? Call CHILDLINE — free, confidential, 24/7</p>
+      <p class="text-sm text-text-muted mb-4">உடனடி உதவி தேவையா? CHILDLINE-ஐ அழைக்கவும் — இலவசம், ரகசியம் காக்கப்படும், 24/7</p>
       <a href="tel:1098" class="inline-block bg-urgent text-urgent-fg font-extrabold text-2xl px-10 py-4 rounded-full hover:bg-urgent-strong transition-colors">
         1098
       </a>

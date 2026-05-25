@@ -22,7 +22,7 @@ export const situation: Situation = {
     {
       label: 'பெற்றோர் செய்ய வேண்டியது:',
       lines: [
-        '"Apartment-ல் லிப்ட் camera இருக்கிறதா என்று confirm செய்யுங்கள்."',
+        '"Apartment-ல் லிப்ட் camera இருக்கிறதா என்று உறுதி செய்யுங்கள்."',
         '"Alarm button எங்கே இருக்கிறது என்று குழந்தைக்கு நேரில் காட்டுங்கள்."',
       ],
     },

@@ -16,7 +16,7 @@ import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
     <div class="max-w-3xl mx-auto">
       <p class="text-brand-muted text-xs uppercase tracking-widest mb-3">உதவி</p>
       <h1 class="text-3xl md:text-4xl font-extrabold mb-3">உதவி எண்கள் & வளங்கள்</h1>
-      <p class="opacity-75 text-sm">Helplines & Resources — Tamil Nadu</p>
+      <p class="opacity-75 text-sm">உதவி எண்கள் மற்றும் தகவல் வளங்கள் — தமிழ்நாடு</p>
     </div>
   </div>
 
@@ -25,7 +25,7 @@ import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
     <!-- Emergency Numbers -->
     <section>
       <h2 class="text-xl font-extrabold text-text mb-1">அவசர உதவி எண்கள்</h2>
-      <p class="text-xs text-text-subtle mb-6">Emergency helplines — available 24/7</p>
+      <p class="text-xs text-text-subtle mb-6">அவசர உதவி எண்கள் — 24 மணி நேரமும் கிடைக்கும்</p>
       <div class="space-y-3">
         {resourceNumbers.map((h) => (
           <a
@@ -60,9 +60,9 @@ import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
         <div>
           <h3 class="font-extrabold text-urgent-text mb-2">இப்போதே சேமியுங்கள்</h3>
           <p class="text-sm text-text-muted mb-1">
-            <strong>1098</strong> எண்ணை இப்போதே உங்கள் phone-ல் சேமியுங்கள். அவசரத்தில் தேட நேரமிருக்காது.
+            <strong>1098</strong> எண்ணை இப்போதே உங்கள் தொலைபேசியில் சேமியுங்கள். அவசரத்தில் தேட நேரமிருக்காது.
           </p>
-          <p class="text-xs text-text-subtle">Save CHILDLINE 1098 in your contacts — and share this page with family.</p>
+          <p class="text-xs text-text-subtle">CHILDLINE 1098-ஐ தொடர்புகளில் சேமித்து, இந்தப் பக்கத்தை குடும்பத்துடன் பகிருங்கள்.</p>
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@ import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
     <!-- TN Government Bodies -->
     <section>
       <h2 class="text-xl font-extrabold text-text mb-1">தமிழ்நாடு அரசு அமைப்புகள்</h2>
-      <p class="text-xs text-text-subtle mb-6">Tamil Nadu government bodies for child protection</p>
+      <p class="text-xs text-text-subtle mb-6">குழந்தை பாதுகாப்புக்கான தமிழ்நாடு அரசு அமைப்புகள்</p>
       <div class="space-y-3">
         {tnGovBodies.map((org) => (
           <div class="bg-surface-sunken border border-border rounded-xl p-5">
@@ -84,8 +84,8 @@ import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
 
     <!-- NGOs -->
     <section>
-      <h2 class="text-xl font-extrabold text-text mb-1">NGO & நிறுவனங்கள்</h2>
-      <p class="text-xs text-text-subtle mb-6">Organisations working on child safety in Tamil Nadu</p>
+      <h2 class="text-xl font-extrabold text-text mb-1">தன்னார்வ நிறுவனங்கள் (NGO) & அமைப்புகள்</h2>
+      <p class="text-xs text-text-subtle mb-6">தமிழ்நாட்டில் குழந்தை பாதுகாப்புக்காக பணிபுரியும் அமைப்புகள்</p>
       <div class="space-y-3">
         {ngoList.map((ngo) => (
           <div class="bg-surface border border-border rounded-xl p-5 flex items-start justify-between gap-4">
@@ -108,7 +108,7 @@ import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h3 class="text-xl font-extrabold mb-2">இதை பகிருங்கள்</h3>
-          <p class="text-brand-muted text-xs mb-3">உங்கள் WhatsApp குழுவில் ஒரு forward மட்டும் போதும் — யாரோ ஒருவரின் குழந்தையை காப்பாற்றலாம்.</p>
+          <p class="text-brand-muted text-xs mb-3">உங்கள் WhatsApp குழுவில் ஒரு முறை பகிர்ந்தாலே போதும் — யாரோ ஒருவரின் குழந்தையை காப்பாற்றலாம்.</p>
           <a
             href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு. CHILDLINE: 1098 (24/7, இலவசம்). மேலும் தகவல்: https://safepaapa.in')}`}
             target="_blank"

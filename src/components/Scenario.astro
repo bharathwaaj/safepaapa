@@ -39,7 +39,7 @@ const {
     <div class="flex-1 min-w-0">
       <p class="font-bold text-text text-sm leading-snug">{prompt}</p>
       {promptEn && (
-        <p class="text-xs text-text-subtle mt-0.5">{promptEn}</p>
+        <p class="text-xs text-text-subtle mt-0.5">({promptEn})</p>
       )}
     </div>
     <!-- Chevron / tap hint — toggles with open state -->
@@ -60,7 +60,7 @@ const {
   </summary>
 
   <div class="p-5 bg-brand-soft">
-    <p class="text-xs font-bold text-brand uppercase tracking-wide mb-3">{answerLabel}</p>
+    <p class="text-xs font-bold text-brand mb-3">{answerLabel}</p>
     <p class="text-sm text-text font-semibold leading-relaxed">{answer}</p>
   </div>
 </details>

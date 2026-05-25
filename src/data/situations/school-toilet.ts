@@ -5,7 +5,7 @@ export const situation: Situation = {
   icon: '🚻',
   order: 7,
   title: 'பள்ளி கழிப்பறையில் தனிமையாக இருக்கும்போது',
-  titleEn: 'Privacy and safety in school toilets',
+  titleEn: 'Privacy and safety in பள்ளி toilets',
   summary: 'கழிப்பறையில் எந்த பெரியவரும் உடன் வரக்கூடாது — குழந்தைக்கு தெரியட்டும்.',
   summaryEn: 'No adult should follow a child into a toilet — teach them to speak up.',
   why: 'பள்ளி கழிப்பறைகள், public toilets — இவை குழந்தைகள் தனிமையாக இருக்கும் இடங்கள். எந்த பெரியவரும் — ஆசிரியரோ, helper-ஓ — குழந்தையை பின்பற்றி வருவது தப்பு என்று குழந்தைக்கு தெரிந்திருக்க வேண்டும். இந்த எளிய விதி குழந்தையை பாதுகாக்கலாம்.',
@@ -34,6 +34,6 @@ export const situation: Situation = {
     'வாட்சுமேன், helper, அனைவருக்கும் இந்த விதி பொருந்தும்',
   ],
   imagePrompt:
-    'A school corridor with a toilet door, a Tamil child walking alone confidently toward it, bright clean school environment, safe and empowered mood, flat illustration style, teal and light palette, no text',
+    'A பள்ளி corridor with a toilet door, a Tamil child walking alone confidently toward it, bright clean பள்ளி environment, safe and empowered mood, flat illustration style, teal and light palette, no text',
   imageSrc: '/images/situation-school-toilet.jpg',
 };

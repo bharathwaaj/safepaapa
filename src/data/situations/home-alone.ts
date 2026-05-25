@@ -6,8 +6,8 @@ export const situation: Situation = {
   order: 15,
   title: 'வீட்டில் தனியாக இருக்கும்போது',
   titleEn: 'When your child is home alone',
-  summary: 'வேலைக்கு செல்லும் பெற்றோரின் குழந்தைகள் சில நேரம் வீட்டில் தனியாக இருக்கலாம் — கதவு, phone, அவசர திட்டம் தெரியட்டும்.',
-  summaryEn: 'Children home alone need clear rules for the door, phone calls, and emergencies.',
+  summary: 'வேலைக்கு செல்லும் பெற்றோரின் குழந்தைகள் சில நேரம் வீட்டில் தனியாக இருக்கலாம் — கதவு, தொலைபேசி, அவசர திட்டம் தெரியட்டும்.',
+  summaryEn: 'Children home alone need clear rules for the door, தொலைபேசி அழைப்புகள், and emergencies.',
   why: 'இரண்டு பெற்றோரும் வேலைக்கு செல்லும் வீடுகளில் குழந்தை சில மணி நேரம் தனியாக இருக்கும். இது தமிழ்நாட்டில் மிகவும் பொதுவானது. "கதவை திறக்காதே" என்று சொல்கிறோம் — ஆனால் யாரிடம் திறக்கலாம், அவசரமாக என்ன செய்வது, யாரை அழைப்பது என்று குழந்தைக்கு தெளிவாக தெரிகிறதா?',
   scripts: [
     {
@@ -35,6 +35,6 @@ export const situation: Situation = {
     'யாரோ வந்தால் என்ன செய்வது என்று ஒரு முறை practice செய்து பாருங்கள்',
   ],
   imagePrompt:
-    'A Tamil child sitting safely inside a home near a closed front door, looking calm and alert, a phone on the table nearby, warm interior light, flat illustration style, teal palette, safe prepared mood, no text',
+    'A Tamil child sitting safely inside a home near a closed front door, looking calm and alert, a தொலைபேசி on the table nearby, warm interior light, flat illustration style, teal palette, safe prepared mood, no text',
   imageSrc: '/images/situation-home-alone.jpg',
 };

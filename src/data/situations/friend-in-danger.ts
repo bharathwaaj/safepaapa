@@ -22,7 +22,7 @@ export const situation: Situation = {
     {
       label: 'பெற்றோர் செய்ய வேண்டியது:',
       lines: [
-        '"குழந்தை நண்பரைப் பற்றி கவலையுடன் பேசினால் — seriously எடுத்துக்கொள்ளுங்கள்."',
+        '"குழந்தை நண்பரைப் பற்றி கவலையுடன் பேசினால் — தீவிரமாக எடுத்துக்கொள்ளுங்கள்."',
         '"நண்பரின் பெற்றோரிடம் அல்லது பள்ளி counselor-இடம் சொல்லுங்கள்."',
       ],
     },
@@ -34,6 +34,6 @@ export const situation: Situation = {
     'நண்பருக்காக கவலைப்படுவது நல்ல உணர்வு என்று பாராட்டுங்கள்',
   ],
   imagePrompt:
-    'Two Tamil children sitting together, one looking worried and the other listening with care and concern, warm school corridor setting, emotional and supportive mood, flat illustration style, teal and care-soft palette, no text',
+    'Two Tamil children sitting together, one looking worried and the other listening with care and concern, warm பள்ளி corridor setting, emotional and supportive mood, flat illustration style, teal and care-soft palette, no text',
   imageSrc: '/images/situation-friend-in-danger.jpg',
 };

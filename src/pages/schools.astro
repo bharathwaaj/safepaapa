@@ -8,7 +8,7 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
 
 <Layout
   title="பள்ளிகளுக்கு — குழந்தை பாதுகாப்பு"
-  description="Assembly script, PTA message, and classroom checklist for child safety in Tamil Nadu schools."
+  description="பள்ளிகளுக்கான காலை கூட்ட உரை, பெற்றோர் குழு செய்தி, வகுப்பறை சரிபார்ப்பு பட்டியல் — SafePaapa"
   ogImage="/og/schools.jpg"
   ogPrompt="1200x630 JPEG — Tamil school teacher standing at the front of a bright classroom holding up a safety rules poster, young students of ages 7-10 listening attentively, Tamil Nadu government school setting, morning sunlight through windows. Dark teal bottom bar with 'பள்ளி குழந்தை பாதுகாப்பு · SafePaapa' text. Flat illustration style."
   canonicalPath="/schools"
@@ -20,11 +20,11 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
       <div>
         <p class="text-brand-muted text-xs uppercase tracking-widest mb-3">பள்ளிகளுக்கு</p>
         <h1 class="text-3xl md:text-4xl font-extrabold mb-3">பள்ளியில் பாதுகாப்பு</h1>
-        <p class="opacity-75 text-sm mb-4">Teach · Protect · Report</p>
+        <p class="opacity-75 text-sm mb-4">கற்பிக்கவும் · பாதுகாக்கவும் · புகார் செய்யவும்</p>
         <p class="text-brand-muted text-sm leading-relaxed opacity-90">
-          5 நிமிட assembly script, PTA WhatsApp message, classroom checklist — இவற்றை நேரடியாக copy செய்து பயன்படுத்துங்கள்.
+          5 நிமிட காலை கூட்ட உரை (Assembly Script), பெற்றோர் குழு செய்தி (PTA Message), வகுப்பறை சரிபார்ப்பு பட்டியல் (Classroom Checklist) — இவற்றை நேரடியாக நகலெடுத்து பயன்படுத்துங்கள்.
         </p>
-        <p class="text-brand-muted text-xs mt-2 italic">Ready-to-use scripts and checklists for teachers and school staff.</p>
+        <p class="text-brand-muted text-xs mt-2 italic">ஆசிரியர்கள் மற்றும் பள்ளி பணியாளர்கள் உடனே பயன்படுத்தக்கூடிய கருவிகள்.</p>
       </div>
       <ImagePlaceholder
         prompt="A Tamil school teacher standing at the front of a classroom of young children aged 7-10, holding up illustrated safety rule posters, bright cheerful classroom with sunlight, children listening attentively, Tamil Nadu government school setting, warm and empowering atmosphere, flat illustration style, teal and amber tones, no text"
@@ -43,10 +43,10 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
     <!-- Jump links -->
     <nav class="flex flex-wrap gap-2" aria-label="Page sections">
       {[
-        { href: '#assembly',  label: '🎙️ Assembly Script' },
-        { href: '#pta',       label: '📲 PTA Message' },
-        { href: '#checklist', label: '✅ Checklist' },
-        { href: '#poster',    label: '🖨️ Print Poster' },
+        { href: '#assembly',  label: '🎙️ காலை கூட்ட உரை' },
+        { href: '#pta',       label: '📲 பெற்றோர் குழு செய்தி' },
+        { href: '#checklist', label: '✅ சரிபார்ப்பு பட்டியல்' },
+        { href: '#poster',    label: '🖨️ அச்சிடும் சுவரொட்டி' },
       ].map(({ href, label }) => (
         <a
           href={href}
@@ -59,9 +59,9 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
 
     <!-- ── Assembly Script ── -->
     <section id="assembly">
-      <h2 class="text-2xl font-extrabold text-text mb-1">🎙️ Assembly Script</h2>
-      <p class="text-xs text-text-subtle mb-1">5 minutes · Read aloud to students (Ages 6–14)</p>
-      <p class="text-xs text-text-muted mb-6 italic">ஆசிரியர் morning assembly-ல் நேரடியாக படிக்கலாம் — 5 நிமிடம் போதும்.</p>
+      <h2 class="text-2xl font-extrabold text-text mb-1">🎙️ காலை கூட்ட உரை (Assembly Script)</h2>
+      <p class="text-xs text-text-subtle mb-1">5 நிமிடம் · மாணவர்களுக்கு வாசிக்கலாம் (6–14 வயது)</p>
+      <p class="text-xs text-text-muted mb-6 italic">ஆசிரியர் காலை கூட்டத்தில் நேரடியாக படிக்கலாம் — 5 நிமிடம் போதும்.</p>
 
       <div class="bg-surface border-2 border-brand-border rounded-2xl p-7 relative">
         <!-- Copy button -->
@@ -70,7 +70,7 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
           class="absolute top-4 right-4 text-xs font-bold text-brand border border-brand-border bg-brand-soft px-3 py-1.5 rounded-full hover:bg-brand hover:text-brand-fg transition-colors"
           data-print-hide
         >
-          📋 Copy
+          📋 நகலெடு
         </button>
 
         <p class="text-brand font-bold text-xs uppercase tracking-wide mb-5">— ஆசிரியர் படிக்க வேண்டியது —</p>
@@ -82,14 +82,14 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
         </div>
       </div>
 
-      <p class="text-xs text-text-subtle mt-3">💡 இந்த script-ஐ copy செய்து உங்கள் Teacher WhatsApp group-ல் பகிரலாம்.</p>
+      <p class="text-xs text-text-subtle mt-3">💡 இந்த உரையை நகலெடுத்து உங்கள் ஆசிரியர் WhatsApp குழுவில் பகிரலாம்.</p>
     </section>
 
     <!-- ── PTA Message ── -->
     <section id="pta">
-      <h2 class="text-2xl font-extrabold text-text mb-1">📲 PTA WhatsApp Message</h2>
-      <p class="text-xs text-text-subtle mb-1">Copy · Paste · Send to parent group</p>
-      <p class="text-xs text-text-muted mb-6 italic">இதை நேரடியாக copy செய்து PTA / Parent WhatsApp group-ல் அனுப்புங்கள்.</p>
+      <h2 class="text-2xl font-extrabold text-text mb-1">📲 பெற்றோர் குழு செய்தி (PTA WhatsApp Message)</h2>
+      <p class="text-xs text-text-subtle mb-1">நகலெடு · ஒட்டு · பெற்றோர் குழுவுக்கு அனுப்பு</p>
+      <p class="text-xs text-text-muted mb-6 italic">இதை நேரடியாக நகலெடுத்து PTA / பெற்றோர் WhatsApp குழுவில் அனுப்புங்கள்.</p>
 
       <ImagePlaceholder
         prompt="A Tamil school PTA meeting, parents and teachers seated together in a school hall, a teacher standing and speaking about child safety with a small poster behind her, warm evening light, community gathering atmosphere, flat illustration style, teal and warm amber tones, no text"
@@ -107,7 +107,7 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
           class="absolute top-4 right-4 text-xs font-bold text-brand border border-brand-border bg-brand-soft px-3 py-1.5 rounded-full hover:bg-brand hover:text-brand-fg transition-colors"
           data-print-hide
         >
-          📋 Copy
+          📋 நகலெடு
         </button>
 
         <p class="text-brand font-bold text-xs uppercase tracking-wide mb-4">— PTA Group-க்கு அனுப்புங்கள் —</p>
@@ -134,9 +134,9 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
 
     <!-- ── Classroom Checklist ── -->
     <section id="checklist">
-      <h2 class="text-2xl font-extrabold text-text mb-1">✅ Classroom Safety Checklist</h2>
-      <p class="text-xs text-text-subtle mb-1">For teachers · Print-friendly</p>
-      <p class="text-xs text-text-muted mb-6 italic">இந்த checklist-ஐ print செய்து staffroom-ல் வையுங்கள்.</p>
+      <h2 class="text-2xl font-extrabold text-text mb-1">✅ வகுப்பறை பாதுகாப்பு சரிபார்ப்பு பட்டியல் (Classroom Safety Checklist)</h2>
+      <p class="text-xs text-text-subtle mb-1">ஆசிரியர்களுக்கு · அச்சிட எளிது</p>
+      <p class="text-xs text-text-muted mb-6 italic">இந்த பட்டியலை அச்சிட்டு ஆசிரியர் அறையில் வையுங்கள்.</p>
 
       <div class="space-y-3">
         {checklistItems.map((item) => (
@@ -150,16 +150,16 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
           class="text-sm font-bold text-brand border-2 border-brand-border px-5 py-2.5 rounded-full hover:bg-brand-soft transition-colors whitespace-nowrap"
           data-print-hide
         >
-          🖨️ Print Checklist
+          🖨️ பட்டியலை அச்சிடு
         </button>
       </div>
     </section>
 
     <!-- ── Printable Poster ── -->
     <section id="poster">
-      <h2 class="text-2xl font-extrabold text-text mb-1">🖨️ Classroom Poster</h2>
-      <p class="text-xs text-text-subtle mb-1">A4 print · Browser → Print → Save as PDF</p>
-      <p class="text-xs text-text-muted mb-6 italic">உங்கள் browser-ல் Print button அழுத்துங்கள் — PDF-ஆக save செய்யலாம் அல்லது நேரடியாக print செய்யலாம்.</p>
+      <h2 class="text-2xl font-extrabold text-text mb-1">🖨️ வகுப்பறை சுவரொட்டி (Classroom Poster)</h2>
+      <p class="text-xs text-text-subtle mb-1">A4 அச்சு · உலாவி → அச்சிடு → PDF-ஆக சேமி</p>
+      <p class="text-xs text-text-muted mb-6 italic">உங்கள் உலாவியில் அச்சிடும் பொத்தானை அழுத்துங்கள் — PDF-ஆக சேமிக்கலாம் அல்லது நேரடியாக அச்சிடலாம்.</p>
 
       <div
         class="poster-card bg-surface border-2 border-border rounded-2xl overflow-hidden shadow-raised"
@@ -169,7 +169,7 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
         <div class="bg-brand text-brand-fg px-8 py-6 text-center">
           <p class="text-xs font-bold uppercase tracking-widest opacity-75 mb-2">SafePaapa · safepaapa.in</p>
           <h2 class="text-2xl font-extrabold leading-snug">குழந்தை பாதுகாப்பு விதிகள்</h2>
-          <p class="text-sm opacity-75 mt-1">Child Safety Rules — 5 Rules Every Child Must Know</p>
+          <p class="text-sm opacity-75 mt-1">ஒவ்வொரு குழந்தையும் அறிய வேண்டிய 5 விதிகள்</p>
         </div>
 
         <!-- Rules -->
@@ -191,7 +191,7 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
         <div class="bg-red-50 border-t border-red-200 px-8 py-5 text-center">
           <p class="font-extrabold text-red-600 text-lg tracking-wide">CHILDLINE · 1098</p>
           <p class="text-xs text-text-muted mt-1">இலவசம் · 24 மணி · எந்த குழந்தையும் அழைக்கலாம்</p>
-          <p class="text-xs text-text-subtle">Free · 24 hours · Any child in danger can call</p>
+          <p class="text-xs text-text-subtle">(Free · 24 hours · any child in danger can call)</p>
         </div>
       </div>
 
@@ -201,10 +201,10 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
           class="bg-brand text-brand-fg font-bold px-6 py-3 rounded-full hover:bg-brand-strong transition-colors text-sm whitespace-nowrap"
           data-print-hide
         >
-          🖨️ Print / Save as PDF
+          🖨️ அச்சிடு / PDF-ஆக சேமி
         </button>
         <a
-          href={`https://wa.me/?text=${encodeURIComponent('SafePaapa பள்ளி சுவரொட்டி — 5 குழந்தை பாதுகாப்பு விதிகள். Print செய்து உங்கள் வகுப்பறையில் வையுங்கள்: https://safepaapa.in/schools#poster')}`}
+          href={`https://wa.me/?text=${encodeURIComponent('SafePaapa பள்ளி சுவரொட்டி — 5 குழந்தை பாதுகாப்பு விதிகள். அச்சிட்டு உங்கள் வகுப்பறையில் வையுங்கள்: https://safepaapa.in/schools#poster')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-sm whitespace-nowrap"
@@ -217,11 +217,11 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
 
     <!-- POCSO reminder -->
     <section class="bg-red-50 border-l-4 border-red-500 rounded-r-xl p-6">
-      <h2 class="font-extrabold text-red-700 mb-2">⚖️ POCSO Section 19 — உங்கள் சட்டப் பொறுப்பு</h2>
+      <h2 class="font-extrabold text-red-700 mb-2">⚖️ POCSO சட்டம் 19ஆம் பிரிவு (Section 19) — உங்கள் சட்டப் பொறுப்பு</h2>
       <p class="text-sm text-text-muted leading-relaxed mb-2">
         18 வயதிற்கு கீழ் உள்ள குழந்தைக்கு எதிரான பாலியல் துஷ்பிரயோகம் நடந்திருக்கலாம் என்று சந்தேகித்தால் — <strong>புகார் செய்வது ஆசிரியரின் சட்டபூர்வமான கடமை.</strong> புகார் செய்யாவிட்டால் சட்டப்படி தண்டிக்கப்படலாம்.
       </p>
-      <p class="text-xs text-text-subtle mb-3">Under POCSO Section 19, failing to report suspected child sexual abuse is a criminal offence.</p>
+      <p class="text-xs text-text-subtle mb-3">(Under POCSO Section 19, failing to report suspected child sexual abuse is a criminal offence.)</p>
       <div class="flex flex-wrap gap-3">
         <a href="tel:1098" class="bg-red-600 text-white font-bold px-5 py-2 rounded-full text-sm whitespace-nowrap">📞 1098 அழை</a>
         <a href="/teachers" class="border border-red-500 text-red-700 font-bold px-5 py-2 rounded-full text-sm whitespace-nowrap hover:bg-red-50 transition-colors">ஆசிரியர் வழிகாட்டி →</a>
@@ -235,11 +235,11 @@ import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schoo
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-xl font-extrabold text-text mb-2">உங்கள் பள்ளி பாதுகாப்பான பள்ளியாக இருக்கட்டும்</p>
       <p class="text-text-muted text-sm mb-7">
-        இந்த scripts மற்றும் checklist-ஐ உங்கள் school WhatsApp group-ல் share செய்யுங்கள்.
+        இந்த உரைகள் மற்றும் சரிபார்ப்பு பட்டியலை உங்கள் பள்ளி WhatsApp குழுவில் பகிருங்கள்.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a
-          href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — பள்ளி குழந்தை பாதுகாப்பு. Assembly script, PTA message, classroom checklist — இலவசமாக தமிழில்: https://safepaapa.in/schools')}`}
+            href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — பள்ளி குழந்தை பாதுகாப்பு. காலை கூட்ட உரை, பெற்றோர் குழு செய்தி, வகுப்பறை சரிபார்ப்பு பட்டியல் — இலவசமாக தமிழில்: https://safepaapa.in/schools')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap"
@@ -296,7 +296,7 @@ document.getElementById('copy-assembly-btn')?.addEventListener('click', async (e
   try {
     await navigator.clipboard.writeText(assemblyText);
     btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+    setTimeout(() => { btn.textContent = '📋 நகலெடு'; }, 2000);
   } catch {
     btn.textContent = '❌ Error';
   }
@@ -311,7 +311,7 @@ document.getElementById('copy-pta-btn')?.addEventListener('click', async (e) => 
   try {
     await navigator.clipboard.writeText(ptaText);
     btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+    setTimeout(() => { btn.textContent = '📋 நகலெடு'; }, 2000);
   } catch {
     btn.textContent = '❌ Error';
   }
