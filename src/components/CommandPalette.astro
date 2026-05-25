@@ -1,0 +1,335 @@
+---
+import { footerNavLinks } from '../data/nav';
+import { situations } from '../data/situations/_index';
+
+type PaletteItem = {
+  group: string;
+  title: string;
+  subtitle?: string;
+  href?: string;
+  action?: 'share' | 'copy' | 'theme';
+  keywords?: string;
+};
+
+const quickActions: PaletteItem[] = [
+  {
+    group: 'உடனடி உதவி',
+    title: '1098 அழைக்கவும்',
+    subtitle: 'CHILDLINE India · 24/7 · இலவசம்',
+    href: 'tel:1098',
+    keywords: 'childline emergency help danger call அவசரம் உதவி ஆபத்து',
+  },
+  {
+    group: 'உடனடி உதவி',
+    title: 'அவசர உதவி பக்கம்',
+    subtitle: 'குழந்தை ஆபத்தில் இருந்தால் என்ன செய்ய வேண்டும்',
+    href: '/emergency',
+    keywords: 'emergency danger 1098 police women helpline அவசரம்',
+  },
+  {
+    group: 'இந்த பக்கம்',
+    title: 'இந்த பக்கத்தை WhatsApp-ல் பகிர்',
+    subtitle: 'மற்றொரு பெற்றோருக்கு இந்த தகவல் சென்றடையட்டும்',
+    action: 'share',
+    keywords: 'share whatsapp பகிர் அனுப்பு',
+  },
+  {
+    group: 'இந்த பக்கம்',
+    title: 'இந்த பக்கத்தின் link copy செய்',
+    subtitle: 'பிறகு அனுப்ப link-ஐ சேமிக்கலாம்',
+    action: 'copy',
+    keywords: 'copy link url நகல்',
+  },
+  {
+    group: 'இந்த பக்கம்',
+    title: 'Dark mode மாற்று',
+    subtitle: 'ஒளி / இருள் தோற்றத்தை மாற்று',
+    action: 'theme',
+    keywords: 'dark light theme mode இருள் ஒளி',
+  },
+];
+
+const pageItems: PaletteItem[] = footerNavLinks.map((link) => ({
+  group: 'பக்கங்கள்',
+  title: link.label,
+  href: link.href,
+  keywords: link.href.replace('/', ''),
+}));
+
+const situationItems: PaletteItem[] = situations.map((s) => ({
+  group: 'சூழல்கள்',
+  title: `${s.icon} ${s.title}`,
+  subtitle: s.titleEn,
+  href: `/situations/${s.slug}`,
+  keywords: `${s.slug} ${s.title} ${s.titleEn} ${s.summary} ${s.summaryEn} ${s.shareLine}`,
+}));
+
+const items = [...quickActions, ...pageItems, ...situationItems];
+const groupedItems = items.reduce<Record<string, PaletteItem[]>>((groups, item) => {
+  groups[item.group] ??= [];
+  groups[item.group].push(item);
+  return groups;
+}, {});
+---
+
+<div
+  class="command-palette fixed inset-0 z-[180] hidden"
+  data-command-palette
+  aria-hidden="true"
+>
+  <button
+    type="button"
+    class="absolute inset-0 h-full w-full bg-surface-ink/55 backdrop-blur-sm"
+    data-command-palette-close
+    aria-label="தேடலை மூடு"
+  ></button>
+
+  <section
+    class="relative mx-auto mt-16 w-[min(92vw,680px)] overflow-hidden rounded-2xl border border-brand-border bg-surface shadow-[0_28px_70px_rgb(0_0_0_/_0.28)]"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="command-palette-title"
+  >
+    <div class="border-b border-border bg-surface-raised p-4">
+      <p id="command-palette-title" class="text-sm font-extrabold text-brand">
+        உடனடி உதவி தேடல்
+      </p>
+      <input
+        class="mt-3 h-12 w-full rounded-xl border border-border bg-surface-sunken px-4 text-base font-semibold text-text outline-none ring-brand/25 placeholder:text-text-subtle focus:border-brand focus:ring-4"
+        type="search"
+        data-command-palette-input
+        placeholder="சூழல், உதவி, 1098, WhatsApp..."
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="max-h-[62vh] overflow-y-auto p-2" data-command-palette-results>
+      {Object.entries(groupedItems).map(([group, groupItems]) => (
+        <div class="command-palette-group py-2" data-command-palette-group>
+          <p class="px-3 pb-1 text-[11px] font-extrabold text-text-subtle">{group}</p>
+          <div class="flex flex-col gap-1">
+            {groupItems.map((item) => {
+              const attrs = {
+                'data-command-palette-item': true,
+                'data-title': item.title,
+                'data-subtitle': item.subtitle ?? '',
+                'data-keywords': item.keywords ?? '',
+                'data-action': item.action ?? '',
+                class:
+                  'command-palette-item flex w-full items-center justify-between gap-4 rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-brand-soft focus:bg-brand-soft focus:outline-none',
+              };
+
+              const content = (
+                <>
+                  <span class="min-w-0">
+                    <span class="block truncate text-sm font-extrabold text-text">{item.title}</span>
+                    {item.subtitle && (
+                      <span class="mt-0.5 block truncate text-xs font-semibold text-text-muted">{item.subtitle}</span>
+                    )}
+                  </span>
+                  <span class="shrink-0 text-xs font-bold text-text-subtle">
+                    {item.href?.startsWith('tel:') ? 'Call' : item.href ? 'Open' : 'Run'}
+                  </span>
+                </>
+              );
+
+              return item.href ? (
+                <a href={item.href} {...attrs}>{content}</a>
+              ) : (
+                <button type="button" {...attrs}>{content}</button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+
+      <p class="hidden px-3 py-8 text-center text-sm font-semibold text-text-muted" data-command-palette-empty>
+        இதற்கு பொருத்தமான முடிவு இல்லை.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-border bg-surface-sunken px-4 py-2 text-[11px] font-bold text-text-subtle">
+      <span>Enter தேர்வு</span>
+      <span>Esc மூடு</span>
+    </div>
+  </section>
+</div>
+
+<script>
+  const palette = document.querySelector<HTMLElement>('[data-command-palette]');
+  const triggers = document.querySelectorAll<HTMLButtonElement>('[data-command-palette-trigger]');
+  const input = palette?.querySelector<HTMLInputElement>('[data-command-palette-input]');
+  const closeButtons = palette?.querySelectorAll<HTMLButtonElement>('[data-command-palette-close]');
+  const groups = Array.from(palette?.querySelectorAll<HTMLElement>('[data-command-palette-group]') ?? []);
+  const empty = palette?.querySelector<HTMLElement>('[data-command-palette-empty]');
+  let activeIndex = 0;
+
+  function allItems() {
+    return Array.from(palette?.querySelectorAll<HTMLElement>('[data-command-palette-item]') ?? []);
+  }
+
+  function visibleItems() {
+    return allItems().filter((item) => !item.classList.contains('hidden'));
+  }
+
+  function focusableItems() {
+    return [input, ...visibleItems()].filter((item): item is HTMLElement => Boolean(item));
+  }
+
+  function normalize(value: string) {
+    return value.toLocaleLowerCase('ta-IN').trim();
+  }
+
+  function setActive(index: number) {
+    const items = visibleItems();
+    activeIndex = items.length ? (index + items.length) % items.length : 0;
+    allItems().forEach((item) => {
+      item.classList.remove('bg-brand-soft');
+      item.removeAttribute('aria-current');
+    });
+    const active = items[activeIndex];
+    if (active) {
+      active.classList.add('bg-brand-soft');
+      active.setAttribute('aria-current', 'true');
+      active.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function filterItems() {
+    const query = normalize(input?.value ?? '');
+    let visibleCount = 0;
+
+    groups.forEach((group) => {
+      let groupVisible = 0;
+      const items = Array.from(group.querySelectorAll<HTMLElement>('[data-command-palette-item]'));
+
+      items.forEach((item) => {
+        const haystack = normalize(`${item.dataset.title} ${item.dataset.subtitle} ${item.dataset.keywords}`);
+        const visible = !query || haystack.includes(query);
+        item.classList.toggle('hidden', !visible);
+        if (visible) {
+          visibleCount += 1;
+          groupVisible += 1;
+        }
+      });
+
+      group.classList.toggle('hidden', groupVisible === 0);
+    });
+
+    empty?.classList.toggle('hidden', visibleCount !== 0);
+    setActive(0);
+  }
+
+  function openPalette() {
+    if (!palette || !input) return;
+    palette.classList.remove('hidden');
+    palette.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('overflow-hidden');
+    input.value = '';
+    filterItems();
+    requestAnimationFrame(() => input.focus());
+  }
+
+  function closePalette() {
+    if (!palette) return;
+    palette.classList.add('hidden');
+    palette.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('overflow-hidden');
+    triggers[0]?.focus();
+  }
+
+  async function copyCurrentPage() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+    } catch {
+      window.prompt('இந்த link-ஐ copy செய்யுங்கள்', window.location.href);
+    }
+  }
+
+  async function shareCurrentPage() {
+    const existingShare = document.getElementById('situation-share-btn');
+    if (existingShare instanceof HTMLButtonElement) {
+      existingShare.click();
+      return;
+    }
+
+    const shareData = {
+      title: document.title,
+      text: 'SafePaapa குழந்தை பாதுகாப்பு',
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return;
+    }
+
+    window.location.href = `https://wa.me/?text=${encodeURIComponent(`${shareData.title}\n${shareData.url}`)}`;
+  }
+
+  function toggleTheme() {
+    const dark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('sp-theme', dark ? 'dark' : 'light');
+  }
+
+  async function runItem(item: HTMLElement) {
+    const action = item.dataset.action;
+    if (!action) return;
+
+    closePalette();
+    try {
+      if (action === 'copy') await copyCurrentPage();
+      if (action === 'share') await shareCurrentPage();
+      if (action === 'theme') toggleTheme();
+    } catch {
+      // Share can be cancelled by the user; no UI error is needed.
+    }
+  }
+
+  triggers.forEach((button) => button.addEventListener('click', openPalette));
+  closeButtons?.forEach((button) => button.addEventListener('click', closePalette));
+  input?.addEventListener('input', filterItems);
+
+  palette?.addEventListener('click', (event) => {
+    const item = (event.target as HTMLElement).closest<HTMLElement>('[data-command-palette-item]');
+    if (!item) return;
+    if (item.dataset.action) {
+      event.preventDefault();
+      void runItem(item);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    const isShortcut = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k';
+    if (isShortcut) {
+      event.preventDefault();
+      openPalette();
+      return;
+    }
+
+    if (!palette || palette.classList.contains('hidden')) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closePalette();
+    } else if (event.key === 'Tab') {
+      const focusables = focusableItems();
+      const currentIndex = focusables.indexOf(document.activeElement as HTMLElement);
+      const nextIndex = event.shiftKey ? currentIndex - 1 : currentIndex + 1;
+      event.preventDefault();
+      focusables[(nextIndex + focusables.length) % focusables.length]?.focus();
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setActive(activeIndex + 1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setActive(activeIndex - 1);
+    } else if (event.key === 'Enter') {
+      const item = visibleItems()[activeIndex];
+      if (item) {
+        event.preventDefault();
+        item.click();
+      }
+    }
+  });
+</script>
