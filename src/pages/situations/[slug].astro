@@ -24,8 +24,8 @@ const shareText = encodeURIComponent(
 );
 const whatsappFallbackUrl = `https://wa.me/?text=${shareText}`;
 
-// Share-card line — should be public-facing and make sense out of context.
-const shareCardLine = s.shareLine ?? s.scripts[0]?.lines[0] ?? s.summary;
+// Share-card line — parent-spoken and safe to read out of context.
+const shareCardLine = s.shareLine;
 
 // Scenario answer — first 3 lines of the primary script, stripped of curly quotes
 const scenarioAnswer = s.scripts[0].lines

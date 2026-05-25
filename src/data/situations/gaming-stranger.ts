@@ -8,6 +8,7 @@ export const situation: Situation = {
   titleEn: 'A gaming contact asks for personal information',
   summary: 'Free Fire, BGMI, Roblox-ல் பழகும் "நண்பர்கள்" — தனிப்பட்ட தகவல் கேட்டால் என்ன செய்வது?',
   summaryEn: 'Online gaming contacts are strangers — never share personal details in a game.',
+  shareLine: 'கேமில் யாராவது பெயர், பள்ளி, புகைப்படம் கேட்டால் சொல்லாதே. உடனே என்னிடம் சொல்லு.',
   why: 'Free Fire, BGMI, Roblox — இவை தமிழ்நாட்டு குழந்தைகளிடம் மிகவும் பிரபலமானவை. கேமிங்கில் "teammates" ஆக பழகி, நாளடைவில் நம்பிக்கையை உருவாக்கி, பிறகு பெயர், வீட்டு முகவரி, பள்ளி பெயர், தொலைபேசி எண், புகைப்படம் கேட்கிறார்கள். "கேம் நண்பர்" என்று குழந்தை நம்புகிறார்கள் — ஆனால் அவர்கள் யாரோ என்று தெரியாது.',
   scripts: [
     {

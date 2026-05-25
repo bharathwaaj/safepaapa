@@ -8,6 +8,7 @@ export const situation: Situation = {
   titleEn: 'Someone asks for private or intimate photos',
   summary: 'இணையத்தில் யாரோ தனிப்பட்ட புகைப்படம் கேட்டால் — உடனே "வேண்டாம்" என்று சொல்லு, பெற்றோரிடம் சொல்.',
   summaryEn: 'No one has the right to ask a child for private photos — refuse and tell a parent immediately.',
+  shareLine: 'யாராவது தனிப்பட்ட புகைப்படம் கேட்டால் அனுப்பாதே. பயப்படாமல் உடனே என்னிடம் சொல்லு.',
   why: 'WhatsApp, Instagram, Snapchat, கேமிங் apps — எல்லாவற்றிலும் குழந்தைகளிடம் தனிப்பட்ட புகைப்படம் கேட்கப்படுகிறது. "யாரும் பார்க்க மாட்டார்கள்", "நீ மட்டும் தான்", "நாமளுக்குள்ள தான்" என்று சொல்கிறார்கள். ஒரு முறை அனுப்பினால் — அது எப்போதும் அவர்கள் கையில் இருக்கும். இதை குழந்தைக்கு தெளிவாக சொல்லுவது மிக முக்கியம்.',
   scripts: [
     {

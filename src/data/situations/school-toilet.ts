@@ -8,6 +8,7 @@ export const situation: Situation = {
   titleEn: 'Privacy and safety in பள்ளி toilets',
   summary: 'கழிப்பறையில் எந்த பெரியவரும் உடன் வரக்கூடாது — குழந்தைக்கு தெரியட்டும்.',
   summaryEn: 'No adult should follow a child into a toilet — teach them to speak up.',
+  shareLine: 'கழிப்பறைக்கு யாராவது உன் பின்பு வர முயன்றால், உரக்க கத்து; வெளியே ஓடி ஆசிரியரிடம் சொல்லு.',
   why: 'பள்ளி கழிப்பறைகள், public toilets — இவை குழந்தைகள் தனிமையாக இருக்கும் இடங்கள். எந்த பெரியவரும் — ஆசிரியரோ, helper-ஓ — குழந்தையை பின்பற்றி வருவது தப்பு என்று குழந்தைக்கு தெரிந்திருக்க வேண்டும். இந்த எளிய விதி குழந்தையை பாதுகாக்கலாம்.',
   scripts: [
     {
