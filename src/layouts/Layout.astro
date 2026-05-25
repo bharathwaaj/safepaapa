@@ -123,7 +123,7 @@ const footerNav = footerNavLinks;
       <div class="max-w-5xl mx-auto w-full px-3 py-3 flex items-center justify-between gap-2 sm:px-4 sm:gap-4">
 
         <a href="/" class="flex min-w-0 items-center gap-2 md:shrink-0">
-          <img src="/logo.svg" alt="SafePaapa logo" class="h-9 w-auto shrink-0 sm:h-10" width="67" height="40" />
+          <img src="/logo.svg" alt="SafePaapa logo" class="h-9 w-[60px] shrink-0 object-contain sm:h-10 sm:w-[67px]" width="67" height="40" />
           <span class="truncate font-extrabold text-base text-brand tracking-tight sm:text-lg">SafePaapa</span>
         </a>
 
@@ -137,7 +137,7 @@ const footerNav = footerNavLinks;
                 aria-current={isActive ? 'page' : undefined}
                 class:list={[
                   'hover:text-brand transition-colors',
-                  isActive && 'text-brand font-extrabold',
+                  isActive && 'text-brand',
                 ]}
               >{label}</a>
             );
