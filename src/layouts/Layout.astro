@@ -120,15 +120,15 @@ const footerNav = footerNavLinks;
     </div>
 
     <header class="sticky top-0 z-50 bg-surface border-b border-border shadow-card">
-      <div class="max-w-5xl mx-auto w-full px-3 py-3 flex items-center justify-between gap-2 sm:px-4 sm:gap-4">
+      <div class="max-w-5xl mx-auto w-full px-3 py-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:px-4 sm:gap-4 md:grid-cols-[184px_minmax(0,1fr)_auto]">
 
-        <a href="/" class="flex min-w-0 items-center gap-2 md:shrink-0">
+        <a href="/" class="flex min-w-0 items-center gap-2 md:w-[184px]">
           <img src="/logo.svg" alt="SafePaapa logo" class="h-9 w-auto shrink-0 sm:h-10" width="67" height="40" />
           <span class="truncate font-extrabold text-base text-brand tracking-tight sm:text-lg">SafePaapa</span>
         </a>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-3 lg:gap-6 text-xs lg:text-sm font-semibold text-text-muted" aria-label="முக்கிய வழிசெலுத்தல்">
+        <nav class="hidden min-w-0 md:flex items-center justify-center gap-3 lg:gap-5 text-xs lg:text-sm font-semibold text-text-muted" aria-label="முக்கிய வழிசெலுத்தல்">
           {nav.map(({ href, label }) => {
             const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
             return (
@@ -136,7 +136,7 @@ const footerNav = footerNavLinks;
                 href={href}
                 aria-current={isActive ? 'page' : undefined}
                 class:list={[
-                  'hover:text-brand transition-colors',
+                  'shrink-0 hover:text-brand transition-colors',
                   isActive && 'text-brand font-extrabold',
                 ]}
               >{label}</a>
