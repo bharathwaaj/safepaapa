@@ -24,8 +24,8 @@ const shareText = encodeURIComponent(
 );
 const whatsappFallbackUrl = `https://wa.me/?text=${shareText}`;
 
-// First script line — passed to canvas card generator
-const firstScriptLine = s.scripts[0]?.lines[0] ?? '';
+// Share-card line — should be public-facing and make sense out of context.
+const shareCardLine = s.shareLine ?? s.scripts[0]?.lines[0] ?? s.summary;
 
 // Scenario answer — first 3 lines of the primary script, stripped of curly quotes
 const scenarioAnswer = s.scripts[0].lines
@@ -156,7 +156,7 @@ const next = sorted[idx + 1];
         class="bg-green-500 text-white font-bold px-7 py-3 rounded-full hover:bg-green-600 active:scale-95 transition-all whitespace-nowrap"
         data-icon={s.icon}
         data-title={s.title}
-        data-script={firstScriptLine}
+        data-script={shareCardLine}
         data-slug={s.slug}
         data-fallback={whatsappFallbackUrl}
         aria-label={`பகிர்: ${s.title}`}

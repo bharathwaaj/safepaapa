@@ -10,6 +10,7 @@ export interface Situation {
   titleEn: string;        // English
   summary: string;        // Tamil — 1 sentence, for cards
   summaryEn: string;      // English — for cards
+  shareLine?: string;     // Tamil — concise line for generated share cards
   why: string;            // Tamil — emotional paragraph
   scripts: SituationScript[];
   remember: string[];     // Key reminders (Tamil)
