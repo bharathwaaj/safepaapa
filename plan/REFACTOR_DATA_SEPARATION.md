@@ -280,11 +280,11 @@ public/
 
 | Commit | Description | Status |
 |--------|-------------|--------|
-| 1 | Split situations into per-file | ⬜ Pending |
-| 2 | Extract shared: safetyRules, scenarios, emergencyNumbers | ⬜ Pending |
-| 3 | Extract parents page content | ⬜ Pending |
-| 4 | Extract children + teachers content | ⬜ Pending |
-| 5 | Extract schools content | ⬜ Pending |
-| 6 | Extract emergency, resources, daily/seasonal | ⬜ Pending |
-| 7 | Extract nav labels | ⬜ Pending |
-| 8 | Split wisdomCards into per-card files | ⬜ Pending |
+| 1 | Split situations into per-file | ✅ Done |
+| 2 | Extract shared: safetyRules, scenarios, emergencyNumbers | ✅ Done |
+| 3 | Extract parents page content | ✅ Done |
+| 4 | Extract children + teachers content | ✅ Done |
+| 5 | Extract schools content | ✅ Done |
+| 6 | Extract emergency, resources, daily/seasonal | ✅ Done |
+| 7 | Extract nav labels | ✅ Done |
+| 8 | Split wisdomCards into per-card files | ✅ Done |

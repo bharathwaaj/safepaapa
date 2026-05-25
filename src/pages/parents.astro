@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import Scenario from '../components/Scenario.astro';
+import { scenarios } from '../data/scenarios';
+import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyTips } from '../data/parents';
 ---
 
 <Layout
@@ -58,16 +60,7 @@ import Scenario from '../components/Scenario.astro';
         </div>
       </div>
       <div class="grid sm:grid-cols-2 gap-4">
-        {[
-          { ta: 'திடீர் நடத்தை மாற்றம்', en: 'Sudden changes in behaviour or mood' },
-          { ta: 'தனிமையாக இருக்க விரும்புவது', en: 'Withdrawing from family and friends' },
-          { ta: 'தூக்கமின்மை அல்லது கெட்ட கனவுகள்', en: 'Sleep disturbances or nightmares' },
-          { ta: 'குறிப்பிட்ட நபரை பார்க்க பயப்படுவது', en: 'Fear of a specific person or place' },
-          { ta: 'வயதுக்கு மீறிய பாலியல் அறிவு', en: 'Age-inappropriate sexual knowledge or behaviour' },
-          { ta: 'உடல் அடையாளங்கள் — காயங்கள், வலி', en: 'Unexplained physical injuries or complaints' },
-          { ta: 'பள்ளி செல்ல மறுப்பது', en: 'Refusing to go to school or certain places' },
-          { ta: 'சாப்பிட மறுப்பது அல்லது அதிகமாக சாப்பிடுவது', en: 'Changes in eating habits' },
-        ].map((sign) => (
+        {warningSigns.map((sign) => (
           <div class="flex gap-3 items-start bg-urgent-soft border border-urgent-border rounded-xl p-4">
             <span class="text-urgent mt-0.5 font-bold shrink-0">●</span>
             <div>
@@ -84,28 +77,7 @@ import Scenario from '../components/Scenario.astro';
       <h2 class="text-xl font-extrabold text-text mb-1">🗣️ குழந்தையிடம் எப்படி பேசுவது?</h2>
       <p class="text-xs text-text-subtle mb-6">How to have the safety conversation</p>
       <div class="space-y-4">
-        {[
-          {
-            ta: 'அன்றாட வாழ்வில் பேசுங்கள்',
-            en: 'Bring it up naturally — during bath time, bedtime, or while watching TV together.',
-            tip: 'உடல் பாகங்களை சரியான பெயரில் அழைக்கவும். மறைக்காமல் பேசவும்.'
-          },
-          {
-            ta: '"நம்பகமான பெரியவர்" யார் என்று முடிவு செய்யுங்கள்',
-            en: 'Help your child identify 3–5 trusted adults they can go to if something feels wrong.',
-            tip: 'ஆசிரியர், அத்தை, உறவினர் — குழந்தையே தேர்ந்தெடுக்கட்டும்.'
-          },
-          {
-            ta: '"நீ சொன்னால் நம்புவேன்" என்று சொல்லுங்கள்',
-            en: 'Explicitly tell your child: "If anything happens, you can tell me and I will always believe you."',
-            tip: 'இந்த ஒரு வாக்கியம் குழந்தை வெளிப்படுத்த தைரியம் கொடுக்கும்.'
-          },
-          {
-            ta: '"ரகசியம்" பற்றி கற்றுக்கொடுங்கள்',
-            en: 'Teach the difference between surprise secrets (OK) and unsafe secrets (not OK).',
-            tip: 'நல்ல ரகசியம்: பிறந்தநாள் பரிசு. கெட்ட ரகசியம்: யாரோ உன் உடலை தொட்டது.'
-          },
-        ].map((item) => (
+        {howToTalk.map((item) => (
           <div class="bg-brand-soft border border-brand-muted rounded-xl p-5">
             <p class="font-bold text-text mb-1">{item.ta}</p>
             <p class="text-sm text-text-muted mb-2">{item.en}</p>
@@ -130,15 +102,7 @@ import Scenario from '../components/Scenario.astro';
       <h2 class="text-xl font-extrabold text-text mb-1">💙 குழந்தை வெளிப்படுத்தினால்</h2>
       <p class="text-xs text-text-subtle mb-6">If your child discloses abuse — what to do</p>
       <div class="bg-calm-soft border border-calm rounded-xl p-6 space-y-3 mb-4">
-        {[
-          { do: true, ta: 'அமைதியாக கேளுங்கள்', en: 'Stay calm and listen without interrupting.' },
-          { do: true, ta: '"உன் தப்பில்லை" என்று சொல்லுங்கள்', en: 'Immediately reassure: "This is not your fault."' },
-          { do: true, ta: '"சொன்னதற்கு நன்றி" என்று சொல்லுங்கள்', en: 'Thank them for trusting you: "I am so glad you told me."' },
-          { do: true, ta: 'உடனே CHILDLINE 1098 அல்லது காவல்துறை அழைக்கவும்', en: 'Report immediately — CHILDLINE 1098 or police 100.' },
-          { do: false, ta: 'கோபப்படாதீர்கள் — குழந்தை பயப்படுவார்கள்', en: 'Do NOT react with anger — it silences the child.' },
-          { do: false, ta: 'குற்றவாளியை நீங்களே எதிர்கொள்ள வேண்டாம்', en: 'Do NOT confront the abuser yourself.' },
-          { do: false, ta: '"நீ ஏன் சொல்லவில்லை?" என்று கேட்காதீர்கள்', en: 'Do NOT question or interrogate your child.' },
-        ].map((item) => (
+        {disclosureDos.map((item) => (
           <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-calm-soft border border-calm' : 'bg-urgent-soft border border-urgent-border'}`}>
             <span class={`font-bold text-sm mt-0.5 shrink-0 ${item.do ? 'text-calm' : 'text-urgent'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
@@ -163,32 +127,7 @@ import Scenario from '../components/Scenario.astro';
       <h2 class="text-xl font-extrabold text-text mb-1">🎭 இந்த சூழல்களில் என்ன சொல்வது?</h2>
       <p class="text-xs text-text-subtle mb-6">Practice scripts — what to tell your child for common situations</p>
       <div class="space-y-4">
-        {[
-          {
-            icon: '🍬',
-            ta: 'அந்நியர் இனிப்பு / பரிசு கொடுத்தால்',
-            script: '"அந்நியர் எதுவும் கொடுத்தால் வேண்டாம் என்று சொல்லு. அவர் நல்லவரா கெட்டவரா என்று நீ தெரியாது. உடனே என்னிடம் சொல்."',
-            en: 'Strangers giving gifts or candy — how to teach refusal safely.',
-          },
-          {
-            icon: '🚐',
-            ta: 'வேன் / ஆட்டோவில் தனியாக இருக்கும்போது',
-            script: '"வேன் ஓட்டுநர் அல்லது வேறு யாரோ உன்னை தொட்டால் — உரக்க "வேண்டாம்!" என்று சொல். வீடு வந்தவுடன் என்னிடம் சொல்."',
-            en: 'School transport safety — what your child should do if uncomfortable.',
-          },
-          {
-            icon: '🤫',
-            ta: 'யாரோ "ரகசியம் வை" என்றால்',
-            script: '"யாராவது உன் உடலை பற்றி ரகசியம் வை என்று சொன்னால் — அது கெட்ட ரகசியம். உடனே என்னிடம் சொல். உனக்கு எந்த தண்டனையும் இல்லை."',
-            en: 'Teaching children that body-related secrets must never be kept.',
-          },
-          {
-            icon: '📱',
-            ta: 'ஆன்லைன் நண்பர் தனியாக அழைத்தால்',
-            script: '"ஆன்லைனில் பேசும் யாரையும் நேரில் சந்திக்க வேண்டாம். என்னிடம் கேளாமல் செல்லாதே. போவதற்கு முன் என்னிடம் சொல்."',
-            en: 'Online safety — no in-person meetings without parental knowledge.',
-          },
-        ].map((s) => (
+        {situationScripts.map((s) => (
           <div class="bg-surface border border-border rounded-xl p-5 shadow-card">
             <div class="flex gap-3 items-start mb-3">
               <span class="text-2xl shrink-0">{s.icon}</span>
@@ -216,55 +155,15 @@ import Scenario from '../components/Scenario.astro';
       <h2 class="text-xl font-extrabold text-text mb-1">இந்த சூழல்களில் குழந்தை என்ன செய்வார்?</h2>
       <p class="text-xs text-text-subtle mb-6">Tap each situation — practice the right response with your child</p>
       <div class="space-y-3">
-        <Scenario
-          icon="🍬"
-          prompt="அந்நியர் உன்னை தனியாக அழைத்தால்..."
-          promptEn="A stranger tries to call your child aside or offers something"
-          answer="உரக்க 'வேண்டாம்' என்று சொல்லு. அங்கிருந்து உடனே ஓடு. நம்பகமான பெரியவரிடம் — அம்மா, அப்பா அல்லது ஆசிரியர் — சொல்லு. யாரும் இல்லை என்றால் 1098 என்று அழை."
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
-        <Scenario
-          icon="🚐"
-          prompt="வேன் ஓட்டுநர் வழக்கத்திற்கு மாறாக நடந்தால்..."
-          promptEn="The school van driver behaves differently or takes an unusual route"
-          answer="வழக்கத்திற்கு மாறாக தோன்றினால் வேனில் ஏறாதே — அல்லது வேனிலிருந்து இறங்கு. நம்பகமான யாரோ ஒருவர் பக்கத்தில் நின்று உடனே அம்மா அல்லது அப்பாவுக்கு அழை. தனியாக எங்கும் போகாதே."
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
-        <Scenario
-          icon="🏪"
-          prompt="கடை அல்லது கூட்டத்தில் தொலைந்தால்..."
-          promptEn="Lost in a mall, market, or crowded festival"
-          answer="ஓடாதே — நில். அருகில் இருக்கும் கடை ஆள் அல்லது பெண் பாதுகாப்பாளரிடம் போ. அம்மா அல்லது அப்பா பெயரும் phone number-உம் சொல். யாரோ 'நான் அழைத்துச் செல்கிறேன்' சொன்னால் — வேண்டாம் என்று சொல், அங்கேயே நில், உதவிக்காக கத்து."
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
-        <Scenario
-          icon="🤫"
-          prompt='ஒரு பெரியவர் — உறவினரோ, அந்நியரோ — "யாரிடமும் சொல்லாதே" என்றால்...'
-          promptEn='Any adult — even a relative — says "keep this a secret"'
-          answer='நல்ல ரகசியங்கள் உன்னை மகிழ்விக்கும். ஆனால் உன்னை பயமுறுத்தும் அல்லது வலிக்கும் ரகசியங்கள் சொல்லவே வேண்டும். "யாரிடமும் சொல்லாதே" என்று சொன்னவுடன் உடனே அம்மா அல்லது அப்பாவிடம் சொல்லு.'
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
-        <Scenario
-          icon="🏠"
-          prompt="குடும்பத்தில் யாரோ பயமாக உணர வைத்தால்..."
-          promptEn="Someone at home or a known relative makes your child feel unsafe"
-          answer="உறவினரோ, நெருங்கியவரோ — யார் தொட்டாலும் நீ வேண்டாம் சொல்லலாம். பயமாக உணர்ந்தால் உடனே அம்மா அல்லது அப்பாவிடம் சொல்லு. இது குடும்பத்தை காட்டிக் கொடுப்பது அல்ல — இது உன்னை பாதுகாப்பது. நீ சொன்னால் நான் நம்புவேன்."
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
-        <Scenario
-          icon="📱"
-          prompt="ஆன்லைன் நண்பர் நேரில் சந்திக்க சொன்னால்..."
-          promptEn="An online-only contact asks to meet in person"
-          answer="ஆன்லைனில் மட்டுமே தெரிந்தவரை நேரில் சந்திக்கச் செல்லாதே. இதை உடனே பெற்றோரிடம் சொல்லு. இணையத்தில் அனைவரும் சொல்வது உண்மையல்ல — அவர்கள் வேறு யாரோ ஆக இருக்கலாம்."
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
-        <Scenario
-          icon="🛑"
-          prompt="யாரோ உன் உடலை தொட்டால் — என்ன செய்வாய்?"
-          promptEn="Someone touches your child's body in a way that feels wrong"
-          answer="உரக்க 'வேண்டாம், நிறுத்துங்கள்' என்று சொல்லு. அந்த இடத்தை விட்டு விலகு. நம்பகமான பெரியவரிடம் — அம்மா, அப்பா, ஆசிரியர் — உடனே சொல்லு. இது உன் தவறே இல்லை. யாரும் கேட்காவிட்டால் 1098 அழை."
-          answerLabel="குழந்தை என்ன செய்ய வேண்டும்?"
-        />
+        {scenarios.map((s) => (
+          <Scenario
+            icon={s.icon}
+            prompt={s.prompt}
+            promptEn={s.promptEn}
+            answer={s.answer}
+            answerLabel={s.answerLabel}
+          />
+        ))}
       </div>
     </section>
 
@@ -282,12 +181,7 @@ import Scenario from '../components/Scenario.astro';
         class="mb-5"
       />
       <div class="space-y-3">
-        {[
-          'குழந்தையின் phone-ல் உள்ள apps பற்றி தெரிந்துகொள்ளுங்கள் — தடை செய்யாமல், உரையாடுங்கள்.',
-          'YouTube, Instagram, WhatsApp-ல் யாரும் தனிப்பட்ட செய்திகள் அனுப்பினால் உடனே சொல்லவும் என்று கற்பிக்கவும்.',
-          'ஆன்லைனில் "நண்பர்கள்" என்று யாரையாவது தனியாக சந்திக்க சொன்னால் அது ஆபத்தானது என்று புரியவையுங்கள்.',
-          'Screen time-ஐ பொது இடத்தில் (hall அல்லது kitchen) வைத்திருங்கள் — bedroom-ல் தனியாக phone கொடுக்காதீர்கள்.',
-        ].map((tip) => (
+        {onlineSafetyTips.map((tip) => (
           <div class="flex gap-3 items-start bg-surface-sunken rounded-xl p-4 border border-border">
             <span class="text-brand mt-1 shrink-0">📌</span>
             <p class="text-sm text-text-muted">{tip}</p>

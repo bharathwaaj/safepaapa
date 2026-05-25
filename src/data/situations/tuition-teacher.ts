@@ -1,0 +1,39 @@
+import type { Situation } from './_types';
+
+export const situation: Situation = {
+  slug: 'tuition-teacher',
+  icon: '📚',
+  order: 9,
+  title: 'தனியாக tuition ஆசிரியரிடம் இருக்கும்போது',
+  titleEn: 'Alone with a private tuition teacher',
+  summary: 'Tuition ஆசிரியர் நம்பகமானவர் — ஆனால் தனிமையில் என்ன செய்வது என்று குழந்தைக்கு தெரியட்டும்.',
+  summaryEn: 'Tutors are trusted — but children must know what to do if something feels wrong.',
+  why: 'தமிழ்நாட்டில் tuition வகுப்புகள் இல்லாத வீடு இல்லை. பெற்றோர் நம்பிக்கையோடு குழந்தையை அனுப்புகிறார்கள். "நம்பகமான" பெரியவர்தான் அதிக ஆபத்தாக இருக்கலாம் — ஏனென்றால் அவரிடம் குழந்தை தனிமையில் இருக்கும் வாய்ப்பு தினசரி இருக்கிறது. ஒரு எளிய விதி போதும் — குழந்தையை பாதுகாக்கலாம்.',
+  scripts: [
+    {
+      label: 'குழந்தையிடம் சொல்லுங்கள்:',
+      lines: [
+        '"tuition ஆசிரியர் உன் உடலை தொட்டால் — உடனே "வேண்டாம்" என்று சொல்லு."',
+        '"வீட்டிற்கு வந்தவுடன் — நடந்தது என்னவென்று என்னிடம் சொல்."',
+        '"ஆசிரியர் என்றாலும் தவறாக தொட்டால் சொல்லலாம் — இது தைரியம், தப்பில்லை."',
+        '"யாரும் கேட்காவிட்டால் 1098 என்று அழை."',
+      ],
+    },
+    {
+      label: 'பெற்றோர் செய்ய வேண்டியது:',
+      lines: [
+        '"Tuition அறையில் கதவு திறந்திருக்கட்டும் — முழுவதும் மூடி வைக்க வேண்டாம் என்று ஆசிரியரிடம் சொல்லுங்கள்."',
+        '"குழந்தை "tuition போக வேண்டாம்" என்று சொன்னால் — காரணம் கேளுங்கள், நம்புங்கள்."',
+      ],
+    },
+  ],
+  remember: [
+    'குழந்தை வீடு திரும்பும்போது ஒரு நிமிடம் பேசுங்கள் — "எல்லாம் சரியாக இருந்ததா?"',
+    'Online tuition-லும் கவனமாக இருங்கள் — screen recording / screenshot கேட்பவரை நம்பாதீர்கள்',
+    'Tuition அறையில் CCTV அல்லது திறந்த கதவு இருக்கட்டும் என்று கேட்கலாம்',
+    'குழந்தை சொன்னால் — முதலில் நம்புங்கள், விசாரியுங்கள்',
+  ],
+  imagePrompt:
+    'A Tamil child sitting at a tuition desk looking alert and slightly uncomfortable as a blurry adult figure stands nearby, the child aware and self-assured, bright room, flat illustration style, teal palette, empowered cautious mood, no text',
+  imageSrc: '/images/situation-tuition-teacher.jpg',
+};

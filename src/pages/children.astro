@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { goodTouchExamples, badTouchExamples, trustedAdults } from '../data/children';
 ---
 
 <Layout
@@ -47,20 +48,18 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
           <div class="text-4xl text-center mb-3">✅</div>
           <h3 class="font-extrabold text-calm-strong text-center mb-3">நல்ல தொடுதல்</h3>
           <ul class="space-y-2 text-sm text-text-muted">
-            <li>🤗 அம்மா அப்பா கட்டிப்பிடிப்பது</li>
-            <li>🩺 டாக்டர் பரிசோதிப்பது (அம்மா/அப்பா இருக்கும்போது)</li>
-            <li>👋 கைகுலுக்குவது</li>
-            <li>🩹 காயத்திற்கு மருந்து போடுவது</li>
+            {goodTouchExamples.map((item) => (
+              <li>{item.emoji} {item.ta}</li>
+            ))}
           </ul>
         </div>
         <div class="bg-urgent-soft border-2 border-urgent-border rounded-2xl p-6">
           <div class="text-4xl text-center mb-3">🚫</div>
           <h3 class="font-extrabold text-urgent-text text-center mb-3">கெட்ட தொடுதல்</h3>
           <ul class="space-y-2 text-sm text-text-muted">
-            <li>❌ உன் உள்ளாடை மூடும் இடங்களை தொடுவது</li>
-            <li>❌ நீ "வேண்டாம்" சொன்னாலும் தொடுவது</li>
-            <li>❌ "ரகசியமாக வை" என்று சொல்வது</li>
-            <li>❌ உன்னை நோக்கி ஆபாச படங்கள் காட்டுவது</li>
+            {badTouchExamples.map((item) => (
+              <li>{item.emoji} {item.ta}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -126,14 +125,7 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
           உன் வாழ்வில் 3–5 நம்பகமான பெரியவர்களை தேர்ந்தெடு. ஏதாவது தவறு நடந்தால் அவர்களிடம் சொல். யாரோ ஒருவர் கேட்கவில்லை என்றால் மற்றவரிடம் சொல்.
         </p>
         <div class="grid grid-cols-3 gap-3 text-center text-sm">
-          {[
-            { icon: '👩‍👧', label: 'அம்மா' },
-            { icon: '👨‍👧', label: 'அப்பா' },
-            { icon: '👩‍🏫', label: 'ஆசிரியர்' },
-            { icon: '👵', label: 'பாட்டி / தாத்தா' },
-            { icon: '👩', label: 'அத்தை' },
-            { icon: '📞', label: '1098' },
-          ].map((p) => (
+          {trustedAdults.map((p) => (
             <div class="bg-surface rounded-xl p-3 border border-border">
               <div class="text-2xl mb-1">{p.icon}</div>
               <p class="font-semibold text-text-muted text-xs">{p.label}</p>

@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import ChecklistCard from '../components/ChecklistCard.astro';
+import { safetyRules } from '../data/safetyRules';
+import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schools';
 ---
 
 <Layout
@@ -74,21 +76,9 @@ import ChecklistCard from '../components/ChecklistCard.astro';
         <p class="text-brand font-bold text-xs uppercase tracking-wide mb-5">— ஆசிரியர் படிக்க வேண்டியது —</p>
 
         <div id="assembly-script" class="font-semibold text-text text-sm leading-[1.9] space-y-4">
-          <p>நண்பர்களே, இன்று நாம் ஒரு முக்கியமான விஷயம் பேசுவோம் — உங்கள் உடல் பாதுகாப்பு.</p>
-
-          <p><strong>விதி 1:</strong> உங்கள் உடல் உங்களுக்கே சொந்தம். யாரும் — அம்மா, அப்பா, ஆசிரியர் என்று யாரானாலும் — உங்கள் உடலை நீங்கள் விரும்பாத விதத்தில் தொடக்கூடாது.</p>
-
-          <p><strong>விதி 2:</strong> நல்ல தொடுதல் என்பது — கை குலுக்குவது, தட்டிக் கொடுப்பது. கெட்ட தொடுதல் என்பது — உங்களுக்கு பயமாகவோ, வலியாகவோ, குழப்பமாகவோ உணர வைப்பது.</p>
-
-          <p><strong>விதி 3:</strong> யாரோ உங்களை தவறாக தொட்டால் — "வேண்டாம்" என்று உரக்க சொல்லுங்கள். ஓடுங்கள். நம்பகமான பெரியவரிடம் உடனே சொல்லுங்கள். இது உங்கள் தவறே இல்லை.</p>
-
-          <p><strong>விதி 4:</strong> ஒரு பெரியவர் "யாரிடமும் சொல்லாதே" என்று சொன்னால் — அது ஒரு எச்சரிக்கை சமிக்ஞை. உடனே அம்மா, அப்பா, அல்லது ஆசிரியரிடம் சொல்லுங்கள்.</p>
-
-          <p><strong>விதி 5:</strong> CHILDLINE 1098 — இது ஒரு இலவச helpline. நீங்கள் எந்த ஆபத்திலும் இருந்தால் — பகலோ, இரவோ — இந்த எண்ணை அழையுங்கள்.</p>
-
-          <p class="text-brand font-bold">இந்த 5 விதிகளை இன்றே வீட்டில் அம்மாவிடமோ, அப்பாவிடமோ சொல்லுங்கள். சரியா?</p>
-
-          <p class="text-text-subtle text-xs italic">— Estimated reading time: 3–4 minutes at a measured pace.</p>
+          {assemblyParagraphs.map((para) => (
+            <p class={para.className} set:html={para.html} />
+          ))}
         </div>
       </div>
 
@@ -123,21 +113,9 @@ import ChecklistCard from '../components/ChecklistCard.astro';
         <p class="text-brand font-bold text-xs uppercase tracking-wide mb-4">— PTA Group-க்கு அனுப்புங்கள் —</p>
 
         <div id="pta-message" class="font-semibold text-text text-sm leading-[1.9] space-y-3">
-          <p>🏫 பள்ளி குழந்தை பாதுகாப்பு — பெற்றோர் அவசியம் தெரிய வேண்டியது</p>
-
-          <p>அன்பு பெற்றோர்களே,</p>
-
-          <p>இன்று assembly-ல் குழந்தைகளுக்கு உடல் பாதுகாப்பு பற்றி கற்பித்தோம். இந்த 3 விஷயங்களை இன்றே வீட்டில் மீண்டும் பேசுங்கள்:</p>
-
-          <p>✅ உடல் சொந்தம்: "உன் உடல் உனக்கே சொந்தம் — யாரும் உன் அனுமதி இல்லாமல் தொட முடியாது" என்று சொல்லுங்கள்.</p>
-
-          <p>✅ சொல்லணும்: "யாரோ உன்னை தவறாக தொட்டால் — எனக்கு உடனே சொல். நான் நம்புவேன், நான் கோபப்படமாட்டேன்" என்று சொல்லுங்கள்.</p>
-
-          <p>✅ 1098: "CHILDLINE 1098 — நீ எங்கிருந்தும் இலவசமாக அழைக்கலாம்" என்று குழந்தைக்கு கற்றுக்கொடுங்கள்.</p>
-
-          <p>முழு வழிகாட்டி: safepaapa.in</p>
-
-          <p class="text-text-subtle text-xs italic">— SafePaapa குழந்தை பாதுகாப்பு விழிப்புணர்வு · safepaapa.in · CHILDLINE 1098</p>
+          {ptaParagraphs.map((para) => (
+            <p class={para.className} set:html={para.html} />
+          ))}
         </div>
       </div>
 
@@ -161,46 +139,9 @@ import ChecklistCard from '../components/ChecklistCard.astro';
       <p class="text-xs text-text-muted mb-6 italic">இந்த checklist-ஐ print செய்து staffroom-ல் வையுங்கள்.</p>
 
       <div class="space-y-3">
-        <ChecklistCard
-          icon="📢"
-          text="வகுப்பில் குழந்தை பாதுகாப்பு விதிகளை சொல்லியிருக்கிறேன்"
-          textEn="I have taught body safety rules to my class this term."
-        />
-        <ChecklistCard
-          icon="👀"
-          text="மாணவர்களின் நடவடிக்கை மாற்றங்களை கவனிக்கிறேன்"
-          textEn="I actively observe for behavioural changes in students."
-        />
-        <ChecklistCard
-          icon="🚪"
-          text="கழிப்பறை / தனியிடங்களில் குழந்தைகளை தனியாக விடுவதில்லை"
-          textEn="I do not leave children alone with unknown adults in isolated spaces."
-        />
-        <ChecklistCard
-          icon="🗣️"
-          text="மாணவர் ஏதோ சொல்ல முயன்றால் — நிறுத்தி, கேட்கிறேன்"
-          textEn="When a student tries to tell me something, I stop and listen fully."
-        />
-        <ChecklistCard
-          icon="📋"
-          text="POCSO Section 19 கீழ் — சந்தேகம் வந்தால் புகார் செய்வேன்"
-          textEn="I know my legal duty under POCSO Section 19 to report suspected abuse."
-        />
-        <ChecklistCard
-          icon="📞"
-          text="CHILDLINE 1098 எண் என் phone-ல் save செய்திருக்கிறேன்"
-          textEn="I have CHILDLINE 1098 saved in my phone and know how to report."
-        />
-        <ChecklistCard
-          icon="👨‍👩‍👧"
-          text="PTA meeting-ல் பெற்றோரிடம் பாதுகாப்பு பற்றி பேசியிருக்கிறேன்"
-          textEn="I have spoken to parents about child safety at least once this term."
-        />
-        <ChecklistCard
-          icon="🔒"
-          text="வகுப்பறையில் ஒற்றை மாணவர் + ஒற்றை ஆசிரியர் — கதவு திறந்திருக்கும்"
-          textEn="When alone with a single student, I keep the door open or windows visible."
-        />
+        {checklistItems.map((item) => (
+          <ChecklistCard icon={item.icon} text={item.ta} textEn={item.en} />
+        ))}
       </div>
 
       <div class="mt-6">
@@ -233,18 +174,12 @@ import ChecklistCard from '../components/ChecklistCard.astro';
 
         <!-- Rules -->
         <div class="px-8 py-6 space-y-4">
-          {[
-            { n: '1', ta: 'உன் உடல் உனக்கே சொந்தம்',                             en: 'Your body belongs to you alone.',                              icon: '🙋' },
-            { n: '2', ta: 'நல்ல தொடுதல் — கெட்ட தொடுதல் வேறுபாடு தெரிய வேண்டும்', en: 'Know the difference between safe and unsafe touch.',           icon: '✋' },
-            { n: '3', ta: '"வேண்டாம்" என்று சொல்லலாம் — யாரிடமும்',              en: 'You can say NO to any uncomfortable touch — even from adults.', icon: '🚫' },
-            { n: '4', ta: 'நம்பகமான பெரியவரிடம் சொல் — இது உன் தவறே இல்லை',      en: 'Tell a trusted adult — it is NEVER your fault.',               icon: '🗣️' },
-            { n: '5', ta: 'யாரும் கேட்காவிட்டால் தொடர்ந்து சொல் — 1098 அழை',     en: 'If no one listens, keep telling. Call CHILDLINE 1098.',       icon: '📞' },
-          ].map((r) => (
+          {safetyRules.map((r, i) => (
             <div class="flex gap-4 items-start">
               <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">{r.icon}</span>
               <div>
                 <p class="font-extrabold text-text leading-snug">
-                  <span class="text-brand mr-1">{r.n}.</span>{r.ta}
+                  <span class="text-brand mr-1">{i + 1}.</span>{r.ta}
                 </p>
                 <p class="text-xs text-text-subtle mt-0.5">{r.en}</p>
               </div>

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { Phone, Sun, Moon, Menu } from '@lucide/astro';
+import { navLinks, footerNavLinks, footerText } from '../data/nav';
 
 interface Props {
   title: string;
@@ -38,19 +39,9 @@ const fullTitle = title.endsWith('SafePaapa') ? title : `${title} | SafePaapa`;
 // aria-current: mark the active nav link
 const currentPath = Astro.url.pathname;
 
-const nav = [
-  { href: '/situations', label: 'சூழல்கள்' },
-  { href: '/parents',    label: 'பெற்றோருக்கு' },
-  { href: '/children',   label: 'குழந்தைகளுக்கு' },
-  { href: '/teachers',   label: 'ஆசிரியர்களுக்கு' },
-  { href: '/schools',    label: 'பள்ளிகளுக்கு' },
-  { href: '/emergency',  label: 'அவசரம்' },
-];
-
-const footerNav = [
-  ...nav,
-  { href: '/resources', label: 'உதவி' },
-];
+// nav and footerNav now come from src/data/nav.ts
+const nav = navLinks;
+const footerNav = footerNavLinks;
 ---
 
 <!doctype html>
@@ -209,8 +200,8 @@ const footerNav = [
             <span class="text-text-inverse font-extrabold">SafePaapa</span>
           </div>
           <p class="text-sm leading-relaxed">
-            குழந்தைகளை பாதுகாப்போம்.<br />
-            Protecting Tamil Nadu's children through awareness.
+            {footerText.tagline}<br />
+            {footerText.taglineEn}
           </p>
         </div>
         <div>
@@ -230,7 +221,7 @@ const footerNav = [
         </div>
       </div>
       <div class="border-t border-border-subtle text-center text-xs py-4 text-text-subtle">
-        SafePaapa — இது ஒரு இலவச விழிப்புணர்வு முயற்சி. எந்த அரசு அமைப்புடனும் தொடர்பில்லை.
+        {footerText.legal}
       </div>
     </footer>
 

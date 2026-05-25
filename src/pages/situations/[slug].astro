@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import Scenario from '../../components/Scenario.astro';
-import { situations, getSituation } from '../../data/situations';
-import type { Situation } from '../../data/situations';
+import { situations, getSituation } from '../../data/situations/_index';
+import type { Situation } from '../../data/situations/_index';
 
 export function getStaticPaths() {
   return situations.map((s) => ({

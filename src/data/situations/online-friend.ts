@@ -1,0 +1,39 @@
+import type { Situation } from './_types';
+
+export const situation: Situation = {
+  slug: 'online-friend',
+  icon: '📱',
+  order: 4,
+  title: 'ஆன்லைன் "நண்பர்" நேரில் சந்திக்க சொன்னால்',
+  titleEn: 'An online "friend" wants to meet in person',
+  summary: 'ஆன்லைனில் அறிமுகமானவர் நேரில் சந்திக்க சொன்னால் — உடனே பெற்றோரிடம் சொல்ல வேண்டும்.',
+  summaryEn: 'If an online contact asks to meet in person, tell a parent immediately.',
+  why: 'இன்றைய குழந்தைகள் ஆன்லைனில் நண்பர்களை உருவாக்குகிறார்கள் — games, YouTube comments, WhatsApp groups. ஆபத்தான நபர்கள் குழந்தைகளாக நடிக்கிறார்கள், மாதக்கணக்கில் நம்பிக்கை உருவாக்கிவிட்டு நேரில் சந்திக்க அழைக்கிறார்கள். இந்த ஒரு பாடம் உங்கள் குழந்தையை பாதுகாக்கலாம்.',
+  scripts: [
+    {
+      label: 'குழந்தையிடம் சொல்லுங்கள்:',
+      lines: [
+        '"ஆன்லைனில் நண்பர் என்பவர் — நேரில் சந்திக்கும் வரை அந்நியர்தான்."',
+        '"யாராவது நேரில் சந்திக்க சொன்னால் — உடனே என்னிடம் சொல், நான் கோபப்பட மாட்டேன்."',
+        '"தனியாக போகாதே — என்னிடம் சொல்லாமல் எங்கும் போகாதே."',
+        '"யார் உன் பெற்றோர் பெயர், வீட்டு முகவரி கேட்டாலும் சொல்லாதே."',
+      ],
+    },
+    {
+      label: 'பெற்றோர் செய்ய வேண்டியது:',
+      lines: [
+        '"குழந்தையின் apps, games-ல் யார் friends list-ல் இருக்கிறார்கள் என்று அவ்வப்போது பாருங்கள்."',
+        '""அந்நியர்" என்பதை குழந்தை புரிந்துகொள்ளும் வகையில் சொல்லுங்கள் — offline-ல் மட்டுமில்ல, online-லும்."',
+      ],
+    },
+  ],
+  remember: [
+    'Online safety-ஐ கோபமான விதியாக சொல்லாதீர்கள் — நம்பிக்கையான உரையாடலாக வையுங்கள்',
+    'குழந்தை சொன்னால் phone பிடுங்காதீர்கள் — முதலில் நம்புங்கள், பேசுங்கள்',
+    'Screen time கண்காணிப்பு முக்கியம் — ஆனால் குழந்தை மறைப்பதை தடுக்கவே நம்பிக்கை தேவை',
+    'Online-ல் நண்பர்கள் ஆனாலும் offline-ல் பெற்றோர் அறிவு அவசியம்',
+  ],
+  imagePrompt:
+    'A Tamil teenager looking at their phone with a thoughtful cautious expression, a caring parent sitting beside them looking at the screen together with a supportive expression, warm home setting, flat illustration style, teal and trust palette, no text',
+  imageSrc: '/images/situation-online-friend.jpg',
+};
