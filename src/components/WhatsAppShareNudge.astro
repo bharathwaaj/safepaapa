@@ -1,0 +1,142 @@
+---
+import { HeartHandshake, MessageCircle, X } from '@lucide/astro';
+
+interface Props {
+  href?: string;
+  targetButtonId?: string;
+  eyebrow?: string;
+  text?: string;
+  actionLabel?: string;
+  storageKey?: string;
+  revealAt?: number;
+  class?: string;
+}
+
+const {
+  href,
+  targetButtonId,
+  eyebrow = 'ஒரு பகிர்வு உதவியாகலாம்',
+  text = 'இந்த பக்கம் இன்னொரு பெற்றோருக்கு சரியான நேரத்தில் சென்றால், ஒரு குழந்தைக்கு உதவியாகலாம்.',
+  actionLabel = 'WhatsApp-ல் பகிர்',
+  storageKey = 'sp-share-nudge-dismissed',
+  revealAt = 0.36,
+  class: className = '',
+} = Astro.props;
+---
+
+<aside
+  class={`share-nudge fixed inset-x-0 bottom-0 z-[70] px-3 pb-3 sm:px-4 sm:pb-4 pointer-events-none ${className}`}
+  data-share-nudge
+  data-target-button-id={targetButtonId}
+  data-href={href}
+  data-storage-key={storageKey}
+  data-reveal-at={revealAt}
+  aria-live="polite"
+>
+  <div
+    class="share-nudge-panel pointer-events-auto mx-auto max-w-xl rounded-2xl border border-brand-border bg-surface/95 shadow-float backdrop-blur-md"
+  >
+    <div class="flex items-center gap-3 p-3 sm:p-4">
+      <div class="hidden sm:flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-care-soft text-care-text border border-care-border">
+        <HeartHandshake size={21} aria-hidden="true" />
+      </div>
+
+      <div class="min-w-0 flex-1">
+        <p class="text-[11px] font-extrabold text-brand uppercase tracking-wide">{eyebrow}</p>
+        <p class="mt-0.5 text-sm leading-snug text-text-muted">{text}</p>
+      </div>
+
+      <a
+        href={href ?? '#'}
+        class="share-nudge-action shrink-0 inline-flex h-11 items-center gap-2 rounded-full bg-green-500 px-4 text-sm font-extrabold text-white hover:bg-green-600 active:scale-95 transition-all whitespace-nowrap"
+        data-share-nudge-action
+      >
+        <MessageCircle size={17} aria-hidden="true" />
+        <span class="hidden min-[420px]:inline">{actionLabel}</span>
+        <span class="min-[420px]:hidden">பகிர்</span>
+      </a>
+
+      <button
+        type="button"
+        class="share-nudge-dismiss shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full text-text-subtle hover:bg-surface-sunken hover:text-text transition-colors"
+        data-share-nudge-dismiss
+        aria-label="இந்த பகிர்வு நினைவூட்டலை மூடு"
+      >
+        <X size={17} aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const nudges = document.querySelectorAll<HTMLElement>('[data-share-nudge]');
+
+  nudges.forEach((nudge) => {
+    const panel = nudge.querySelector<HTMLElement>('.share-nudge-panel');
+    const action = nudge.querySelector<HTMLAnchorElement>('[data-share-nudge-action]');
+    const dismiss = nudge.querySelector<HTMLButtonElement>('[data-share-nudge-dismiss]');
+    const storageKey = nudge.dataset.storageKey || 'sp-share-nudge-dismissed';
+    const targetButtonId = nudge.dataset.targetButtonId;
+    const href = nudge.dataset.href;
+    const revealAt = Number(nudge.dataset.revealAt || 0.36);
+
+    if (!panel || !action || !dismiss) return;
+    if (localStorage.getItem(storageKey) === '1') {
+      nudge.remove();
+      return;
+    }
+
+    function updateVisibility() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 220;
+      nudge.classList.toggle('is-visible', progress >= revealAt && !nearBottom);
+    }
+
+    action.addEventListener('click', (event) => {
+      const targetButton = targetButtonId ? document.getElementById(targetButtonId) : null;
+      if (targetButton instanceof HTMLButtonElement) {
+        event.preventDefault();
+        targetButton.click();
+      } else if (!href) {
+        event.preventDefault();
+      }
+    });
+
+    dismiss.addEventListener('click', () => {
+      localStorage.setItem(storageKey, '1');
+      nudge.classList.remove('is-visible');
+    });
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+    updateVisibility();
+  });
+</script>
+
+<style>
+  .share-nudge {
+    transform: translateY(115%);
+    opacity: 0;
+    transition:
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 450ms ease;
+  }
+
+  .share-nudge.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .share-nudge-panel {
+    box-shadow:
+      0 18px 38px rgb(0 0 0 / 0.14),
+      0 4px 10px rgb(0 0 0 / 0.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .share-nudge {
+      transition: none;
+    }
+  }
+</style>
