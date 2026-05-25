@@ -79,6 +79,7 @@ const {
     const targetButtonId = nudge.dataset.targetButtonId;
     const href = nudge.dataset.href;
     const revealAt = Number(nudge.dataset.revealAt || 0.24);
+    let isDismissed = false;
 
     if (!panel || !action || !dismiss) return;
     if (localStorage.getItem(storageKey) === '1') {
@@ -87,6 +88,7 @@ const {
     }
 
     function updateVisibility() {
+      if (isDismissed) return;
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
       const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 220;
@@ -104,8 +106,12 @@ const {
     });
 
     dismiss.addEventListener('click', () => {
+      isDismissed = true;
       localStorage.setItem(storageKey, '1');
       nudge.classList.remove('is-visible');
+      window.removeEventListener('scroll', updateVisibility);
+      window.removeEventListener('resize', updateVisibility);
+      window.setTimeout(() => nudge.remove(), 750);
     });
 
     window.addEventListener('scroll', updateVisibility, { passive: true });
