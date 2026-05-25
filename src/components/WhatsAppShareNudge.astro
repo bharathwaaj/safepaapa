@@ -19,7 +19,7 @@ const {
   text = 'இந்த பக்கம் இன்னொரு பெற்றோருக்கு சரியான நேரத்தில் சென்றால், ஒரு குழந்தைக்கு உதவியாகலாம்.',
   actionLabel = 'WhatsApp-ல் பகிர்',
   storageKey = 'sp-share-nudge-dismissed',
-  revealAt = 0.36,
+  revealAt = 0.24,
   class: className = '',
 } = Astro.props;
 ---
@@ -34,21 +34,21 @@ const {
   aria-live="polite"
 >
   <div
-    class="share-nudge-panel pointer-events-auto mx-auto max-w-xl rounded-2xl border border-brand-border bg-surface/95 shadow-float backdrop-blur-md"
+    class="share-nudge-panel pointer-events-auto mx-auto max-w-xl rounded-2xl border border-calm-border/60 bg-brand-strong text-text-inverse shadow-float backdrop-blur-md"
   >
     <div class="flex items-center gap-3 p-3 sm:p-4">
-      <div class="hidden sm:flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-care-soft text-care-text border border-care-border">
+      <div class="hidden sm:flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-care-border/70 bg-care-soft text-care-text">
         <HeartHandshake size={21} aria-hidden="true" />
       </div>
 
       <div class="min-w-0 flex-1">
-        <p class="text-[11px] font-extrabold text-brand uppercase tracking-wide">{eyebrow}</p>
-        <p class="mt-0.5 text-sm leading-snug text-text-muted">{text}</p>
+        <p class="text-[15px] sm:text-base font-extrabold leading-snug text-white">{eyebrow}</p>
+        <p class="mt-1 text-[13px] sm:text-sm leading-snug text-brand-muted">{text}</p>
       </div>
 
       <a
         href={href ?? '#'}
-        class="share-nudge-action shrink-0 inline-flex h-11 items-center gap-2 rounded-full bg-green-500 px-4 text-sm font-extrabold text-white hover:bg-green-600 active:scale-95 transition-all whitespace-nowrap"
+        class="share-nudge-action shrink-0 inline-flex h-11 items-center gap-2 rounded-full bg-green-500 px-4 text-sm font-extrabold text-white shadow-sm ring-1 ring-white/20 hover:bg-green-600 active:scale-95 transition-all whitespace-nowrap"
         data-share-nudge-action
       >
         <MessageCircle size={17} aria-hidden="true" />
@@ -58,7 +58,7 @@ const {
 
       <button
         type="button"
-        class="share-nudge-dismiss shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full text-text-subtle hover:bg-surface-sunken hover:text-text transition-colors"
+        class="share-nudge-dismiss shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full text-brand-muted hover:bg-white/10 hover:text-white transition-colors"
         data-share-nudge-dismiss
         aria-label="இந்த பகிர்வு நினைவூட்டலை மூடு"
       >
@@ -78,7 +78,7 @@ const {
     const storageKey = nudge.dataset.storageKey || 'sp-share-nudge-dismissed';
     const targetButtonId = nudge.dataset.targetButtonId;
     const href = nudge.dataset.href;
-    const revealAt = Number(nudge.dataset.revealAt || 0.36);
+    const revealAt = Number(nudge.dataset.revealAt || 0.24);
 
     if (!panel || !action || !dismiss) return;
     if (localStorage.getItem(storageKey) === '1') {
@@ -130,8 +130,8 @@ const {
 
   .share-nudge-panel {
     box-shadow:
-      0 18px 38px rgb(0 0 0 / 0.14),
-      0 4px 10px rgb(0 0 0 / 0.06);
+      0 24px 54px rgb(4 47 46 / 0.28),
+      0 8px 18px rgb(0 0 0 / 0.14);
   }
 
   @media (prefers-reduced-motion: reduce) {
