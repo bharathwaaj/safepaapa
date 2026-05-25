@@ -120,11 +120,11 @@ const footerNav = footerNavLinks;
     </div>
 
     <header class="sticky top-0 z-50 bg-surface border-b border-border shadow-card">
-      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="max-w-5xl mx-auto w-full px-3 py-3 flex items-center justify-between gap-2 sm:px-4 sm:gap-4">
 
-        <a href="/" class="flex items-center gap-2 shrink-0">
-          <img src="/logo.svg" alt="SafePaapa logo" class="h-10 w-auto" width="67" height="40" />
-          <span class="font-extrabold text-lg text-brand tracking-tight">SafePaapa</span>
+        <a href="/" class="flex min-w-0 items-center gap-2">
+          <img src="/logo.svg" alt="SafePaapa logo" class="h-9 w-auto shrink-0 sm:h-10" width="67" height="40" />
+          <span class="truncate font-extrabold text-base text-brand tracking-tight sm:text-lg">SafePaapa</span>
         </a>
 
         <!-- Desktop nav -->
@@ -144,13 +144,13 @@ const footerNav = footerNavLinks;
           })}
         </nav>
 
-        <div class="flex items-center gap-2">
+        <div class="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <!-- Global search / command palette -->
           <button
             type="button"
             data-command-palette-trigger
             aria-label="உடனடி உதவி தேடலை திற"
-            class="flex items-center gap-2 rounded-full border border-border bg-surface-sunken px-2.5 py-2 text-xs font-bold text-text-muted hover:border-brand-border hover:bg-brand-soft hover:text-brand transition-colors sm:px-3"
+            class="flex shrink-0 items-center gap-2 rounded-full border border-border bg-surface-sunken p-2 text-xs font-bold text-text-muted hover:border-brand-border hover:bg-brand-soft hover:text-brand transition-colors sm:px-3"
           >
             <Search size={14} aria-hidden="true" />
             <span class="hidden sm:inline">தேடு</span>
@@ -161,7 +161,7 @@ const footerNav = footerNavLinks;
           <button
             id="theme-toggle"
             aria-label="Toggle dark mode"
-            class="p-2 rounded-full text-text-muted hover:text-brand hover:bg-brand-soft transition-colors"
+            class="shrink-0 p-2 rounded-full text-text-muted hover:text-brand hover:bg-brand-soft transition-colors"
           >
             <Sun size={16} id="icon-sun" class="hidden dark:block" aria-hidden="true" />
             <Moon size={16} id="icon-moon" class="block dark:hidden" aria-hidden="true" />
@@ -170,7 +170,7 @@ const footerNav = footerNavLinks;
           <!-- CHILDLINE CTA — Lucide Phone (system language) -->
           <a
             href="tel:1098"
-            class="flex items-center gap-1.5 border-2 border-urgent text-urgent text-sm font-bold px-3 py-1.5 rounded-full hover:bg-urgent hover:text-urgent-fg transition-colors"
+            class="flex shrink-0 items-center gap-1.5 border-2 border-urgent text-urgent text-sm font-bold px-2.5 py-1.5 rounded-full hover:bg-urgent hover:text-urgent-fg transition-colors sm:px-3"
           >
             <Phone size={14} aria-hidden="true" />
             1098
@@ -181,7 +181,7 @@ const footerNav = footerNavLinks;
             id="mobile-menu-toggle"
             aria-label="Open menu"
             aria-expanded="false"
-            class="md:hidden p-2 rounded-full text-text-muted hover:text-brand hover:bg-brand-soft transition-colors"
+            class="shrink-0 md:hidden p-2 rounded-full text-text-muted hover:text-brand hover:bg-brand-soft transition-colors"
           >
             <Menu size={20} aria-hidden="true" />
           </button>

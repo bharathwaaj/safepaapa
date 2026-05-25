@@ -245,6 +245,12 @@
   }
 
   /* Base styles using semantic tokens */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
   body {
     font-family: 'Nunito', 'Noto Sans Tamil', system-ui, sans-serif;
     background-color: var(--color-surface);
