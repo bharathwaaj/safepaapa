@@ -9,6 +9,9 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://safepaapa.in',
   integrations: [sitemap()],
+  build: {
+    inlineStylesheets: 'always',
+  },
 
   vite: {
     plugins: [tailwindcss()]
