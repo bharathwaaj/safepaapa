@@ -120,6 +120,7 @@
      These map to the site's communication goals:
        urgent  → emergency, danger, must-act now
        care    → warmth, nurturing, family support
+       rose    → protective, tender, parent-facing guidance
        calm    → reassurance, information, safety
        trust   → authoritative, reliable, legal weight
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -137,6 +138,13 @@
   --color-care-fg:        #ffffff;
   --color-care-text:      #78350f;  /* text in soft containers */
   --color-care-border:    #fde68a;  /* amber-200 */
+
+  --color-rose:           #be123c;  /* rose-700 */
+  --color-rose-soft:      #fff1f2;  /* rose-50  */
+  --color-rose-strong:    #881337;  /* rose-900 */
+  --color-rose-fg:        #ffffff;
+  --color-rose-text:      #9f1239;  /* text in soft containers */
+  --color-rose-border:    #fecdd3;  /* rose-200 */
 
   --color-calm:           #0d9488;  /* teal-600  */
   --color-calm-soft:      #f0fdfa;  /* teal-50   */
@@ -229,6 +237,10 @@
     --color-care-soft:      #2d1a04;
     --color-care-text:      #fcd34d;
     --color-care-border:    #4a2d08;
+
+    --color-rose-soft:      #2d0c14;
+    --color-rose-text:      #fda4af;
+    --color-rose-border:    #4c1527;
 
     --color-calm-soft:      #0a2220;
     --color-calm-text:      #5eead4;
