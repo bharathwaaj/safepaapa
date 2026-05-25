@@ -72,7 +72,7 @@ const resolvedSizes = sizes ?? (resolvedWebpSrcSet ? `(min-width: ${width}px) ${
 ---
 
 {imageSrc ? (
-  <picture>
+  <picture class={`block w-full overflow-hidden ${rounded} ${className}`} style={`aspect-ratio: ${computedAspect};`}>
     {resolvedWebpSrcSet && <source type="image/webp" srcset={resolvedWebpSrcSet} sizes={resolvedSizes} />}
     <img
       src={imageSrc}
@@ -84,7 +84,7 @@ const resolvedSizes = sizes ?? (resolvedWebpSrcSet ? `(min-width: ${width}px) ${
       loading={loading}
       decoding="async"
       fetchpriority={fetchpriority}
-      class={`w-full object-${fit} ${rounded} ${className}`}
+      class={`h-full w-full object-${fit}`}
     />
   </picture>
 ) : (
