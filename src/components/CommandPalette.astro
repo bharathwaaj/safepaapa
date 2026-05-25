@@ -56,12 +56,36 @@ const pageItems: PaletteItem[] = footerNavLinks.map((link) => ({
   keywords: link.href.replace('/', ''),
 }));
 
+const situationSearchAliases: Record<string, string> = {
+  'stranger-candy': 'chocolate sweet sweets toffee biscuit cookie chips juice ice cream snack food fruit candy இனிப்பு மிட்டாய் சாக்லேட் பிஸ்கட் ஜூஸ் பழம் சாப்பாடு உணவு',
+  'school-van': 'van auto bus driver pickup drop transport vehicle cab தனியாக ஓட்டுநர் டிரைவர் வேன் ஆட்டோ பேருந்து பள்ளி வாகனம்',
+  'relative-secret': 'secret secrets keep quiet dont tell uncle aunty cousin grandfather grandmother touch private ரகசியம் சொல்லாதே மாமா அத்தை சித்தப்பா பெரியப்பா தாத்தா பாட்டி உறவினர் தொடுதல்',
+  'online-friend': 'instagram facebook whatsapp chat dm message meet meetup online friend stranger இணையம் ஆன்லைன் நண்பன் சந்திக்க மெசேஜ் சாட்',
+  'lost-in-mall': 'lost missing mall market temple beach crowd festival shop தொலைந்தால் காணாமல் கூட்டம் கடை திருவிழா மார்க்கெட் கோவில்',
+  'unsafe-relative': 'relative family uncomfortable fear touch abuse uncle aunty வீட்டார் உறவினர் பயம் அசௌகரியம் தவறான தொடுதல்',
+  'school-toilet': 'toilet bathroom restroom washroom school follow privacy கழிப்பறை பாத்ரூம் பள்ளி பின்தொடர்தல் தனிமை',
+  'gift-from-stranger': 'gift money toy pen chocolate stranger bribe பரிசு பணம் பொம்மை பேனா அந்நியர் கொடுத்தால்',
+  'tuition-teacher': 'tuition teacher sir madam class coaching after school private class டியூஷன் ஆசிரியர் சார் மேடம் வகுப்பு',
+  'neighbour-house': 'neighbour neighbor house home upstairs nearby alone அக்கம் பக்கம் பக்கத்து வீடு தனியாக',
+  'public-transport': 'bus train auto share auto crowd travel touch பேருந்து ரயில் ஆட்டோ பயணம் கூட்டம்',
+  'photo-request': 'photo video camera selfie reel record படம் புகைப்படம் வீடியோ கேமரா செல்ஃபி ரீல்',
+  'ride-offer': 'ride lift bike car scooter auto vehicle drop pickup லிப்ட் பைக் கார் ஸ்கூட்டர் அழைத்தால் வாகனம்',
+  'false-claim': 'mother sent father sent pickup stranger lie amma appa அனுப்பினாங்க அம்மா அப்பா பொய் அழைத்தால்',
+  'home-alone': 'home alone door delivery courier visitor knock வீட்டில் தனியாக கதவு டெலிவரி கூரியர் யாராவது வந்தால்',
+  'being-followed': 'follow stalk chase road street walking பின்தொடர்தல் பின்தொடர்கிறார் சாலை நடந்து போகும்போது',
+  'no-pickup': 'late pickup school waiting after school delay வரவில்லை தாமதம் காத்திருப்பு பள்ளி முடிந்ததும்',
+  'friend-in-danger': 'friend hurt abuse secret help classmate நண்பர் தோழி நண்பன் ஆபத்து உதவி ரகசியம்',
+  'elevator-stranger': 'lift elevator apartment flat stranger லிப்ட் எலிவேட்டர் அடுக்குமாடி அந்நியர்',
+  'gaming-stranger': 'game gaming free fire bgmi roblox minecraft online chat கேம் விளையாட்டு ஆன்லைன் நண்பர்',
+  'private-photo': 'private photo nude naked intimate body parts image அந்தரங்க புகைப்படம் தனிப்பட்ட படம் உடல்',
+};
+
 const situationItems: PaletteItem[] = situations.map((s) => ({
   group: 'சூழல்கள்',
   title: `${s.icon} ${s.title}`,
   subtitle: s.titleEn,
   href: `/situations/${s.slug}`,
-  keywords: `${s.slug} ${s.title} ${s.titleEn} ${s.summary} ${s.summaryEn} ${s.shareLine}`,
+  keywords: `${s.slug} ${s.title} ${s.titleEn} ${s.summary} ${s.summaryEn} ${s.shareLine} ${situationSearchAliases[s.slug] ?? ''}`,
 }));
 
 const items = [...quickActions, ...pageItems, ...situationItems];
