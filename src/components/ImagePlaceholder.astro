@@ -30,10 +30,15 @@ import { Image as LucideImage } from '@lucide/astro';
 interface Props {
   prompt: string;    // alt text + image generation prompt
   src?: string;      // omit until image is generated
+  srcSet?: string;
+  webpSrcSet?: string;
+  sizes?: string;
   width?: number;
   height?: number;
   aspect?: string;   // CSS aspect-ratio e.g. "16/9"
   fit?: 'cover' | 'contain' | 'fill';
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
   class?: string;
   rounded?: string;
 }
@@ -41,10 +46,15 @@ interface Props {
 const {
   prompt,
   src,
+  srcSet,
+  webpSrcSet,
+  sizes,
   width = 800,
   height = 450,
   aspect,
   fit = 'cover',
+  loading = 'lazy',
+  fetchpriority,
   class: className = '',
   rounded = 'rounded-2xl',
 } = Astro.props;
@@ -55,15 +65,21 @@ const imageSrc = src ?? null;
 ---
 
 {imageSrc ? (
-  <img
-    src={imageSrc}
-    alt={prompt}
-    width={width}
-    height={height}
-    loading="lazy"
-    decoding="async"
-    class={`w-full object-${fit} ${rounded} ${className}`}
-  />
+  <picture>
+    {webpSrcSet && <source type="image/webp" srcset={webpSrcSet} sizes={sizes} />}
+    <img
+      src={imageSrc}
+      srcset={srcSet}
+      sizes={sizes}
+      alt={prompt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      fetchpriority={fetchpriority}
+      class={`w-full object-${fit} ${rounded} ${className}`}
+    />
+  </picture>
 ) : (
   <figure
     class={`relative w-full overflow-hidden bg-surface-sunken border-2 border-dashed border-border ${rounded} ${className}`}

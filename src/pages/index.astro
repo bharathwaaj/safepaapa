@@ -46,9 +46,14 @@ import { seasonalBanners } from '../data/seasonal';
       <ImagePlaceholder
         prompt="A Tamil mother kneeling to eye level with her 7-year-old daughter in a warm home, both looking at each other with trust and openness, soft natural morning light through a window, Tamil Nadu home interior with flowers on the windowsill, emotional and safe atmosphere, no text, photorealistic style"
         src="/images/hero-mother-daughter.jpg"
-        width={600}
-        height={500}
+        srcSet="/images/hero-mother-daughter-480.jpg 480w, /images/hero-mother-daughter-720.jpg 720w, /images/hero-mother-daughter-960.jpg 960w"
+        webpSrcSet="/images/hero-mother-daughter-480.webp 480w, /images/hero-mother-daughter-720.webp 720w, /images/hero-mother-daughter-960.webp 960w"
+        sizes="(min-width: 768px) 50vw, 100vw"
+        width={960}
+        height={548}
         aspect="6/5"
+        loading="eager"
+        fetchpriority="high"
         rounded="rounded-3xl"
       />
     </div>
