@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# SafePaapa — குழந்தைகளை பாதுகாப்போம்
+
+Child safety awareness for Tamil Nadu — for parents, teachers, and children.
+
+**[safepaapa.in](https://safepaapa.in)**
+
+## What it is
+
+A Tamil-language resource for child protection awareness, built in response to incidents like the Sulur case. It provides:
+
+- Situation guides (stranger danger, online safety, unsafe touch)
+- Separate sections for parents, teachers, children, and schools
+- Shareable wisdom cards via WhatsApp
+- Emergency contacts and POCSO resources
+- Interactive scenarios to prepare children for unsafe situations
+
+## Tech stack
+
+- [Astro](https://astro.build) — static site generator
+- [Tailwind CSS v4](https://tailwindcss.com) — styling
+- [Cloudflare Workers](https://workers.cloudflare.com) — deployment
+
+## Development
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
+pnpm dev        # dev server at localhost:4321
+pnpm build      # production build to ./dist/
+pnpm preview    # build + wrangler dev (Cloudflare Workers preview)
+pnpm deploy     # build + wrangler deploy
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+src/
+├── pages/          # index, parents, children, teachers, schools, resources, emergency
+├── components/     # SituationCard, Scenario, TinyWisdom, ShareCard, …
+├── layouts/        # Layout.astro
+├── data/           # content: situations, scenarios, wisdom cards, safety rules, …
+└── styles/         # global.css
+public/             # images, logo, OG images
+```
