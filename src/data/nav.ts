@@ -7,6 +7,12 @@ export interface NavLink {
   label: string;
 }
 
+export interface SocialLink {
+  href: string;
+  label: string;
+  handle: string;
+}
+
 export const navLinks: NavLink[] = [
   { href: '/situations', label: 'சூழல்கள்' },
   { href: '/parents',    label: 'பெற்றோருக்கு' },
@@ -29,3 +35,11 @@ export const footerText = {
   taglineEn: "Protecting Tamil Nadu's children through awareness.",
   legal: 'SafePaapa — இது ஒரு இலவச விழிப்புணர்வு முயற்சி. எந்த அரசு அமைப்புடனும் தொடர்பில்லை.',
 };
+
+export const socialLinks = {
+  instagram: {
+    href: 'https://www.instagram.com/safepaapa/',
+    label: 'SafePaapa Instagram',
+    handle: '@safepaapa',
+  },
+} satisfies Record<string, SocialLink>;

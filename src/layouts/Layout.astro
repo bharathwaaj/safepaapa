@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { Phone, Search, Sun, Moon, Menu } from '@lucide/astro';
 import CommandPalette from '../components/CommandPalette.astro';
-import { navLinks, footerNavLinks, footerText } from '../data/nav';
+import { navLinks, footerNavLinks, footerText, socialLinks } from '../data/nav';
 
 interface Props {
   title: string;
@@ -167,6 +167,20 @@ const footerNav = footerNavLinks;
             <Moon size={16} id="icon-moon" class="block dark:hidden" aria-hidden="true" />
           </button>
 
+          <a
+            href={socialLinks.instagram.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SafePaapa Instagram"
+            class="hidden shrink-0 rounded-full p-2 text-text-muted transition-colors hover:bg-brand-soft hover:text-brand sm:inline-flex"
+          >
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+
           <!-- CHILDLINE CTA — Lucide Phone (system language) -->
           <a
             href="tel:1098"
@@ -242,6 +256,19 @@ const footerNav = footerNavLinks;
           <p class="text-sm mt-1">CHILDLINE India — 24/7, இலவசம்</p>
           <p class="text-sm mt-3">காவல்துறை: <span class="text-text-inverse font-semibold">100</span></p>
           <p class="text-sm">பெண்கள் உதவி: <span class="text-text-inverse font-semibold">181</span></p>
+          <a
+            href={socialLinks.instagram.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 rounded-full border border-border-subtle px-4 py-2 text-sm font-bold text-text-inverse transition-colors hover:border-brand-muted hover:text-brand-muted"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+            {socialLinks.instagram.handle}
+          </a>
         </div>
       </div>
       <div class="border-t border-border-subtle text-center text-xs py-4 text-text-subtle">

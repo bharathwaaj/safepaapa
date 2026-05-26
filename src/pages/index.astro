@@ -9,6 +9,7 @@ import { safetyRules } from '../data/safetyRules';
 import { scenarios } from '../data/scenarios';
 import { dailyThoughts } from '../data/dailyThoughts';
 import { seasonalBanners } from '../data/seasonal';
+import { socialLinks } from '../data/nav';
 ---
 
 <Layout
@@ -251,6 +252,36 @@ import { seasonalBanners } from '../data/seasonal';
         rounded="rounded-3xl"
         class="opacity-90"
       />
+    </div>
+  </section>
+
+  <!-- Instagram launch channel -->
+  <section class="bg-surface py-14 px-4 border-t border-border">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-8 items-center">
+      <div>
+        <p class="text-brand font-bold text-xs uppercase tracking-widest mb-3">Instagram</p>
+        <h2 class="text-2xl font-extrabold text-text mb-3">தினமும் ஒரு பாதுகாப்பு நினைவூட்டல்</h2>
+        <p class="text-sm text-text-muted leading-relaxed mb-6">
+          SafePaapa Instagram-ல் சூழல் விளக்கங்கள், பெற்றோர் பேச வேண்டிய வரிகள், குழந்தைகளுக்கான எளிய பாதுகாப்பு விதிகள் பகிரப்படும்.
+        </p>
+        <a
+          href={socialLinks.instagram.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-extrabold text-action-fg transition-colors hover:bg-action-strong"
+        >
+          Instagram-ல் பின்தொடருங்கள்
+        </a>
+      </div>
+      <div class="rounded-2xl border border-border bg-brand-soft p-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-brand mb-4">முதல் வார பதிவுகள்</p>
+        <ul class="space-y-3 text-sm text-text-muted">
+          <li><span class="font-bold text-text">1.</span> அந்நியர் இனிப்பு கொடுத்தால்</li>
+          <li><span class="font-bold text-text">2.</span> பள்ளி வேனில் தனியாக இருந்தால்</li>
+          <li><span class="font-bold text-text">3.</span> “ரகசியம் வை” என்றால்</li>
+          <li><span class="font-bold text-text">4.</span> ஆன்லைன் நண்பர் சந்திக்க சொன்னால்</li>
+        </ul>
+      </div>
     </div>
   </section>
 
