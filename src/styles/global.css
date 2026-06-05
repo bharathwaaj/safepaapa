@@ -269,4 +269,16 @@
     color: var(--color-text);
     transition: background-color 0.2s ease, color 0.2s ease;
   }
+
+  /* Tamil pages: prioritise Noto Sans Tamil so Tamil glyphs render at their
+     intended optical size — Nunito handles any Latin fallback. */
+  :root:lang(ta) body {
+    font-family: 'Noto Sans Tamil', 'Nunito', system-ui, sans-serif;
+  }
+
+  /* English pages: Nunito only — no Tamil font loaded, consistent Latin sizing. */
+  :root:lang(en) body {
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-size: 1.0625rem; /* +1px optical bump — Nunito sits smaller than Noto Sans Tamil */
+  }
 }
