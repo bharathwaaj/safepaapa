@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { Phone, Search, Sun, Moon, Menu } from '@lucide/astro';
 import CommandPalette from '../components/CommandPalette.astro';
 import { navLinks, footerNavLinks, footerText, socialLinks } from '../data/nav';
+import { getAlternateUrl } from '../i18n';
 
 interface Props {
   title: string;
@@ -40,13 +41,18 @@ const fullTitle = title.endsWith('SafePaapa') ? title : `${title} | SafePaapa`;
 // aria-current: mark the active nav link
 const currentPath = Astro.url.pathname;
 
+// i18n
+const currentLocale = Astro.currentLocale ?? 'ta';
+const isEnglish = currentLocale === 'en';
+const alternatePath = getAlternateUrl(currentLocale, currentPath);
+
 // nav and footerNav now come from src/data/nav.ts
 const nav = navLinks;
 const footerNav = footerNavLinks;
 ---
 
 <!doctype html>
-<html lang="ta">
+<html lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -181,6 +187,15 @@ const footerNav = footerNavLinks;
             </svg>
           </a>
 
+          <!-- Language switcher -->
+          <a
+            href={alternatePath}
+            aria-label={isEnglish ? 'தமிழில் காண்க' : 'View in English'}
+            class="hidden sm:flex shrink-0 items-center gap-1 rounded-full border border-border bg-surface-sunken px-3 py-1.5 text-xs font-bold text-text-muted hover:border-brand-border hover:bg-brand-soft hover:text-brand transition-colors"
+          >
+            {isEnglish ? '🇮🇳 தமிழ்' : '🇬🇧 EN'}
+          </a>
+
           <!-- CHILDLINE CTA — Lucide Phone (system language) -->
           <a
             href="tel:1098"
@@ -221,6 +236,13 @@ const footerNav = footerNavLinks;
             >{label}</a>
           );
         })}
+        <!-- Language switcher in mobile menu -->
+        <a
+          href={alternatePath}
+          class="block py-1 text-text-muted hover:text-brand transition-colors"
+        >
+          {isEnglish ? '🇮🇳 தமிழில் காண்க' : '🇬🇧 View in English'}
+        </a>
       </nav>
     </header>
 
