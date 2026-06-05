@@ -221,6 +221,29 @@ export default {
   'schools.cta.teachers':         'ஆசிரியர் வழிகாட்டி →',
   'schools.wa.poster.msg':        'SafePaapa பள்ளி சுவரொட்டி — 5 குழந்தை பாதுகாப்பு விதிகள். அச்சிட்டு உங்கள் வகுப்பறையில் வையுங்கள்: https://safepaapa.in/schools#poster',
   'schools.wa.share.msg':         'SafePaapa — பள்ளி குழந்தை பாதுகாப்பு. காலை கூட்ட உரை, பெற்றோர் குழு செய்தி, வகுப்பறை சரிபார்ப்பு பட்டியல் — இலவசமாக தமிழில்: https://safepaapa.in/schools',
+
+  // ── Emergency page ─────────────────────────────────────────────────
+  'emergency.title':              'அவசர உதவி — CHILDLINE 1098',
+  'emergency.description':        'அவசர உதவி எண்கள் — CHILDLINE 1098, காவல்துறை 100, பெண்கள் உதவி எண் 181, அவசர சேவை 112.',
+  'emergency.hero.eyebrow':       'அவசர நேரம் — இப்போதே அழைக்கவும்',
+  'emergency.hero.h1':            'அவசர உதவி எண்கள்',
+  'emergency.hero.sub':           'அவசர எண்கள் · 24 மணி நேரமும் · இலவச அழைப்புகள்',
+  'emergency.childline.eyebrow':  'குழந்தை ஆபத்தில் இருந்தால்',
+  'emergency.childline.label':    'CHILDLINE',
+  'emergency.childline.sub':      'இலவசம் · 24 மணி நேரமும் · எந்த குழந்தையும் அழைக்கலாம்',
+  'emergency.childline.note':     '(Free · 24 hours · Any child in distress can call)',
+  'emergency.childline.cta':      '📞 1098 அழை',
+  'emergency.others.h2':          'மற்ற அவசர எண்கள்',
+  'emergency.whattosay.h2':       '1098 அழைத்தால் என்ன சொல்வது?',
+  'emergency.whattosay.sub':      'CHILDLINE-ஐ அழைக்கும் போது சொல்ல வேண்டியது',
+  'emergency.whattosay.note':     'முக்கியம்: பேச முடியாவிட்டாலும் — 1098-ஐ அழைத்து இணைப்பில் இருங்கள்.',
+  'emergency.whattosay.note2':    'நீங்கள் பேச முடியாவிட்டாலும் அவர்கள் இடத்தை கண்டுபிடித்து உதவி அனுப்ப முயற்சிப்பார்கள்.',
+  'emergency.save.h2':            'இப்போதே தொலைபேசியில் சேமியுங்கள்',
+  'emergency.save.sub':           'ஆபத்தான நேரத்தில் நினைவில் வராது — இப்போதே சேமித்து வையுங்கள்.',
+  'emergency.save.police':        '📞 100 — காவல்துறை',
+  'emergency.save.emergency':     '📞 112 — அவசர சேவை',
+  'emergency.save.share':         'இதை 3 பெற்றோருக்கு அனுப்புங்கள் →',
+  'emergency.wa.msg':             'அவசர எண்கள் — தொலைபேசியில் சேமியுங்கள்:\n\n📞 CHILDLINE: 1098 (குழந்தை ஆபத்து)\n📞 காவல்துறை: 100\n📞 அவசர சேவை: 112\n📞 பெண்கள் உதவி எண்: 181\n\nமேலும் தகவல்: safepaapa.in/emergency',
 } as const;
 
 export type TranslationKey = keyof typeof import('./ta').default;

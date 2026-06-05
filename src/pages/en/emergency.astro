@@ -1,18 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { emergencyNumbers } from '../data/emergencyNumbers';
-import { whatToSaySteps } from '../data/emergency';
-import { useTranslations } from '../i18n';
+import Layout from '../../layouts/Layout.astro';
+import { emergencyNumbers } from '../../data/emergencyNumbers';
+import { whatToSaySteps } from '../../data/emergency';
+import { useTranslations } from '../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 ---
 
 <Layout
   title={t('emergency.title')}
   description={t('emergency.description')}
   ogImage="/og/emergency.jpg"
-  ogPrompt="1200x630 JPEG — Bold red background, giant white text '1098' centered, below it 'CHILDLINE' in white, and 'குழந்தை ஆபத்தில் இருந்தால் — இப்போதே அழைக்கவும்' in Tamil. Bottom strip: 100 · 181 · 112 emergency numbers in smaller text. SafePaapa logo bottom right. Urgent but clean design, no photos."
-  canonicalPath="/emergency"
+  canonicalPath="/en/emergency"
 >
 
   <div class="bg-red-600 text-white py-10 px-4 text-center">
@@ -23,7 +22,7 @@ const t = useTranslations(Astro.currentLocale);
 
   <section class="bg-red-50 border-b-4 border-red-500 py-12 px-4 text-center">
     <p class="text-xs font-bold text-red-600 uppercase tracking-widest mb-3">{t('emergency.childline.eyebrow')}</p>
-    <a href="tel:1098" class="inline-block text-8xl sm:text-9xl font-extrabold text-red-600 leading-none tracking-tight hover:text-red-700 transition-colors" aria-label="CHILDLINE 1098-ஐ அழைக்கவும்">
+    <a href="tel:1098" class="inline-block text-8xl sm:text-9xl font-extrabold text-red-600 leading-none tracking-tight hover:text-red-700 transition-colors" aria-label="Call CHILDLINE 1098">
       1098
     </a>
     <p class="text-2xl font-extrabold text-red-700 mt-3">{t('emergency.childline.label')}</p>
@@ -42,8 +41,8 @@ const t = useTranslations(Astro.currentLocale);
           <p class="text-2xl font-extrabold leading-none">{number}</p>
         </div>
         <div class="flex-1 min-w-0">
-          <p class="font-extrabold text-text">{ta} <span class="text-text-subtle font-normal text-xs ml-1">{name}</span></p>
-          <p class="text-xs text-text-subtle mt-0.5 leading-relaxed">{en}</p>
+          <p class="font-extrabold text-text">{en} <span class="text-text-subtle font-normal text-xs ml-1">{name}</span></p>
+          <p class="text-xs text-text-subtle mt-0.5 leading-relaxed">{ta}</p>
         </div>
         <span class="text-brand text-xl shrink-0 group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
       </a>
@@ -61,8 +60,8 @@ const t = useTranslations(Astro.currentLocale);
           <div class="flex gap-4 items-start">
             <span class="shrink-0 bg-red-100 text-red-700 font-extrabold text-sm w-8 h-8 rounded-full flex items-center justify-center">{step}</span>
             <div>
-              <p class="font-bold text-text text-sm leading-snug">{ta}</p>
-              <p class="text-xs text-text-subtle mt-0.5">{en}</p>
+              <p class="font-bold text-text text-sm leading-snug">{en}</p>
+              <p class="text-xs text-text-subtle mt-0.5">{ta}</p>
             </div>
           </div>
         ))}
