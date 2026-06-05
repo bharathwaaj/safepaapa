@@ -1,18 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { warningSignsToWatch, safeClassroomTips, studentDisclosureDos } from '../data/teachers';
-import { useTranslations } from '../i18n';
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { warningSignsToWatch, safeClassroomTips, studentDisclosureDos } from '../../data/teachers';
+import { useTranslations } from '../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 ---
 
 <Layout
   title={t('teachers.title')}
   description={t('teachers.description')}
   ogImage="/og/teachers.jpg"
-  ogPrompt="1200x630 JPEG — Kind Tamil female teacher sitting beside a student who is quietly confiding something, warm afternoon classroom light, teacher leaning in with calm trustworthy expression. Dark teal bottom bar with 'ஆசிரியர்களுக்கு · POCSO · SafePaapa' text. Photorealistic, Tamil Nadu school."
-  canonicalPath="/teachers"
+  canonicalPath="/en/teachers"
 >
 
   <div class="bg-calm text-calm-fg py-12 px-4">
@@ -62,8 +61,8 @@ const t = useTranslations(Astro.currentLocale);
           <div class="flex gap-3 items-start bg-urgent-soft border border-urgent-border rounded-xl p-4">
             <span class="text-urgent mt-0.5 font-bold shrink-0">!</span>
             <div>
-              <p class="text-sm font-bold text-text">{sign.ta}</p>
-              <p class="text-xs text-text-subtle mt-0.5">{sign.en}</p>
+              <p class="text-sm font-bold text-text">{sign.en}</p>
+              <p class="text-xs text-text-subtle mt-0.5">{sign.ta}</p>
             </div>
           </div>
         ))}
@@ -88,7 +87,7 @@ const t = useTranslations(Astro.currentLocale);
           <p class="font-bold text-text mb-2">{t('teachers.pocso.report.label')}</p>
           <div class="flex flex-wrap gap-2">
             <a href="tel:1098" class="bg-urgent text-urgent-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-urgent-strong transition-colors">1098 CHILDLINE</a>
-            <a href="tel:100" class="bg-brand text-brand-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-brand-strong transition-colors">100 காவல்துறை</a>
+            <a href="tel:100" class="bg-brand text-brand-fg text-sm font-bold px-4 py-2 rounded-full hover:bg-brand-strong transition-colors">100 Police</a>
           </div>
         </div>
       </div>
@@ -120,8 +119,8 @@ const t = useTranslations(Astro.currentLocale);
           <div class="flex gap-3 items-start bg-brand-soft border border-brand-muted rounded-xl p-4">
             <span class="text-brand mt-0.5 font-bold shrink-0">✓</span>
             <div>
-              <p class="text-sm font-bold text-text">{tip.ta}</p>
-              <p class="text-xs text-text-subtle mt-0.5">{tip.en}</p>
+              <p class="text-sm font-bold text-text">{tip.en}</p>
+              <p class="text-xs text-text-subtle mt-0.5">{tip.ta}</p>
             </div>
           </div>
         ))}
@@ -137,8 +136,8 @@ const t = useTranslations(Astro.currentLocale);
           <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-calm-soft border border-calm' : 'bg-urgent-soft border border-urgent-border'}`}>
             <span class={`font-bold text-sm mt-0.5 shrink-0 ${item.do ? 'text-calm' : 'text-urgent'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
-              <p class="text-sm font-bold text-text">{item.ta}</p>
-              <p class="text-xs text-text-subtle mt-0.5">{item.en}</p>
+              <p class="text-sm font-bold text-text">{item.en}</p>
+              <p class="text-xs text-text-subtle mt-0.5">{item.ta}</p>
             </div>
           </div>
         ))}
@@ -149,7 +148,7 @@ const t = useTranslations(Astro.currentLocale);
     <div class="bg-trust-soft border border-trust-border rounded-2xl p-6">
       <p class="text-base font-extrabold text-trust-text mb-1">{t('teachers.schools.h2')}</p>
       <p class="text-sm text-text-muted mb-4 leading-relaxed">{t('teachers.schools.body')}</p>
-      <a href="/schools" class="inline-block bg-trust text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm">
+      <a href="/en/schools" class="inline-block bg-trust text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm">
         {t('teachers.schools.cta')}
       </a>
     </div>
