@@ -1,0 +1,285 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import Scenario from '../../../components/Scenario.astro';
+import WhatsAppShareNudge from '../../../components/WhatsAppShareNudge.astro';
+import { situations } from '../../../data/situations/_index';
+import { useTranslations } from '../../../i18n';
+import type { Situation } from '../../../data/situations/_index';
+
+export function getStaticPaths() {
+  return situations.map((s) => ({
+    params: { slug: s.slug },
+    props: { situation: s },
+  }));
+}
+
+interface Props {
+  situation: Situation;
+}
+
+const { situation: s } = Astro.props;
+const t = useTranslations('en');
+
+const shareText = encodeURIComponent(
+  `${s.titleEn} — Talk to your child about this today.\n\nSafePaapa child safety: https://safepaapa.in/en/situations/${s.slug}`
+);
+const whatsappFallbackUrl = `https://wa.me/?text=${shareText}`;
+const shareCardLine = s.shareLine;
+
+const scenarioAnswer = s.scripts[0].lines
+  .slice(0, 3)
+  .map((l) => l.replace(/^["""]+|["""]+$/g, '').trim())
+  .join(' ');
+
+const sorted = [...situations].sort((a, b) => a.order - b.order);
+const idx = sorted.findIndex((x) => x.slug === s.slug);
+const prev = sorted[idx - 1];
+const next = sorted[idx + 1];
+---
+
+<Layout
+  title={`${s.titleEn} — SafePaapa`}
+  description={`${s.summaryEn} — Word-for-word Tamil scripts for parents.`}
+  ogImage={s.imageSrc ? s.imageSrc : `/og/situation-${s.slug}.jpg`}
+  canonicalPath={`/en/situations/${s.slug}`}
+>
+
+  <div class="max-w-3xl mx-auto px-4 pt-8">
+    <a href="/en/situations" class="inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-brand transition-colors">
+      {t('situations.detail.back')}
+    </a>
+  </div>
+
+  <section class="max-w-3xl mx-auto px-4 pt-6 pb-10">
+    <div class="flex flex-col gap-4">
+      <span class="text-5xl leading-none">{s.icon}</span>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-text leading-snug sm:leading-[1.5]">{s.titleEn}</h1>
+      <p class="text-text-subtle text-sm">({s.title})</p>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-10">
+    <div class="bg-care-soft border-l-4 border-care rounded-r-xl p-6">
+      <h2 class="text-base font-extrabold text-care-text mb-3">{t('situations.detail.why.h2')}</h2>
+      <p class="text-text-muted text-sm leading-relaxed">{s.why}</p>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-10">
+    <ImagePlaceholder
+      prompt={s.imagePrompt}
+      src={s.imageSrc}
+      width={800}
+      height={420}
+      aspect="16/8"
+      rounded="rounded-2xl"
+    />
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-10">
+    <h2 class="text-xl font-extrabold text-text mb-6">
+      {t('situations.detail.scripts.h2')}
+      <span class="block text-xs font-semibold text-text-subtle mt-1">{t('situations.detail.scripts.sub')}</span>
+    </h2>
+    <div class="flex flex-col gap-6">
+      {s.scripts.map((script) => (
+        <div class="bg-surface border border-border rounded-2xl p-6 shadow-card">
+          <p class="text-xs font-bold text-brand mb-4">{script.label}</p>
+          <div class="flex flex-col gap-3">
+            {script.lines.map((line) => (
+              <div class="flex gap-3 items-start">
+                <span class="text-brand mt-0.5 shrink-0 text-lg leading-none">›</span>
+                <p class="text-text font-semibold text-sm leading-relaxed">{line}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-10">
+    <h2 class="text-xl font-extrabold text-text mb-1">
+      {t('situations.detail.practice.h2')}
+      <span class="block text-xs font-semibold text-text-subtle mt-1">{t('situations.detail.practice.sub')}</span>
+    </h2>
+    <div class="mt-5">
+      <Scenario
+        icon={s.icon}
+        prompt={s.titleEn}
+        promptEn={s.title}
+        answer={scenarioAnswer}
+        answerLabel={t('situations.detail.practice.answer')}
+      />
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-10">
+    <h2 class="text-base font-extrabold text-text mb-4">{t('situations.detail.remember.h2')}</h2>
+    <div class="bg-trust-soft border border-trust-border rounded-2xl p-6">
+      <ul class="flex flex-col gap-3">
+        {s.remember.map((tip) => (
+          <li class="flex gap-3 items-start text-sm text-trust-text">
+            <span class="shrink-0 mt-0.5 text-base leading-none">✓</span>
+            <span class="leading-relaxed">{tip}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-14">
+    <div class="bg-brand rounded-2xl p-7 text-brand-fg text-center flex flex-col items-center gap-4">
+      <p class="text-xl font-extrabold">{t('situations.detail.share.h2')}</p>
+      <p class="text-sm opacity-80 max-w-md">{t('situations.detail.share.sub')}</p>
+      <button
+        id="situation-share-btn"
+        class="bg-green-500 text-white font-bold px-7 py-3 rounded-full hover:bg-green-600 active:scale-95 transition-all whitespace-nowrap"
+        data-icon={s.icon}
+        data-title={s.title}
+        data-script={shareCardLine}
+        data-slug={s.slug}
+        data-fallback={whatsappFallbackUrl}
+        aria-label={`Share: ${s.titleEn}`}
+      >
+        {t('situations.detail.share.cta')}
+      </button>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 pb-14">
+    <div class="bg-urgent/10 border border-urgent/30 rounded-2xl p-6 text-center">
+      <p class="text-base font-extrabold text-urgent mb-1">{t('situations.detail.childline')}</p>
+      <a href="tel:1098" class="text-4xl font-extrabold text-urgent block mb-1">1098</a>
+      <p class="text-text-muted text-xs">{t('situations.detail.childline.sub')}</p>
+    </div>
+  </section>
+
+  {(prev || next) && (
+    <nav class="max-w-3xl mx-auto px-4 pb-16 flex justify-between gap-4">
+      {prev ? (
+        <a href={`/en/situations/${prev.slug}`} class="flex items-center gap-2 text-sm font-semibold text-text-muted hover:text-brand transition-colors">
+          <span class="text-lg">←</span>
+          <span>{prev.icon} {prev.titleEn}</span>
+        </a>
+      ) : <span />}
+      {next && (
+        <a href={`/en/situations/${next.slug}`} class="flex items-center gap-2 text-sm font-semibold text-text-muted hover:text-brand transition-colors ml-auto text-right">
+          <span>{next.icon} {next.titleEn}</span>
+          <span class="text-lg">→</span>
+        </a>
+      )}
+    </nav>
+  )}
+
+  <WhatsAppShareNudge
+    targetButtonId="situation-share-btn"
+    href={whatsappFallbackUrl}
+    eyebrow="Sharing helps"
+    text="Send this to another parent and they may start the conversation with their child today."
+    actionLabel="Share on WhatsApp"
+    storageKey={`sp-share-nudge-en-${s.slug}`}
+  />
+
+</Layout>
+
+<script>
+function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let line = '';
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function loadImg(src: string): Promise<HTMLImageElement> {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = rej;
+    img.src = src;
+  });
+}
+
+async function drawSituationCard(icon: string, title: string, scriptLine: string, slug: string): Promise<Blob> {
+  await document.fonts.ready;
+  const S = 1080; const pad = 88;
+  const canvas = document.createElement('canvas');
+  canvas.width = S; canvas.height = S;
+  const ctx = canvas.getContext('2d')!;
+  ctx.fillStyle = '#042f2e'; ctx.fillRect(0, 0, S, S);
+  const grad = ctx.createLinearGradient(0, 0, 0, S * 0.4);
+  grad.addColorStop(0, 'rgba(94,234,212,0.09)'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, S, S);
+  ctx.textAlign = 'center';
+  ctx.font = '148px serif'; ctx.fillText(icon, S / 2, 190);
+  ctx.font = 'bold 28px Noto Sans, sans-serif'; ctx.fillStyle = 'rgba(94,234,212,0.65)';
+  ctx.fillText('SafePaapa · Child Safety', S / 2, 260);
+  ctx.font = `bold 52px "Noto Sans Tamil", sans-serif`; ctx.fillStyle = '#ffffff';
+  const titleLines = wrapText(ctx, title, S - pad * 2);
+  let y = 360;
+  for (const line of titleLines) { ctx.fillText(line, S / 2, y); y += 76; }
+  y += 28;
+  ctx.strokeStyle = '#1a4a44'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(S - pad, y); ctx.stroke(); y += 52;
+  ctx.font = `bold 30px "Noto Sans Tamil", sans-serif`; ctx.fillStyle = '#5eead4';
+  ctx.fillText('குழந்தையிடம் சொல்லுங்கள்:', S / 2, y); y += 60;
+  const cleanLine = scriptLine.replace(/^["""'']+|["""'']+$/g, '').replace(/[.।]$/, '');
+  ctx.font = `38px "Noto Sans Tamil", sans-serif`; ctx.fillStyle = '#e2fdf8';
+  const scriptLines = wrapText(ctx, cleanLine, S - pad * 2);
+  for (const line of scriptLines) { ctx.fillText(line, S / 2, y); y += 58; }
+  const footerTop = S - 155;
+  ctx.strokeStyle = '#1a4a44'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(pad, footerTop); ctx.lineTo(S - pad, footerTop); ctx.stroke();
+  const logoH = 50; const logoW = Math.round(logoH * (67 / 40));
+  const logoTop = footerTop + (155 - logoH) / 2; const brandBaseline = logoTop + logoH * 0.72;
+  ctx.textAlign = 'left';
+  try {
+    const logo = await loadImg('/logo.svg');
+    ctx.drawImage(logo, pad, logoTop, logoW, logoH);
+    ctx.font = 'bold 36px Noto Sans, sans-serif'; ctx.fillStyle = '#5eead4';
+    ctx.fillText('SafePaapa', pad + logoW + 14, brandBaseline);
+  } catch {
+    ctx.font = 'bold 36px Noto Sans, sans-serif'; ctx.fillStyle = '#5eead4';
+    ctx.fillText('SafePaapa', pad, brandBaseline);
+  }
+  ctx.textAlign = 'right'; ctx.font = '26px Noto Sans, sans-serif'; ctx.fillStyle = 'rgba(94,234,212,0.65)';
+  ctx.fillText(`safepaapa.in/en/situations/${slug}`, S - pad, footerTop + 54);
+  ctx.font = 'bold 30px Noto Sans, sans-serif'; ctx.fillStyle = '#fda4af';
+  ctx.fillText('CHILDLINE · 1098', S - pad, footerTop + 100);
+  return new Promise((resolve) => canvas.toBlob((b) => resolve(b!), 'image/jpeg', 0.92));
+}
+
+async function shareSituation(icon: string, title: string, scriptLine: string, slug: string, fallbackUrl: string, btn: HTMLButtonElement) {
+  const original = btn.textContent!;
+  btn.textContent = '…'; btn.disabled = true;
+  const captionText = `${title} — Talk to your child about this today.\n\nSafePaapa child safety awareness`;
+  const siteUrl = `https://safepaapa.in/en/situations/${slug}`;
+  try {
+    const blob = await drawSituationCard(icon, title, scriptLine, slug);
+    const file = new File([blob], `safepaapa-${slug}.jpg`, { type: 'image/jpeg' });
+    const fullShare = { files: [file], title: 'SafePaapa', text: captionText, url: siteUrl };
+    const imageOnly = { files: [file], title: 'SafePaapa' };
+    if (navigator.canShare?.(fullShare)) { await navigator.share(fullShare); }
+    else if (navigator.canShare?.(imageOnly)) { await navigator.share(imageOnly); }
+    else { window.open(fallbackUrl, '_blank'); }
+  } catch (e: any) {
+    if (e.name !== 'AbortError') window.open(fallbackUrl, '_blank');
+  } finally {
+    btn.textContent = original; btn.disabled = false;
+  }
+}
+
+const btn = document.getElementById('situation-share-btn') as HTMLButtonElement | null;
+if (btn) {
+  btn.addEventListener('click', () => {
+    shareSituation(btn.dataset.icon!, btn.dataset.title!, btn.dataset.script!, btn.dataset.slug!, btn.dataset.fallback!, btn);
+  });
+}
+</script>

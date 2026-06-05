@@ -1,19 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import SituationCard from '../../components/SituationCard.astro';
-import { situations } from '../../data/situations/_index';
-import { useTranslations } from '../../i18n';
+import Layout from '../../../layouts/Layout.astro';
+import SituationCard from '../../../components/SituationCard.astro';
+import { situations } from '../../../data/situations/_index';
+import { useTranslations } from '../../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 const sorted = [...situations].sort((a, b) => a.order - b.order);
 ---
 
 <Layout
   title={t('situations.index.h1') + ' — SafePaapa'}
-  description="பெற்றோர் முன்கூட்டியே பேச வேண்டிய குழந்தை பாதுகாப்பு சூழல்கள். இன்று பயன்படுத்தக்கூடிய நேரடி தமிழ் உரைகள்."
+  description="Safety situations parents should discuss with their children. Word-for-word Tamil scripts ready to use today."
   ogImage="/og/situations.jpg"
-  ogPrompt="1200x630 JPEG — Grid of 4 safety scenario icons (stranger with candy 🍬, school van 🚐, secret-keeper 🤫, phone 📱) on a dark teal background, bold Tamil text 'இந்த சூழல்களில் உங்கள் குழந்தை என்ன செய்வார்?' centered, 'SafePaapa · safepaapa.in' bottom right. Clean flat illustration style."
-  canonicalPath="/situations"
+  canonicalPath="/en/situations"
 >
 
   <section class="bg-brand-soft border-b border-brand-border py-14 px-4">
@@ -28,7 +27,7 @@ const sorted = [...situations].sort((a, b) => a.order - b.order);
   <section class="max-w-5xl mx-auto px-4 py-14">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {sorted.map((s) => (
-        <SituationCard icon={s.icon} ta={s.title} en={s.summaryEn} href={`/situations/${s.slug}`} iconSize="lg" />
+        <SituationCard icon={s.icon} ta={s.summaryEn} en={s.title} href={`/en/situations/${s.slug}`} iconSize="lg" />
       ))}
     </div>
   </section>
@@ -41,7 +40,7 @@ const sorted = [...situations].sort((a, b) => a.order - b.order);
         <a href={`https://wa.me/?text=${encodeURIComponent(t('situations.index.wa.msg'))}`} target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap">
           {t('situations.index.cta.wa')}
         </a>
-        <a href="/parents" class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap">
+        <a href="/en/parents" class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap">
           {t('situations.index.cta.guide')}
         </a>
       </div>

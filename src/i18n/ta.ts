@@ -265,6 +265,30 @@ export default {
   'resources.share.sub':          'உங்கள் WhatsApp குழுவில் ஒரு முறை பகிர்ந்தாலே போதும் — யாரோ ஒருவரின் குழந்தையை காப்பாற்றலாம்.',
   'resources.share.wa':           '📲 WhatsApp-ல் பகிர',
   'resources.wa.msg':             'SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு. CHILDLINE: 1098 (24/7, இலவசம்). மேலும் தகவல்: https://safepaapa.in',
+
+  // ── Situations pages ───────────────────────────────────────────────
+  'situations.index.eyebrow':     'சூழல்கள்',
+  'situations.index.h1':          'இந்த சூழல்களில் உங்கள் குழந்தை என்ன செய்வார்?',
+  'situations.index.sub':         'ஒவ்வொரு சூழலிலும் — என்ன சொல்வது, எப்படி செய்வது என்று வார்த்தை வார்த்தையாக சொல்லுங்கள்.',
+  'situations.index.note':        'உண்மையான சூழல்கள். நேரடியாக சொல்லக்கூடிய தமிழ் வார்த்தைகள். ஒரு நேரத்தில் ஒரு உரையாடல்.',
+  'situations.index.cta.h2':      'ஒரு உரையாடல் — ஒரு குழந்தை பாதுகாப்பு',
+  'situations.index.cta.sub':     'இந்த சூழல்களை இன்றே உங்கள் குழந்தையிடம் பேசுங்கள். ஒரு நிமிடம் போதும்.',
+  'situations.index.cta.wa':      '📲 பெற்றோருக்கு அனுப்பு',
+  'situations.index.cta.guide':   'பெற்றோர் வழிகாட்டி →',
+  'situations.index.wa.msg':      'SafePaapa — குழந்தை பாதுகாப்பு சூழல்கள். இந்த பக்கத்தை பாருங்கள், உங்கள் குழந்தையிடம் பேசுங்கள்: https://safepaapa.in/situations',
+  'situations.detail.back':       '← சூழல்கள்',
+  'situations.detail.why.h2':     'ஏன் இது முக்கியம்?',
+  'situations.detail.scripts.h2': 'குழந்தையிடம் இப்படி சொல்லுங்கள்',
+  'situations.detail.scripts.sub':'குழந்தையிடம் நேரடியாக சொல்லக்கூடிய தமிழ் வார்த்தைகள்',
+  'situations.detail.practice.h2':'பயிற்சி செய்வோம்',
+  'situations.detail.practice.sub':'தட்டினால் குழந்தை என்ன செய்ய வேண்டும் என்று தெரியும்',
+  'situations.detail.practice.answer': 'குழந்தை என்ன செய்ய வேண்டும்?',
+  'situations.detail.remember.h2':'நினைவில் வையுங்கள்',
+  'situations.detail.share.h2':   'இந்த பக்கத்தை பகிருங்கள்',
+  'situations.detail.share.sub':  'இதை படித்த நீங்கள் — மற்ற ஒரு பெற்றோருக்கும் அனுப்புங்கள். ஒரு பகிர்வு ஒரு குழந்தையை காக்கலாம்.',
+  'situations.detail.share.cta':  '📲 WhatsApp-ல் பகிர்',
+  'situations.detail.childline':  'குழந்தை ஆபத்தில் இருந்தால்',
+  'situations.detail.childline.sub': 'CHILDLINE India · 24/7 · இலவசம் · ரகசியம் காக்கப்படும்',
 } as const;
 
 export type TranslationKey = keyof typeof import('./ta').default;
