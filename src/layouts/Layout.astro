@@ -4,6 +4,7 @@ import { Phone, Search, Sun, Moon, Menu } from '@lucide/astro';
 import CommandPalette from '../components/CommandPalette.astro';
 import { navLinks, footerNavLinks, footerText, socialLinks } from '../data/nav';
 import { getAlternateUrl } from '../i18n';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -54,6 +55,7 @@ const footerNav = footerNavLinks;
 <!doctype html>
 <html lang={currentLocale}>
   <head>
+    <ClientRouter />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
