@@ -1,18 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { resourceNumbers, tnGovBodies, ngoList } from '../data/resources';
-import { useTranslations } from '../i18n';
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { resourceNumbers, tnGovBodies, ngoList } from '../../data/resources';
+import { useTranslations } from '../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 ---
 
 <Layout
   title={t('resources.title')}
   description={t('resources.description')}
   ogImage="/og/resources.jpg"
-  ogPrompt="1200x630 JPEG — Dark teal background, large white text '1098' on the left with 'CHILDLINE' beneath it, right side shows a Tamil woman's hand holding a phone screen displaying the number. Bold 'SafePaapa · உதவி எண்கள்' at the bottom. Clean, trustworthy, minimal design."
-  canonicalPath="/resources"
+  canonicalPath="/en/resources"
 >
 
   <div class="bg-calm text-calm-fg py-12 px-4 text-center">
@@ -34,8 +33,8 @@ const t = useTranslations(Astro.currentLocale);
             <div class={`text-3xl font-extrabold shrink-0 ${h.primary ? 'text-urgent' : 'text-brand'}`}>{h.number}</div>
             <div>
               <p class="font-extrabold text-text">{h.name}</p>
-              <p class="text-sm text-text-muted">{h.ta}</p>
-              <p class="text-xs text-text-subtle">{h.en}</p>
+              <p class="text-sm text-text-muted">{h.en}</p>
+              <p class="text-xs text-text-subtle">{h.ta}</p>
             </div>
           </a>
         ))}

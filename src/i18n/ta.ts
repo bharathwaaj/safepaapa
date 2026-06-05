@@ -244,6 +244,27 @@ export default {
   'emergency.save.emergency':     '📞 112 — அவசர சேவை',
   'emergency.save.share':         'இதை 3 பெற்றோருக்கு அனுப்புங்கள் →',
   'emergency.wa.msg':             'அவசர எண்கள் — தொலைபேசியில் சேமியுங்கள்:\n\n📞 CHILDLINE: 1098 (குழந்தை ஆபத்து)\n📞 காவல்துறை: 100\n📞 அவசர சேவை: 112\n📞 பெண்கள் உதவி எண்: 181\n\nமேலும் தகவல்: safepaapa.in/emergency',
+
+  // ── Resources page ─────────────────────────────────────────────────
+  'resources.title':              'உதவி எண்கள் & வளங்கள்',
+  'resources.description':        'தமிழ்நாடு குழந்தை பாதுகாப்பு உதவி எண்கள், NGO தகவல்கள் — SafePaapa',
+  'resources.hero.eyebrow':       'உதவி',
+  'resources.hero.h1':            'உதவி எண்கள் & வளங்கள்',
+  'resources.hero.sub':           'உதவி எண்கள் மற்றும் தகவல் வளங்கள் — தமிழ்நாடு',
+  'resources.emergency.h2':       'அவசர உதவி எண்கள்',
+  'resources.emergency.sub':      'அவசர உதவி எண்கள் — 24 மணி நேரமும் கிடைக்கும்',
+  'resources.save.h3':            'இப்போதே சேமியுங்கள்',
+  'resources.save.body':          '1098 எண்ணை இப்போதே உங்கள் தொலைபேசியில் சேமியுங்கள். அவசரத்தில் தேட நேரமிருக்காது.',
+  'resources.save.note':          'CHILDLINE 1098-ஐ தொடர்புகளில் சேமித்து, இந்தப் பக்கத்தை குடும்பத்துடன் பகிருங்கள்.',
+  'resources.gov.h2':             'தமிழ்நாடு அரசு அமைப்புகள்',
+  'resources.gov.sub':            'குழந்தை பாதுகாப்புக்கான தமிழ்நாடு அரசு அமைப்புகள்',
+  'resources.ngo.h2':             'தன்னார்வ நிறுவனங்கள் (NGO) & அமைப்புகள்',
+  'resources.ngo.sub':            'தமிழ்நாட்டில் குழந்தை பாதுகாப்புக்காக பணிபுரியும் அமைப்புகள்',
+  'resources.ngo.visit':          'பார்க்க →',
+  'resources.share.h3':           'இதை பகிருங்கள்',
+  'resources.share.sub':          'உங்கள் WhatsApp குழுவில் ஒரு முறை பகிர்ந்தாலே போதும் — யாரோ ஒருவரின் குழந்தையை காப்பாற்றலாம்.',
+  'resources.share.wa':           '📲 WhatsApp-ல் பகிர',
+  'resources.wa.msg':             'SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு. CHILDLINE: 1098 (24/7, இலவசம்). மேலும் தகவல்: https://safepaapa.in',
 } as const;
 
 export type TranslationKey = keyof typeof import('./ta').default;
