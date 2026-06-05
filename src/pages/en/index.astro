@@ -1,0 +1,350 @@
+---
+/**
+ * English home page — /en/
+ * Re-uses the exact same layout + components as the Tamil home page.
+ * Only the locale changes; useTranslations('en') handles the rest.
+ */
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import SituationCard from '../../components/SituationCard.astro';
+import TinyWisdom from '../../components/TinyWisdom.astro';
+import Scenario from '../../components/Scenario.astro';
+import { wisdomCards } from '../../data/wisdomCards/_index';
+import { safetyRules } from '../../data/safetyRules';
+import { scenarios } from '../../data/scenarios';
+import { dailyThoughts } from '../../data/dailyThoughts';
+import { seasonalBanners } from '../../data/seasonal';
+import { socialLinks } from '../../data/nav';
+import { useTranslations } from '../../i18n';
+
+// Force the locale to 'en' for this page
+const t = useTranslations('en');
+---
+
+<Layout
+  title="Keeping Children Safe | SafePaapa"
+  description="SafePaapa — Keeping children safe. Child safety awareness for parents, teachers, and families across Tamil Nadu."
+  ogImage="/og/home.jpg"
+  canonicalPath="/en/"
+>
+
+  <!-- Hero -->
+  <section class="bg-surface py-16 px-4 border-b border-border">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="min-w-0">
+        <p class="text-brand font-bold text-xs uppercase tracking-widest mb-5">{t('home.hero.badge')}</p>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-text leading-snug sm:leading-[1.5] md:leading-[1.6] mb-5">
+          <span class="block">{t('home.hero.h1.line1')}</span>
+          <span class="block">{t('home.hero.h1.line2')}</span>
+          <span class="block text-brand">{t('home.hero.h1.line3')}</span>
+          {t('home.hero.h1.line4') && <span class="block text-brand">{t('home.hero.h1.line4')}</span>}
+        </h1>
+        <p class="text-base text-text-muted leading-relaxed mb-3">
+          {t('home.hero.body1')}
+        </p>
+        <p class="text-xs text-text-subtle mb-8">{t('home.hero.body2')}</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/en/parents" class="bg-action text-action-fg font-bold px-6 py-3 rounded-full hover:bg-action-strong transition-colors text-center whitespace-nowrap">
+            {t('home.hero.cta.parents')}
+          </a>
+          <a href="/en/children" class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap">
+            {t('home.hero.cta.children')}
+          </a>
+        </div>
+      </div>
+      <ImagePlaceholder
+        prompt="A Tamil mother kneeling to eye level with her 7-year-old daughter in a warm home, both looking at each other with trust and openness, soft natural morning light through a window, Tamil Nadu home interior with flowers on the windowsill, emotional and safe atmosphere, no text, photorealistic style"
+        src="/images/hero-mother-daughter.jpg"
+        srcSet="/images/hero-mother-daughter-480.jpg 480w, /images/hero-mother-daughter-720.jpg 720w, /images/hero-mother-daughter-960.jpg 960w"
+        webpSrcSet="/images/hero-mother-daughter-480.webp 480w, /images/hero-mother-daughter-720.webp 720w, /images/hero-mother-daughter-960.webp 960w"
+        sizes="(min-width: 768px) 50vw, 100vw"
+        width={960}
+        height={548}
+        aspect="960/548"
+        loading="eager"
+        fetchpriority="high"
+        rounded="rounded-3xl"
+      />
+    </div>
+  </section>
+
+  <!-- Seasonal banner — hidden until JS populates it -->
+  <div id="seasonal-banner" class="hidden"></div>
+
+  <!-- Situation strip -->
+  <section class="bg-brand-soft py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex justify-center mb-4">
+        <span class="bg-brand text-brand-fg text-xs font-bold px-4 py-1.5 rounded-full tracking-wide">
+          {t('home.situations.badge')}
+        </span>
+      </div>
+      <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.situations.h2')}</h2>
+      <p class="text-center text-text-subtle text-xs mb-10">{t('home.situations.sub')}</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <SituationCard icon="🍬" ta="அந்நியர் இனிப்பு கொடுத்தால்" en="A stranger offers candy" href="/en/situations/stranger-candy" />
+        <SituationCard icon="🚐" ta="வேன் ஓட்டுநர் தனியாக இருக்கும்போது" en="School van driver alone with your child" href="/en/situations/school-van" />
+        <SituationCard icon="🤫" ta='உறவினர் "ரகசியம் வை" என்றால்' en='A relative says "keep this a secret"' href="/en/situations/relative-secret" />
+        <SituationCard icon="📱" ta='ஆன்லைன் "நண்பன்" தனியாக அழைத்தால்' en='Online "friend" wants to meet alone' href="/en/situations/online-friend" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Scenarios -->
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="flex justify-center mb-4">
+      <span class="bg-calm-soft text-calm-text text-xs font-bold px-4 py-1.5 rounded-full tracking-wide border border-calm-border">
+        {t('home.scenarios.badge')}
+      </span>
+    </div>
+    <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.scenarios.h2')}</h2>
+    <p class="text-center text-text-subtle text-xs mb-10">{t('home.scenarios.sub')}</p>
+    <div class="space-y-3">
+      {scenarios.map((s) => (
+        <Scenario
+          icon={s.icon}
+          prompt={s.promptEn ?? s.prompt}
+          promptEn={s.prompt}
+          answer={s.answer}
+          answerLabel={s.answerLabel}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Why Now -->
+  <section class="max-w-3xl mx-auto px-4 py-14">
+    <div class="bg-care-soft border-l-4 border-care rounded-r-xl p-6">
+      <h2 class="text-lg font-extrabold text-care-text mb-3">{t('home.whynow.h2')}</h2>
+      <p class="text-text-muted text-sm leading-relaxed mb-3">
+        {t('home.whynow.p1')}
+      </p>
+      <p class="text-text-muted text-sm leading-relaxed">
+        {t('home.whynow.p2')}
+      </p>
+      <p class="text-xs text-care-text opacity-70 mt-4 italic">{t('home.whynow.note')}</p>
+    </div>
+  </section>
+
+  <!-- Tiny Wisdom -->
+  <section class="bg-surface-sunken py-16 px-4 border-y border-border">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-xl font-extrabold text-center text-text mb-1">{t('home.wisdom.h2')}</h2>
+      <p class="text-center text-text-subtle text-xs mb-2">{t('home.wisdom.sub')}</p>
+      <p class="text-center text-text-subtle text-xs mb-10">{t('home.wisdom.share.cta')}</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        {wisdomCards.map((w) => (
+          <TinyWisdom quote={w.en} by={w.by} en={w.quote} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Safety Rules -->
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.rules.h2')}</h2>
+    <p class="text-center text-text-subtle text-xs mb-10">{t('home.rules.sub')}</p>
+    <div class="space-y-3">
+      {safetyRules.map((rule) => (
+        <div class="flex gap-4 items-start bg-surface border border-border rounded-xl p-5 shadow-card">
+          <span class="text-2xl mt-0.5 shrink-0" aria-hidden="true">{rule.icon}</span>
+          <div>
+            <p class="font-bold text-text">{rule.en}</p>
+            <p class="text-xs text-text-subtle mt-1">{rule.ta}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="mt-8 flex justify-center">
+      <a href="/en/children" class="bg-action text-action-fg font-bold px-7 py-3 rounded-full hover:bg-action-strong transition-colors">
+        {t('home.rules.cta')}
+      </a>
+    </div>
+  </section>
+
+  <!-- Daily thought -->
+  <div id="daily-thought" class="hidden max-w-3xl mx-auto px-4 pb-6"></div>
+
+  <!-- Who is this for -->
+  <section class="bg-surface-sunken border-y border-border py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.who.h2')}</h2>
+      <p class="text-center text-text-subtle text-xs mb-10">{t('home.who.sub')}</p>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <a href="/en/parents" class="bg-surface rounded-2xl p-7 shadow-card hover:shadow-raised transition-shadow border border-border group">
+          <ImagePlaceholder
+            prompt="A Tamil father and mother sitting cross-legged on the floor with their young child between them, warm evening lamp light, looking at a picture book about safety together, illustrated flat art style, teal and warm white palette, no text"
+            src="/images/parents-safety-book.jpg"
+            width={400}
+            height={220}
+            aspect="16/9"
+            rounded="rounded-xl"
+            class="mb-5"
+          />
+          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">{t('home.who.parents.h3')}</h3>
+          <p class="text-xs text-text-subtle mb-3">{t('home.who.parents.sub')}</p>
+          <p class="text-sm text-text-muted leading-relaxed">
+            {t('home.who.parents.body')}
+          </p>
+        </a>
+
+        <a href="/en/children" class="bg-surface rounded-2xl p-7 shadow-card hover:shadow-raised transition-shadow border border-border group">
+          <ImagePlaceholder
+            prompt="A cheerful Tamil girl aged 8 standing confidently with one hand raised in a stop gesture and a brave gentle smile, wearing school uniform, bright simple teal background, flat illustration style, warm and empowering mood, no text"
+            src="/images/child-confident-schoolgirl.jpg"
+            width={400}
+            height={220}
+            aspect="16/9"
+            rounded="rounded-xl"
+            class="mb-5"
+          />
+          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">{t('home.who.children.h3')}</h3>
+          <p class="text-xs text-text-subtle mb-3">{t('home.who.children.sub')}</p>
+          <p class="text-sm text-text-muted leading-relaxed">
+            {t('home.who.children.body')}
+          </p>
+        </a>
+
+        <a href="/en/teachers" class="bg-surface rounded-2xl p-7 shadow-card hover:shadow-raised transition-shadow border border-border group">
+          <ImagePlaceholder
+            prompt="A kind Tamil female teacher sitting beside a student at a school desk, leaning in gently and listening with care, warm classroom with afternoon light, soft expression of trust and concern, flat illustration style, teal and amber palette, no text"
+            src="/images/teacher-student-classroom.jpg"
+            width={400}
+            height={220}
+            aspect="16/9"
+            rounded="rounded-xl"
+            class="mb-5"
+          />
+          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">{t('home.who.teachers.h3')}</h3>
+          <p class="text-xs text-text-subtle mb-3">{t('home.who.teachers.sub')}</p>
+          <p class="text-sm text-text-muted leading-relaxed">
+            {t('home.who.teachers.body')}
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Share CTA -->
+  <section class="bg-trust text-trust-fg py-14 px-4">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-trust-soft text-xs uppercase tracking-widest mb-3 font-bold">{t('home.share.eyebrow')}</p>
+        <h2 class="text-2xl font-extrabold mb-3">{t('home.share.h2')}</h2>
+        <p class="opacity-80 text-sm leading-relaxed mb-2">
+          {t('home.share.body')}
+        </p>
+        <p class="text-trust-soft text-xs mb-7">{t('home.share.sub')}</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent(t('home.share.wa.message'))}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap"
+          >
+            {t('home.share.wa.cta')}
+          </a>
+          <a href="/en/resources" class="bg-white text-trust font-bold px-6 py-3 rounded-full hover:bg-trust-soft transition-colors text-center whitespace-nowrap">
+            {t('home.share.resources.cta')}
+          </a>
+        </div>
+      </div>
+      <ImagePlaceholder
+        prompt="Hands of three generations — a child's small hand, a parent's hand, and a grandparent's wrinkled hand — gently layered one over the other in a gesture of protection and love, warm golden hour light, Tamil Nadu setting, hopeful and united mood, photorealistic, no text"
+        src="/images/hands-family-support.jpg"
+        width={500}
+        height={360}
+        aspect="5/4"
+        rounded="rounded-3xl"
+        class="opacity-90"
+      />
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="bg-surface py-14 px-4 border-t border-border">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-8 items-center">
+      <div>
+        <p class="text-brand font-bold text-xs uppercase tracking-widest mb-3">{t('home.instagram.eyebrow')}</p>
+        <h2 class="text-2xl font-extrabold text-text mb-3">{t('home.instagram.h2')}</h2>
+        <p class="text-sm text-text-muted leading-relaxed mb-6">
+          {t('home.instagram.body')}
+        </p>
+        <a
+          href={socialLinks.instagram.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-extrabold text-action-fg transition-colors hover:bg-action-strong"
+        >
+          {t('home.instagram.cta')}
+        </a>
+      </div>
+      <div class="rounded-2xl border border-border bg-brand-soft p-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-brand mb-4">{t('home.instagram.posts.label')}</p>
+        <ul class="space-y-3 text-sm text-text-muted">
+          <li><span class="font-bold text-text">1.</span> {t('home.instagram.posts.1')}</li>
+          <li><span class="font-bold text-text">2.</span> {t('home.instagram.posts.2')}</li>
+          <li><span class="font-bold text-text">3.</span> {t('home.instagram.posts.3')}</li>
+          <li><span class="font-bold text-text">4.</span> {t('home.instagram.posts.4')}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script define:vars={{ thoughts: dailyThoughts, dailyThoughtLabel: t('home.thought.label') }}>
+// Daily thought
+const thoughtEl = document.getElementById('daily-thought');
+if (thoughtEl) {
+  function dayOfYear() {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    return Math.floor((now.getTime() - start.getTime()) / 86_400_000);
+  }
+  const thought = thoughts[dayOfYear() % thoughts.length];
+  thoughtEl.innerHTML = `
+    <div class="bg-brand-soft border border-brand-muted rounded-2xl p-6 text-center">
+      <p class="text-2xl mb-3" aria-hidden="true">💡</p>
+      <p class="font-bold text-text text-sm leading-relaxed mb-2">${thought.en}</p>
+      <p class="text-xs text-text-subtle italic leading-relaxed">${thought.ta}</p>
+      <p class="text-xs text-brand font-semibold mt-4">${dailyThoughtLabel}</p>
+    </div>
+  `;
+  thoughtEl.classList.remove('hidden');
+}
+</script>
+
+<script define:vars={{ seasons: seasonalBanners }}>
+// Seasonal banner
+const bannerEl = document.getElementById('seasonal-banner');
+if (bannerEl) {
+  function monthDay() {
+    const d = new Date();
+    return (d.getMonth() + 1) * 100 + d.getDate();
+  }
+  function inRange(md, start, end) {
+    if (start <= end) return md >= start && md <= end;
+    return md >= start || md <= end;
+  }
+  const md = monthDay();
+  const season = seasons.find((s) => inRange(md, s.start, s.end));
+  if (season) {
+    bannerEl.innerHTML = `
+      <div class="bg-care-soft border-y border-care py-3 px-4">
+        <div class="max-w-5xl mx-auto flex items-start gap-3">
+          <span class="text-xl shrink-0 mt-0.5" aria-hidden="true">${season.icon}</span>
+          <div class="min-w-0">
+            <p class="font-extrabold text-care-text text-sm">${season.bodyEn ?? season.ta}</p>
+            <p class="text-xs text-text-muted mt-0.5 leading-relaxed">${season.body}</p>
+            <a href="${season.link}" class="text-xs font-bold text-care-text mt-2 inline-block hover:underline underline-offset-2">${season.linkText}</a>
+          </div>
+        </div>
+      </div>
+    `;
+    bannerEl.classList.remove('hidden');
+  }
+}
+</script>

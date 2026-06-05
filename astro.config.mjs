@@ -9,6 +9,14 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://safepaapa.in',
   integrations: [sitemap()],
+
+  i18n: {
+    defaultLocale: 'ta',
+    locales: ['ta', 'en'],
+    routing: {
+      prefixDefaultLocale: false, // Tamil stays at /  — English at /en/
+    },
+  },
   build: {
     inlineStylesheets: 'always',
   },

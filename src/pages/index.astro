@@ -10,6 +10,9 @@ import { scenarios } from '../data/scenarios';
 import { dailyThoughts } from '../data/dailyThoughts';
 import { seasonalBanners } from '../data/seasonal';
 import { socialLinks } from '../data/nav';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <Layout
@@ -24,23 +27,23 @@ import { socialLinks } from '../data/nav';
   <section class="bg-surface py-16 px-4 border-b border-border">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div class="min-w-0">
-        <p class="text-brand font-bold text-xs uppercase tracking-widest mb-5">தமிழ்நாடு குழந்தை பாதுகாப்பு</p>
+        <p class="text-brand font-bold text-xs uppercase tracking-widest mb-5">{t('home.hero.badge')}</p>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-text leading-snug sm:leading-[1.5] md:leading-[1.6] mb-5">
-          <span class="block">உங்கள்</span>
-          <span class="block">குழந்தையிடம்</span>
-          <span class="block text-brand">இன்று</span>
-          <span class="block text-brand">பேசியிருக்கீங்களா?</span>
+          <span class="block">{t('home.hero.h1.line1')}</span>
+          <span class="block">{t('home.hero.h1.line2')}</span>
+          <span class="block text-brand">{t('home.hero.h1.line3')}</span>
+          {t('home.hero.h1.line4') && <span class="block text-brand">{t('home.hero.h1.line4')}</span>}
         </h1>
         <p class="text-base text-text-muted leading-relaxed mb-3">
-          சூலூர் போன்ற சம்பவங்கள் நம்மை கலக்குகின்றன. ஆனால் ஒரு நிமிட உரையாடல் — சரியான வார்த்தைகளில் — உங்கள் குழந்தையை காப்பாற்றலாம்.
+          {t('home.hero.body1')}
         </p>
-        <p class="text-xs text-text-subtle mb-8">இன்றைய ஒரு நேர்மையான உரையாடல், நாளைய பாதுகாப்பாக மாறலாம்.</p>
+        <p class="text-xs text-text-subtle mb-8">{t('home.hero.body2')}</p>
         <div class="flex flex-col sm:flex-row gap-3">
           <a href="/parents" class="bg-action text-action-fg font-bold px-6 py-3 rounded-full hover:bg-action-strong transition-colors text-center whitespace-nowrap">
-            பெற்றோர் வழிகாட்டி →
+            {t('home.hero.cta.parents')}
           </a>
           <a href="/children" class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap">
-            குழந்தைகளுக்கு →
+            {t('home.hero.cta.children')}
           </a>
         </div>
       </div>
@@ -68,11 +71,11 @@ import { socialLinks } from '../data/nav';
     <div class="max-w-5xl mx-auto">
       <div class="flex justify-center mb-4">
         <span class="bg-brand text-brand-fg text-xs font-bold px-4 py-1.5 rounded-full tracking-wide">
-          60 விநாடியில் தெரிந்துகொள்ளுங்கள்
+          {t('home.situations.badge')}
         </span>
       </div>
-      <h2 class="text-2xl font-extrabold text-center text-text mb-1">இந்த சூழல்களில் உங்கள் குழந்தை என்ன செய்வார்?</h2>
-      <p class="text-center text-text-subtle text-xs mb-10">60 விநாடியில் தொடங்குங்கள் — ஒரு சூழலைத் தட்டி, குழந்தையை தயார் செய்யுங்கள்</p>
+      <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.situations.h2')}</h2>
+      <p class="text-center text-text-subtle text-xs mb-10">{t('home.situations.sub')}</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <SituationCard icon="🍬" ta="அந்நியர் இனிப்பு கொடுத்தால்" en="A stranger offers candy" href="/situations/stranger-candy" />
         <SituationCard icon="🚐" ta="வேன் ஓட்டுநர் தனியாக இருக்கும்போது" en="School van driver alone with your child" href="/situations/school-van" />
@@ -86,11 +89,11 @@ import { socialLinks } from '../data/nav';
   <section class="max-w-3xl mx-auto px-4 py-16">
     <div class="flex justify-center mb-4">
       <span class="bg-calm-soft text-calm-text text-xs font-bold px-4 py-1.5 rounded-full tracking-wide border border-calm-border">
-        பயிற்சி செய்வோம்
+        {t('home.scenarios.badge')}
       </span>
     </div>
-    <h2 class="text-2xl font-extrabold text-center text-text mb-1">இந்த சூழல்களில் என்ன செய்வீர்கள்?</h2>
-      <p class="text-center text-text-subtle text-xs mb-10">ஒவ்வொரு சூழலையும் தட்டுங்கள் — குழந்தை என்ன செய்ய வேண்டும் என்று பாருங்கள்</p>
+    <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.scenarios.h2')}</h2>
+    <p class="text-center text-text-subtle text-xs mb-10">{t('home.scenarios.sub')}</p>
     <div class="space-y-3">
       {scenarios.map((s) => (
         <Scenario
@@ -107,23 +110,23 @@ import { socialLinks } from '../data/nav';
   <!-- Why Now: Sulur Context -->
   <section class="max-w-3xl mx-auto px-4 py-14">
     <div class="bg-care-soft border-l-4 border-care rounded-r-xl p-6">
-      <h2 class="text-lg font-extrabold text-care-text mb-3">ஏன் இப்போது?</h2>
+      <h2 class="text-lg font-extrabold text-care-text mb-3">{t('home.whynow.h2')}</h2>
       <p class="text-text-muted text-sm leading-relaxed mb-3">
-        சூலூர் சம்பவம் நம் அனைவரையும் கலக்கியது. குழந்தைகளுக்கு எதிரான குற்றங்கள் தொலைவான இடங்களில் மட்டுமல்ல — நம் சுற்றுப்புறங்களிலும், பள்ளிகளிலும், சில நேரம் குடும்பத்திலும் கூட நடக்கின்றன.
+        {t('home.whynow.p1')}
       </p>
       <p class="text-text-muted text-sm leading-relaxed">
-        விழிப்புணர்வே சிறந்த பாதுகாப்பு. எச்சரிக்கை அறிகுறிகளை அறிந்துகொள்வது, குழந்தைகளிடம் உடல் பாதுகாப்பு பற்றி பேசுவது, எங்கு உதவி கேட்பது என்று தெரிந்திருப்பது — இவையே நம் கையில் உள்ள ஆயுதங்கள்.
+        {t('home.whynow.p2')}
       </p>
-      <p class="text-xs text-care-text opacity-70 mt-4 italic">சூலூர் சம்பவம் நினைவூட்டுவது: குழந்தை பாதுகாப்பு வீட்டில், வகுப்பறையில், சமூகத்தில் தொடங்குகிறது.</p>
+      <p class="text-xs text-care-text opacity-70 mt-4 italic">{t('home.whynow.note')}</p>
     </div>
   </section>
 
   <!-- Tiny Wisdom — shareable quote cards -->
   <section class="bg-surface-sunken py-16 px-4 border-y border-border">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-xl font-extrabold text-center text-text mb-1">பெற்றோர் சொல்வது</h2>
-      <p class="text-center text-text-subtle text-xs mb-2">குழந்தைகளை பாதுகாக்க உதவும் வார்த்தைகள்</p>
-      <p class="text-center text-text-subtle text-xs mb-10">ஒரு தட்டலில் WhatsApp-ல் அனுப்புங்கள்</p>
+      <h2 class="text-xl font-extrabold text-center text-text mb-1">{t('home.wisdom.h2')}</h2>
+      <p class="text-center text-text-subtle text-xs mb-2">{t('home.wisdom.sub')}</p>
+      <p class="text-center text-text-subtle text-xs mb-10">{t('home.wisdom.share.cta')}</p>
       <div class="grid md:grid-cols-3 gap-6">
         {wisdomCards.map((w) => (
           <TinyWisdom quote={w.quote} by={w.by} en={w.en} />
@@ -134,8 +137,8 @@ import { socialLinks } from '../data/nav';
 
   <!-- 5 Safety Rules -->
   <section class="max-w-3xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-extrabold text-center text-text mb-1">ஐந்து விதிகள் — ஒவ்வொரு குழந்தையும் தெரிய வேண்டும்</h2>
-    <p class="text-center text-text-subtle text-xs mb-10">ஒவ்வொரு குழந்தையும் அறிய வேண்டிய 5 பாதுகாப்பு விதிகள்</p>
+    <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.rules.h2')}</h2>
+    <p class="text-center text-text-subtle text-xs mb-10">{t('home.rules.sub')}</p>
     <div class="space-y-3">
       {safetyRules.map((rule) => (
         <div class="flex gap-4 items-start bg-surface border border-border rounded-xl p-5 shadow-card">
@@ -149,7 +152,7 @@ import { socialLinks } from '../data/nav';
     </div>
     <div class="mt-8 flex justify-center">
       <a href="/children" class="bg-action text-action-fg font-bold px-7 py-3 rounded-full hover:bg-action-strong transition-colors">
-        குழந்தைகளுக்கான முழு வழிகாட்டி →
+        {t('home.rules.cta')}
       </a>
     </div>
   </section>
@@ -160,8 +163,8 @@ import { socialLinks } from '../data/nav';
   <!-- Who is this for -->
   <section class="bg-surface-sunken border-y border-border py-16 px-4">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-extrabold text-center text-text mb-1">யாருக்கு?</h2>
-      <p class="text-center text-text-subtle text-xs mb-10">குழந்தையை கவனிக்கும் ஒவ்வொருவருக்கும் தனித்தனி வழிகாட்டிகள்</p>
+      <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.who.h2')}</h2>
+      <p class="text-center text-text-subtle text-xs mb-10">{t('home.who.sub')}</p>
       <div class="grid md:grid-cols-3 gap-6">
 
         <a href="/parents" class="bg-surface rounded-2xl p-7 shadow-card hover:shadow-raised transition-shadow border border-border group">
@@ -174,10 +177,10 @@ import { socialLinks } from '../data/nav';
             rounded="rounded-xl"
             class="mb-5"
           />
-          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">பெற்றோருக்கு</h3>
-          <p class="text-xs text-text-subtle mb-3">(For Parents)</p>
+          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">{t('home.who.parents.h3')}</h3>
+          <p class="text-xs text-text-subtle mb-3">{t('home.who.parents.sub')}</p>
           <p class="text-sm text-text-muted leading-relaxed">
-            எச்சரிக்கை அறிகுறிகள், குழந்தையிடம் எப்படி பேசுவது, வெளிப்படுத்தினால் என்ன செய்வது.
+            {t('home.who.parents.body')}
           </p>
         </a>
 
@@ -191,10 +194,10 @@ import { socialLinks } from '../data/nav';
             rounded="rounded-xl"
             class="mb-5"
           />
-          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">குழந்தைகளுக்கு</h3>
-          <p class="text-xs text-text-subtle mb-3">(For Children)</p>
+          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">{t('home.who.children.h3')}</h3>
+          <p class="text-xs text-text-subtle mb-3">{t('home.who.children.sub')}</p>
           <p class="text-sm text-text-muted leading-relaxed">
-            நல்ல தொடுதல் — கெட்ட தொடுதல், உன் உடல் உனக்கே சொந்தம், நம்பகமான பெரியவரிடம் சொல்.
+            {t('home.who.children.body')}
           </p>
         </a>
 
@@ -208,10 +211,10 @@ import { socialLinks } from '../data/nav';
             rounded="rounded-xl"
             class="mb-5"
           />
-          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">ஆசிரியர்களுக்கு</h3>
-          <p class="text-xs text-text-subtle mb-3">(For Teachers)</p>
+          <h3 class="text-lg font-extrabold text-text mb-1 group-hover:text-brand transition-colors">{t('home.who.teachers.h3')}</h3>
+          <p class="text-xs text-text-subtle mb-3">{t('home.who.teachers.sub')}</p>
           <p class="text-sm text-text-muted leading-relaxed">
-            மாணவர்களில் அறிகுறிகளை கண்டறிவது, POCSO சட்டம், பாதுகாப்பான வகுப்பறை.
+            {t('home.who.teachers.body')}
           </p>
         </a>
 
@@ -223,23 +226,23 @@ import { socialLinks } from '../data/nav';
   <section class="bg-trust text-trust-fg py-14 px-4">
     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <p class="text-trust-soft text-xs uppercase tracking-widest mb-3 font-bold">விழிப்புணர்வு பரவட்டும்</p>
-        <h2 class="text-2xl font-extrabold mb-3">இதை 3 பெற்றோரிடம் அனுப்புங்கள்</h2>
+        <p class="text-trust-soft text-xs uppercase tracking-widest mb-3 font-bold">{t('home.share.eyebrow')}</p>
+        <h2 class="text-2xl font-extrabold mb-3">{t('home.share.h2')}</h2>
         <p class="opacity-80 text-sm leading-relaxed mb-2">
-          மூன்று பெற்றோருக்கு அனுப்பினால் போதும் — அவர்களில் ஒருவரின் குழந்தையாவது காப்பாற்றப்படலாம்.
+          {t('home.share.body')}
         </p>
-        <p class="text-trust-soft text-xs mb-7">3 பெற்றோருக்கு அனுப்புங்கள் — அப்படித்தான் விழிப்புணர்வு பரவும்.</p>
+        <p class="text-trust-soft text-xs mb-7">{t('home.share.sub')}</p>
         <div class="flex flex-col sm:flex-row gap-3">
           <a
-            href={`https://wa.me/?text=${encodeURIComponent('SafePaapa — குழந்தை பாதுகாப்பு விழிப்புணர்வு. 60 விநாடியில் படியுங்கள், உங்கள் குழந்தையிடம் பேசுங்கள். இதை மற்ற பெற்றோருக்கும் அனுப்புங்கள்: https://safepaapa.in')}`}
+            href={`https://wa.me/?text=${encodeURIComponent(t('home.share.wa.message'))}`}
             target="_blank"
             rel="noopener noreferrer"
             class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap"
           >
-            📲 3 பேருக்கு அனுப்பு
+            {t('home.share.wa.cta')}
           </a>
           <a href="/resources" class="bg-white text-trust font-bold px-6 py-3 rounded-full hover:bg-trust-soft transition-colors text-center whitespace-nowrap">
-            உதவி எண்களை பார்க்க
+            {t('home.share.resources.cta')}
           </a>
         </div>
       </div>
@@ -256,30 +259,30 @@ import { socialLinks } from '../data/nav';
   </section>
 
   <!-- Instagram launch channel -->
-  <section class="bg-surface py-14 px-4 border-t border-border">
-    <div class="max-w-4xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-8 items-center">
+  <section class=”bg-surface py-14 px-4 border-t border-border”>
+    <div class=”max-w-4xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-8 items-center”>
       <div>
-        <p class="text-brand font-bold text-xs uppercase tracking-widest mb-3">Instagram</p>
-        <h2 class="text-2xl font-extrabold text-text mb-3">தினமும் ஒரு பாதுகாப்பு நினைவூட்டல்</h2>
-        <p class="text-sm text-text-muted leading-relaxed mb-6">
-          SafePaapa Instagram-ல் சூழல் விளக்கங்கள், பெற்றோர் பேச வேண்டிய வரிகள், குழந்தைகளுக்கான எளிய பாதுகாப்பு விதிகள் பகிரப்படும்.
+        <p class=”text-brand font-bold text-xs uppercase tracking-widest mb-3”>{t('home.instagram.eyebrow')}</p>
+        <h2 class=”text-2xl font-extrabold text-text mb-3”>{t('home.instagram.h2')}</h2>
+        <p class=”text-sm text-text-muted leading-relaxed mb-6”>
+          {t('home.instagram.body')}
         </p>
         <a
           href={socialLinks.instagram.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-extrabold text-action-fg transition-colors hover:bg-action-strong"
+          target=”_blank”
+          rel=”noopener noreferrer”
+          class=”inline-flex items-center justify-center rounded-full bg-action px-6 py-3 text-sm font-extrabold text-action-fg transition-colors hover:bg-action-strong”
         >
-          Instagram-ல் பின்தொடருங்கள்
+          {t('home.instagram.cta')}
         </a>
       </div>
-      <div class="rounded-2xl border border-border bg-brand-soft p-6">
-        <p class="text-xs font-bold uppercase tracking-widest text-brand mb-4">முதல் வார பதிவுகள்</p>
-        <ul class="space-y-3 text-sm text-text-muted">
-          <li><span class="font-bold text-text">1.</span> அந்நியர் இனிப்பு கொடுத்தால்</li>
-          <li><span class="font-bold text-text">2.</span> பள்ளி வேனில் தனியாக இருந்தால்</li>
-          <li><span class="font-bold text-text">3.</span> “ரகசியம் வை” என்றால்</li>
-          <li><span class="font-bold text-text">4.</span> ஆன்லைன் நண்பர் சந்திக்க சொன்னால்</li>
+      <div class=”rounded-2xl border border-border bg-brand-soft p-6”>
+        <p class=”text-xs font-bold uppercase tracking-widest text-brand mb-4”>{t('home.instagram.posts.label')}</p>
+        <ul class=”space-y-3 text-sm text-text-muted”>
+          <li><span class=”font-bold text-text”>1.</span> {t('home.instagram.posts.1')}</li>
+          <li><span class=”font-bold text-text”>2.</span> {t('home.instagram.posts.2')}</li>
+          <li><span class=”font-bold text-text”>3.</span> {t('home.instagram.posts.3')}</li>
+          <li><span class=”font-bold text-text”>4.</span> {t('home.instagram.posts.4')}</li>
         </ul>
       </div>
     </div>
