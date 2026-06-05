@@ -107,7 +107,7 @@ const t = useTranslations('en');
       <p class="text-xs text-text-muted mb-6 italic">{t('schools.checklist.note')}</p>
       <div class="space-y-3">
         {checklistItems.map((item) => (
-          <ChecklistCard icon={item.icon} text={item.en} textEn={item.ta} />
+          <ChecklistCard icon={item.icon} text={item.en} />
         ))}
       </div>
       <div class="mt-6">
@@ -135,7 +135,6 @@ const t = useTranslations('en');
                 <p class="font-extrabold text-text leading-snug">
                   <span class="text-brand mr-1">{i + 1}.</span>{r.en}
                 </p>
-                <p class="text-xs text-text-subtle mt-0.5">{r.ta}</p>
               </div>
             </div>
           ))}

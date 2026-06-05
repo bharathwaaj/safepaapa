@@ -24,7 +24,7 @@ export const safetyRules: SafetyRule[] = [
   {
     icon: '🗣️',
     ta: 'நம்பகமான பெரியவரிடம் சொல் — இது உன் தவறே இல்லை',
-    en: 'நம்பகமான பெரியவரிடம் சொல்லுங்கள் — இது ஒருபோதும் உங்கள் தவறல்ல.',
+    en: 'Tell a trusted adult — it is never your fault.',
   },
   {
     icon: '📞',

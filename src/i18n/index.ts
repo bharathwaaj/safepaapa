@@ -7,7 +7,8 @@
  *   // then: t('home.hero.badge')
  *
  * Supported locales: 'ta' (default), 'en'
- * Falls back to Tamil for any key missing in the requested locale.
+ * English intentionally does not fall back to Tamil. Missing English keys should
+ * be visible during development instead of leaking Tamil copy into /en pages.
  */
 
 import ta from './ta';
@@ -19,15 +20,14 @@ const dictionaries: Record<Locale, Record<string, string>> = { ta, en };
 
 /**
  * Returns a `t(key)` function bound to the given locale.
- * Falls back to Tamil if the key is absent in the requested locale.
+ * Falls back to Tamil only for the default Tamil locale.
  */
 export function useTranslations(locale: string | undefined) {
   const lang: Locale = locale === 'en' ? 'en' : 'ta';
   const dict = dictionaries[lang];
-  const fallback = dictionaries['ta'];
 
   return function t(key: string): string {
-    return dict[key] ?? fallback[key] ?? key;
+    return dict[key] ?? key;
   };
 }
 

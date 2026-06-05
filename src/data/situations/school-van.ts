@@ -5,7 +5,7 @@ export const situation: Situation = {
   icon: '🚐',
   order: 2,
   title: 'வேன் ஓட்டுநருடன் தனியாக இருக்கும்போது',
-  titleEn: 'Alone with the பள்ளி van driver',
+  titleEn: 'Alone with the school van driver',
   summary: 'பள்ளி வேனில் தனியாக இருக்கும்போது என்ன செய்வது என்று முன்கூட்டியே சொல்லுங்கள்.',
   summaryEn: 'Prepare your child for what to do if alone with the van driver.',
   shareLine: 'வேனில் தனியாக இருக்கும்போது பயமாக இருந்தால், கதவருகே நில்; உடனே என்னையோ ஆசிரியரையோ அழை.',

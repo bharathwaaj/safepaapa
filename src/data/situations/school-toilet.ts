@@ -5,7 +5,7 @@ export const situation: Situation = {
   icon: '🚻',
   order: 7,
   title: 'பள்ளி கழிப்பறையில் தனிமையாக இருக்கும்போது',
-  titleEn: 'Privacy and safety in பள்ளி toilets',
+  titleEn: 'Privacy and safety in school toilets',
   summary: 'கழிப்பறையில் எந்த பெரியவரும் உடன் வரக்கூடாது — குழந்தைக்கு தெரியட்டும்.',
   summaryEn: 'No adult should follow a child into a toilet — teach them to speak up.',
   shareLine: 'கழிப்பறைக்கு யாராவது உன் பின்பு வர முயன்றால், உரக்க கத்து; வெளியே ஓடி ஆசிரியரிடம் சொல்லு.',

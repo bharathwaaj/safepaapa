@@ -34,7 +34,6 @@ const t = useTranslations('en');
             <div>
               <p class="font-extrabold text-text">{h.name}</p>
               <p class="text-sm text-text-muted">{h.en}</p>
-              <p class="text-xs text-text-subtle">{h.ta}</p>
             </div>
           </a>
         ))}
@@ -66,9 +65,9 @@ const t = useTranslations('en');
       <div class="space-y-3">
         {tnGovBodies.map((org) => (
           <div class="bg-surface-sunken border border-border rounded-xl p-5">
-            <p class="font-extrabold text-text mb-1">{org.name}</p>
-            <p class="text-sm text-text-muted mb-2">{org.ta}</p>
-            <p class="text-xs text-brand">📌 {org.contact}</p>
+            <p class="font-extrabold text-text mb-1">{org.nameEn}</p>
+            <p class="text-sm text-text-muted mb-2">{org.en}</p>
+            <p class="text-xs text-brand">📌 {org.contactEn}</p>
           </div>
         ))}
       </div>
@@ -82,7 +81,7 @@ const t = useTranslations('en');
           <div class="bg-surface border border-border rounded-xl p-5 flex items-start justify-between gap-4">
             <div>
               <p class="font-extrabold text-text mb-1">{ngo.name}</p>
-              <p class="text-sm text-text-muted">{ngo.ta}</p>
+              <p class="text-sm text-text-muted">{ngo.en}</p>
             </div>
             {ngo.url && (
               <a href={ngo.url} target="_blank" rel="noopener noreferrer" class="text-brand text-xs shrink-0 hover:underline font-semibold">

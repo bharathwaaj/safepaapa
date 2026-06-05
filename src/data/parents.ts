@@ -14,7 +14,7 @@ export const warningSigns: BilingualItem[] = [
   { ta: 'குறிப்பிட்ட நபரை பார்க்க பயப்படுவது',          en: 'Fear of a specific person or place' },
   { ta: 'வயதுக்கு மீறிய பாலியல் அறிவு',                  en: 'Age-inappropriate sexual knowledge or behaviour' },
   { ta: 'உடல் அடையாளங்கள் — காயங்கள், வலி',              en: 'Unexplained physical injuries or complaints' },
-  { ta: 'பள்ளி செல்ல மறுப்பது',                          en: 'பள்ளி அல்லது சில இடங்களுக்கு செல்ல மறுப்பது' },
+  { ta: 'பள்ளி செல்ல மறுப்பது',                          en: 'Refusing to go to school or certain places' },
   { ta: 'சாப்பிட மறுப்பது அல்லது அதிகமாக சாப்பிடுவது',  en: 'Changes in eating habits' },
 ];
 
@@ -24,28 +24,33 @@ export interface HowToTalkItem {
   ta: string;
   en: string;
   tip: string;
+  tipEn: string;
 }
 
 export const howToTalk: HowToTalkItem[] = [
   {
     ta: 'அன்றாட வாழ்வில் பேசுங்கள்',
-    en: 'குளிக்கும் நேரம், தூங்கும் முன், தொலைக்காட்சி பார்க்கும் போது — இயல்பாக பேசுங்கள்.',
+    en: 'Talk naturally during everyday moments',
     tip: 'உடல் பாகங்களை சரியான பெயரில் அழைக்கவும். மறைக்காமல் பேசவும்.',
+    tipEn: 'Use correct names for body parts. Speak clearly and without shame.',
   },
   {
     ta: '"நம்பகமான பெரியவர்" யார் என்று முடிவு செய்யுங்கள்',
-    en: 'தவறாக உணர்ந்தால் செல்லக்கூடிய 3–5 நம்பகமான பெரியவர்களை குழந்தையுடன் தேர்ந்தெடுக்கவும்.',
+    en: 'Choose trusted adults together',
     tip: 'ஆசிரியர், அத்தை, உறவினர் — குழந்தையே தேர்ந்தெடுக்கட்டும்.',
+    tipEn: 'Let your child choose 3-5 trusted adults they can go to when something feels wrong.',
   },
   {
     ta: '"நீ சொன்னால் நம்புவேன்" என்று சொல்லுங்கள்',
-    en: '"ஏதாவது நடந்தால் எனக்கு சொல்லலாம்; நான் எப்போதும் நம்புவேன்" என்று தெளிவாக சொல்லுங்கள்.',
+    en: 'Say clearly: "If you tell me, I will believe you"',
     tip: 'இந்த ஒரு வாக்கியம் குழந்தை வெளிப்படுத்த தைரியம் கொடுக்கும்.',
+    tipEn: 'This one sentence can give a child the courage to disclose.',
   },
   {
     ta: '"ரகசியம்" பற்றி கற்றுக்கொடுங்கள்',
-    en: 'மகிழ்ச்சியான ரகசியம் மற்றும் ஆபத்தான ரகசியம் இரண்டின் வித்தியாசத்தை கற்றுக்கொடுங்கள்.',
+    en: 'Teach the difference between safe and unsafe secrets',
     tip: 'நல்ல ரகசியம்: பிறந்தநாள் பரிசு. கெட்ட ரகசியம்: யாரோ உன் உடலை தொட்டது.',
+    tipEn: 'Good secret: a birthday surprise. Unsafe secret: someone touching your body.',
   },
 ];
 
@@ -74,6 +79,7 @@ export interface SituationScript {
   ta: string;
   en: string;
   script: string;
+  scriptEn: string;
 }
 
 export const situationScripts: SituationScript[] = [
@@ -82,32 +88,36 @@ export const situationScripts: SituationScript[] = [
     ta: 'அந்நியர் இனிப்பு / பரிசு கொடுத்தால்',
     en: 'Strangers giving gifts or candy — how to teach refusal safely.',
     script: '"அந்நியர் எதுவும் கொடுத்தால் வேண்டாம் என்று சொல்லு. அவர் நல்லவரா கெட்டவரா என்று நீ தெரியாது. உடனே என்னிடம் சொல்."',
+    scriptEn: '"If a stranger gives you anything, say no. You do not know whether they are safe. Tell me immediately."',
   },
   {
     icon: '🚐',
     ta: 'வேன் / ஆட்டோவில் தனியாக இருக்கும்போது',
     en: 'School transport safety — what your child should do if uncomfortable.',
     script: '"வேன் ஓட்டுநர் அல்லது வேறு யாரோ உன்னை தொட்டால் — உரக்க "வேண்டாம்!" என்று சொல். வீடு வந்தவுடன் என்னிடம் சொல்."',
+    scriptEn: '"If the van driver or anyone else touches you, shout "No!" loudly. Tell me as soon as you get home."',
   },
   {
     icon: '🤫',
     ta: 'யாரோ "ரகசியம் வை" என்றால்',
     en: 'Teaching children that body-related secrets must never be kept.',
     script: '"யாராவது உன் உடலை பற்றி ரகசியம் வை என்று சொன்னால் — அது கெட்ட ரகசியம். உடனே என்னிடம் சொல். உனக்கு எந்த தண்டனையும் இல்லை."',
+    scriptEn: '"If someone asks you to keep a secret about your body, that is an unsafe secret. Tell me immediately. You will not be punished."',
   },
   {
     icon: '📱',
     ta: 'ஆன்லைன் நண்பர் தனியாக அழைத்தால்',
-    en: 'இணைய பாதுகாப்பு — பெற்றோர் அறியாமல் நேரில் சந்திக்கக் கூடாது.',
+    en: 'Online safety — never meet an online contact without your parent knowing.',
     script: '"ஆன்லைனில் பேசும் யாரையும் நேரில் சந்திக்க வேண்டாம். என்னிடம் கேளாமல் செல்லாதே. போவதற்கு முன் என்னிடம் சொல்."',
+    scriptEn: '"Do not meet anyone you only talk to online. Do not go without asking me. Tell me before you go anywhere."',
   },
 ];
 
 // ── Online safety tips ────────────────────────────────────────────────────────
 
-export const onlineSafetyTips: string[] = [
-  'குழந்தையின் தொலைபேசியில் உள்ள செயலிகள் (apps) பற்றி தெரிந்துகொள்ளுங்கள் — தடை செய்யாமல், உரையாடுங்கள்.',
-  'YouTube, Instagram, WhatsApp-ல் யாரும் தனிப்பட்ட செய்திகள் அனுப்பினால் உடனே சொல்லவும் என்று கற்பிக்கவும்.',
-  'ஆன்லைனில் "நண்பர்கள்" என்று யாரையாவது தனியாக சந்திக்க சொன்னால் அது ஆபத்தானது என்று புரியவையுங்கள்.',
-  'திரை நேரத்தை (screen time) பொது இடத்தில் — மண்டபம் (hall) அல்லது சமையலறை (kitchen) — வைத்திருங்கள். படுக்கையறையில் (bedroom) தனியாக தொலைபேசி கொடுக்காதீர்கள்.',
+export const onlineSafetyTips: BilingualItem[] = [
+  { ta: 'குழந்தையின் தொலைபேசியில் உள்ள செயலிகள் (apps) பற்றி தெரிந்துகொள்ளுங்கள் — தடை செய்யாமல், உரையாடுங்கள்.', en: 'Know which apps are on your child\'s phone. Talk about them instead of only banning them.' },
+  { ta: 'YouTube, Instagram, WhatsApp-ல் யாரும் தனிப்பட்ட செய்திகள் அனுப்பினால் உடனே சொல்லவும் என்று கற்பிக்கவும்.', en: 'Teach your child to tell you immediately if anyone sends private messages on YouTube, Instagram, or WhatsApp.' },
+  { ta: 'ஆன்லைனில் "நண்பர்கள்" என்று யாரையாவது தனியாக சந்திக்க சொன்னால் அது ஆபத்தானது என்று புரியவையுங்கள்.', en: 'Explain that meeting an online "friend" alone can be dangerous.' },
+  { ta: 'திரை நேரத்தை (screen time) பொது இடத்தில் — மண்டபம் (hall) அல்லது சமையலறை (kitchen) — வைத்திருங்கள். படுக்கையறையில் (bedroom) தனியாக தொலைபேசி கொடுக்காதீர்கள்.', en: 'Keep screen time in shared spaces like the hall or kitchen. Avoid giving a phone alone in the bedroom.' },
 ];

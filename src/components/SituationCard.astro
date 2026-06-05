@@ -2,7 +2,7 @@
 interface Props {
   icon: string;
   ta: string;         // Tamil label
-  en: string;         // English sublabel
+  en?: string;        // Optional secondary sublabel
   href: string;
   cta?: string;       // Call-to-action text (default: என்ன சொல்வது? →)
   iconSize?: 'sm' | 'lg'; // sm = text-3xl (homepage), lg = text-4xl (index grid)
@@ -29,6 +29,6 @@ const {
 >
   <span class:list={['leading-none', iconSize === 'lg' ? 'text-4xl' : 'text-3xl']}>{icon}</span>
   <p class="font-extrabold text-text text-sm leading-snug group-hover:text-brand transition-colors">{ta}</p>
-  <p class="text-xs text-text-subtle leading-relaxed flex-1">({en})</p>
+  {en && <p class="text-xs text-text-subtle leading-relaxed flex-1">({en})</p>}
   <span class="text-brand text-xs font-semibold mt-auto">{cta}</span>
 </a>

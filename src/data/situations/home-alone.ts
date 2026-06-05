@@ -7,7 +7,7 @@ export const situation: Situation = {
   title: 'வீட்டில் தனியாக இருக்கும்போது',
   titleEn: 'When your child is home alone',
   summary: 'வேலைக்கு செல்லும் பெற்றோரின் குழந்தைகள் சில நேரம் வீட்டில் தனியாக இருக்கலாம் — கதவு, தொலைபேசி, அவசர திட்டம் தெரியட்டும்.',
-  summaryEn: 'Children home alone need clear rules for the door, தொலைபேசி அழைப்புகள், and emergencies.',
+  summaryEn: 'Children home alone need clear rules for the door, phone calls, and emergencies.',
   shareLine: 'வீட்டில் தனியாக இருக்கும்போது, யார் வந்தாலும் கதவை திறக்காதே. சந்தேகம் இருந்தால் உடனே என்னை அழை.',
   why: 'இரண்டு பெற்றோரும் வேலைக்கு செல்லும் வீடுகளில் குழந்தை சில மணி நேரம் தனியாக இருக்கும். இது தமிழ்நாட்டில் மிகவும் பொதுவானது. "கதவை திறக்காதே" என்று சொல்கிறோம் — ஆனால் யாரிடம் திறக்கலாம், அவசரமாக என்ன செய்வது, யாரை அழைப்பது என்று குழந்தைக்கு தெளிவாக தெரிகிறதா?',
   scripts: [
