@@ -161,7 +161,9 @@ const t = useTranslations('en');
             prompt={s.promptEn ?? s.prompt}
             promptEn={s.prompt}
             answer={s.answer}
-            answerLabel={s.answerLabel}
+            answerLabel={t('scenario.answer.label')}
+            tapHint={t('scenario.tap')}
+            closeHint={t('scenario.close')}
           />
         ))}
       </div>

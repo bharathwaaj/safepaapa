@@ -3,9 +3,10 @@ interface Props {
   quote: string;
   by: string;
   en: string;
+  shareLabel?: string; // Share button label (default: 📲 அனுப்பு)
 }
 
-const { quote, by, en } = Astro.props;
+const { quote, by, en, shareLabel = '📲 அனுப்பு' } = Astro.props;
 ---
 
 <div class="rounded-2xl flex flex-col overflow-hidden shadow-float" style="background:#042f2e">
@@ -27,7 +28,7 @@ const { quote, by, en } = Astro.props;
       data-en={en}
       aria-label={`பகிர்: ${quote}`}
     >
-      📲 அனுப்பு
+      {shareLabel}
     </button>
   </div>
 </div>

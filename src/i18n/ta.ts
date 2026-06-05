@@ -289,6 +289,27 @@ export default {
   'situations.detail.share.cta':  '📲 WhatsApp-ல் பகிர்',
   'situations.detail.childline':  'குழந்தை ஆபத்தில் இருந்தால்',
   'situations.detail.childline.sub': 'CHILDLINE India · 24/7 · இலவசம் · ரகசியம் காக்கப்படும்',
+  'situations.card.cta':             'என்ன சொல்வது? →',
+  'scenario.tap':                    'தட்டுங்கள் →',
+  'scenario.close':                  'மூடு ↑',
+  'scenario.answer.label':           'குழந்தை என்ன செய்ய வேண்டும்?',
+  'wisdom.share':                    '📲 அனுப்பு',
+
+  // ── Layout nav & footer ────────────────────────────────────────────
+  'nav.situations':   'சூழல்கள்',
+  'nav.parents':      'பெற்றோருக்கு',
+  'nav.children':     'குழந்தைகளுக்கு',
+  'nav.teachers':     'ஆசிரியர்களுக்கு',
+  'nav.schools':      'பள்ளிகளுக்கு',
+  'nav.emergency':    'அவசரம்',
+  'nav.resources':    'உதவி',
+  'nav.aria':         'முக்கிய வழிசெலுத்தல்',
+  'nav.mobile.aria':  'மொபைல் வழிசெலுத்தல்',
+  'footer.tagline':   'குழந்தைகளை பாதுகாப்போம்.',
+  'footer.taglineEn': "Protecting Tamil Nadu's children through awareness.",
+  'footer.legal':     'SafePaapa — இது ஒரு இலவச விழிப்புணர்வு முயற்சி. எந்த அரசு அமைப்புடனும் தொடர்பில்லை.',
+  'footer.police':    'காவல்துறை:',
+  'footer.women':     'பெண்கள் உதவி:',
 } as const;
 
 export type TranslationKey = keyof typeof import('./ta').default;

@@ -77,10 +77,10 @@ const t = useTranslations(Astro.currentLocale);
       <h2 class="text-2xl font-extrabold text-center text-text mb-1">{t('home.situations.h2')}</h2>
       <p class="text-center text-text-subtle text-xs mb-10">{t('home.situations.sub')}</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <SituationCard icon="🍬" ta="அந்நியர் இனிப்பு கொடுத்தால்" en="A stranger offers candy" href="/situations/stranger-candy" />
-        <SituationCard icon="🚐" ta="வேன் ஓட்டுநர் தனியாக இருக்கும்போது" en="School van driver alone with your child" href="/situations/school-van" />
-        <SituationCard icon="🤫" ta='உறவினர் "ரகசியம் வை" என்றால்' en='A relative says "keep this a secret"' href="/situations/relative-secret" />
-        <SituationCard icon="📱" ta='ஆன்லைன் "நண்பன்" தனியாக அழைத்தால்' en='Online "friend" wants to meet alone' href="/situations/online-friend" />
+        <SituationCard icon="🍬" ta="அந்நியர் இனிப்பு கொடுத்தால்" en="A stranger offers candy" href="/situations/stranger-candy" cta={t('situations.card.cta')} />
+        <SituationCard icon="🚐" ta="வேன் ஓட்டுநர் தனியாக இருக்கும்போது" en="School van driver alone with your child" href="/situations/school-van" cta={t('situations.card.cta')} />
+        <SituationCard icon="🤫" ta='உறவினர் "ரகசியம் வை" என்றால்' en='A relative says "keep this a secret"' href="/situations/relative-secret" cta={t('situations.card.cta')} />
+        <SituationCard icon="📱" ta='ஆன்லைன் "நண்பன்" தனியாக அழைத்தால்' en='Online "friend" wants to meet alone' href="/situations/online-friend" cta={t('situations.card.cta')} />
       </div>
     </div>
   </section>

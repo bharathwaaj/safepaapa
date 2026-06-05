@@ -27,7 +27,7 @@ const sorted = [...situations].sort((a, b) => a.order - b.order);
   <section class="max-w-5xl mx-auto px-4 py-14">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {sorted.map((s) => (
-        <SituationCard icon={s.icon} ta={s.summaryEn} en={s.title} href={`/en/situations/${s.slug}`} iconSize="lg" />
+        <SituationCard icon={s.icon} ta={s.summaryEn} en={s.title} href={`/en/situations/${s.slug}`} iconSize="lg" cta={t('situations.card.cta')} />
       ))}
     </div>
   </section>

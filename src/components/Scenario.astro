@@ -15,10 +15,12 @@
  */
 interface Props {
   icon: string;
-  prompt: string;       // Tamil situation prompt (the question / scenario)
-  answer: string;       // Tamil answer / what to say or do
-  promptEn?: string;    // Optional English subtitle
-  answerLabel?: string; // Label above the answer (default: குழந்தை என்ன செய்ய வேண்டும்?)
+  prompt: string;       // Primary situation prompt (the question / scenario)
+  answer: string;       // Answer / what to say or do
+  promptEn?: string;    // Optional secondary subtitle
+  answerLabel?: string; // Label above the answer
+  tapHint?: string;     // "Tap" call to action (default: தட்டுங்கள் →)
+  closeHint?: string;   // Close hint (default: மூடு ↑)
 }
 
 const {
@@ -27,6 +29,8 @@ const {
   answer,
   promptEn,
   answerLabel = 'குழந்தை என்ன செய்ய வேண்டும்?',
+  tapHint = 'தட்டுங்கள் →',
+  closeHint = 'மூடு ↑',
 } = Astro.props;
 ---
 
@@ -48,14 +52,14 @@ const {
              group-open:hidden"
       aria-hidden="true"
     >
-      தட்டுங்கள் →
+      {tapHint}
     </span>
     <span
       class="text-brand text-xs font-semibold shrink-0 whitespace-nowrap
              hidden group-open:inline"
       aria-hidden="true"
     >
-      மூடு ↑
+      {closeHint}
     </span>
   </summary>
 
