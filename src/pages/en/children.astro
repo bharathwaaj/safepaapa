@@ -1,18 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { goodTouchExamples, badTouchExamples, trustedAdults } from '../data/children';
-import { useTranslations } from '../i18n';
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { goodTouchExamples, badTouchExamples, trustedAdults } from '../../data/children';
+import { useTranslations } from '../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 ---
 
 <Layout
   title={t('children.title')}
   description={t('children.description')}
   ogImage="/og/children.jpg"
-  ogPrompt="1200x630 JPEG — A confident Tamil girl aged 8 in school uniform, one hand raised in a calm but firm stop gesture, gentle brave smile, bright teal background. Bold text overlay 'உன் உடல் உனக்கே சொந்தம்' and 'SafePaapa' bottom right. Flat illustration style, empowering and safe mood."
-  canonicalPath="/children"
+  canonicalPath="/en/children"
 >
 
   <div class="bg-care-soft border-b border-border py-12 px-4 text-center">
@@ -50,7 +49,7 @@ const t = useTranslations(Astro.currentLocale);
           <h3 class="font-extrabold text-calm-strong text-center mb-3">{t('children.touch.good')}</h3>
           <ul class="space-y-2 text-sm text-text-muted">
             {goodTouchExamples.map((item) => (
-              <li>{item.emoji} {item.ta}</li>
+              <li>{item.emoji} {item.en}</li>
             ))}
           </ul>
         </div>
@@ -59,7 +58,7 @@ const t = useTranslations(Astro.currentLocale);
           <h3 class="font-extrabold text-urgent-text text-center mb-3">{t('children.touch.bad')}</h3>
           <ul class="space-y-2 text-sm text-text-muted">
             {badTouchExamples.map((item) => (
-              <li>{item.emoji} {item.ta}</li>
+              <li>{item.emoji} {item.en}</li>
             ))}
           </ul>
         </div>
@@ -83,7 +82,7 @@ const t = useTranslations(Astro.currentLocale);
       <p class="text-xs text-text-subtle mt-2">{t('children.swimsuit.note')}</p>
     </section>
 
-    <!-- Say NO — Yell, Run, Tell -->
+    <!-- Say NO -->
     <section class="text-center">
       <ImagePlaceholder
         prompt="A brave Tamil child aged 8 raising one hand firmly in a STOP gesture toward an unseen adult figure, the child's face showing determination and courage, bright background, flat illustration style, empowering and bold mood, teal and amber palette, no text"
@@ -123,7 +122,7 @@ const t = useTranslations(Astro.currentLocale);
           {trustedAdults.map((p) => (
             <div class="bg-surface rounded-xl p-3 border border-border">
               <div class="text-2xl mb-1">{p.icon}</div>
-              <p class="font-semibold text-text-muted text-xs">{p.ta}</p>
+              <p class="font-semibold text-text-muted text-xs">{p.en}</p>
             </div>
           ))}
         </div>
