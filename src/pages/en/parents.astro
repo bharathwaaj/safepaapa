@@ -1,20 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import Scenario from '../components/Scenario.astro';
-import { scenarios } from '../data/scenarios';
-import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyTips } from '../data/parents';
-import { useTranslations } from '../i18n';
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import Scenario from '../../components/Scenario.astro';
+import { scenarios } from '../../data/scenarios';
+import { warningSigns, howToTalk, disclosureDos, situationScripts, onlineSafetyTips } from '../../data/parents';
+import { useTranslations } from '../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 ---
 
 <Layout
   title={t('parents.title')}
   description={t('parents.description')}
   ogImage="/og/parents.jpg"
-  ogPrompt="1200x630 JPEG — Tamil father and mother sitting together with their young child between them, warm home light, open picture book on their laps, caring and attentive expressions. Dark teal bottom bar with 'பெற்றோருக்கு வழிகாட்டி · SafePaapa' text. Photorealistic, Tamil Nadu home."
-  canonicalPath="/parents"
+  canonicalPath="/en/parents"
 >
 
   <div class="bg-rose text-rose-fg py-12 px-4">
@@ -57,9 +56,7 @@ const t = useTranslations(Astro.currentLocale);
         <div>
           <h2 class="text-xl font-extrabold text-text mb-1">{t('parents.warn.h2')}</h2>
           <p class="text-xs text-text-subtle mb-3">{t('parents.warn.sub')}</p>
-          <p class="text-sm text-text-muted leading-relaxed">
-            {t('parents.warn.note')}
-          </p>
+          <p class="text-sm text-text-muted leading-relaxed">{t('parents.warn.note')}</p>
         </div>
       </div>
       <div class="grid sm:grid-cols-2 gap-4">
@@ -67,8 +64,8 @@ const t = useTranslations(Astro.currentLocale);
           <div class="flex gap-3 items-start bg-urgent-soft border border-urgent-border rounded-xl p-4">
             <span class="text-urgent mt-0.5 font-bold shrink-0">●</span>
             <div>
-              <p class="text-sm font-bold text-text">{sign.ta}</p>
-              <p class="text-xs text-text-subtle mt-0.5">{sign.en}</p>
+              <p class="text-sm font-bold text-text">{sign.en}</p>
+              <p class="text-xs text-text-subtle mt-0.5">{sign.ta}</p>
             </div>
           </div>
         ))}
@@ -109,8 +106,8 @@ const t = useTranslations(Astro.currentLocale);
           <div class={`flex gap-3 items-start rounded-lg px-4 py-3 ${item.do ? 'bg-calm-soft border border-calm' : 'bg-urgent-soft border border-urgent-border'}`}>
             <span class={`font-bold text-sm mt-0.5 shrink-0 ${item.do ? 'text-calm' : 'text-urgent'}`}>{item.do ? '✓' : '✗'}</span>
             <div>
-              <p class="text-sm font-bold text-text">{item.ta}</p>
-              <p class="text-xs text-text-subtle mt-0.5">{item.en}</p>
+              <p class="text-sm font-bold text-text">{item.en}</p>
+              <p class="text-xs text-text-subtle mt-0.5">{item.ta}</p>
             </div>
           </div>
         ))}
@@ -125,7 +122,7 @@ const t = useTranslations(Astro.currentLocale);
       />
     </section>
 
-    <!-- Situations section -->
+    <!-- Situation scripts -->
     <section id="situations">
       <h2 class="text-xl font-extrabold text-text mb-1">{t('parents.scripts.h2')}</h2>
       <p class="text-xs text-text-subtle mb-6">{t('parents.scripts.sub')}</p>
@@ -135,8 +132,8 @@ const t = useTranslations(Astro.currentLocale);
             <div class="flex gap-3 items-start mb-3">
               <span class="text-2xl shrink-0">{s.icon}</span>
               <div>
-                <p class="font-extrabold text-text">{s.ta}</p>
-                <p class="text-xs text-text-subtle">{s.en}</p>
+                <p class="font-extrabold text-text">{s.en}</p>
+                <p class="text-xs text-text-subtle">{s.ta}</p>
               </div>
             </div>
             <div class="bg-brand-soft rounded-lg px-4 py-3 border border-brand-muted">
@@ -148,7 +145,7 @@ const t = useTranslations(Astro.currentLocale);
       </div>
     </section>
 
-    <!-- Interactive Scenarios — child's-eye practice -->
+    <!-- Interactive Scenarios -->
     <section>
       <div class="mb-4">
         <span class="bg-calm-soft text-calm-text text-xs font-bold px-3 py-1 rounded-full border border-calm-border">
@@ -161,8 +158,8 @@ const t = useTranslations(Astro.currentLocale);
         {scenarios.map((s) => (
           <Scenario
             icon={s.icon}
-            prompt={s.prompt}
-            promptEn={s.promptEn}
+            prompt={s.promptEn ?? s.prompt}
+            promptEn={s.prompt}
             answer={s.answer}
             answerLabel={s.answerLabel}
           />
