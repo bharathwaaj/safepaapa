@@ -1,20 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import ChecklistCard from '../components/ChecklistCard.astro';
-import { safetyRules } from '../data/safetyRules';
-import { assemblyParagraphs, ptaParagraphs, checklistItems } from '../data/schools';
-import { useTranslations } from '../i18n';
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import ChecklistCard from '../../components/ChecklistCard.astro';
+import { safetyRules } from '../../data/safetyRules';
+import { assemblyParagraphsEn, ptaParagraphsEn, checklistItems } from '../../data/schools';
+import { useTranslations } from '../../i18n';
 
-const t = useTranslations(Astro.currentLocale);
+const t = useTranslations('en');
 ---
 
 <Layout
   title={t('schools.title')}
   description={t('schools.description')}
   ogImage="/og/schools.jpg"
-  ogPrompt="1200x630 JPEG — Tamil school teacher standing at the front of a bright classroom holding up a safety rules poster, young students of ages 7-10 listening attentively, Tamil Nadu government school setting, morning sunlight through windows. Dark teal bottom bar with 'பள்ளி குழந்தை பாதுகாப்பு · SafePaapa' text. Flat illustration style."
-  canonicalPath="/schools"
+  canonicalPath="/en/schools"
 >
 
   <div class="bg-trust text-trust-fg py-12 px-4">
@@ -63,7 +62,7 @@ const t = useTranslations(Astro.currentLocale);
         </button>
         <p class="text-brand font-bold text-xs uppercase tracking-wide mb-5">{t('schools.assembly.label')}</p>
         <div id="assembly-script" class="font-semibold text-text text-sm leading-[1.9] space-y-4">
-          {assemblyParagraphs.map((para) => (
+          {assemblyParagraphsEn.map((para) => (
             <p class={para.className} set:html={para.html} />
           ))}
         </div>
@@ -90,7 +89,7 @@ const t = useTranslations(Astro.currentLocale);
         </button>
         <p class="text-brand font-bold text-xs uppercase tracking-wide mb-4">{t('schools.pta.label')}</p>
         <div id="pta-message" class="font-semibold text-text text-sm leading-[1.9] space-y-3">
-          {ptaParagraphs.map((para) => (
+          {ptaParagraphsEn.map((para) => (
             <p class={para.className} set:html={para.html} />
           ))}
         </div>
@@ -108,7 +107,7 @@ const t = useTranslations(Astro.currentLocale);
       <p class="text-xs text-text-muted mb-6 italic">{t('schools.checklist.note')}</p>
       <div class="space-y-3">
         {checklistItems.map((item) => (
-          <ChecklistCard icon={item.icon} text={item.ta} textEn={item.en} />
+          <ChecklistCard icon={item.icon} text={item.en} textEn={item.ta} />
         ))}
       </div>
       <div class="mt-6">
@@ -134,9 +133,9 @@ const t = useTranslations(Astro.currentLocale);
               <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">{r.icon}</span>
               <div>
                 <p class="font-extrabold text-text leading-snug">
-                  <span class="text-brand mr-1">{i + 1}.</span>{r.ta}
+                  <span class="text-brand mr-1">{i + 1}.</span>{r.en}
                 </p>
-                <p class="text-xs text-text-subtle mt-0.5">{r.en}</p>
+                <p class="text-xs text-text-subtle mt-0.5">{r.ta}</p>
               </div>
             </div>
           ))}
@@ -162,7 +161,7 @@ const t = useTranslations(Astro.currentLocale);
       <p class="text-xs text-text-subtle mb-3">{t('schools.pocso.note')}</p>
       <div class="flex flex-wrap gap-3">
         <a href="tel:1098" class="bg-red-600 text-white font-bold px-5 py-2 rounded-full text-sm whitespace-nowrap">{t('schools.pocso.call')}</a>
-        <a href="/teachers" class="border border-red-500 text-red-700 font-bold px-5 py-2 rounded-full text-sm whitespace-nowrap hover:bg-red-50 transition-colors">{t('schools.pocso.guide')}</a>
+        <a href="/en/teachers" class="border border-red-500 text-red-700 font-bold px-5 py-2 rounded-full text-sm whitespace-nowrap hover:bg-red-50 transition-colors">{t('schools.pocso.guide')}</a>
       </div>
     </section>
 
@@ -176,7 +175,7 @@ const t = useTranslations(Astro.currentLocale);
         <a href={`https://wa.me/?text=${encodeURIComponent(t('schools.wa.share.msg'))}`} target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition-colors text-center whitespace-nowrap">
           {t('schools.cta.wa')}
         </a>
-        <a href="/teachers" class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap">
+        <a href="/en/teachers" class="border-2 border-brand-border text-brand font-bold px-6 py-3 rounded-full hover:bg-brand-soft transition-colors text-center bg-surface whitespace-nowrap">
           {t('schools.cta.teachers')}
         </a>
       </div>
@@ -216,7 +215,7 @@ document.getElementById('copy-assembly-btn')?.addEventListener('click', async (e
   try {
     await navigator.clipboard.writeText(assemblyText);
     btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = btn.textContent?.includes('Copied') ? '📋 Copy' : '📋 நகலெடு'; }, 2000);
+    setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
   } catch { btn.textContent = '❌ Error'; }
 });
 
@@ -228,7 +227,7 @@ document.getElementById('copy-pta-btn')?.addEventListener('click', async (e) => 
   try {
     await navigator.clipboard.writeText(ptaText);
     btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = btn.textContent?.includes('Copied') ? '📋 Copy' : '📋 நகலெடு'; }, 2000);
+    setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
   } catch { btn.textContent = '❌ Error'; }
 });
 

@@ -38,6 +38,35 @@ export const assemblyParagraphs: ScriptParagraph[] = [
   },
 ];
 
+export const assemblyParagraphsEn: ScriptParagraph[] = [
+  {
+    html: 'Friends, today we are going to talk about something very important — keeping your body safe.',
+  },
+  {
+    html: '<strong>Rule 1:</strong> Your body belongs to you. Nobody — not even a parent, teacher, or relative — should touch your body in a way you do not want.',
+  },
+  {
+    html: '<strong>Rule 2:</strong> A good touch is a handshake or a pat on the back. A bad touch is one that makes you feel scared, hurt, or confused.',
+  },
+  {
+    html: '<strong>Rule 3:</strong> If anyone touches you in a wrong way — shout "No!" loudly. Run. Tell a trusted adult straight away. It is never your fault.',
+  },
+  {
+    html: '<strong>Rule 4:</strong> If a grown-up says "don\'t tell anyone" — that is a warning sign. Tell your mum, dad, or teacher immediately.',
+  },
+  {
+    html: '<strong>Rule 5:</strong> CHILDLINE 1098 is a free helpline. If you are ever in danger — day or night — call this number.',
+  },
+  {
+    html: 'Share these 5 rules with your mum or dad at home today. Okay?',
+    className: 'text-brand font-bold',
+  },
+  {
+    html: '— Reading time: approximately 3–4 minutes at a steady pace.',
+    className: 'text-text-subtle text-xs italic',
+  },
+];
+
 // ── PTA WhatsApp Message ──────────────────────────────────────────────────────
 
 export const ptaParagraphs: ScriptParagraph[] = [
@@ -51,6 +80,21 @@ export const ptaParagraphs: ScriptParagraph[] = [
   { html: 'முழு வழிகாட்டி: safepaapa.in' },
   {
     html: '— SafePaapa குழந்தை பாதுகாப்பு விழிப்புணர்வு · safepaapa.in · CHILDLINE 1098',
+    className: 'text-text-subtle text-xs italic',
+  },
+];
+
+export const ptaParagraphsEn: ScriptParagraph[] = [
+  { html: '🏫 We spoke about this at school today — please take 5 minutes at home too.' },
+  { html: 'Dear Parents,' },
+  { html: 'This morning in assembly we spoke to the children simply about body safety. To reinforce the same confidence at home, please try saying these 3 things to your child today:' },
+  { html: '✅ Body ownership: "Your body belongs to you. If anyone touches you in a way you don\'t like, you can say No."' },
+  { html: '✅ Trust: "If anything makes you feel confused or scared, you can tell me. I will listen calmly and I will believe you."' },
+  { html: '✅ Helpline: "If you are ever in an emergency and no adult is nearby, you can call 1098. That is a free helpline just for children."' },
+  { html: 'This conversation is not to frighten your child — it is to give them the confidence that they can always talk to you.' },
+  { html: 'Full guide: safepaapa.in' },
+  {
+    html: '— SafePaapa Child Safety Awareness · safepaapa.in · CHILDLINE 1098',
     className: 'text-text-subtle text-xs italic',
   },
 ];
@@ -87,17 +131,17 @@ export const checklistItems: ChecklistItem[] = [
   {
     icon: '📋',
     ta: 'POCSO சட்டம் 19ஆம் பிரிவு (Section 19) கீழ் — சந்தேகம் வந்தால் புகார் செய்வேன்',
-    en: 'சந்தேகப்படும் துஷ்பிரயோகத்தை புகார் செய்வது என் சட்டப் பொறுப்பு என்பதை நான் அறிவேன்.',
+    en: 'I know that reporting suspected abuse is my legal duty under POCSO Section 19.',
   },
   {
     icon: '📞',
     ta: 'CHILDLINE 1098 எண் என் தொலைபேசியில் சேமித்து வைத்திருக்கிறேன்',
-    en: 'CHILDLINE 1098-ஐ என் தொலைபேசியில் சேமித்து, எப்படி புகார் செய்வது என்று அறிவேன்.',
+    en: 'I have CHILDLINE 1098 saved in my phone and know how to report.',
   },
   {
     icon: '👨‍👩‍👧',
     ta: 'பெற்றோர்-ஆசிரியர் கூட்டத்தில் (PTA meeting) பெற்றோரிடம் பாதுகாப்பு பற்றி பேசியிருக்கிறேன்',
-    en: 'இந்த பருவத்தில் குறைந்தது ஒருமுறை பெற்றோரிடம் குழந்தை பாதுகாப்பு பற்றி பேசியிருக்கிறேன்.',
+    en: 'I have spoken to parents about child safety at least once this term.',
   },
   {
     icon: '🔒',
